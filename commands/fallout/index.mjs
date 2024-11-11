@@ -616,7 +616,7 @@ divsobre.appendChild(gifImage2)
 		inicio.href = "#";
 		inicio.onclick = () =>  {		
 		  
-		
+		document.addEventListener('keydown', alert('teste'))
 		  const gifImage = document.createElement("img");
 		  // Create a new <p> elemen
 		  const divinicio = document.createElement("div")
