@@ -116,7 +116,7 @@ function generateDynamicLine(char = "━") {
   
   await type(
       [
-          centerText("ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM"),
+          centerText("ROBCO INDUSTRIES OPERATING SYSTEM"),
           centerText(`COPYRIGHT ${new Date().getFullYear()} @ARCANGELO`),
           centerText("-SERVER 6-"),
           generateDynamicLine("━")  // This will produce a full-width line
