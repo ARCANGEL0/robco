@@ -51,21 +51,24 @@ const storedLanguage = localStorage.getItem('selectedLanguage');
 
 
 
-  await type('>/ ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL');
 if (storedLanguage === 'pt') {
+  await type('>/ ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL');
   await type('>/| FAÇA UMA PERGUNTA ');
   await type('// DIGITE AJUDA PARA VER COMANDOS OU VOLTAR PARA RETORNAR');
 } else if (storedLanguage === 'en') {
+  await type('>/ ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL');
   await type('>/| ASK A QUESTION');
   await type('// TYPE HELP TO SEE COMMANDS OR RETURN TO GO BACK');
 } else if (storedLanguage === 'es') {
   await type('>/| HAZME UNA PREGUNTA');
   await type('// ESCRIBE AYUDA PARA VER LOS COMANDOS O VOLVER PARA REGRESAR');
 } else if (storedLanguage === 'fr') {
+  await type('>/ ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL');
   await type('>/| POSEZ-MOI UNE QUESTION');
   await type('// TAPEZ AIDE POUR VOIR LES COMMANDES OU RETOUR POUR REVENIR');
 }
 else {
+  await type('>/ ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL');
   await type('>/|ASK A QUESTION');
   await type('// TYPE HELP TO SEE COMMANDS OR RETURN TO GO BACK');
 }
