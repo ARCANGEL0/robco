@@ -113,7 +113,7 @@ function generateDynamicLine(char = "━") {
       const textWidth = text.length; // Approximate width based on character count
   
       // Calculate the number of spaces needed for centering
-      let paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2) * textWidth);
+      let paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2) * (textWidth/1.5));
 
       if(window.innerWidth < 420) {
         paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth)-
@@ -626,8 +626,7 @@ divsobre.appendChild(gifImage2)
 		  const divgif = document.createElement("div")
 		  divgif.classList.add("divgif")
 const iniciotext = document.createElement("p");
-document.addEventListener("click",goBak )
-document.addEventListener("keydown",goBak )
+
 // Set the text for the <p> element
 iniciotext.innerText = hometexto
 
@@ -655,7 +654,7 @@ divinicio.style.marginLeft = "20px"
 divinicio.appendChild(divtextinicio);
 divinicio.appendChild(divgif);
 divtextinicio.appendChild(iniciotext);
-divgif.appendChild(gifImage); 
+
 
 
 		  const goBackLinkIn = document.createElement("a");
