@@ -115,21 +115,8 @@ await type(
     outro
 );
 
-function calculateAge(birthdate) {
-  let today = new Date();
-  let birthDate = new Date(birthdate);
-  let age = today.getFullYear() - birthDate.getFullYear();
-  let monthDiff = today.getMonth() - birthDate.getMonth();
 
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
 
-  return age;
-}
-
-const birthdate = '2000-11-09'; // Replace with your birthdate in 'YYYY-MM-DD' format
-const age = calculateAge(birthdate);
 let btnhome, btnsobre, btngal, btncontact, btnlang, btnreturn, sitext,sobretexto,hometexto,contactinfo, bbnsite, bbnvid
 function updateTexts() {
 		  inicio.innerText = btnhome
