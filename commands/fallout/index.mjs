@@ -317,12 +317,13 @@ message.appendChild(contactTable);
         goBackLink.remove();
         // outro.appendChild(logout);
         // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
     };
 
     // Remove the "Logout" and "Contact" buttons
     inicio.remove();
     sobre.remove();
+    projetos.remove();
     galeria.remove();
     logout.remove();
     contato.remove();
@@ -350,10 +351,10 @@ const projectsTable = document.createElement('table');
 projectsTable.style.borderCollapse = 'collapse';
 
 // Contact entries
-const contacts = [
+const projs = [
     { type: bytesec, name:'ByteSec-MD', link:
     'https://github.com/ARCANGEL0/ByteSec-MD' },
-    { type: 'WhatsApp/Phone ', name: '+351 927285125', link: 'https://api.whatsapp.com/send?phone=351927285125' },
+    { type: 'WhatsApp/Phone ', name: '+351 927285125', link: 'https://github.com/ARCANGEL0/' },
     { type: 'Website',name: 'Arcangelo.net', link: 'https://arcangelo.net' },
     { type: 'Email',name:'henry.arcangello', link: 'mailto:rick_arcangelo@hotmail.com,henry.arcangello@proton.me,henry.arcangello@gmail.com' },
     { type: 'LinkedIn', name:'Henrique Arcangelo', link:
@@ -361,36 +362,36 @@ const contacts = [
     { type: 'Hack The Box', name:'0x0C1053F', link: 'https://app.hackthebox.com/profile/126962' },
 ];
 
-contacts.forEach(contact => {
-    const row = contactTable.insertRow();
-    const typeCell = row.insertCell();
-    const linkCell = row.insertCell();
+projs.forEach(projk => {
+    const rowP = projectsTable.insertRow();
+    const typeCellP = rowP.insertCell();
+    const linkCellP = rowP.insertCell();
 
-    typeCell.innerText = contact.type;
-    typeCell.style.padding = '5px';
-    typeCell.style.border = '1px solid #008000';
+    typeCellP.innerText = projk.type;
+    typeCellP.style.padding = '5px';
+    typeCellP.style.border = '1px solid #008000';
 
-    linkCell.innerHTML = `<a href="${contact.link}" target="_blank">${contact.name}</a>`;
-    linkCell.style.padding = '5px';
-    linkCell.style.border = '1px solid #008000';
+    linkCellP.innerHTML = `<a href="${projk.link}" target="_blank">${projk.name}</a>`;
+    linkCellP.style.padding = '5px';
+    linkCellP.style.border = '1px solid #008000';
 });
 
 
 // Append the contact form to the message
-message.appendChild(contactTable);
+messageP.appendChild(projectsTable);
 
     // Create a "Go Back" <a> tag
-    const goBackLink = document.createElement("a");
-    goBackLink.innerText = btnreturn;
-    goBackLink.classList.add("btnReturn")
-    goBackLink.href = "#";
-    goBackLink.onclick = () => {
+    const goBackLinkP = document.createElement("a");
+    goBackLinkP.innerText = btnreturn;
+    goBackLinkP.classList.add("btnReturn")
+    goBackLinkP.href = "#";
+    goBackLinkP.onclick = () => {
         // Remove the message and "Go Back" link and restore the "Logout" and "Contact" buttons
-        message.remove();
-        goBackLink.remove();
+        messageP.remove();
+        goBackLinkP.remove();
         // outro.appendChild(logout);
         // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
     };
 
     // Remove the "Logout" and "Contact" buttons
@@ -398,6 +399,7 @@ type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars
     sobre.remove();
     galeria.remove();
     logout.remove();
+    projetos.remove();
     contato.remove();
     idioma.remove();
     terminal.remove();
@@ -426,6 +428,7 @@ galeria.classList.add("btn-gal")
     galeria.remove();
     logout.remove();
     contato.remove();
+    projetos.remove();
     idioma.remove();
     terminal.remove() 
     logout.remove()
@@ -635,6 +638,7 @@ divsites.remove()
 
     galeria.remove();
     logout.remove();
+    projetos.remove();
     contato.remove();
     idioma.remove();
     terminal.remove() 
@@ -659,7 +663,7 @@ divsites.remove()
         backSobre.remove();
         // outro.appendChild(logout);
         // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
     };
     
  
@@ -758,7 +762,7 @@ divtextinicio.appendChild(iniciotext);
         goBackLinkIn.remove();
         // outro.appendChild(logout);
         // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
     };
 
   
@@ -766,6 +770,7 @@ type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars
     inicio.remove();
     sobre.remove();
     galeria.remove();
+    projetos.remove();
     logout.remove();
     contato.remove();
     idioma.remove();
@@ -790,6 +795,7 @@ type([divinicio, goBackLinkIn], { processChars: false , wait: 10 }, outro);
 inicio.remove();
     sobre.remove();
     galeria.remove();
+    projetos.remove();
     logout.remove();
     contato.remove();
     idioma.remove();
@@ -808,7 +814,7 @@ const backLang = document.createElement("a");
         backLang.remove();
         // outro.appendChild(logout);
         // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
     };
 
     // Remove the "Logout" and "Contact" buttons
@@ -830,7 +836,7 @@ let port = document.createElement("a");
         backLang.remove();
         // outro.appendChild(logout);
         // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
 		  
 		}
 		
@@ -849,7 +855,7 @@ let eng = document.createElement("a");
         backLang.remove();
         // outro.appendChild(logout);
         // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
 
 		}
 		
@@ -866,7 +872,7 @@ let spa = document.createElement("a");
         backLang.remove();
         // outro.appendChild(logout);
         // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
 
 		}
 		
@@ -883,7 +889,7 @@ let fre = document.createElement("a");
         backLang.remove();
         // outro.appendChild(logout);
         // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
 
 		}
     // Append the message and "Go Back" link to the 'outro' element
