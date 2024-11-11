@@ -665,8 +665,8 @@ function goBackAction() {
   document.removeEventListener("keydown", goBackAction);
 }
 
- document.addEventListener("click", goBackAction);
- document.addEventListener("keydown", goBackAction);
+// document.addEventListener("click", goBackAction);
+ // document.addEventListener("keydown", goBackAction);
 
 
     // Remove the "Logout" and "Contact" buttons
