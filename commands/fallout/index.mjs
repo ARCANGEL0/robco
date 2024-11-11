@@ -730,7 +730,7 @@ divinicio.style.marginLeft = "20px"
 divinicio.appendChild(divtextinicio);
 divinicio.appendChild(divgif);
 divtextinicio.appendChild(iniciotext);
-divgif.appendChild(gifImage); 
+// divgif.appendChild(gifImage); 
 
 
 		  const goBackLinkIn = document.createElement("a");
@@ -748,15 +748,14 @@ function goBackAction() {
     type([inicio, sobre, galeria, contato, idioma, terminal, logout], { processChars: false, wait: 10 }, outro);
 
     // Remove the event listeners after action is triggered
-    document.removeEventListener("click", goBackAction);
-    document.removeEventListener("keydown", goBackAction);
+   // document.removeEventListener("click", goBackAction);
+ //   document.removeEventListener("keydown", goBackAction);
 }
 
 goBackLinkIn.onclick = goBackAction;
 
-// Add event listeners for any click or keypress
-document.addEventListener("click", goBackAction);
-document.addEventListener("keydown", goBackAction);
+// Add event listeners for any click or keypress/ document.addEventListener("click", goBackAction);
+// document.addEventListener("keydown", goBackAction);
 
     
 
