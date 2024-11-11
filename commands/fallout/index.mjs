@@ -609,34 +609,6 @@ divsobre.appendChild(gifImage2)
 		inicio.href = "#";
 		inicio.onclick = () =>  {		
 		  
-		  function goBak() {
-        console.log('key event detected')
-        // Remove the event listeners to prevent multiple calls
-        document.removeEventListener("click", goBak);
-        document.removeEventListener("keydown", goBak);
-        
-        // Check if elements exist before trying to manipulate them
-        if (divinicio) {
-            divinicio.remove(); // Remove the divinicio if it exists
-        }
-        
-        if (goBackLinkIn) {
-            goBackLinkIn.remove(); // Remove the goBackLinkIn if it exists
-        }
-    
-        // Assuming 'outro' is a valid reference to an existing element
-        if (outro) {
-            // If you want to append 'logout' and 'contato' back to 'outro', ensure they are defined
-            // outro.appendChild(logout);
-            // outro.appendChild(contato);
-            
-            // Make sure 'type' is a valid function and is defined
-            type([inicio, sobre, galeria, contato, idioma, terminal, logout], { processChars: false, wait: 10 }, outro);
-        } else {
-            console.error("The 'outro' element is not defined.");
-        }
-    }
-    
     // Create elements
     const gifImage = document.createElement("img");
     const divinicio = document.createElement("div");
@@ -648,8 +620,65 @@ divsobre.appendChild(gifImage2)
     const iniciotext = document.createElement("p");
     
     // Add event listeners
-    document.addEventListener("click", goBak);
-    document.addEventListener("keydown", goBak);
+    document.addEventListener("click", () => {
+      
+      console.log('key event detected')
+      // Remove the event listeners to prevent multiple calls
+      document.removeEventListener("click", goBak);
+      document.removeEventListener("keydown", goBak);
+      
+      // Check if elements exist before trying to manipulate them
+      if (divinicio) {
+          divinicio.remove(); // Remove the divinicio if it exists
+      }
+      
+      if (goBackLinkIn) {
+          goBackLinkIn.remove(); // Remove the goBackLinkIn if it exists
+      }
+  
+      // Assuming 'outro' is a valid reference to an existing element
+      if (outro) {
+          // If you want to append 'logout' and 'contato' back to 'outro', ensure they are defined
+          // outro.appendChild(logout);
+          // outro.appendChild(contato);
+          
+          // Make sure 'type' is a valid function and is defined
+          type([inicio, sobre, galeria, contato, idioma, terminal, logout], { processChars: false, wait: 10 }, outro);
+      } else {
+          console.error("The 'outro' element is not defined.");
+      }
+  
+    });
+    document.addEventListener("keydown", () => {
+      
+      console.log('key event detected')
+      // Remove the event listeners to prevent multiple calls
+      document.removeEventListener("click", goBak);
+      document.removeEventListener("keydown", goBak);
+      
+      // Check if elements exist before trying to manipulate them
+      if (divinicio) {
+          divinicio.remove(); // Remove the divinicio if it exists
+      }
+      
+      if (goBackLinkIn) {
+          goBackLinkIn.remove(); // Remove the goBackLinkIn if it exists
+      }
+  
+      // Assuming 'outro' is a valid reference to an existing element
+      if (outro) {
+          // If you want to append 'logout' and 'contato' back to 'outro', ensure they are defined
+          // outro.appendChild(logout);
+          // outro.appendChild(contato);
+          
+          // Make sure 'type' is a valid function and is defined
+          type([inicio, sobre, galeria, contato, idioma, terminal, logout], { processChars: false, wait: 10 }, outro);
+      } else {
+          console.error("The 'outro' element is not defined.");
+      }
+  
+      
+    });
 
 // Set the text for the <p> element
 iniciotext.innerText = hometexto
