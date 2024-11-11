@@ -99,6 +99,8 @@ function generateDynamicLine(char = "━") {
     // Create a line with the specified character
     return char.repeat(charCount);
 }
+ 
+
 
 
 
