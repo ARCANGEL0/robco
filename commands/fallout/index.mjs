@@ -117,7 +117,7 @@ function generateDynamicLine(char = "━") {
         paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth)+
         textWidth*0.10));
       }
-      
+      alert(paddingSpaces + '  paddingSpaces')
       // Return the text with spaces before it
       return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
   }
