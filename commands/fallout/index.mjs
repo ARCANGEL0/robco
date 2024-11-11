@@ -138,7 +138,7 @@ function generateDynamicLine(char = "━") {
 
 
 
-let homeReturn, btnhome, btnsobre, btngal, btncontact, btnlang, btnreturn, sitext,sobretexto,hometexto,contactinfo, bbnsite, bbnvid
+let homeReturn, btnproject, bytesec, edgarbot, btnhome, btnsobre, btngal, btncontact, btnlang, btnreturn, sitext,sobretexto,hometexto,contactinfo, bbnsite, bbnvid
 function updateTexts() {
 		  inicio.innerText = btnhome
 		  sobre.innerText = btnsobre
@@ -152,7 +152,10 @@ function changeLanguage(language) {
   
   
   if (language === 'pt') {
-     contactinfo = "Informações de Contato:\n\n ";
+     contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. DADOS DE USUARIO\\nLENDO INFORMACOES_DE_CONTACTO\n\n"
+ 
+  projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETOS.F'
+    bytesec = 'ByteSec-MD é um bot de WhatsApp inspirado em "Mr. Robot", onde os usuários mergulham em uma experiência narrativa de hacking. Faça escolhas, desafie o status quo digital e decida: "Você é um 1 ou um 0?"'
  btnhome = '[INICIO]';
  btnsobre = '[SOBRE]';
  btngal = '[GALERIA]';
@@ -162,6 +165,7 @@ function changeLanguage(language) {
  sitext = 'WEBSITES QUE FIZ';
  bbnsite = '[WEBSITES]';
  bbnvid = "[GALERIA]";
+ btnproject = "[PROJETOS]";
  sobretexto = [
   `\n>// Fala aí! Eu sou o Henry – desenvolvedor, gamer e criador digital, apaixonado por tecnologia que desafia limites (e minha paciência, às vezes).`,
   `Escrevo códigos que *geralmente* funcionam, crio interfaces bem boladas, e desenvolvo apps pra deixar a web mais interessante. Meus pronomes? TCP/IP.`,
@@ -173,7 +177,9 @@ homeReturn = "--- PRESSIONE PARA CONTINUAR ---"
 } else if (language === 'es') {
     // Add translations in Spanish here
     
-     contactinfo = "Información de contacto:\n\n";
+ contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. DATOS DE USUARIO\\nLEYENDO INFORMACIÓN_DE_CONTACTO\n\n"
+     projectTitle = '>SET ROUTE/PATH=GET:ASC PROYECTOS.F'
+bytesec = 'ByteSec-MD es un bot de WhatsApp inspirado en "Mr. Robot", donde los usuarios se sumergen en una experiencia narrativa de hacking. Toma decisiones, desafía el status quo digital y decide: "¿Eres un 1 o un 0?"'
  btnhome = '[INICIO]';
  btnsobre = '[ACERCA DE]';
  btngal = '[GALERÍA]';
@@ -182,6 +188,7 @@ homeReturn = "--- PRESSIONE PARA CONTINUAR ---"
  btnreturn = '[VOLVER]';
  sitext = 'SITIOS WEB QUE HE CREADO';
 bbnsite = '[SITIOS WEB]';
+btnproject = "[PROYECTOS]";
  bbnvid = "[GALERIA]"
  sobretexto = [
   `\n>// ¡Hola! Soy Henry – desarrollador, gamer y creador digital con una pasión por la tecnología que desafía límites (y a veces mi paciencia).`,
@@ -193,14 +200,16 @@ bbnsite = '[SITIOS WEB]';
  homeReturn = "--- PRESIONE PARA CONTINUAR ---"
   } else if (language === 'fr') {
     // Add translations in French here
-    
-     contactinfo = "Coordonnées de contact:\n\n";
+    projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETS.F'
+bytesec = 'ByteSec-MD est un bot WhatsApp inspiré de "Mr. Robot", où les utilisateurs plongent dans une expérience narrative de hacking. Faites des choix, défiez le statu quo numérique et décidez : "Êtes-vous un 1 ou un 0 ?"'
+ contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. DONNÉES UTILISATEUR\\nLECTURE INFORMATIONS_DE_CONTACT\n\n";
  btnhome = '[ACCUEIL]';
  btnsobre = '[À PROPOS]';
  btngal = '[GALERIE]';
  btncontact = '[CONTACT]';
  btnlang = '[LANGUE]';
  btnreturn = '[RETOUR]';
+ btnproject = "[PROJETS]";
  sitext = 'LES SITES WEB QUE J\'AI CRÉÉS';
  bbnsite = '[SITES INTERNET]';
  bbnvid = "[GALERIE]"
@@ -215,7 +224,9 @@ homeReturn = "--- APPUYEZ POUR CONTINUER ---"
 
   } else {
     // Default language (English)
-    contactinfo = "Contact info:\n\n ";
+    projectTitle = '>SET ROUTE/PATH=GET:ASC PROJECTS.F'
+bytesec = 'ByteSec-MD is a WhatsApp bot inspired by "Mr. Robot," where users dive into a narrative-driven hacking experience. Make choices, challenge the digital status quo, and decide: "Are you a 1 or a 0?"'
+    contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. USER DATA\\nREADING CONTACT_INFORMATION\n\n";
     btnhome = '[HOME]';
     btnsobre = '[ABOUT]';
     btngal = '[GALLERY]';
@@ -223,6 +234,7 @@ homeReturn = "--- APPUYEZ POUR CONTINUER ---"
     btnlang = '[IDIOMA/LANGUE]';
     btnreturn = '[RETURN]';
     sitext = 'WEBSITES I\'VE DONE';
+    btnproject = "[PROJECTS]";
     bbnsite = '[WEBSITES]';
  bbnvid = "[GALLERY]"
     sobretexto = [
@@ -323,6 +335,80 @@ type([message, goBackLink], { processChars: false , wait: 10 }, outro);
 			
 			
 		};
+		
+		
+let projetos = document.createElement("a");
+		projetos.innerText = btnproject;
+		projetos.classList.add("btn-project")
+		projetos.href = "#";
+		projetos.onclick = () => {
+			// remove all a tags and put a text with p and an a tag in the end to take back to preciois page.. Remove text and restore a tag buttons 
+			   // Create a <p> element with a message
+    const messageP = document.createElement('p');
+    messageP.innerText = projectsinfo
+const projectsTable = document.createElement('table');
+projectsTable.style.borderCollapse = 'collapse';
+
+// Contact entries
+const contacts = [
+    { type: bytesec, name:'ByteSec-MD', link:
+    'https://github.com/ARCANGEL0/ByteSec-MD' },
+    { type: 'WhatsApp/Phone ', name: '+351 927285125', link: 'https://api.whatsapp.com/send?phone=351927285125' },
+    { type: 'Website',name: 'Arcangelo.net', link: 'https://arcangelo.net' },
+    { type: 'Email',name:'henry.arcangello', link: 'mailto:rick_arcangelo@hotmail.com,henry.arcangello@proton.me,henry.arcangello@gmail.com' },
+    { type: 'LinkedIn', name:'Henrique Arcangelo', link:
+    'https://www.linkedin.com/in/henryarcangelo/' },
+    { type: 'Hack The Box', name:'0x0C1053F', link: 'https://app.hackthebox.com/profile/126962' },
+];
+
+contacts.forEach(contact => {
+    const row = contactTable.insertRow();
+    const typeCell = row.insertCell();
+    const linkCell = row.insertCell();
+
+    typeCell.innerText = contact.type;
+    typeCell.style.padding = '5px';
+    typeCell.style.border = '1px solid #008000';
+
+    linkCell.innerHTML = `<a href="${contact.link}" target="_blank">${contact.name}</a>`;
+    linkCell.style.padding = '5px';
+    linkCell.style.border = '1px solid #008000';
+});
+
+
+// Append the contact form to the message
+message.appendChild(contactTable);
+
+    // Create a "Go Back" <a> tag
+    const goBackLink = document.createElement("a");
+    goBackLink.innerText = btnreturn;
+    goBackLink.classList.add("btnReturn")
+    goBackLink.href = "#";
+    goBackLink.onclick = () => {
+        // Remove the message and "Go Back" link and restore the "Logout" and "Contact" buttons
+        message.remove();
+        goBackLink.remove();
+        // outro.appendChild(logout);
+        // outro.appendChild(contato);
+type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+    };
+
+    // Remove the "Logout" and "Contact" buttons
+    inicio.remove();
+    sobre.remove();
+    galeria.remove();
+    logout.remove();
+    contato.remove();
+    idioma.remove();
+    terminal.remove();
+
+    // Append the message and "Go Back" link to the 'outro' element
+type([message, goBackLink], { processChars: false , wait: 10 }, outro);
+    
+			
+			
+		};
+		
 		
 		let galeria = document.createElement("a");
 
@@ -814,7 +900,7 @@ type([backLang,port, eng, spa, fre], { processChars: false , wait: 10 }, outro);
 
 	;
 
-		 type([inicio, sobre, galeria, contato,idioma, terminal, logout], { processChars: false , wait: 5 }, outro);
+		 type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout], { processChars: false , wait: 5 }, outro);
 
 		logout.focus();
 	});
