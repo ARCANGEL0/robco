@@ -611,13 +611,7 @@ divsobre.appendChild(gifImage2)
 		  
 		
 		  
-		      inicio.remove();
-    sobre.remove();
-    galeria.remove();
-    logout.remove();
-    contato.remove();
-    idioma.remove();
-    terminal.remove();
+		      
     
 		  const gifImage = document.createElement("img");
 		  // Create a new <p> elemen
