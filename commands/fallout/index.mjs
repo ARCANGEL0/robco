@@ -610,20 +610,13 @@ divsobre.appendChild(gifImage2)
 		};
 		
 			let inicio = document.createElement("a");
-     const goBackHome = () => {
-      alert('trigger event')
-      document.removeEventListener('keydown', goBackHome);
-      document.removeEventListener('click', goBackHome);
-          
-  
-     }
+    
 		inicio.innerText = btnhome;
     inicio.classList.add('btn-home')
 		inicio.href = "#";
 		inicio.onclick = () =>  {		
 		  
-      document.addEventListener('keydown',goBackHome);
-      document.addEventListener('click',goBackHome);
+      
 
 		  const gifImage = document.createElement("img");
 		  // Create a new <p> elemen
@@ -679,6 +672,16 @@ divtextinicio.appendChild(iniciotext);
 type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
     };
 
+    const goBackHome = () => {
+      alert('trigger event')
+      document.removeEventListener('keydown', goBackHome);
+      document.removeEventListener('click', goBackHome);
+          
+  
+     }
+     
+    document.addEventListener('keydown',goBackHome);
+    document.addEventListener('click',goBackHome);
 
     // Remove the "Logout" and "Contact" buttons
     inicio.remove();
