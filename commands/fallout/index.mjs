@@ -91,8 +91,8 @@ function generateDynamicLine(char = "━") {
     const screenWidth = window.innerWidth;
 
     // Approximate width of the character in pixels (adjust based on your font size)
-    const charWidth = 7; // Adjust if your font is different
-    const charCount = Math.floor(screenWidth / charWidth) -15;
+    const charWidth = 5; // Adjust if your font is different
+    const charCount = Math.floor(screenWidth / charWidth)/2;
 
     // Create a line with the specified character
     return char.repeat(charCount);
