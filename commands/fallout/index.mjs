@@ -88,7 +88,7 @@ export async function outro() {
 	let outro = getScreen("outro");
 function generateDynamicLine(char = "━") {
     // Get the width of the screen in pixels
-    const screenWidth = window.innerWidth*0.8;
+    const screenWidth = window.innerWidth
 
     // Approximate width of the character in pixels (adjust based on your font size)
     const charWidth = 5; // Adjust if your font is different
@@ -106,12 +106,15 @@ function generateDynamicLine(char = "━") {
       const viewportWidth = window.innerWidth * 0.60; // Set a fixed width for the console output (adjust as needed)
       
       alert(window.innerWidth)
+      if(window.innerWidth < 420) {
+        return text
+      }
       
       const textWidth = text.length; // Approximate width based on character count
   
       // Calculate the number of spaces needed for centering
-      const paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2));
-  alert(paddingSpaces + '  spaces')
+      const paddingSpaces = Math.max(0, Math.floorw((viewportWidth - textWidth) / 2));
+
       // Return the text with spaces before it
       return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
   }
