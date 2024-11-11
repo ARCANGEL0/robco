@@ -610,6 +610,7 @@ divsobre.appendChild(gifImage2)
 		inicio.onclick = () =>  {		
 		  
 		  function goBak() {
+        console.log('key event detected')
         // Remove the event listeners to prevent multiple calls
         document.removeEventListener("click", goBak);
         document.removeEventListener("keydown", goBak);
@@ -649,7 +650,7 @@ divsobre.appendChild(gifImage2)
     // Add event listeners
     document.addEventListener("click", goBak);
     document.addEventListener("keydown", goBak);
-    
+
 // Set the text for the <p> element
 iniciotext.innerText = hometexto
 
