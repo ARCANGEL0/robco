@@ -90,7 +90,7 @@ function generateDynamicLine(char = "━") {
     // Get the width of the screen in pixels
     const screenWidth = window.innerWidth
     let adds = screenWidth*0.032
-    if(screenWidth>520) { adds = screenWidth*0.039} 
+    if(screenWidth>520) { adds = screenWidth*0.045} 
     alert(adds   +   'baradds')
     // Approximate width of the character in pixels (adjust based on your font size)
     const charWidth = 5; // Adjust if your font is different
@@ -113,7 +113,7 @@ function generateDynamicLine(char = "━") {
       const textWidth = text.length; // Approximate width based on character count
   
       // Calculate the number of spaces needed for centering
-      let paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2) + (viewportWidth*2));
+      let paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2) + (viewportWidth));
 
       if(window.innerWidth < 420) {
         paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth)-
@@ -610,15 +610,25 @@ divsobre.appendChild(gifImage2)
 		};
 		
 			let inicio = document.createElement("a");
-
+     const goBackHome = () => {
+      document.removeEventListener('keydown', goBackHome);
+      document.removeEventListener('click', goBackHome);
+          
+        // Remove the message and "Go Back" link and restore the "Logout" and "Contact" buttons
+        divinicio.remove();
+        goBackLinkIn.remove();
+        // outro.appendChild(logout);
+        // outro.appendChild(contato);
+type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+   
+     }
 		inicio.innerText = btnhome;
     inicio.classList.add('btn-home')
 		inicio.href = "#";
 		inicio.onclick = () =>  {		
 		  
-      document.addEventListener('keydown', () => {
-        alert('abcde');
-    });
+      document.addEventListener('keydown',goBackHome);
+      document.addEventListener('click',goBackHome);
 
 		  const gifImage = document.createElement("img");
 		  // Create a new <p> elemen
