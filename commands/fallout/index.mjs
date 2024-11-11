@@ -740,7 +740,7 @@ divinicio.style.marginLeft = "20px"
 divinicio.appendChild(divtextinicio);
 divinicio.appendChild(divgif);
 divtextinicio.appendChild(iniciotext);
-
+divgif.appendChild(gifImage); 
 
 
 		  const goBackLinkIn = document.createElement("a");
@@ -768,7 +768,7 @@ goBackLinkIn.onclick = goBackAction;
 document.addEventListener("click", goBackAction);
 document.addEventListener("keydown", goBackAction);
 
-    divgif.appendChild(gifImage); 
+    
 
     // Remove the "Logout" and "Contact" buttons
     inicio.remove();
