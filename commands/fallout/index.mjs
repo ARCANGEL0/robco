@@ -112,7 +112,7 @@ function generateDynamicLine(char = "━") {
       let paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2));
 
       if(window.innerWidth < 420) {
-        paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 6));
+        paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 3));
       }
       
       // Return the text with spaces before it
