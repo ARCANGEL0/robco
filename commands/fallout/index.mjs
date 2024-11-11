@@ -170,7 +170,7 @@ function changeLanguage(language) {
   `Mando bem com JavaScript, Vue, React, Python, PHP, Node, e várias outras ferramentas que uso pra tirar ideias do papel. Front-end, back-end, banco de dados – se envolve código, eu tô dentro.`,
   `Atualmente, tô mergulhando em Cibersegurança e Ciência de Dados, aprendendo a hackear *eticamente* e a deixar o mundo digital um pouco mais seguro. Então, se você busca alguém que construa, quebre e (quase sempre) conserte, sou o cara certo.`
 ];
- hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBem-vindo ao meu portfólio, inspirado no icônico Termlink da ROBCO Industries da série Fallout.\n\nSou  Henry, desenvolvedor backend movido por uma paixão por software, redes e tudo relacionado à TI. Aqui, você encontrará uma amostra dos meus projetos, e meus links de contacto :) .\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n--- PRESSIONE QUALQUER TECLA PARA CONTINUAR ---";
+ hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBem-vindo ao meu portfólio, inspirado no icônico Termlink da ROBCO Industries da série Fallout.\n\nSou  Henry, desenvolvedor backend movido por uma paixão por software, redes e tudo relacionado à TI. Aqui, você encontrará uma amostra dos meus projetos, e meus links de contacto :) .\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n";
 homeReturn = "--- PRESSIONE PARA CONTINUAR ---" 
 } else if (language === 'es') {
     // Add translations in Spanish here
@@ -234,8 +234,8 @@ homeReturn = "--- APPUYEZ POUR CONTINUER ---"
   `Right now, I’m diving into Cybersecurity and Data Science, learning to hack *ethically* and keep the digital world a little safer. So if you're looking for someone who can build, break, and (usually) fix things, I’m your guy.`
 ];
     //Update other text as needed
-    hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nWelcome to my portfolio, inspired by the iconic ROBCO Industries Termlink from the Fallout series.\n\nI’m Henry, a backend developer driven by a deep passion for software, networks, and all things IT. Here, you’ll find a showcase of my work and my contacts.\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n--- PRESS ANY KEY TO CONTINUE ---";
- homeReturn ="--- PRESS ANY KEY TO CONTINUE ---"
+    hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nWelcome to my portfolio, inspired by the iconic ROBCO Industries Termlink from the Fallout series.\n\nI’m Henry, a backend developer driven by a deep passion for software, networks, and all things IT. Here, you’ll find a showcase of my work and my contacts.\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n";
+ homeReturn ="  --- PRESS ANY KEY TO CONTINUE ---"
   }
 
 
