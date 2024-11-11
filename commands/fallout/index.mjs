@@ -109,7 +109,8 @@ function generateDynamicLine(char = "━") {
   
       // Calculate the number of spaces needed for centering
       const paddingSpaces = Math.max(0, Math.floor((maxWidth - textWidth) / 2));
-  
+
+      console.log(text +' :   padding: ' + paddingSpaces)
       // Return the text with spaces before it
       return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
   }
