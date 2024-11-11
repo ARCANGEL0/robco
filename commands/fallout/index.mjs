@@ -91,7 +91,7 @@ function generateDynamicLine(char = "━") {
     const screenWidth = window.innerWidth;
 
     // Approximate width of the character in pixels (adjust based on your font size)
-    const charWidth = 5; // Adjust if your font is different
+    const charWidth = 6; // Adjust if your font is different
     const charCount = Math.floor(screenWidth / charWidth) -12;
 
     // Create a line with the specified character
@@ -102,18 +102,16 @@ function generateDynamicLine(char = "━") {
 
 	await new Promise(async resolve => {
 		
-
     function centerText(text) {
       const viewportWidth = window.innerWidth; // Get the current viewport width
-      const textWidth = text.length+100; // Approximate width based on character count
+      const textWidth = text.length; // Approximate width based on character count
       const maxWidth = viewportWidth; // Use the full viewport width for centering
-  console.log(maxWidth)
+  
       // Calculate the number of spaces needed for centering
-      const paddingSpaces = Math.max(0, Math.floor((maxWidth - textWidth) / 4));
-    console.log(paddingSpaces)
-    
-    
-      return ' '.repeat(paddingSpaces/15) + text; // Add spaces before the text
+      const paddingSpaces = Math.max(0, Math.floor((maxWidth - textWidth) / 2));
+  
+      // Return the text with spaces before it
+      return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
   }
   
   await type(
