@@ -89,7 +89,7 @@ export async function outro() {
 function generateDynamicLine(char = "━") {
     // Get the width of the screen in pixels
     const screenWidth = window.innerWidth
-    let adds = screenWidth*0.035
+    let adds = screenWidth*0.032
     
     alert(adds)
     // Approximate width of the character in pixels (adjust based on your font size)
@@ -115,7 +115,7 @@ function generateDynamicLine(char = "━") {
 
       if(window.innerWidth < 420) {
         paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth)-
-        textWidth*0.10));
+        textWidth*0.35));
       }
       alert(paddingSpaces + '  paddingSpaces')
       // Return the text with spaces before it
