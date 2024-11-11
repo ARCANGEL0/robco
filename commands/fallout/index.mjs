@@ -91,7 +91,7 @@ function generateDynamicLine(char = "━") {
     const screenWidth = window.innerWidth
     let adds = screenWidth*0.032
     if(screenWidth>520) { adds = screenWidth*0.085} 
-    alert(adds)
+    alert(adds   +   'baradds')
     // Approximate width of the character in pixels (adjust based on your font size)
     const charWidth = 5; // Adjust if your font is different
     const charCount = Math.floor(screenWidth / charWidth)/3 + adds ;
