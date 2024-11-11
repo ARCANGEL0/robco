@@ -727,7 +727,7 @@ divinicio.style.marginLeft = "20px"
 divinicio.appendChild(divtextinicio);
 divinicio.appendChild(divgif);
 divtextinicio.appendChild(iniciotext);
-divgif.appendChild(gifImage); 
+
 
 
 		  const goBackLinkIn = document.createElement("a");
@@ -743,6 +743,7 @@ divgif.appendChild(gifImage);
         // outro.appendChild(contato);
 type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
     };
+    divgif.appendChild(gifImage); 
 
     // Remove the "Logout" and "Contact" buttons
     inicio.remove();
