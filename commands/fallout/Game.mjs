@@ -12,7 +12,7 @@ const multiplierWidth = Math.max(22, Math.min(29,
     21 // Large desktops
 ));
 
-const ROWS = 2 * 15;
+const ROWS = 2 * multiplierWidth;
 const CHARS_PER_ROW = 12; // Number of characters per row
 
 // Fast config for the typer
