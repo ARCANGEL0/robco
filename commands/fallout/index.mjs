@@ -113,7 +113,7 @@ function generateDynamicLine(char = "━") {
       const textWidth = text.length; // Approximate width based on character count
   
       // Calculate the number of spaces needed for centering
-      let paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2) + (textWidth*2));
+      let paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2) + (viewportWidth*2));
 
       if(window.innerWidth < 420) {
         paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth)-
@@ -616,7 +616,10 @@ divsobre.appendChild(gifImage2)
 		inicio.href = "#";
 		inicio.onclick = () =>  {		
 		  
-		document.addEventListener('keydown', alert('teste'))
+      document.addEventListener('keydown', () => {
+        alert('teste');
+    });
+
 		  const gifImage = document.createElement("img");
 		  // Create a new <p> elemen
 		  const divinicio = document.createElement("div")
