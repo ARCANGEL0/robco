@@ -23,7 +23,7 @@ async function power(on = true) {
 	// @FIXME use a single class on the #monitor to detect on/off
 	document.querySelector("#slider").classList.toggle("on", on);
 	document.querySelector("#switch").checked = !on;
-	await pause(0.1);
+	
 
 	document.getElementById("monitor").classList.toggle("turn-off", !on);
 	document.getElementById("monitor").classList.toggle("off", !on);
