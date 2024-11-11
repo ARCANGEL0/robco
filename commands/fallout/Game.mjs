@@ -4,7 +4,7 @@ import { typeSound } from "../../sound/index.js";
 import { rnd, generateText, nextHex } from './util.mjs';
 
 const MAX_LIVES = 4;
-const ROWS = 2 * 21; // Rows in the cypher text
+const ROWS = 2 * 14; // Rows in the cypher text
 const CHARS_PER_ROW = 12; // Number of characters per row
 
 // Fast config for the typer
