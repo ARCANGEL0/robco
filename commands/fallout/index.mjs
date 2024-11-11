@@ -82,7 +82,82 @@ export async function intro() {
 
 	return Promise.resolve();
 }
+async function startPage() {
+		
+		  
+		      inicio.remove();
+    sobre.remove();
+    galeria.remove();
+    logout.remove();
+    contato.remove();
+    idioma.remove();
+    terminal.remove();
+    
+		  const gifImage = document.createElement("img");
+		  // Create a new <p> elemen
+		  const divinicio = document.createElement("div")
+		  divinicio.classList.add("divinicio")
+		  const divtextinicio = document.createElement("div")
+		  divtextinicio.classList.add("divtextinicio") 
+		  const divgif = document.createElement("div")
+		  divgif.classList.add("divgif")
+const iniciotext = document.createElement("p");
 
+// Set the text for the <p> element
+iniciotext.innerText = hometexto
+
+iniciotext.classList.add("inicioheader")
+
+// Assuming you have a container div with an id of "portfolio" to append the <p> element to
+
+
+gifImage.src = "images/Code.gif";
+
+gifImage.style.marginTop = "15px"
+gifImage.style.marginBottom= "15px"
+gifImage.style.width = "92vw"
+gifImage.style.height= "50vh"
+// Append the image to divgif
+
+
+
+iniciotext.style.top = "0";
+iniciotext.style.left = "0";
+iniciotext.style.width = "87vw";
+iniciotext.style.height = "100%";
+iniciotext.style.margin = "0";
+divinicio.style.marginLeft = "20px"
+divinicio.appendChild(divtextinicio);
+divtextinicio.appendChild(iniciotext);
+
+
+
+
+// Function to handle the "Go Back" action
+function goBackAction() {
+    divinicio.remove();
+    // outro.appendChild(logout);
+    // outro.appendChild(contato);
+    type([inicio, sobre, galeria, contato, idioma, terminal, logout], { processChars: false, wait: 10 }, outro);
+
+    // Remove the event listeners after action is triggered
+    document.removeEventListener("click", goBackAction);
+  document.removeEventListener("keydown", goBackAction);
+}
+
+ document.addEventListener("click", goBackAction);
+ document.addEventListener("keydown", goBackAction);
+
+
+    // Remove the "Logout" and "Contact" buttons
+
+
+    // Append the message and "Go Back" link to the 'outro' element
+type([divinicio, goBackLinkIn], { processChars: false , wait: 10 }, outro);
+    
+		
+		
+}
 // Outro shows screen with buttons to logout (calls game()) or exit
 export async function outro() {
 	let outro = getScreen("outro");
@@ -112,7 +187,7 @@ await type(
         generateDynamicLine("━")  // This will produce a full-width line
     ],
     FAST,
-    outro
+    startPage
 );
 
 function calculateAge(birthdate) {
@@ -565,16 +640,8 @@ divsites.remove()
         // outro.appendChild(contato);
 type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
     };
-
-    // Remove the "Logout" and "Contact" buttons
     
-
-    // Append the message and "Go Back" link to the 'outro' element
-    
-    
-    
-
-
+ 
       const gifImage2 = document.createElement("img");
       
 		gifImage2.src = "images/Dog.gif";
@@ -587,18 +654,6 @@ gifImage2.style.display = "block";
 gifImage2.style.margin = "0 auto";
 		   
 		  
-		 /*
-		  const divtextsobre = document.createElement("div")
-		  divtextsobre.classList.add("divtextsobre") 
-		  const divgif2 = document.createElement("div")
-		  divgif2.classList.add("divgif")
-const sobretxt = document.createElement("p");
-const sobretxt2 = document.createElement("p");
-const sobretxt3 = document.createElement("p");
-const technologies = document.createElement("p");
-*/
-// Set the text for the <p> element
-
 
 
 divsobre.appendChild(backSobre)
@@ -611,70 +666,6 @@ divsobre.appendChild(backSobre)
 		);
 divsobre.appendChild(gifImage2)
 	
-	
-		/*
-sobretxt.innerText = `>// I'm Henry! I'm ${age} years old. I'm an illustrator and developer, deeply in love for Technology, Design & Trending topics like AI or Big Data `;
-
-
-sobretxt2.innerText= `>I'm graduated in Software Development & Digital Design and I work as a fullstack dev. \n 
- I create digital illustrations & arts and softwares, app's, websites and others.
-                  Some of the technologies I generally use are: \n
-  `
-    //    type(sobretxt,FAST, outro);
-       
-       technologies.innerText = `Frontend: Javascript ES6+, Vue.JS, Bootstrap,
-                     React & Typescript
-                     \n  Backend:
-                      PHP (Including Laravel and CakePHP), Python & Flask, Node & Electron (for desktop build),and for databases I usually work with MySql, MongoDB, or Firebase`
-// o append the <p> element to
-sobretxt3.innerText = `I do projects from simple dynamic websites to mobile app's, on-demand softwares and admin management system's \n 
-    Currently, I'm studying and specializing myself in Cybersecurity and Data Science`
-
-
-// Append the image to divgif
-
-
-
-sobretxt.style.top = "0";
-sobretxt.style.left = "0";
-sobretxt.style.width = "95vw";
-sobretxt.style.height = "100%";
-sobretxt.style.margin = "0";
-
-
-sobretxt2.style.top = "0";
-
-sobretxt2.style.left = "0";
-
-sobretxt2.style.width = "95vw";
-sobretxt2.style.height = "100%";
-sobretxt2.style.margin = "0";
-
-sobretxt3.style.top = "0";
-sobretxt3.style.left = "0";
-sobretxt3.style.width = "95vw";
-sobretxt3.style.height = "100%";
-sobretxt3.style.margin = "0";
-
-technologies.style.top = "0";
-technologies.style.left = "0";
-technologies.style.width = "95vw";
-technologies.style.height = "100%";
-technologies.style.margin = "0";
-technologies.style.fontSize = "75%"
-
-
-
-divsobre.appendChild(divtextsobre) ;
-divsobre.appendChild(divgif2);
- divtextsobre.appendChild(sobretxt);
-divtextsobre.appendChild(sobretxt2);
-divtextsobre.appendChild(technologies );
-divtextsobre.appendChild(sobretxt3);
-divgif2.appendChild(gifImage2);
-
-*/
-		  
 
 }
 		let terminal = document.createElement("a");
@@ -691,87 +682,8 @@ divgif2.appendChild(gifImage2);
 		inicio.innerText = btnhome;
     inicio.classList.add('btn-home')
 		inicio.href = "#";
-		inicio.onclick = () => {		
-		  
-		  const gifImage = document.createElement("img");
-		  // Create a new <p> elemen
-		  const divinicio = document.createElement("div")
-		  divinicio.classList.add("divinicio")
-		  const divtextinicio = document.createElement("div")
-		  divtextinicio.classList.add("divtextinicio") 
-		  const divgif = document.createElement("div")
-		  divgif.classList.add("divgif")
-const iniciotext = document.createElement("p");
-
-// Set the text for the <p> element
-iniciotext.innerText = hometexto
-
-iniciotext.classList.add("inicioheader")
-
-// Assuming you have a container div with an id of "portfolio" to append the <p> element to
-
-
-gifImage.src = "images/Code.gif";
-
-gifImage.style.marginTop = "15px"
-gifImage.style.marginBottom= "15px"
-gifImage.style.width = "92vw"
-gifImage.style.height= "50vh"
-// Append the image to divgif
-
-
-
-iniciotext.style.top = "0";
-iniciotext.style.left = "0";
-iniciotext.style.width = "87vw";
-iniciotext.style.height = "100%";
-iniciotext.style.margin = "0";
-divinicio.style.marginLeft = "20px"
-divinicio.appendChild(divtextinicio);
-divinicio.appendChild(divgif);
-divtextinicio.appendChild(iniciotext);
-// divgif.appendChild(gifImage); 
-
-
-		  const goBackLinkIn = document.createElement("a");
-goBackLinkIn.innerText = btnreturn;
-goBackLinkIn.classList.add('btnReturn');
-goBackLinkIn.style.marginTop = "10px";
-goBackLinkIn.href = "#";
-
-// Function to handle the "Go Back" action
-function goBackAction() {
-    divinicio.remove();
-    goBackLinkIn.remove();
-    // outro.appendChild(logout);
-    // outro.appendChild(contato);
-    type([inicio, sobre, galeria, contato, idioma, terminal, logout], { processChars: false, wait: 10 }, outro);
-
-    // Remove the event listeners after action is triggered
-   // document.removeEventListener("click", goBackAction);
- //   document.removeEventListener("keydown", goBackAction);
-}
-
-goBackLinkIn.onclick = goBackAction;
-
-// Add event listeners for any click or keypress/ document.addEventListener("click", goBackAction);
-// document.addEventListener("keydown", goBackAction);
-
-    
-
-    // Remove the "Logout" and "Contact" buttons
-    inicio.remove();
-    sobre.remove();
-    galeria.remove();
-    logout.remove();
-    contato.remove();
-    idioma.remove();
-    terminal.remove();
-
-    // Append the message and "Go Back" link to the 'outro' element
-type([divinicio, goBackLinkIn], { processChars: false , wait: 10 }, outro);
-    
-		
+		inicio.onclick = async () => {
+		  await startPage()
 		};
 		
 		
