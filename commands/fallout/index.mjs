@@ -91,7 +91,6 @@ function generateDynamicLine(char = "━") {
     const screenWidth = window.innerWidth
     let adds = screenWidth*0.032
     if(screenWidth>520) { adds = screenWidth*0.045} 
-    alert(adds   +   'baradds')
     // Approximate width of the character in pixels (adjust based on your font size)
     const charWidth = 5; // Adjust if your font is different
     const charCount = Math.floor(screenWidth / charWidth)/3 + adds ;
@@ -122,7 +121,6 @@ function generateDynamicLine(char = "━") {
         paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth)-
         textWidth*2.4));
       }
-      alert(paddingSpaces + '  spaces here')
       // Return the text with spaces before it
       return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
   }
