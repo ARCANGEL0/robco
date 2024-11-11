@@ -674,9 +674,9 @@ type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars
 
     const goBackHome = () => {
       
-      document.removeEventListener('keydown', goBackHome);
-      document.removeEventListener('click', goBackHome);
-          
+      document.removeEventListener('keydown',() => {goBackHome()});
+      document.removeEventListener('click',() => {goBackHome()});
+  
         // Remove the message and "Go Back" link and restore the "Logout" and "Contact" buttons
         divinicio.remove();
         goBackLinkIn.remove();
@@ -687,8 +687,8 @@ type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars
   
      }
      
-    document.addEventListener('keydown',goBackHome);
-    document.addEventListener('click',goBackHome);
+    document.addEventListener('keydown',() => {goBackHome()});
+    document.addEventListener('click',() => {goBackHome()});
 
     // Remove the "Logout" and "Contact" buttons
     inicio.remove();
