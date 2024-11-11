@@ -104,16 +104,26 @@ function generateDynamicLine(char = "━") {
 		
 
 
-await type(
-    [
-        "       ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM",
-        `                 COPYRIGHT ${new Date().getFullYear()} ARCANGELO `,
-        `                        -SERVER 6- `,
-        generateDynamicLine("━")  // This will produce a full-width line
-    ],
-    FAST,
-    outro
-);
+    function centerText(text) {
+      const viewportWidth = window.innerWidth;
+      const textWidth = text.length; // Approximate width based on character count
+      const maxWidth = Math.floor(viewportWidth / 2); // Max width for centering
+  
+      // Calculate the number of spaces needed for centering
+      const paddingSpaces = Math.max(0, Math.floor((maxWidth - textWidth) / 2));
+      return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
+  }
+  
+  await type(
+      [
+          centerText("ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM"),
+          centerText(`COPYRIGHT ${new Date().getFullYear()} @ARCANGELO`),
+          centerText("-SERVER 6-"),
+          generateDynamicLine("━")  // This will produce a full-width line
+      ],
+      FAST,
+      outro
+  );
 
 function calculateAge(birthdate) {
   let today = new Date();
