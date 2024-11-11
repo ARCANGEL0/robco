@@ -32,7 +32,7 @@ async function command() {
 export async function intro() {
 	let intro = getScreen("intro");
 
-	await type("Welcome to ARCANGELO Industries (TM) Termlink Interface", FAST, intro);
+	await type("Welcome to ROBCO Industries (TM) Termlink Interface", FAST, intro);
 
 	await type(">SET TERMINAL/INQUIRE", {}, intro);
 
@@ -50,10 +50,10 @@ export async function intro() {
 	await type(
 		[ 
 		  " ",
-			"Initializing ARCANGELO Industries(TM) MF Boot Agent v2.3.0",
+			"Initializing ROBCO Industries(TM) MF Boot Agent v2.3.0",
 			"RETROS BIOS",
 			"RBIOS-4.02.08.00 52EE5.E7.E8",
-			`Copyright ${new Date().getFullYear()} ARCANGELO Ind.`,
+			`Copyright ${new Date().getFullYear()} ARCANGELO.net.`,
 			"Uppermem: 64 KB",
 			"Root (5A8)",
 			"Maintenance Mode"
@@ -86,17 +86,32 @@ export async function intro() {
 // Outro shows screen with buttons to logout (calls game()) or exit
 export async function outro() {
 	let outro = getScreen("outro");
+function generateDynamicLine(char = "━") {
+    // Get the width of the screen in pixels
+    const screenWidth = window.innerWidth;
+
+    // Approximate width of the character in pixels (adjust based on your font size)
+    const charWidth = 8; // Adjust if your font is different
+    const charCount = Math.floor(screenWidth / charWidth);
+
+    // Create a line with the specified character
+    return char.repeat(charCount);
+}
+
 
 	await new Promise(async resolve => {
-		await type(
-			[
-				"       ARCANGELO INDUSTRIES UNIFIED OPERATING SYSTEM",
-				`                 COPYRIGHT ${new Date().getFullYear()} ARCANGELO `, `                        -SERVER 6- `, 
-				`____________________________________________________`
-			],
-			FAST,
-			outro
-		);
+		
+// Usage in your header display
+await type(
+    [
+        "       ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM",
+        `                 COPYRIGHT ${new Date().getFullYear()} ARCANGELO `,
+        `                        -SERVER 6- `,
+        generateDynamicLine("━")  // This will produce a full-width line
+    ],
+    FAST,
+    outro
+);
 function calculateAge(birthdate) {
   let today = new Date();
   let birthDate = new Date(birthdate);
@@ -137,11 +152,12 @@ function changeLanguage(language) {
  bbnsite = '[WEBSITES]';
  bbnvid = "[GALERIA]";
  sobretexto = [
-  `\n>// Eu sou o Henry! Tenho ${age} anos. Sou ilustrador e desenvolvedor, apaixonado por Tecnologia, Design e tópicos em alta como IA ou Big Data.`,
-  `Sou formado em Desenvolvimento de Software e Design Digital e trabalho como desenvolvedor fullstack. \n Crio ilustrações digitais e softwares, aplicativos, websites e outros. Algumas das tecnologias que geralmente uso incluem:`, `Frontend: Javascript ES6+, Vue.JS, Bootstrap, React & Typescript\n\nBackend: PHP (incluindo Laravel e CakePHP), Python & Flask, Node & Electron (para desenvolvimento de aplicativos desktop), e em relação a bancos de dados, geralmente trabalho com MySql, MongoDB ou Firebase.`,
-  `Realizo projetos que vão desde websites dinâmicos simples até aplicativos móveis, softwares sob demanda e sistemas de gerenciamento administrativo. Atualmente, estou estudando e me especializando em Cibersegurança e Ciência de Dados.`
+  `\n>// Fala aí! Eu sou o Henry – desenvolvedor, gamer e criador digital, apaixonado por tecnologia que desafia limites (e minha paciência, às vezes).`,
+  `Escrevo códigos que *geralmente* funcionam, crio interfaces bem boladas, e desenvolvo apps pra deixar a web mais interessante. Meus pronomes? TCP/IP.`,
+  `Mando bem com JavaScript, Vue, React, Python, PHP, Node, e várias outras ferramentas que uso pra tirar ideias do papel. Front-end, back-end, banco de dados – se envolve código, eu tô dentro.`,
+  `Atualmente, tô mergulhando em Cibersegurança e Ciência de Dados, aprendendo a hackear *eticamente* e a deixar o mundo digital um pouco mais seguro. Então, se você busca alguém que construa, quebre e (quase sempre) conserte, sou o cara certo.`
 ];
- hometexto = "🌟 Bem-vindo ao meu parque de diversões digital! 🚀 Não sou apenas um desenvolvedor; sou um criador de experiências online que deixam uma marca. 💡 Com uma pitada de inovação e uma dose de código, transformo sonhos em pixels e pixels em realidade.";
+ hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBem-vindo ao meu portfólio, inspirado no icônico Termlink da ROBCO Industries da série Fallout.\n\nSou Henry, desenvolvedor backend movido por uma paixão por software, redes e tudo relacionado à TI. Aqui, você encontrará uma amostra do meu trabalho, cada projeto sendo um passo na minha jornada para construir e inovar no mundo da tecnologia.\n\n> SYSTEM STATUS: ALL SYSTEMS NOMINAL\n\n--- PRESS ANY KEY TO CONTINUE ---";
   } else if (language === 'es') {
     // Add translations in Spanish here
     
@@ -156,11 +172,12 @@ function changeLanguage(language) {
 bbnsite = '[SITIOS WEB]';
  bbnvid = "[GALERIA]"
  sobretexto = [
-  `\n>// ¡Soy Henry! Tengo ${age} años. Soy ilustrador y desarrollador, apasionado por la Tecnología, el Diseño y temas de vanguardia como la IA o el Big Data.`,
-  `Soy graduado en Desarrollo de Software y Diseño Digital y trabajo como desarrollador fullstack. Creo ilustraciones digitales y software, aplicaciones, sitios web y más. Algunas de las tecnologías que suelo utilizar incluyen:`, `Frontend: Javascript ES6+, Vue.JS, Bootstrap, React y Typescript\n\nBackend: PHP (incluyendo Laravel y CakePHP), Python y Flask, Node y Electron (para el desarrollo de aplicaciones de escritorio), y en cuanto a bases de datos, suelo trabajar con MySql, MongoDB o Firebase.`,
-  `Realizo proyectos que van desde sitios web dinámicos simples hasta aplicaciones móviles, software a medida y sistemas de administración. Actualmente, estoy estudiando y especializándome en Ciberseguridad y Ciencia de Datos.`
+  `\n>// ¡Hola! Soy Henry – desarrollador, gamer y creador digital con una pasión por la tecnología que desafía límites (y a veces mi paciencia).`,
+  `Hago código que *casi siempre* funciona, diseño interfaces limpias, y creo apps para hacer la web un poco más interesante. ¿Mis pronombres? TCP/IP.`,
+  `Me manejo bien con JavaScript, Vue, React, Python, PHP, Node, y otras herramientas que uso para llevar ideas a la realidad. Frontend, backend, bases de datos – si lleva código, ahí estoy.`,
+  `Ahora mismo, estoy profundizando en Ciberseguridad y Ciencia de Datos, aprendiendo a hackear *éticamente* y hacer el mundo digital más seguro. Así que, si buscas a alguien que construya, rompa y (casi siempre) arregle las cosas, soy tu persona.`
 ];
- hometexto = "🌟 ¡Bienvenido a mi parque de diversiones digital! 🚀 No soy solo un desarrollador; soy un creador de experiencias en línea que dejan huella. 💡 Con un toque de innovación y una dosis de código, convierto sueños en píxeles y píxeles en realidad.";
+ hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBienvenido a mi portafolio, inspirado en el icónico Termlink de ROBCO Industries de la serie Fallout.\n\nSoy Henry, un desarrollador backend impulsado por una gran pasión por el software, las redes y todo lo relacionado con la informática. Aquí encontrarás una muestra de mi trabajo, cada proyecto un paso en mi viaje para construir e innovar en el mundo de la tecnología.\n\n> SYSTEM STATUS: ALL SYSTEMS NOMINAL\n\n--- PRESS ANY KEY TO CONTINUE ---";
 
   } else if (language === 'fr') {
     // Add translations in French here
@@ -176,11 +193,12 @@ bbnsite = '[SITIOS WEB]';
  bbnsite = '[SITES INTERNET]';
  bbnvid = "[GALERIE]"
  sobretexto = [
-  `\n>// Je suis Henry ! J'ai ${age} ans. Je suis illustrateur et développeur, passionné par la technologie, le design et des sujets avancés tels que l'IA ou le Big Data.`,
-  `Je suis diplômé en développement logiciel et design numérique, et je travaille en tant que développeur fullstack. Je crée des illustrations numériques et des logiciels, des applications, des sites web, et plus encore. Certaines des technologies que j'utilise généralement incluent :`, `Frontend : Javascript ES6+, Vue.JS, Bootstrap, React et Typescript\n\nBackend : PHP (y compris Laravel et CakePHP), Python et Flask, Node et Electron (pour le développement d'applications de bureau), et en ce qui concerne les bases de données, je travaille généralement avec MySql, MongoDB ou Firebase.`,
-  `Je réalise des projets allant de simples sites web dynamiques à des applications mobiles, des logiciels sur mesure et des systèmes de gestion. Actuellement, j'étudie et me spécialise en cybersécurité et en science des données.`
+  `\n>// Salut ! Moi, c’est Henry – développeur, gamer et créateur digital, passionné par la tech qui repousse les limites (et parfois ma patience).`,
+  `Je code des trucs qui *marchent presque toujours*, je conçois des interfaces propres, et je crée des applis pour rendre le web un peu plus cool. Mes pronoms ? TCP/IP.`,
+  `Je maîtrise bien JavaScript, Vue, React, Python, PHP, Node, et d'autres outils que j'utilise pour donner vie aux idées. Front-end, back-end, bases de données – si ça a du code, j’y suis.`,
+  `En ce moment, je me plonge dans la cybersécurité et la science des données, apprenant à hacker *éthiquement* pour rendre le monde digital plus sûr. Alors, si tu cherches quelqu'un qui construit, casse et (presque toujours) répare, je suis là.`
 ];
- hometexto = "🌟 Bienvenue dans mon parc d'attractions numérique ! 🚀 Je ne suis pas seulement un développeur ; je suis un créateur d'expériences en ligne qui laissent une empreinte.💡 Avec une touche d'innovation et une dose de code, je transforme les rêves en pixels et les pixels en réalité.";
+ hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBienvenido a mi portafolio, inspirado en el icónico Termlink de ROBCO Industries de la serie Fallout.\n\nSoy Henry, un desarrollador backend impulsado por una gran pasión por el software, las redes y todo lo relacionado con la informática. Aquí encontrarás una muestra de mi trabajo, cada proyecto un paso en mi viaje para construir e innovar en el mundo de la tecnología.\n\n> SYSTEM STATUS: ALL SYSTEMS NOMINAL\n\n--- PRESS ANY KEY TO CONTINUE ---";
 
 
   } else {
@@ -196,12 +214,13 @@ bbnsite = '[SITIOS WEB]';
     bbnsite = '[WEBSITES]';
  bbnvid = "[GALLERY]"
     sobretexto = [
-				`\n>// I'm Henry! I'm ${age} years old. I'm an illustrator and developer, deeply in love for Technology, Design & Trending topics like AI or Big Data `,
-				`I'm graduated in Software Development & Digital Design and I work as a fullstack dev. \n I create digital illustrations & arts and softwares, app's, websites and others. Some of the technologies I generally use are:`, `Frontend: Javascript ES6+, Vue.JS, Bootstrap, React & Typescript\n\nBackend: PHP (Including Laravel and CakePHP), Python & Flask, Node & Electron (for desktop build),and for databases I usually work with MySql, MongoDB, or Firebase`, 
-				`I do projects from simple dynamic websites to mobile app's, on-demand softwares and admin management system's \nCurrently, I'm studying and specializing myself in Cybersecurity and Data Science`
-			]
+  `\n>// Hey there! I'm Henry – a developer, gamer, and digital creator with a love for tech that pushes boundaries (and sometimes my patience).`,
+  `I code things that *mostly* work, design clean interfaces, and build apps that aim to make the web a little cooler. My pronouns? TCP/IP.`,
+  `I'm fluent in JavaScript, Vue, React, Python, PHP, Node, and a handful of other tools that help me bring ideas to life. Front-end, back-end, databases – you name it, I probably mess with it.`,
+  `Right now, I’m diving into Cybersecurity and Data Science, learning to hack *ethically* and keep the digital world a little safer. So if you're looking for someone who can build, break, and (usually) fix things, I’m your guy.`
+];
     //Update other text as needed
-    hometexto = "🌟 Welcome to my digital playground! 🚀 I'm not just a developer; I'm a creator of online experiences that leave a mark. 💡 With a dash of innovation and a sprinkle of code, I turn dreams into pixels, and pixels into reality."; // Update other text as needed
+    hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nWelcome to my portfolio, inspired by the iconic ROBCO Industries Termlink from the Fallout series.\n\nI’m Henry, a backend developer driven by a deep passion for software, networks, and all things IT. Here, you’ll find a showcase of my work, each project a step in my journey to build and innovate in the tech world.\n\n> SYSTEM STATUS: ALL SYSTEMS NOMINAL\n\n--- PRESS ANY KEY TO CONTINUE ---";
   }
 
 
