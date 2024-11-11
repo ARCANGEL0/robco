@@ -9,7 +9,7 @@ const multiplierWidth = Math.max(22, Math.min(29,
     window.innerWidth < 768 ? 26 : // Tablets
     window.innerWidth < 1024 ? 24 : // Small desktops
     window.innerWidth < 1440 ? 23 : // Medium desktops
-    15 // Large desktops
+    21 // Large desktops
 ));
 
 const ROWS = 2 * multiplierWidth;
