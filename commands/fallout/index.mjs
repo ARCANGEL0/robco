@@ -91,7 +91,7 @@ function generateDynamicLine(char = "━") {
     const screenWidth = window.innerWidth;
 
     // Approximate width of the character in pixels (adjust based on your font size)
-    const charWidth = 6; // Adjust if your font is different
+    const charWidth = 10; // Adjust if your font is different
     const charCount = Math.floor(screenWidth / charWidth) -12;
 
     // Create a line with the specified character
@@ -113,7 +113,7 @@ function generateDynamicLine(char = "━") {
     console.log(paddingSpaces)
     
     
-      return ' '.repeat(paddingSpaces/4) + text; // Add spaces before the text
+      return ' '.repeat(paddingSpaces/15) + text; // Add spaces before the text
   }
   
   await type(
