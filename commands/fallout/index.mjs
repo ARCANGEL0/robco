@@ -103,14 +103,12 @@ function generateDynamicLine(char = "━") {
 	await new Promise(async resolve => {
 		
     function centerText(text) {
-      const viewportWidth = window.innerWidth; // Get the current viewport width
+      const viewportWidth = 80; // Set a fixed width for the console output (adjust as needed)
       const textWidth = text.length; // Approximate width based on character count
-      const maxWidth = viewportWidth; // Use the full viewport width for centering
   
       // Calculate the number of spaces needed for centering
-      const paddingSpaces = Math.max(0, Math.floor((maxWidth - textWidth) / 2));
-
-      console.log(text +' :   padding: ' + paddingSpaces)
+      const paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2));
+  
       // Return the text with spaces before it
       return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
   }
