@@ -256,10 +256,11 @@ contactTable.style.borderCollapse = 'collapse';
 const contacts = [
     { type: 'GitHub', name:'ARCANGEL0', link: 'https://github.com/ARCANGEL0/' },
     { type: 'WhatsApp/Phone ', name: '+351 927 285 125', link: 'https://api.whatsapp.com/send?phone=351927285125' },
-    { type: 'Website',name: 'LNA Digital', link: 'https://lnaassessoriadigital.com' },
+    { type: 'Website',name: 'Main page', link: 'https://arcangelo.net' },
     { type: 'Email',name:'Henry.arcangello@gmail.com*', link: 'mailto:rick_arcangelo@hotmail.com,henry.arcangello@proton.me,henry.arcangello@gmail.com' },
-    { type: 'LinkedIn', name:'Luis Henrique CB Arcangelo', link: 'https://www.linkedin.com/in/henrique-carreira-b-arcangelo-7965841bb/' },
-    { type: 'Hack The Box', name:'HenryNx', link: 'https://app.hackthebox.com/profile/1276132' },
+    { type: 'LinkedIn', name:'Henrique Arcangelo', link:
+    'https://www.linkedin.com/in/henryarcangelo/' },
+    { type: 'Hack The Box', name:'0x0C1053F', link: 'https://app.hackthebox.com/profile/126962' },
 ];
 
 contacts.forEach(contact => {
