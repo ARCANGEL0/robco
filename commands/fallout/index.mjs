@@ -110,7 +110,7 @@ function generateDynamicLine(char = "━") {
       const maxWidth = Math.floor(viewportWidth / 2); // Max width for centering
   
       // Calculate the number of spaces needed for centering
-      const paddingSpaces = Math.max(0, Math.floor((maxWidth - textWidth) / 2));
+      const paddingSpaces = Math.max(0, Math.floor((maxWidth - textWidth) / 4));
       return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
   }
   
