@@ -88,7 +88,7 @@ export async function outro() {
 	let outro = getScreen("outro");
 function generateDynamicLine(char = "━") {
     // Get the width of the screen in pixels
-    const screenWidth = window.innerWidth;
+    const screenWidth = window.innerWidth*0.8;
 
     // Approximate width of the character in pixels (adjust based on your font size)
     const charWidth = 5; // Adjust if your font is different
