@@ -610,8 +610,8 @@ divsobre.appendChild(gifImage2)
 		inicio.onclick = () =>  {		
 		  
 		  function goBak(){
-		        document.removeEventListener("click", goBackAction);
-  document.removeEventListener("keydown", goBackAction);
+		        document.removeEventListener("click", goBak);
+  document.removeEventListener("keydown", goBak);
         // Remove the message and "Go Back" link and restore the "Logout" and "Contact" buttons
         divinicio.remove();
         goBackLinkIn.remove();
@@ -658,7 +658,7 @@ divinicio.style.marginLeft = "20px"
 divinicio.appendChild(divtextinicio);
 divinicio.appendChild(divgif);
 divtextinicio.appendChild(iniciotext);
-divgif.appendChild(gifImage); 
+
 
 
 		  const goBackLinkIn = document.createElement("a");
