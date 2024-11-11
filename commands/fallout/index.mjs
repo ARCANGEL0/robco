@@ -90,7 +90,7 @@ function generateDynamicLine(char = "━") {
     // Get the width of the screen in pixels
     const screenWidth = window.innerWidth
     let adds = screenWidth*0.032
-    
+    if(screenWidth>520) { adds = screenWidth*0.036} 
     alert(adds)
     // Approximate width of the character in pixels (adjust based on your font size)
     const charWidth = 5; // Adjust if your font is different
@@ -115,10 +115,7 @@ function generateDynamicLine(char = "━") {
       // Calculate the number of spaces needed for centering
       let paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth) / 2));
 
-      if(window.innerWidth < 420) {
-        paddingSpaces = Math.max(0, Math.floor((viewportWidth - textWidth)-
-        textWidth*2.4));
-      }
+ 
       alert(paddingSpaces + '  paddingSpaces')
       // Return the text with spaces before it
       return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
