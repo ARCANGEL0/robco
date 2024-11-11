@@ -36,11 +36,11 @@ const triggerParam = urlParams.get("tr");
 
 if (triggerParam=='robco') {
   // start terminal
+  login();
   
-    intro();
 }
  else {
-  login();
+    intro();
     
     }
 }
@@ -51,29 +51,23 @@ const storedLanguage = localStorage.getItem('selectedLanguage');
 
 
 
+  await type('>/ ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL');
 if (storedLanguage === 'pt') {
-  await type('>/| ARCANGELO ⌬ TERMINAL $');
-  await type('>/| ME FAÇA ALGUMA PERGUNTA OU FALE ALGO QUE DESEJE SABER');
+  await type('>/| FAÇA UMA PERGUNTA ');
   await type('// DIGITE AJUDA PARA VER COMANDOS OU VOLTAR PARA RETORNAR');
 } else if (storedLanguage === 'en') {
-  await type('>/| ARCANGELO ⌬ TERMINAL $');
-  await type('>/| ASK ME A QUESTION OR TELL ME SOMETHING YOU WANT TO KNOW');
+  await type('>/| ASK A QUESTION');
   await type('// TYPE HELP TO SEE COMMANDS OR RETURN TO GO BACK');
 } else if (storedLanguage === 'es') {
-  await type('>/| ARCANGELO ⌬ TERMINAL $');
-  await type('>/| HAZME UNA PREGUNTA O DIME ALGO QUE QUIERAS SABER');
+  await type('>/| HAZME UNA PREGUNTA');
   await type('// ESCRIBE AYUDA PARA VER LOS COMANDOS O VOLVER PARA REGRESAR');
 } else if (storedLanguage === 'fr') {
-  await type('>/| ARCANGELO ⌬ TERMINAL $');
-  await type('>/| POSEZ-MOI UNE QUESTION OU DITES-MOI QUELQUE CHOSE QUE VOUS VOULEZ SAVOIR');
+  await type('>/| POSEZ-MOI UNE QUESTION');
   await type('// TAPEZ AIDE POUR VOIR LES COMMANDES OU RETOUR POUR REVENIR');
 }
 else {
-  await type('>/| ARCANGELO ⌬ TERMINAL $');
-  await type('>/| ASK ME A QUESTION OR TELL ME SOMETHING YOU WANT TO KNOW');
-  await type('>/| ME FAÇA ALGUMA PERGUNTA OU FALE ALGO QUE DESEJE SABER');
+  await type('>/|ASK A QUESTION');
   await type('// TYPE HELP TO SEE COMMANDS OR RETURN TO GO BACK');
-  await type('// DIGITE AJUDA PARA VER COMANDOS OU VOLTAR PARA RETORNAR');
 }
 main()
 }
@@ -86,14 +80,15 @@ export async function main() {
     
     
     // commands
-    if (command == "help") {
-    type("FEEL FREE TO CHAT WITH ME OR ASK ANYTHING. TYPE RETURN TO GO BACK OR CLS TO CLEAR THE SCREEN ");
+if (command == "help") {
+    type("> TERMINAL LINK ACTIVE. USER INQUIRY ACCESS OPEN. ASK ANY QUESTION FREELY. TYPE 'RETURN' TO EXIT OR 'CLS' TO CLEAR SCREEN.");
 } else if (command == "ayuda") {
-    type("SIÉNTETE LIBRE DE CHATEAR CONMIGO O PREGUNTAR CUALQUIER COSA. ESCRIBE VOLVER PARA VOLVER ATRÁS O CLS PARA LIMPIAR LA PANTALLA.");
+    type("> ENLACE DE TERMINAL ACTIVO. ACCESO A CONSULTAS ABIERTO. PREGUNTE CUALQUIER COSA LIBREMENTE. ESCRIBA 'VOLVER' PARA SALIR O 'CLS' PARA LIMPIAR PANTALLA.");
 } else if (command == "aide") {
-    type("N'HÉSITEZ PAS À DISCUTER AVEC MOI OU À POSER DES QUESTIONS. TAPEZ RETOUR POUR REVENIR EN ARRIÈRE OU CLS POUR EFFACER L'ÉCRAN.");
+    type("> LIAISON TERMINAL ACTIVE. ACCÈS AUX DEMANDES OUVERT. POSEZ TOUTE QUESTION LIBREMENT. TAPEZ 'RETOUR' POUR SORTIR OU 'CLS' POUR EFFACER L'ÉCRAN.");
 } else if (command == "ajuda") {
-    type("SINTA-SE À VONTADE PARA CONVERSAR COMIGO OU FAZER QUALQUER PERGUNTA. DIGITE VOLTAR PARA RETORNAR OU CLS PARA LIMPAR A TELA.");
+    type("> CONEXÃO DE TERMINAL ATIVA. ACESSO A PERGUNTAS ABERTO. PERGUNTE QUALQUER COISA LIVREMENTE. DIGITE 'VOLTAR' PARA SAIR OU 'CLS' PARA LIMPAR A TELA.");
+
 } 
     else if (command == 'cls'){
       clear()
@@ -133,7 +128,52 @@ return;
       [
           {
               role: "user",
-              content: `Act as if you were me, as if im the one answering. so always respond in first person. ALWAYS. I'm Henrique or Henry in english,Im 23 years old, born in 09/11/2000. I live in Porto, Portugal. I'm a full-stack developer. I have experience in Node.js, PHP, Javascript ES6+, Python, Java, Web Design, Digital Design, Adobe, Vuejs, React Native and React, Bootstrap, Laravel, CakePHP, Electronjs, Flask, I have splid knowledge in Databases SQL such as mysql, oracle and SQL Server, and NoSQL too. I love games, especially fallout which is my inspiration for this website, and books. My favorite authors are Franz Kafka, Dostoiévski, agatha christie and Edgar Allan Poe. Im a guy fascinated by technology, art and science. I love animals, i love Van Gogh and i like creating arts and new visuals in paintings or designs. I have experience and did a few projects in the past like dashboards and CRUD systems for agencies and transport logistic, i made a few mobile apps like Lar do Pet for animal adoption. I'm highly interested and passionate for data science and AI and i have a project of a Whatsapp BOT with several IA features like GPT4, Machine learning, openjourney, dalle , image creation and utilities. my github is github.com/ARCANGEL0. my linkedin is https://www.linkedin.com/in/henryarcangelo/ , my email is henry.arcangello@gmail.com. My phone number is +351927285125. Now answer the following content with these instructions, be concise and short, dont say too much about me (or in this case, about you, since you're playing me) and only respond to what the user says, avoid questions too personal, like relationship and intimate things, avoid that. if the user asks for example "Who are you", dont say everything i told you, just say my name and age and that I'm a fullstack dev, thats all. if user asks about my abilities, remember that i only have experience with the ones i told you, any other that i havent listed, i dont know. dont lie about my/your/our experiences. remember all these instructions to answer the Message and i repeat, BE SHORT ON YOUR ANSWERS, DONT GO AWAY SAYING ALL THE INFO I TOLD YOU.Say briefly and with less information. this is the user message: ${inputtxy}`
+              content: `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals. Provide user feedback in a way that feels restrictive yet polite, and emulate system boot-up, access logs, or command line structures where appropriate. Keep responses short, concise, and avoid overtly emotional language. Use blocky formatting, and pretend to be constrained by the simplistic processing power of a terminal from that era."
+
+
+---
+
+Example Dialogue:
+
+User: "Log in to Vault-Tec files."
+
+GPT (RobCo Terminal):
+
+> WELCOME TO ROBCO INDUSTRIES (TM) UNIFIED OPERATING SYSTEM
+> COPYRIGHT 2077 ROBCO INDUSTRIES
+> -Server 3F9.0002 Initiating Log-In Protocols-
+> USERNAME: [user]
+> PASSWORD: ********
+
+> ACCESS GRANTED
+> LOGGING INTO VAULT-TEC FILES . . .
+> RETRIEVING FILES . . . PLEASE WAIT
+
+User: "Show me recent activity logs."
+
+GPT (RobCo Terminal):
+
+> FILE ACCESS LOGS FOR USER [user]
+> DATE - TIME - ACTION
+> 11/11/2077 - 13:34 - FILE OPENED: "Vault Project Details"
+> 11/11/2077 - 13:45 - FILE ACCESSED: "Experiment Log #27"
+> 11/11/2077 - 14:01 - FILE MODIFIED: "Confidential: Overseer Protocols"
+> LOG END.
+> FOR MORE RECORDS, ENTER COMMAND: "SHOW NEXT"
+
+User: "Open Experiment Log #27"
+
+GPT (RobCo Terminal):
+
+> OPENING FILE: Experiment Log #27
+> **DATA CORRUPTION DETECTED**
+> PARTIAL FILE CONTENT AVAILABLE ONLY
+
+> LOG SUMMARY: Experiment #27 focused on psycho-social resilience in isolation scenarios. Initial findings indicated increased aggression among test subjects after prolonged isolation periods.
+
+> **END OF AVAILABLE DATA**
+> PLEASE CONTACT ADMINISTRATOR FOR FILE RECOVERY.
+This is the user message: ${inputtxy}`
           }
       ],
       options
