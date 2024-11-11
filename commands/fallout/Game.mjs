@@ -274,7 +274,7 @@ Game.prototype.handlePassword = function(target) {
 Game.prototype.start = async function() {
     
     await type(
-        ["Welcome to ARCANGELO Industries (TM) Termlink Interface", "Password Required"],
+        ["Welcome to ROBCO Industries (TM) Termlink Interface", "Password Required"],
         FAST,
         this.container
     );
