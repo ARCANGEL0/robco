@@ -7,8 +7,8 @@ const MAX_LIVES = 4;
 const multiplierWidth = Math.max(22, Math.min(29, 
     window.innerWidth < 480 ? 29 : // Mobile
     window.innerWidth < 768 ? 26 : // Tablets
-    window.innerWidth < 1024 ? 24 : // Small desktops
-    window.innerWidth < 1440 ? 23 : // Medium desktops
+    window.innerWidth < 1024 ? 25 : // Small desktops
+    window.innerWidth < 1440 ? 24 : // Medium desktops
     21 // Large desktops
 ));
 
