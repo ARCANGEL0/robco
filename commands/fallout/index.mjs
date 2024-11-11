@@ -617,7 +617,7 @@ divsobre.appendChild(gifImage2)
 		inicio.onclick = () =>  {		
 		  
       document.addEventListener('keydown', () => {
-        alert('teste');
+        alert('abcde');
     });
 
 		  const gifImage = document.createElement("img");
