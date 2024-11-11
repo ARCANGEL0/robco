@@ -89,10 +89,10 @@ export async function outro() {
 function generateDynamicLine(char = "━") {
     // Get the width of the screen in pixels
     const screenWidth = window.innerWidth
-
+    let adds = screenWidth/5
     // Approximate width of the character in pixels (adjust based on your font size)
     const charWidth = 5; // Adjust if your font is different
-    const charCount = Math.floor(screenWidth / charWidth)/3;
+    const charCount = Math.floor(screenWidth / charWidth)/3 + adds ;
 
     // Create a line with the specified character
     return char.repeat(charCount);
@@ -105,16 +105,16 @@ function generateDynamicLine(char = "━") {
     function centerText(text) {
       const viewportWidth = window.innerWidth * 0.60; // Set a fixed width for the console output (adjust as needed)
       
-      alert(window.innerWidth)
-      if(window.innerWidth < 420) {
-        return text
-      }
       
       const textWidth = text.length; // Approximate width based on character count
   
       // Calculate the number of spaces needed for centering
-      const paddingSpaces = Math.max(0, Math.floorw((viewportWidth - textWidth) / 2));
+      let paddingSpaces = Math.max(0, Math.floorw((viewportWidth - textWidth) / 2));
 
+      if(window.innerWidth < 420) {
+        paddingSpaces = Math.max(0, Math.floorw((viewportWidth - textWidth) / 4));
+      }
+      
       // Return the text with spaces before it
       return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
   }
