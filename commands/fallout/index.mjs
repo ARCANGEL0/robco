@@ -731,18 +731,30 @@ divtextinicio.appendChild(iniciotext);
 
 
 		  const goBackLinkIn = document.createElement("a");
-    goBackLinkIn.innerText = btnreturn;
-    goBackLinkIn.classList.add('btnReturn')
-    goBackLinkIn.style.marginTop = "10px"
-    goBackLinkIn.href = "#";
-    goBackLinkIn.onclick = () => {
-        // Remove the message and "Go Back" link and restore the "Logout" and "Contact" buttons
-        divinicio.remove();
-        goBackLinkIn.remove();
-        // outro.appendChild(logout);
-        // outro.appendChild(contato);
-type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
-    };
+goBackLinkIn.innerText = btnreturn;
+goBackLinkIn.classList.add('btnReturn');
+goBackLinkIn.style.marginTop = "10px";
+goBackLinkIn.href = "#";
+
+// Function to handle the "Go Back" action
+function goBackAction() {
+    divinicio.remove();
+    goBackLinkIn.remove();
+    // outro.appendChild(logout);
+    // outro.appendChild(contato);
+    type([inicio, sobre, galeria, contato, idioma, terminal, logout], { processChars: false, wait: 10 }, outro);
+
+    // Remove the event listeners after action is triggered
+    document.removeEventListener("click", goBackAction);
+    document.removeEventListener("keydown", goBackAction);
+}
+
+goBackLinkIn.onclick = goBackAction;
+
+// Add event listeners for any click or keypress
+document.addEventListener("click", goBackAction);
+document.addEventListener("keydown", goBackAction);
+
     divgif.appendChild(gifImage); 
 
     // Remove the "Logout" and "Contact" buttons
