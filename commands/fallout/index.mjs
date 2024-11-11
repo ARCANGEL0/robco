@@ -107,8 +107,8 @@ function generateDynamicLine(char = "━") {
 	await new Promise(async resolve => {
 		
     function centerText(text) {
-      const viewportWidth = window.innerWidth * 0.60; // Set a fixed width for the console output (adjust as needed)
-      
+      const viewportWidth = 80; // Set a fixed width for the console output (adjust as needed)
+      alert(window.innerWidth)
       
       const textWidth = text.length; // Approximate width based on character count
   
