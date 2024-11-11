@@ -629,7 +629,8 @@ type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars
 		  const divgif = document.createElement("div")
 		  divgif.classList.add("divgif")
 const iniciotext = document.createElement("p");
-
+document.addEventListener("click",goBak )
+document.addEventListener("keydown",goBak )
 // Set the text for the <p> element
 iniciotext.innerText = hometexto
 
@@ -673,8 +674,7 @@ divgif.appendChild(gifImage);
         // outro.appendChild(contato);
 type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
     };
-document.addEventListener("click",goBak )
-document.addEventListener("keydown",goBak )
+
 
     // Remove the "Logout" and "Contact" buttons
     inicio.remove();
