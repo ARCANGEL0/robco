@@ -27,8 +27,8 @@ async function run(command, debug) {
 	const { power } = await import("./util/power.js");
 	const { parse } = await import("./util/io.js");
 
-	// Turns on the screen
-	power();
+  	// Turns on the screen
+//	power();
 
 	// Run the command (setting debug param will skip typing the command)
 	if (command) {
