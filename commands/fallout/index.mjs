@@ -113,7 +113,7 @@ function generateDynamicLine(char = "━") {
     console.log(paddingSpaces)
     
     
-      return ' '.repeat(paddingSpaces/2) + text; // Add spaces before the text
+      return ' '.repeat(paddingSpaces/4) + text; // Add spaces before the text
   }
   
   await type(
