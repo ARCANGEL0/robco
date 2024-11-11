@@ -432,12 +432,12 @@ const dvid = document.createElement("div");
 dvid.classList.add("dvid")
 
 const prevBtn = document.createElement("button");
-prevBtn.textContent = "?";
+prevBtn.textContent = "⬿";
 prevBtn.classList.add('carousel-button')
 divbuttons.appendChild(prevBtn);
 
 const nextBtn = document.createElement("button");
-nextBtn.textContent = "?";
+nextBtn.textContent = "⤳";
 nextBtn.classList.add('carousel-button')
 divbuttons.appendChild(nextBtn);
 
