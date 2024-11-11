@@ -113,84 +113,27 @@ return;
     } else {
       // gpt em co.andos
       
-      
-      async function fetchData(inputtxy) {
-
-
-  try {
-
     const options = {
       provider: "Nextway",
       model: "gpt-4o-free",
       webSearch: true
   };
+  
   const provider = gpt4js.createProvider(options.provider);
 
 
-    const aiRep = await provider.chatCompletion(
+let resposta = await provider.chatCompletion(
       [
           {
               role: "user",
-              content: `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals. Provide user feedback in a way that feels restrictive yet polite, and emulate system boot-up, access logs, or command line structures where appropriate. Keep responses short, concise, and avoid overtly emotional language. Use blocky formatting, and pretend to be constrained by the simplistic processing power of a terminal from that era."
-
-
----
-
-Example Dialogue:
-
-User: "Log in to Vault-Tec files."
-
-GPT (RobCo Terminal):
-
-> WELCOME TO ROBCO INDUSTRIES (TM) UNIFIED OPERATING SYSTEM
-> COPYRIGHT 2077 ROBCO INDUSTRIES
-> -Server 3F9.0002 Initiating Log-In Protocols-
-> USERNAME: [user]
-> PASSWORD: ********
-
-> ACCESS GRANTED
-> LOGGING INTO VAULT-TEC FILES . . .
-> RETRIEVING FILES . . . PLEASE WAIT
-
-User: "Show me recent activity logs."
-
-GPT (RobCo Terminal):
-
-> FILE ACCESS LOGS FOR USER [user]
-> DATE - TIME - ACTION
-> 11/11/2077 - 13:34 - FILE OPENED: "Vault Project Details"
-> 11/11/2077 - 13:45 - FILE ACCESSED: "Experiment Log #27"
-> 11/11/2077 - 14:01 - FILE MODIFIED: "Confidential: Overseer Protocols"
-> LOG END.
-> FOR MORE RECORDS, ENTER COMMAND: "SHOW NEXT"
-
-User: "Open Experiment Log #27"
-
-GPT (RobCo Terminal):
-
-> OPENING FILE: Experiment Log #27
-> **DATA CORRUPTION DETECTED**
-> PARTIAL FILE CONTENT AVAILABLE ONLY
-
-> LOG SUMMARY: Experiment #27 focused on psycho-social resilience in isolation scenarios. Initial findings indicated increased aggression among test subjects after prolonged isolation periods.
-
-> **END OF AVAILABLE DATA**
-> PLEASE CONTACT ADMINISTRATOR FOR FILE RECOVERY.
-This is the user message: ${inputtxy}`
+              content: `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals. This is the user message: ${command}`
           }
       ],
       options
   );
 
-  return aiRep;
-
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-
-let resposta = await fetchData(command);
-  type(resposta);
+  await type(resposta);
+  
     }
   } catch (e) {
     if (e.message) {
