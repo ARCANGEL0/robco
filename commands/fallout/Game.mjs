@@ -4,7 +4,15 @@ import { typeSound } from "../../sound/index.js";
 import { rnd, generateText, nextHex } from './util.mjs';
 
 const MAX_LIVES = 4;
-const ROWS = 2 * 29; // Rows in the cypher text
+const multiplierWidth = Math.max(22, Math.min(29, 
+    window.innerWidth < 480 ? 29 : // Mobile
+    window.innerWidth < 768 ? 26 : // Tablets
+    window.innerWidth < 1024 ? 24 : // Small desktops
+    window.innerWidth < 1440 ? 23 : // Medium desktops
+    15 // Large desktops
+));
+
+const ROWS = 2 * multiplierWidth;
 const CHARS_PER_ROW = 12; // Number of characters per row
 
 // Fast config for the typer
