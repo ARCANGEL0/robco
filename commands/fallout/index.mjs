@@ -104,27 +104,16 @@ function generateDynamicLine(char = "━") {
 		
 
 
-
-    function centerText(text) {
-      const viewportWidth = window.innerWidth; // Get the current viewport width
-      const textWidth = text.length; // Approximate width based on character count
-      const maxWidth = viewportWidth; // Use the full viewport width for centering
-  
-      // Calculate the number of spaces needed for centering
-      const paddingSpaces = Math.max(0, Math.floor((maxWidth - textWidth) / 5));
-      return ' '.repeat(paddingSpaces) + text; // Add spaces before the text
-  }
-  
-  await type(
-      [
-          centerText("ROBCO INDUSTRIES OPERATING SYSTEM"),
-          centerText(`COPYRIGHT ${new Date().getFullYear()} @ARCANGELO`),
-          centerText("-SERVER 6-"),
-          generateDynamicLine("━")  // This will produce a full-width line
-      ],
-      FAST,
-      outro
-  );
+await type(
+    [
+        "       ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM",
+        `                 COPYRIGHT ${new Date().getFullYear()} ARCANGELO `,
+        `                        -SERVER 6- `,
+        generateDynamicLine("━")  // This will produce a full-width line
+    ],
+    FAST,
+    outro
+);
 
 function calculateAge(birthdate) {
   let today = new Date();
@@ -171,10 +160,8 @@ function changeLanguage(language) {
   `Mando bem com JavaScript, Vue, React, Python, PHP, Node, e várias outras ferramentas que uso pra tirar ideias do papel. Front-end, back-end, banco de dados – se envolve código, eu tô dentro.`,
   `Atualmente, tô mergulhando em Cibersegurança e Ciência de Dados, aprendendo a hackear *eticamente* e a deixar o mundo digital um pouco mais seguro. Então, se você busca alguém que construa, quebre e (quase sempre) conserte, sou o cara certo.`
 ];
- hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBem-vindo ao meu portfólio, inspirado no icônico Termlink da ROBCO Industries da série Fallout.\n\nSou  Henry, desenvolvedor backend movido por uma paixão por software, redes e tudo relacionado à TI. Aqui, você encontrará uma amostra dos meus projetos, e meus links de contacto :) .\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n";
- homeReturn = '--- PRESIONE CUALQUIER TECLA PARA CONTINUAR ---'
-
-} else if (language === 'es') {
+ hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBem-vindo ao meu portfólio, inspirado no icônico Termlink da ROBCO Industries da série Fallout.\n\nSou  Henry, desenvolvedor backend movido por uma paixão por software, redes e tudo relacionado à TI. Aqui, você encontrará uma amostra dos meus projetos, e meus links de contacto :) .\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n--- PRESSIONE QUALQUER TECLA PARA CONTINUAR ---";
+  } else if (language === 'es') {
     // Add translations in Spanish here
     
      contactinfo = "Información de contacto:\n\n";
@@ -193,8 +180,7 @@ bbnsite = '[SITIOS WEB]';
   `Me manejo bien con JavaScript, Vue, React, Python, PHP, Node, y otras herramientas que uso para llevar ideas a la realidad. Frontend, backend, bases de datos – si lleva código, ahí estoy.`,
   `Ahora mismo, estoy profundizando en Ciberseguridad y Ciencia de Datos, aprendiendo a hackear *éticamente* y hacer el mundo digital más seguro. Así que, si buscas a alguien que construya, rompa y (casi siempre) arregle las cosas, soy tu persona.`
 ];
- hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBienvenido a mi portafolio, inspirado en el icónico Termlink de ROBCO Industries de la serie Fallout.\n\nSoy Henry, un desarrollador backend impulsado por una gran pasión por el software, las redes y todo lo relacionado con la informática. Aquí encontrarás una muestra de mi trabajo, cada proyecto un paso en mi viaje para construir e innovar en el mundo de la tecnología.\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n";
- homeReturn = '--- PRESIONE CUALQUIER TECLA PARA CONTINUAR ---'
+ hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBienvenido a mi portafolio, inspirado en el icónico Termlink de ROBCO Industries de la serie Fallout.\n\nSoy Henry, un desarrollador backend impulsado por una gran pasión por el software, las redes y todo lo relacionado con la informática. Aquí encontrarás una muestra de mi trabajo, cada proyecto un paso en mi viaje para construir e innovar en el mundo de la tecnología.\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n--- PRESIONE CUALQUIER TECLA PARA CONTINUAR ---";
 
   } else if (language === 'fr') {
     // Add translations in French here
@@ -215,8 +201,7 @@ bbnsite = '[SITIOS WEB]';
   `Je maîtrise bien JavaScript, Vue, React, Python, PHP, Node, et d'autres outils que j'utilise pour donner vie aux idées. Front-end, back-end, bases de données – si ça a du code, j’y suis.`,
   `En ce moment, je me plonge dans la cybersécurité et la science des données, apprenant à hacker *éthiquement* pour rendre le monde digital plus sûr. Alors, si tu cherches quelqu'un qui construit, casse et (presque toujours) répare, je suis là.`
 ];
- hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBienvenido a mi portafolio, inspirado en el icónico Termlink de ROBCO Industries de la serie Fallout.\n\nSoy Henry, un desarrollador backend impulsado por una gran pasión por el software, las redes y todo lo relacionado con la informática. Aquí encontrarás una muestra de mi trabajo, cada proyecto un paso en mi viaje para construir e innovar en el mundo de la tecnología.\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n";
- homeReturn = '--- APPUYEZ SUR N\'IMPORTE QUELLE TOUCHE POUR CONTINUER ---'
+ hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nBienvenido a mi portafolio, inspirado en el icónico Termlink de ROBCO Industries de la serie Fallout.\n\nSoy Henry, un desarrollador backend impulsado por una gran pasión por el software, las redes y todo lo relacionado con la informática. Aquí encontrarás una muestra de mi trabajo, cada proyecto un paso en mi viaje para construir e innovar en el mundo de la tecnología.\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n--- APPUYEZ SUR N'IMPORTE QUELLE TOUCHE POUR CONTINUER ---";
 
 
   } else {
@@ -238,8 +223,7 @@ bbnsite = '[SITIOS WEB]';
   `Right now, I’m diving into Cybersecurity and Data Science, learning to hack *ethically* and keep the digital world a little safer. So if you're looking for someone who can build, break, and (usually) fix things, I’m your guy.`
 ];
     //Update other text as needed
-    homeReturn = '--- PRESS ANY KEY TO CONTINUE ---'
-    hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nWelcome to my portfolio, inspired by the iconic ROBCO Industries Termlink from the Fallout series.\n\nI’m Henry, a backend developer driven by a deep passion for software, networks, and all things IT. Here, you’ll find a showcase of my work and my contacts.\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n";
+    hometexto = "> ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL\n> ACCESSING LOGS #27...\n\n--- LOG ENTRY INITIALIZED ---\n\nWelcome to my portfolio, inspired by the iconic ROBCO Industries Termlink from the Fallout series.\n\nI’m Henry, a backend developer driven by a deep passion for software, networks, and all things IT. Here, you’ll find a showcase of my work and my contacts.\n\n> SYSTEM STATUS: ALL SYSTEMS NORMAL\n\n--- PRESS ANY KEY TO CONTINUE ---";
   }
 
 
@@ -668,7 +652,7 @@ divgif.appendChild(gifImage);
 
 
 		  const goBackLinkIn = document.createElement("a");
-    goBackLinkIn.innerText = homeReturn;
+    goBackLinkIn.innerText = btnreturn;
     goBackLinkIn.classList.add('btnReturn')
     goBackLinkIn.style.marginTop = "10px"
     goBackLinkIn.href = "#";
