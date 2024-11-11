@@ -137,7 +137,7 @@ function generateDynamicLine(char = "━") {
 
 
 
-let btnhome, btnsobre, btngal, btncontact, btnlang, btnreturn, sitext,sobretexto,hometexto,contactinfo, bbnsite, bbnvid
+let homeReturn, btnhome, btnsobre, btngal, btncontact, btnlang, btnreturn, sitext,sobretexto,hometexto,contactinfo, bbnsite, bbnvid
 function updateTexts() {
 		  inicio.innerText = btnhome
 		  sobre.innerText = btnsobre
