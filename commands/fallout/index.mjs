@@ -673,10 +673,17 @@ type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars
     };
 
     const goBackHome = () => {
-      alert('trigger event')
+      
       document.removeEventListener('keydown', goBackHome);
       document.removeEventListener('click', goBackHome);
           
+        // Remove the message and "Go Back" link and restore the "Logout" and "Contact" buttons
+        divinicio.remove();
+        goBackLinkIn.remove();
+        // outro.appendChild(logout);
+        // outro.appendChild(contato);
+type([inicio, sobre, galeria, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
+   
   
      }
      
