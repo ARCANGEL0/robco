@@ -182,8 +182,6 @@ This is the user message: ${inputtxy}`
       options
   );
 
-  // Handle AI response here
-  console.log(aiRep); // Log the AI response or replace with your desired action
   return aiRep;
 
   } catch (error) {
@@ -192,7 +190,7 @@ This is the user message: ${inputtxy}`
 }
 
 let resposta = await fetchData(command);
-    await type(resposta);
+  type(resposta);
     }
   } catch (e) {
     if (e.message) {
