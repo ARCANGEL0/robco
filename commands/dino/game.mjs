@@ -42,10 +42,14 @@ function Dinosaur(x, dividerY) {
 	this.jumpVelocity = -1 * V_JUMP;
 }
 Dinosaur.prototype.draw = function (context) {
-	let oldFill = context.fillStyle;
-	context.fillStyle = "yellow";
-	context.fillRect(this.x, this.y, this.width, this.height);
-	context.fillStyle = oldFill;
+let oldFill = context.fillStyle;
+let img = new Image();
+img.src = '../../images/assets/pipboy.gif';
+img.onload = () => {
+    const size = Math.min(this.width, this.height);
+    context.drawImage(img, this.x, this.y, size, size);
+};
+context.fillStyle = oldFill;
 };
 Dinosaur.prototype.jump = function () {
 	this.vy = this.jumpVelocity;
