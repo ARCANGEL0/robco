@@ -3,7 +3,7 @@ import { boot } from "./screens.js";
 import { stopSpeaking } from "./speak.js";
 import pause from "./pause.js";
 	document.body.classList.toggle("fullscreen",true);
-power()
+
 
 /** Turn on the terminal */
 async function on() {
