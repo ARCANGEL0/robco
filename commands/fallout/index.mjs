@@ -346,7 +346,7 @@ let projetos = document.createElement("a");
 			// remove all a tags and put a text with p and an a tag in the end to take back to preciois page.. Remove text and restore a tag buttons 
 			   // Create a <p> element with a message
     const messageP = document.createElement('p');
-    messageP.innerText = projectsinfo
+    messageP.innerText = projectTitle
 const projectsTable = document.createElement('table');
 projectsTable.style.borderCollapse = 'collapse';
 
