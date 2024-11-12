@@ -147,14 +147,7 @@ a {
 /*********** PARTS OF THE SCREEN *************/
 
 #monitor {
-	margin: 3vmin auto;
-	padding: 5.5vmin;
-	width: min-content;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background: #3f3933;
-	border-radius: 0.5rem;
+	background: none;
 }
 #monitor:not(.off) {
 	box-shadow: 0.6px 90px 110px -60px var(--bg); /* screen glow */
@@ -557,20 +550,10 @@ input:checked + .slider:before {
 		display: none;
 	}
 	#slider {
-		display: initial;
-		position: fixed;
-		top: 50%;
-		right: 50%;
-		opacity: 1;
-		transition: top 1s ease-out, right 1s ease-out,
-			opacity 1s ease-out;
-		animation: glow 3s ease-in-out infinite;
+		display: none;
 	}
 	#slider.on {
-		top: 10px;
-		right: 10px;
-		opacity: 0.2;
-		animation: none;
+		display: none;
 	}
 }
 
