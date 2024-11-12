@@ -12,12 +12,12 @@ const output = [
 	"   ",
 	"Textures......................... OK",
 	"Character models................. OK",
-	"Generating dungeon............... OK"
+	"Generating wasteland............... OK"
 ];
 
 async function brogue() {
 	clear();
-	say("BROGUE", 0.5, 0.8);
+	say("ROGUE", 0.5, 0.8);
 	return new Promise(async resolve => {
 		// LOGO
 		let logoScreen = await showTemplateScreen("logo");
@@ -71,7 +71,7 @@ async function brogue() {
 	});
 }
 
-const templates = ["brogue"];
+const templates = ["rogue"];
 
 export default brogue;
 export { output, templates };
