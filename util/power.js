@@ -4,7 +4,7 @@ import { stopSpeaking } from "./speak.js";
 import pause from "./pause.js";
 	document.body.classList.toggle("fullscreen",true);
 power()
-boot()
+
 /** Turn on the terminal */
 async function on() {
 	click();
