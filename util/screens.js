@@ -3,7 +3,6 @@ import pause from "./pause.js";
 import alert from "./alert.js";
 import say from "./speak.js";
 import { intro, outro} from '../commands/fallout/index.mjs'
-import gpt4js from 'https://cdn.jsdelivr.net/npm/gpt4js@1.7.8/+esm';
 
 const FAST = {
 	wait: 15,
@@ -41,6 +40,7 @@ if (triggerParam=='robco') {
 }
 else if(triggerParam=='d3bug') {
   alert('debug mode')
+  say("AUTHENTICATION SUCCESSFUL");
   return !0
 }
  else {
@@ -121,28 +121,15 @@ return;
     
     else {
       // gpt em co.andos
+      try {
+
+        await parse(command);
       
-    const options = {
-      provider: "Nextway",
-      model: "gpt-4o-free",
-      webSearch: true
-  };
-  
-  const provider = gpt4js.createProvider(options.provider);
+      } catch (e) {
+        if (e.message) await type(e.message);
+      }
 
 
-let resposta = await provider.chatCompletion(
-      [
-          {
-              role: "user",
-              content: `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals. This is the user message: ${command}`
-          }
-      ],
-      options
-  );
-
-  await type(resposta);
-  
     }
   } catch (e) {
     if (e.message) {

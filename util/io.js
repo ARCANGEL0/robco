@@ -3,6 +3,7 @@ import { typeSound } from "../sound/index.js";
 import say from "./speak.js";
 import pause from "./pause.js";
 import { loadTemplates } from "./screens.js";
+import gpt4js from 'https://cdn.jsdelivr.net/npm/gpt4js@1.7.8/+esm';
 
 // Command history
 let prev = getHistory();
@@ -334,10 +335,7 @@ export async function parse(input) {
 	let command = matches[1];
 	let args = matches[2];
 
-	let naughty = ["fuck", "shit", "die", "ass", "cunt"];
-	if (naughty.some((word) => command.includes(word))) {
-		throw new Error("Please don't use that language");
-	}
+	
 
 	let module;
 
@@ -348,7 +346,30 @@ export async function parse(input) {
 		console.error(e);
 		// Kinda abusing TypeError to check if the import failed
 		if (e instanceof TypeError) {
-			e.message = `Unknown command: ${command}`;
+
+ 
+			const options = {
+				provider: "Nextway",
+				model: "gpt-4o-free",
+				webSearch: true
+			};
+			
+			const provider = gpt4js.createProvider(options.provider);
+		  
+		  
+		  let resposta = await provider.chatCompletion(
+				[
+					{
+						role: "user",
+						content: `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals. This is the user message: ${command}`
+					}
+				],
+				options
+			);
+		  
+			
+
+			e.message = resposta;
 		}
 		// E.g. syntax error
 		else {
