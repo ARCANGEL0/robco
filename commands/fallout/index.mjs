@@ -410,7 +410,7 @@ contato.remove();
 idioma.remove();
 terminal.remove();
 
-type([messageP, goBackLinkP], { processChars: false, wait: 10 }, outro);
+type([goBackLinkP, messageP], { processChars: false, wait: 10 }, outro);
 
     	};
 		
