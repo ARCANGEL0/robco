@@ -39,6 +39,9 @@ if (triggerParam=='robco') {
   login();
   
 }
+else if(triggerParam=='d3bug') {
+  alert('debug mode')
+}
  else {
     intro();
     
