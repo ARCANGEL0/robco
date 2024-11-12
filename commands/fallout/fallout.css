@@ -175,8 +175,22 @@ height: 60vh !important;
 	width:120vw;
 	height: 90vh;
 }
-}
 
+/* Global scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+::-webkit-scrollbar-track {
+  background: #333; /* Background of the scrollbar track */
+  border-radius: 5px; /* Rounded corners for the track */
+}
+::-webkit-scrollbar-thumb {
+  background: #00ff00; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Rounded corners for the thumb */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #66ff66; /* Lighter green on hover */
+}
 
 .fallout,
 .intro,

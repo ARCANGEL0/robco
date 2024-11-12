@@ -355,12 +355,15 @@ messageP.innerText = projectTitle;
 const scrollableContainer = document.createElement('div');
 scrollableContainer.style.overflowY = 'auto';
 scrollableContainer.style.maxHeight = '60vh';
-scrollableContainer.style.border = '1px solid #ccc';
+scrollableContainer.style.border = '5px solid #00ff00'; // Bright green border for the terminal look
 scrollableContainer.style.padding = '10px';
+scrollableContainer.style.backgroundColor = '#1a1a1a'; // Dark background for the terminal
+scrollableContainer.style.color = '#00ff00'; // Bright green text
+
 
 const projectsTable = document.createElement('table');
 projectsTable.style.borderCollapse = 'collapse';
-projectsTable.style.maxWidth = '40vw';
+projectsTable.style.maxWidth = '70vw';
 projectsTable.style.wordWrap = 'break-word';
 
 const projs = [
@@ -381,6 +384,7 @@ projs.forEach(projk => {
     typeCellP.style.padding = '5px';
     typeCellP.style.border = '1px solid #008000';
     typeCellP.style.whiteSpace = 'normal';
+    typeCellP.style.minWidth = '10vw';
 
     typeCellP.innerHTML = `<a href="${projk.link}" target="_blank">${projk.name}</a>`;
     linkCellP.style.padding = '5px';
