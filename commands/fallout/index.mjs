@@ -405,7 +405,7 @@ type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { pr
     terminal.remove();
 
     // Append the message and "Go Back" link to the 'outro' element
-type([message, goBackLink], { processChars: false , wait: 10 }, outro);
+type([messageP, goBackLinkP], { processChars: false , wait: 10 }, outro);
     
 			
 			
