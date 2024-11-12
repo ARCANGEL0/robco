@@ -39,8 +39,9 @@ if (triggerParam=='robco') {
   
 }
 else if(triggerParam=='d3bug') {
+  say("DEBUG MODE ACTIVATED");
   alert('debug mode')
-  say("AUTHENTICATION SUCCESSFUL");
+ 
   return !0
 }
  else {

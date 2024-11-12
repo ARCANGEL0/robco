@@ -16,15 +16,9 @@
 		}
 	</style>
 <pre>
-  ▀█████████▄     ▄████████  ▄██████▄     ▄██████▄  ███    █▄     ▄████████ 
-    ███    ███   ███    ███ ███    ███   ███    ███ ███    ███   ███    ███ 
-    ███    ███   ███    ███ ███    ███   ███    █▀  ███    ███   ███    █▀  
-   ▄███▄▄▄██▀   ▄███▄▄▄▄██▀ ███    ███  ▄███        ███    ███  ▄███▄▄▄     
-  ▀▀███▀▀▀██▄  ▀▀███▀▀▀▀▀   ███    ███ ▀▀███ ████▄  ███    ███ ▀▀███▀▀▀     
-    ███    ██▄ ▀███████████ ███    ███   ███    ███ ███    ███   ███    █▄  
-    ███    ███   ███    ███ ███    ███   ███    ███ ███    ███   ███    ███ 
-  ▄█████████▀    ███    ███  ▀██████▀    ████████▀  ████████▀    ██████████ 
-         ███    ███                                                 
+	▒█▀▀█ █▀▀█ █▀▀▄ ▒█▀▀█ █░░█ █▀▀ █▀▀ ▀▀█▀▀ 
+	▒█▄▄▀ █▄▄█ █░░█ ▒█░▒█ █░░█ █▀▀ ▀▀█ ░░█░░ 
+	▒█░▒█ ▀░░▀ ▀▀▀░ ░▀▀█▄ ░▀▀▀ ▀▀▀ ▀▀▀ ░░▀░░
 </pre>
 
 	<div class="enter">--- PRESS ENTER ---</div>
@@ -32,17 +26,44 @@
 
 <!-- prettier-ignore -->
 <template id="intro" data-type="true">
-You are the Bro, dude!
-You threw a totally rad party last night and have a bad case of the
-munchies right now.
-
-Go check some of the boxes in your mom's basement for pizza.
-Oh and btw, watch out for Pedro, he's a real bum.
-
-Controls:
-Space - check box
-Arrow keys - move
+    <div class="intro-text"></div>
+    <div class="controls-text"></div>
 </template>
+
+<script>
+    const introMessages = {
+        en: {
+            intro: "Welcome, Wasteland Wanderer! You threw a totally rad party last night and now you're suffering from a serious case of the munchies.",
+            objective: "Go check some of the boxes in the ruins for Stimpaks and Radaways.",
+            warning: "Oh, and watch out for the Super Mutants; they're no joke!",
+            controls: "Controls:\nSpace - Check box\nArrow keys - Move"
+        },
+        pt: {
+            intro: "Bem-vindo, Viajante do Deserto! Você fez uma festa incrível na noite passada e agora está sofrendo de uma séria vontade de comer.",
+            objective: "Vá verificar algumas caixas nas ruínas em busca de Stimpaks e Radaways.",
+            warning: "Ah, e cuidado com os Super Mutantes; eles não são brincadeira!",
+            controls: "Controles:\nEspaço - Verificar caixa\nSetas - Mover"
+        },
+        fr: {
+            intro: "Bienvenue, Vagabond du Wasteland! Vous avez organisé une fête incroyable la nuit dernière et maintenant vous souffrez d'une envie de grignoter.",
+            objective: "Allez fouiller quelques caisses dans les ruines à la recherche de Stimpaks et Radaways.",
+            warning: "Oh, et faites attention aux Super Mutants; ils ne rigolent pas !",
+            controls: "Contrôles:\nEspace - Vérifier la boîte\nFlèches - Déplacer"
+        },
+        es: {
+            intro: "¡Bienvenido, Errante del Yermo! Hiciste una fiesta increíble anoche y ahora estás sufriendo de un serio antojo.",
+            objective: "Ve a revisar algunas cajas en las ruinas en busca de Stimpaks y Radaways.",
+            warning: "Ah, y ten cuidado con los Super Mutantes; ¡no son un chiste!",
+            controls: "Controles:\nEspacio - Revisar caja\nFlechas - Mover"
+        }
+    };
+
+    const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    const introMessage = introMessages[selectedLanguage];
+
+    document.querySelector('.intro-text').innerText = introMessage.intro + "\n\n" + introMessage.objective + "\n" + introMessage.warning;
+    document.querySelector('.controls-text').innerText = introMessage.controls;
+</script>
 
 <template id="layout">
 	<style>
