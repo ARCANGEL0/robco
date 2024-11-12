@@ -673,9 +673,9 @@ type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { pr
       
 		gifImage2.src = "images/me.gif";
 
-gifImage2.style.height = "5vh"
+gifImage2.style.height = "42vh"
 
-gifImage2.style.width = "8vw"
+gifImage2.style.width = "58vw"
 		  
 gifImage2.style.display = "block";
 gifImage2.style.margin = "0 auto";
