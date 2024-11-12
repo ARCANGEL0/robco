@@ -43,7 +43,7 @@ function Dinosaur(x, dividerY) {
 }
 // Load the image once
 const pipboyImage = new Image();
-pipboyImage.src = '../../images/assets/pipboy.gif';
+pipboyImage.src = './images/assets/pipboy.gif';
 
 Dinosaur.prototype.draw = function (context) {
     const size = Math.min(this.width, this.height);
