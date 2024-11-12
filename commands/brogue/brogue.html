@@ -32,31 +32,31 @@
 
 <script>
     const introMessages = {
-        en: {
-            intro: "Welcome, Wasteland Wanderer! You threw a totally rad party last night and now you're suffering from a serious case of the munchies.",
-            objective: "Go check some of the boxes in the ruins for Stimpaks and Radaways.",
-            warning: "Oh, and watch out for the Super Mutants; they're no joke!",
-            controls: "Controls:\nSpace - Check box\nArrow keys - Move"
-        },
-        pt: {
-            intro: "Bem-vindo, Viajante do Deserto! Você fez uma festa incrível na noite passada e agora está sofrendo de uma séria vontade de comer.",
-            objective: "Vá verificar algumas caixas nas ruínas em busca de Stimpaks e Radaways.",
-            warning: "Ah, e cuidado com os Super Mutantes; eles não são brincadeira!",
-            controls: "Controles:\nEspaço - Verificar caixa\nSetas - Mover"
-        },
-        fr: {
-            intro: "Bienvenue, Vagabond du Wasteland! Vous avez organisé une fête incroyable la nuit dernière et maintenant vous souffrez d'une envie de grignoter.",
-            objective: "Allez fouiller quelques caisses dans les ruines à la recherche de Stimpaks et Radaways.",
-            warning: "Oh, et faites attention aux Super Mutants; ils ne rigolent pas !",
-            controls: "Contrôles:\nEspace - Vérifier la boîte\nFlèches - Déplacer"
-        },
-        es: {
-            intro: "¡Bienvenido, Errante del Yermo! Hiciste una fiesta increíble anoche y ahora estás sufriendo de un serio antojo.",
-            objective: "Ve a revisar algunas cajas en las ruinas en busca de Stimpaks y Radaways.",
-            warning: "Ah, y ten cuidado con los Super Mutantes; ¡no son un chiste!",
-            controls: "Controles:\nEspacio - Revisar caja\nFlechas - Mover"
-        }
-    };
+    en: {
+        intro: ">>> Welcome, Vault Dweller! Initializing RobCo Rogue-Like Simulation...",
+        objective: ">>> Objective: Scavenge for Stimpaks and Radaway to survive. Locate the exit before Super Mutants or Raiders find you.",
+        warning: ">>> WARNING: Hostiles detected in the area. Proceed with extreme caution.",
+        controls: ">>> Controls:\n[SPACE] - Search area\n[ARROW KEYS] - Move\n>>> Stay alert, Vault Dweller."
+    },
+    pt: {
+        intro: ">>> Bem-vindo, Morador do Vault! Inicializando Simulação Rogue-Like da RobCo...",
+        objective: ">>> Objetivo: Vasculhe em busca de Stimpaks e Radaway para sobreviver. Encontre a saída antes que os Super Mutantes ou Saqueadores o encontrem.",
+        warning: ">>> AVISO: Hostis detectados na área. Prossiga com extrema cautela.",
+        controls: ">>> Controles:\n[ESPAÇO] - Vasculhar área\n[TECLAS DE SETA] - Mover\n>>> Fique alerta, Morador do Vault."
+    },
+    fr: {
+        intro: ">>> Bienvenue, Habitant de l’Abri ! Initialisation de la Simulation Rogue-Like de RobCo...",
+        objective: ">>> Objectif : Fouillez pour des Stimpaks et Radaway afin de survivre. Trouvez la sortie avant que les Super Mutants ou les Pillards ne vous trouvent.",
+        warning: ">>> AVERTISSEMENT : Présence d’hostiles détectée. Progressez avec une extrême prudence.",
+        controls: ">>> Contrôles:\n[ESPACE] - Fouiller la zone\n[FLÈCHES] - Se déplacer\n>>> Restez vigilant, Habitant de l’Abri."
+    },
+    es: {
+        intro: ">>> Bienvenido, Morador del Refugio! Inicializando Simulación Rogue-Like de RobCo...",
+        objective: ">>> Objetivo: Rebusca Stimpaks y Radaway para sobrevivir. Encuentra la salida antes de que los Super Mutantes o los Saqueadores te encuentren.",
+        warning: ">>> ADVERTENCIA: Hostiles detectados en la zona. Procede con extrema precaución.",
+        controls: ">>> Controles:\n[ESPACIO] - Buscar área\n[FLECHAS] - Moverse\n>>> Mantente alerta, Morador del Refugio."
+    }
+};
 
     const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
     const introMessage = introMessages[selectedLanguage];
