@@ -86,6 +86,13 @@ const messages = {
 // Function to retrieve the correct language-based message
 const getMessage = (key) => messages[selectedLanguage][key];
 
+// Load player and mutant images
+const playerImage = new Image();
+playerImage.src = './images/assets/rogueBoy.png';
+
+const mutantImage = new Image();
+mutantImage.src = './images/assets/mutant.png';
+
 const nope = () => {
 	let answers = getMessage("nope");
 	return answers[Math.floor(Math.random() * answers.length)];
@@ -103,22 +110,11 @@ class Player {
 
 		this.game.message(getMessage("start"));
 
-		document
-			.querySelector(".up")
-			.addEventListener("click", () => this.move(0, -1));
-		document
-			.querySelector(".right")
-			.addEventListener("click", () => this.move(1, 0));
-		document
-			.querySelector(".left")
-			.addEventListener("click", () => this.move(-1, 0));
-		document
-			.querySelector(".down")
-			.addEventListener("click", () => this.move(0, 1));
-
-		document
-			.querySelector(".mid")
-			.addEventListener("click", () => this._checkBox());
+		document.querySelector(".up").addEventListener("click", () => this.move(0, -1));
+		document.querySelector(".right").addEventListener("click", () => this.move(1, 0));
+		document.querySelector(".left").addEventListener("click", () => this.move(-1, 0));
+		document.querySelector(".down").addEventListener("click", () => this.move(0, 1));
+		document.querySelector(".mid").addEventListener("click", () => this._checkBox());
 	}
 
 	act() {
@@ -212,7 +208,7 @@ class Game {
 	walls = {};
 	display = null;
 	player = null;
-	Mutant = null;
+	mutant = null;
 	ananas = null;
 
 	constructor(settings = {}) {
@@ -222,7 +218,7 @@ class Game {
 
 		let scheduler = new ROT.Scheduler.Simple();
 		scheduler.add(this.player, true);
-		scheduler.add(this.Mutant, true);
+		scheduler.add(this.mutant, true);
 		this.engine = new ROT.Engine(scheduler);
 		this.engine.start();
 
@@ -282,7 +278,7 @@ class Game {
 
 		this._generateBoxes(freeCells);
 		this.player = this._createDuder(Player, freeCells);
-		this.Mutant = this._createDuder(Mutant, freeCells);
+		this.mutant = this._createDuder(Mutant, freeCells);
 		this._drawWholeMap();
 	}
 
@@ -292,9 +288,11 @@ class Game {
 		let [cx, cy] = this.player.coords;
 		let topLeftX = Math.max(0, cx - width / 2);
 		topLeftX = Math.min(topLeftX, this.mapWidth - width);
-
 		let topLeftY = Math.max(0, cy - height / 2);
 		topLeftY = Math.min(topLeftY, this.mapHeight - height);
+
+		let cellWidth = this.display._options.fontSize;
+		let cellHeight = this.display._options.fontSize;
 
 		for (let x = topLeftX; x < topLeftX + width; x++) {
 			for (let y = topLeftY; y < topLeftY + height; y++) {
@@ -313,10 +311,24 @@ class Game {
 			}
 		}
 
-		this.display.draw(cx - topLeftX, cy - topLeftY, "B", "yellow");
+		// Draw player image
+		this.display.getContainer().getContext('2d').drawImage(
+			playerImage,
+			(cx - topLeftX) * cellWidth,
+			(cy - topLeftY) * cellHeight,
+			cellWidth,
+			cellHeight
+		);
 
-		let [px, py] = this.Mutant.coords;
-		this.display.draw(px - topLeftX, py - topLeftY, "P", "red");
+		// Draw mutant image
+		let [mx, my] = this.mutant.coords;
+		this.display.getContainer().getContext('2d').drawImage(
+			mutantImage,
+			(mx - topLeftX) * cellWidth,
+			(my - topLeftY) * cellHeight,
+			cellWidth,
+			cellHeight
+		);
 	}
 
 	_generateBoxes(freeCells) {
