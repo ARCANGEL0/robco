@@ -356,8 +356,7 @@ const scrollableContainer = document.createElement('div');
 scrollableContainer.style.overflowY = 'auto';
 scrollableContainer.style.maxHeight = '60vh';
 scrollableContainer.style.border = '0px solid #00ff00'; // Bright green border for the terminal look
-scrollableContainer.style.padding = '10px';
-scrollableContainer.style.backgroundColor = '#1a1a1a'; // Dark background for the terminal
+scrollableContainer.style.padding = '30px';
 scrollableContainer.style.color = '#00ff00'; // Bright green text
 
 
