@@ -1,5 +1,21 @@
 const ROT = window.ROT;
 
+const keyMap = {
+	38: 0,
+	33: 1,
+	39: 2,
+	34: 3,
+	40: 4,
+	35: 5,
+	37: 6,
+	36: 7
+};
+
+const WALL = "▦";
+const CLEAR = " ";
+const BOX = "▣";
+const EMPTY_BOX = "□";
+
 // Retrieve the selected language from localStorage
 const selectedLanguage = localStorage.getItem("selectedLanguage") || "en";
 
