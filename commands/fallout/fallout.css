@@ -176,22 +176,25 @@ height: 60vh !important;
 	height: 90vh;
 }
 
-/* Global scrollbar styles */
 ::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
+  width: 16px; /* Width of the scrollbar */
+  background: rgba(30, 30, 30, 0.8); /* Dark background for the scrollbar */
 }
 ::-webkit-scrollbar-track {
-  background: #333; /* Background of the scrollbar track */
-  border-radius: 5px; /* Rounded corners for the track */
+  background: linear-gradient(to bottom, rgba(44, 44, 44, 0.5), rgba(30, 30, 30, 0.5)); /* Gradient for the track */
+  border-radius: 10px; /* Rounded corners for the track */
 }
 ::-webkit-scrollbar-thumb {
-  background: #00ff00; /* Color of the scrollbar thumb */
-  border-radius: 5px; /* Rounded corners for the thumb */
+  background: rgba(0, 255, 0, 0.7); /* Light green for the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.5); /* Glowing effect */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #66ff66; /* Lighter green on hover */
+  background: rgba(0, 255, 0, 1); /* Brighter green on hover */
+  box-shadow: 0 0 20px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.7); /* Stronger glowing effect on hover */
+  transform: scale(1.1); /* Slightly enlarge the thumb on hover */
 }
-
 .fallout,
 .intro,
 .outro {
@@ -361,8 +364,8 @@ margin-bottom: 7px;
   left:0;
   right:0;
   bottom:0;
- background:linear-gradient(45deg,transparent 3%,#00E6F6 3%,#00E6F60 5%,#FF013C 5%);
-  text-shadow:-3px -3px 0px #F8F005,3px 3px 0px #1C2E007C;
+ background:linear-gradient(45deg,transparent 3%,#00E6F6 3%, #0E6F60 5%,#FF013C 5%);
+  text-shadow: -3px -3px 0px #F8F005,3px 3px 0px #1C2E007C;
   clip-path:var(--slice-0);
   
 }
@@ -445,7 +448,7 @@ button:hover::after{
   box-shadow:6px 0px 0px #5bf870;
   
   margin-top: 7.5px;
-  Margin-left: 5px;pos
+  Margin-left: 5px;
   overflow: hidden; 
   
   background:none;
@@ -480,7 +483,7 @@ clip-path: polygon(0 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0% 25%);
   --slice-5:inset(80% -6px 5% 0
   );
   
-  background:linear-gradient(45deg,transparent 3%,#00E6F6 3%,#00E6F60 5%,#FF013C 5%);
+  background:linear-gradient(45deg,transparent 3%,#00E6F6 3%, #0E6F60 5%,#FF013C 5%);
 
   text-shadow:-3px -3px 0px #F8F005,3px 3px 0px #1C2E007C;
   clip-path:var(--slice-0);
