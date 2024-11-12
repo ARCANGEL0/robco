@@ -348,26 +348,27 @@ let projetos = document.createElement("a");
 		projetos.innerText = btnproject;
 		projetos.classList.add("btn-project")
 		projetos.href = "#";
-		projetos.onclick = () => {
-			// remove all a tags and put a text with p and an a tag in the end to take back to preciois page.. Remove text and restore a tag buttons 
-			   // Create a <p> element with a message
-    const messageP = document.createElement('p');
-    messageP.innerText = projectTitle
+		projetos.onclick = () => {	
+      const messageP = document.createElement('p');
+messageP.innerText = projectTitle;
+
+const scrollableContainer = document.createElement('div');
+scrollableContainer.style.overflowY = 'auto';
+scrollableContainer.style.maxHeight = '60vh';
+scrollableContainer.style.border = '1px solid #ccc';
+scrollableContainer.style.padding = '10px';
+
 const projectsTable = document.createElement('table');
 projectsTable.style.borderCollapse = 'collapse';
-projectsTable.style.maxWidth = '40vw'; // Set maximum width to 40% of the viewport width
-projectsTable.style.wordWrap = 'break-word'; // Allow text to wrap within cells
-// Contact entries
+projectsTable.style.maxWidth = '40vw';
+projectsTable.style.wordWrap = 'break-word';
+
 const projs = [
-    { type: bytesec, name:'ByteSec-MD', link:
-    'https://github.com/ARCANGEL0/ByteSec-MD' },
-    { type: flowmvc , name: 'flowManager', link:
-    'https://github.com/ARCANGEL0/flowManager' },
-    { type: termlink, name: 'Robco.TERMLINK', link:
-    'https://github.com/robco-termlink' },
-    { type: 'Email',name:'henry.arcangello', link: 'mailto:rick_arcangelo@hotmail.com,henry.arcangello@proton.me,henry.arcangello@gmail.com' },
-    { type: 'LinkedIn', name:'Henrique Arcangelo', link:
-    'https://www.linkedin.com/in/henryarcangelo/' },
+    { type: bytesec, name:'ByteSec-MD', link: 'https://github.com/ARCANGEL0/ByteSec-MD' },
+    { type: flowmvc , name: 'flowManager', link: 'https://github.com/ARCANGEL0/flowManager' },
+    { type: termlink, name: 'Robco.TERMLINK', link: 'https://github.com/robco-termlink' },
+    { type: 'Email', name:'henry.arcangello', link: 'mailto:rick_arcangelo@hotmail.com,henry.arcangello@proton.me,henry.arcangello@gmail.com' },
+    { type: 'LinkedIn', name:'Henrique Arcangelo', link: 'https://www.linkedin.com/in/henryarcangelo/' },
     { type: 'Hack The Box', name:'0x0C1053F', link: 'https://app.hackthebox.com/profile/126962' },
 ];
 
@@ -379,47 +380,39 @@ projs.forEach(projk => {
     linkCellP.innerText = projk.type;
     typeCellP.style.padding = '5px';
     typeCellP.style.border = '1px solid #008000';
-    typeCellP.style.whiteSpace = 'normal'; // Allow text to wrap
+    typeCellP.style.whiteSpace = 'normal';
 
     typeCellP.innerHTML = `<a href="${projk.link}" target="_blank">${projk.name}</a>`;
     linkCellP.style.padding = '5px';
     linkCellP.style.border = '1px solid #008000';
-    linkCellP.style.whiteSpace = 'normal'; // Allow text to wrap
+    linkCellP.style.whiteSpace = 'normal';
 });
 
-// Append the contact form to the message
-messageP.appendChild(projectsTable);
+scrollableContainer.appendChild(projectsTable);
+messageP.appendChild(scrollableContainer);
 
-    // Create a "Go Back" <a> tag
-    const goBackLinkP = document.createElement("a");
-    goBackLinkP.innerText = btnreturn;
-    goBackLinkP.classList.add("btnReturn")
-    goBackLinkP.href = "#";
-    goBackLinkP.onclick = () => {
-        // Remove the message and "Go Back" link and restore the "Logout" and "Contact" buttons
-        messageP.remove();
-        goBackLinkP.remove();
-        // outro.appendChild(logout);
-        // outro.appendChild(contato);
-type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { processChars: false , wait: 10 }, outro);
-    };
+const goBackLinkP = document.createElement("a");
+goBackLinkP.innerText = btnreturn;
+goBackLinkP.classList.add("btnReturn");
+goBackLinkP.href = "#";
+goBackLinkP.onclick = () => {
+    messageP.remove();
+    goBackLinkP.remove();
+    type([inicio, sobre, galeria, projetos, contato, idioma, terminal, logout], { processChars: false, wait: 10 }, outro);
+};
 
-    // Remove the "Logout" and "Contact" buttons
-    inicio.remove();
-    sobre.remove();
-    galeria.remove();
-    logout.remove();
-    projetos.remove();
-    contato.remove();
-    idioma.remove();
-    terminal.remove();
+inicio.remove();
+sobre.remove();
+galeria.remove();
+logout.remove();
+projetos.remove();
+contato.remove();
+idioma.remove();
+terminal.remove();
 
-    // Append the message and "Go Back" link to the 'outro' element
-type([messageP, goBackLinkP], { processChars: false , wait: 10 }, outro);
-    
-			
-			
-		};
+type([messageP, goBackLinkP], { processChars: false, wait: 10 }, outro);
+
+    	};
 		
 		
 		let galeria = document.createElement("a");
@@ -683,10 +676,10 @@ type([inicio, sobre, galeria, projetos, contato,idioma, terminal, logout ], { pr
 
 gifImage2.style.height = "36vh"
 
-gifImage2.style.width = "66vw"
+gifImage2.style.width = "48vw"
 		  
 gifImage2.style.display = "block";
-gifImage2.style.margin = "0 auto";
+gifImage2.style.margin = "0 5vw";
 		   
 		  
 
