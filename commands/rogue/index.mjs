@@ -15,7 +15,7 @@ const output = [
 	"Generating wasteland............... OK"
 ];
 
-async function brogue() {
+async function rogue() {
 	clear();
 	say("ROGUE", 0.5, 0.8);
 	return new Promise(async resolve => {
@@ -73,5 +73,5 @@ async function brogue() {
 
 const templates = ["rogue"];
 
-export default brogue;
+export default rogue;
 export { output, templates };
