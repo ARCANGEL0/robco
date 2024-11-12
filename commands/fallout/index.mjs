@@ -154,7 +154,7 @@ function changeLanguage(language) {
   if (language === 'pt') {
      contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. DADOS DE USUARIO\\nLENDO INFORMACOES_DE_CONTACTO\n\n"
  
-  projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETOS.F'
+  projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETOS.F\n\n'
     bytesec = 'ByteSec-MD é um bot de WhatsApp inspirado em "Mr. Robot", onde os usuários mergulham em uma experiência narrativa de hacking. Faça escolhas, desafie o status quo digital e decida: "Você é um 1 ou um 0?"'
  btnhome = '[INICIO]';
  btnsobre = '[SOBRE]';
@@ -178,7 +178,7 @@ homeReturn = "--- PRESSIONE PARA CONTINUAR ---"
     // Add translations in Spanish here
     
  contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. DATOS DE USUARIO\\nLEYENDO INFORMACIÓN_DE_CONTACTO\n\n"
-     projectTitle = '>SET ROUTE/PATH=GET:ASC PROYECTOS.F'
+     projectTitle = '>SET ROUTE/PATH=GET:ASC PROYECTOS.F\n\n'
 bytesec = 'ByteSec-MD es un bot de WhatsApp inspirado en "Mr. Robot", donde los usuarios se sumergen en una experiencia narrativa de hacking. Toma decisiones, desafía el status quo digital y decide: "¿Eres un 1 o un 0?"'
  btnhome = '[INICIO]';
  btnsobre = '[ACERCA DE]';
@@ -200,7 +200,7 @@ btnproject = "[PROYECTOS]";
  homeReturn = "--- PRESIONE PARA CONTINUAR ---"
   } else if (language === 'fr') {
     // Add translations in French here
-    projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETS.F'
+    projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETS.F\n\n'
 bytesec = 'ByteSec-MD est un bot WhatsApp inspiré de "Mr. Robot", où les utilisateurs plongent dans une expérience narrative de hacking. Faites des choix, défiez le statu quo numérique et décidez : "Êtes-vous un 1 ou un 0 ?"'
  contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. DONNÉES UTILISATEUR\\nLECTURE INFORMATIONS_DE_CONTACT\n\n";
  btnhome = '[ACCUEIL]';
@@ -224,7 +224,7 @@ homeReturn = "--- APPUYEZ POUR CONTINUER ---"
 
   } else {
     // Default language (English)
-    projectTitle = '>SET ROUTE/PATH=GET:ASC PROJECTS.F'
+    projectTitle = '>SET ROUTE/PATH=GET:ASC PROJECTS.F\n\n'
 bytesec = 'ByteSec-MD is a WhatsApp bot inspired by "Mr. Robot," where users dive into a narrative-driven hacking experience. Make choices, challenge the digital status quo, and decide: "Are you a 1 or a 0?"'
     contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. USER DATA\\nREADING CONTACT_INFORMATION\n\n";
     btnhome = '[HOME]';
@@ -349,7 +349,8 @@ let projetos = document.createElement("a");
     messageP.innerText = projectTitle
 const projectsTable = document.createElement('table');
 projectsTable.style.borderCollapse = 'collapse';
-
+projectsTable.style.maxWidth = '40vw'; // Set maximum width to 40% of the viewport width
+projectsTable.style.wordWrap = 'break-word'; // Allow text to wrap within cells
 // Contact entries
 const projs = [
     { type: bytesec, name:'ByteSec-MD', link:
@@ -367,15 +368,16 @@ projs.forEach(projk => {
     const typeCellP = rowP.insertCell();
     const linkCellP = rowP.insertCell();
 
-    typeCellP.innerText = projk.type;
+    linkCellP.innerText = projk.type;
     typeCellP.style.padding = '5px';
     typeCellP.style.border = '1px solid #008000';
+    typeCellP.style.whiteSpace = 'normal'; // Allow text to wrap
 
-    linkCellP.innerHTML = `<a href="${projk.link}" target="_blank">${projk.name}</a>`;
+    typeCellP.innerHTML = `<a href="${projk.link}" target="_blank">${projk.name}</a>`;
     linkCellP.style.padding = '5px';
     linkCellP.style.border = '1px solid #008000';
+    linkCellP.style.whiteSpace = 'normal'; // Allow text to wrap
 });
-
 
 // Append the contact form to the message
 messageP.appendChild(projectsTable);
