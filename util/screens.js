@@ -41,6 +41,7 @@ if (triggerParam=='robco') {
 }
 else if(triggerParam=='d3bug') {
   alert('debug mode')
+  return !0
 }
  else {
     intro();
@@ -113,7 +114,12 @@ if (element) {
     element.remove();
 }
 return; 
-    } else {
+    } 
+    
+    
+    
+    
+    else {
       // gpt em co.andos
       
     const options = {
