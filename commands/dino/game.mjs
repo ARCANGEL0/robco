@@ -41,15 +41,13 @@ function Dinosaur(x, dividerY) {
 	this.vy = 0;
 	this.jumpVelocity = -1 * V_JUMP;
 }
+// Load the image once
+const pipboyImage = new Image();
+pipboyImage.src = '../../images/assets/pipboy.gif';
+
 Dinosaur.prototype.draw = function (context) {
-let oldFill = context.fillStyle;
-let img = new Image();
-img.src = '../../images/assets/pipboy.gif';
-img.onload = () => {
     const size = Math.min(this.width, this.height);
-    context.drawImage(img, this.x, this.y, size, size);
-};
-context.fillStyle = oldFill;
+    context.drawImage(pipboyImage, this.x, this.y, size, size);
 };
 Dinosaur.prototype.jump = function () {
 	this.vy = this.jumpVelocity;
