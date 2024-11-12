@@ -138,7 +138,7 @@ function generateDynamicLine(char = "━") {
 
 
 
-let homeReturn, projectTitle, btnproject, bytesec,flowmvc, edgarbot, btnhome, btnsobre, btngal, btncontact, btnlang, btnreturn, sitext,sobretexto,hometexto,contactinfo, bbnsite, bbnvid
+let homeReturn, projectTitle, btnproject,termlink, bytesec,flowmvc, edgarbot, btnhome, btnsobre, btngal, btncontact, btnlang, btnreturn, sitext,sobretexto,hometexto,contactinfo, bbnsite, bbnvid
 function updateTexts() {
 		  inicio.innerText = btnhome
 		  sobre.innerText = btnsobre
@@ -153,7 +153,7 @@ function changeLanguage(language) {
   
   if (language === 'pt') {
      contactinfo = "[TERMLINK PROTOCOL]\n> RIT-V300. DADOS DE USUARIO\nLENDO INFORMACOES_DE_CONTACTO\n\n"
- 
+ termlink = "Robco.TERMLINK é um script em Python que emula o sistema de autenticação de terminal da série de jogos Fallout. Além de trazer o clima de Fallout, ele inclui funcionalidades integradas e personalizáveis em sua console RobCo, como ativar serviços do sistema, ler journalctl, um editor de texto e muito mais, tornando a inicialização do bash nostálgica e funcional."
   projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETOS.F\n\n'
   flowmvc = 'FlowManager é um painel financeiro desenvolvido em Laravel usando a estrutura MVC, projetado para ajudar os usuários a gerenciar receitas e despesas, gerando relatórios mensais e anuais em PDF. Ele fornece uma visão organizada das atividades financeiras, sendo uma ferramenta útil para rastreamento e relatório financeiro.'
     bytesec = 'ByteSec-MD é um bot de WhatsApp inspirado em "Mr. Robot", onde os usuários mergulham em uma experiência narrativa de hacking. Faça escolhas, desafie o status quo digital e decida: "Você é um 1 ou um 0?"'
@@ -177,7 +177,7 @@ function changeLanguage(language) {
 homeReturn = "--- PRESSIONE PARA CONTINUAR ---" 
 } else if (language === 'es') {
     // Add translations in Spanish here
-    
+    termlink = "Robco.TERMLINK es un script en Python que emula el sistema de autenticación de terminal de la serie de juegos Fallout. No solo aporta la atmósfera de Fallout, sino que también incluye funciones integradas y personalizables en su consola RobCo, como activar servicios del sistema, leer journalctl, un editor de texto, y mucho más, haciendo que la inicialización de tu bash sea tanto nostálgica como funcional."
  contactinfo = "[TERMLINK PROTOCOL]\n> RIT-V300. DATOS DE USUARIO\nLEYENDO INFORMACIÓN_DE_CONTACTO\n\n"
  flowmvc = 'FlowManager es un panel financiero desarrollado en Laravel utilizando la estructura MVC, diseñado para ayudar a los usuarios a gestionar ingresos y gastos, generando informes mensuales y anuales en formato PDF. Ofrece una visión organizada de las actividades financieras, convirtiéndose en una herramienta útil para el seguimiento y reporte financiero.'
      projectTitle = '>SET ROUTE/PATH=GET:ASC PROYECTOS.F\n\n'
@@ -203,6 +203,7 @@ btnproject = "[PROYECTOS]";
   } else if (language === 'fr') {
     // Add translations in French here
     projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETS.F\n\n'
+    termlink ="Robco.TERMLINK est un script Python qui émule le système d'authentification de terminal de la série de jeux Fallout. Non seulement il apporte l'ambiance de Fallout, mais il inclut également des fonctionnalités intégrées et modifiables sur sa console RobCo, telles que l'activation de services système, la lecture de journalctl, un éditeur de texte, et bien plus encore, rendant l'initialisation de votre bash à la fois nostalgique et fonctionnelle."
 bytesec = 'ByteSec-MD est un bot WhatsApp inspiré de "Mr. Robot", où les utilisateurs plongent dans une expérience narrative de hacking. Faites des choix, défiez le statu quo numérique et décidez : "Êtes-vous un 1 ou un 0 ?"'
  contactinfo = "[TERMLINK PROTOCOL]\n> RIT-V300. DONNÉES UTILISATEUR\nLECTURE INFORMATIONS_DE_CONTACT\n\n";
  flowmvc ="FlowManager est un tableau de bord financier développé en Laravel avec la structure MVC, conçu pour aider les utilisateurs à gérer les revenus et les dépenses tout en générant des rapports PDF mensuels et annuels. Il fournit une vue d'ensemble organisée des activités financières, en faisant un outil utile pour le suivi et le reporting financiers."
@@ -230,6 +231,7 @@ homeReturn = "--- APPUYEZ POUR CONTINUER ---"
     flowmvc="FlowManager is a financial dashboard developed in Laravel using the MVC structure, designed to help users manage income and expenses while generating monthly and annual PDF reports. It provides an organized overview of financial activities, making it a useful tool for financial tracking and reporting."
     projectTitle = '>SET ROUTE/PATH=GET:ASC PROJECTS.F\n\n'
 bytesec = 'ByteSec-MD is a WhatsApp bot inspired by "Mr. Robot," where users dive into a narrative-driven hacking experience. Make choices, challenge the digital status quo, and decide: "Are you a 1 or a 0?"'
+termlink = "Robco.TERMLINK is a Python script that emulates the terminal authentication system from the Fallout game series. Not only does it deliver Fallout vibes, but it also includes built-in and customizable features on its RobCo console, like switching on system services, reading journalctl, a text editor, and more—making your bash initialization both nostalgic and functional."
     contactinfo = "[TERMLINK PROTOCOL]\n> RIT-V300. USER DATA\nREADING CONTACT_INFORMATION\n\n";
     btnhome = '[HOME]';
     btnsobre = '[ABOUT]';
@@ -361,7 +363,8 @@ const projs = [
     'https://github.com/ARCANGEL0/ByteSec-MD' },
     { type: flowmvc , name: 'flowManager', link:
     'https://github.com/ARCANGEL0/flowManager' },
-    { type: 'Website',name: 'Arcangelo.net', link: 'https://arcangelo.net' },
+    { type: termlink, name: 'Robco.TERMLINK', link:
+    'https://github.com/robco-termlink' },
     { type: 'Email',name:'henry.arcangello', link: 'mailto:rick_arcangelo@hotmail.com,henry.arcangello@proton.me,henry.arcangello@gmail.com' },
     { type: 'LinkedIn', name:'Henrique Arcangelo', link:
     'https://www.linkedin.com/in/henryarcangelo/' },
