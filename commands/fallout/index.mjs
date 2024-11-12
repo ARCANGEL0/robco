@@ -138,7 +138,7 @@ function generateDynamicLine(char = "━") {
 
 
 
-let homeReturn, projectTitle, btnproject, bytesec, edgarbot, btnhome, btnsobre, btngal, btncontact, btnlang, btnreturn, sitext,sobretexto,hometexto,contactinfo, bbnsite, bbnvid
+let homeReturn, projectTitle, btnproject, bytesec,flowmvc, edgarbot, btnhome, btnsobre, btngal, btncontact, btnlang, btnreturn, sitext,sobretexto,hometexto,contactinfo, bbnsite, bbnvid
 function updateTexts() {
 		  inicio.innerText = btnhome
 		  sobre.innerText = btnsobre
@@ -152,9 +152,10 @@ function changeLanguage(language) {
   
   
   if (language === 'pt') {
-     contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. DADOS DE USUARIO\\nLENDO INFORMACOES_DE_CONTACTO\n\n"
+     contactinfo = "[TERMLINK PROTOCOL]\n> RIT-V300. DADOS DE USUARIO\nLENDO INFORMACOES_DE_CONTACTO\n\n"
  
   projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETOS.F\n\n'
+  flowmvc = 'FlowManager é um painel financeiro desenvolvido em Laravel usando a estrutura MVC, projetado para ajudar os usuários a gerenciar receitas e despesas, gerando relatórios mensais e anuais em PDF. Ele fornece uma visão organizada das atividades financeiras, sendo uma ferramenta útil para rastreamento e relatório financeiro.'
     bytesec = 'ByteSec-MD é um bot de WhatsApp inspirado em "Mr. Robot", onde os usuários mergulham em uma experiência narrativa de hacking. Faça escolhas, desafie o status quo digital e decida: "Você é um 1 ou um 0?"'
  btnhome = '[INICIO]';
  btnsobre = '[SOBRE]';
@@ -177,7 +178,8 @@ homeReturn = "--- PRESSIONE PARA CONTINUAR ---"
 } else if (language === 'es') {
     // Add translations in Spanish here
     
- contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. DATOS DE USUARIO\\nLEYENDO INFORMACIÓN_DE_CONTACTO\n\n"
+ contactinfo = "[TERMLINK PROTOCOL]\n> RIT-V300. DATOS DE USUARIO\nLEYENDO INFORMACIÓN_DE_CONTACTO\n\n"
+ flowmvc = 'FlowManager es un panel financiero desarrollado en Laravel utilizando la estructura MVC, diseñado para ayudar a los usuarios a gestionar ingresos y gastos, generando informes mensuales y anuales en formato PDF. Ofrece una visión organizada de las actividades financieras, convirtiéndose en una herramienta útil para el seguimiento y reporte financiero.'
      projectTitle = '>SET ROUTE/PATH=GET:ASC PROYECTOS.F\n\n'
 bytesec = 'ByteSec-MD es un bot de WhatsApp inspirado en "Mr. Robot", donde los usuarios se sumergen en una experiencia narrativa de hacking. Toma decisiones, desafía el status quo digital y decide: "¿Eres un 1 o un 0?"'
  btnhome = '[INICIO]';
@@ -202,7 +204,8 @@ btnproject = "[PROYECTOS]";
     // Add translations in French here
     projectTitle = '>SET ROUTE/PATH=GET:ASC PROJETS.F\n\n'
 bytesec = 'ByteSec-MD est un bot WhatsApp inspiré de "Mr. Robot", où les utilisateurs plongent dans une expérience narrative de hacking. Faites des choix, défiez le statu quo numérique et décidez : "Êtes-vous un 1 ou un 0 ?"'
- contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. DONNÉES UTILISATEUR\\nLECTURE INFORMATIONS_DE_CONTACT\n\n";
+ contactinfo = "[TERMLINK PROTOCOL]\n> RIT-V300. DONNÉES UTILISATEUR\nLECTURE INFORMATIONS_DE_CONTACT\n\n";
+ flowmvc ="FlowManager est un tableau de bord financier développé en Laravel avec la structure MVC, conçu pour aider les utilisateurs à gérer les revenus et les dépenses tout en générant des rapports PDF mensuels et annuels. Il fournit une vue d'ensemble organisée des activités financières, en faisant un outil utile pour le suivi et le reporting financiers."
  btnhome = '[ACCUEIL]';
  btnsobre = '[À PROPOS]';
  btngal = '[GALERIE]';
@@ -224,9 +227,10 @@ homeReturn = "--- APPUYEZ POUR CONTINUER ---"
 
   } else {
     // Default language (English)
+    flowmvc="FlowManager is a financial dashboard developed in Laravel using the MVC structure, designed to help users manage income and expenses while generating monthly and annual PDF reports. It provides an organized overview of financial activities, making it a useful tool for financial tracking and reporting."
     projectTitle = '>SET ROUTE/PATH=GET:ASC PROJECTS.F\n\n'
 bytesec = 'ByteSec-MD is a WhatsApp bot inspired by "Mr. Robot," where users dive into a narrative-driven hacking experience. Make choices, challenge the digital status quo, and decide: "Are you a 1 or a 0?"'
-    contactinfo = "[TERMLINK PROTOCOL]\\n> RIT-V300. USER DATA\\nREADING CONTACT_INFORMATION\n\n";
+    contactinfo = "[TERMLINK PROTOCOL]\n> RIT-V300. USER DATA\nREADING CONTACT_INFORMATION\n\n";
     btnhome = '[HOME]';
     btnsobre = '[ABOUT]';
     btngal = '[GALLERY]';
@@ -355,7 +359,8 @@ projectsTable.style.wordWrap = 'break-word'; // Allow text to wrap within cells
 const projs = [
     { type: bytesec, name:'ByteSec-MD', link:
     'https://github.com/ARCANGEL0/ByteSec-MD' },
-    { type: 'WhatsApp/Phone ', name: '+351 927285125', link: 'https://github.com/ARCANGEL0/' },
+    { type: flowmvc , name: 'flowManager', link:
+    'https://github.com/ARCANGEL0/flowManager' },
     { type: 'Website',name: 'Arcangelo.net', link: 'https://arcangelo.net' },
     { type: 'Email',name:'henry.arcangello', link: 'mailto:rick_arcangelo@hotmail.com,henry.arcangello@proton.me,henry.arcangello@gmail.com' },
     { type: 'LinkedIn', name:'Henrique Arcangelo', link:
