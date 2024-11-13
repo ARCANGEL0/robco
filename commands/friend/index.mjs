@@ -63,11 +63,11 @@ async function friend() {
     */
     
     
-        displayOutput("test display", gameScreen)
+        
           
 
         let getReply = await input();
-        type(getReply)
+        await type(getReply)
 
     
 	
