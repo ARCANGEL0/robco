@@ -129,18 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 }
 
-restartButton.addEventListener("click", function () {
-    score = 0;
-    updateScore();
-    snakeB = [
-        { x: 160, y: 200 },
-        { x: 140, y: 200 },
-        { x: 120, y: 200 },
-    ];
-    direction = { x: cellSize, y: 0 };
-    snake();
-    restartButton.style.display = "none"; // 재시작 버튼 숨기기
-});
+
+
 
 document.addEventListener("keydown", changeDirection);
 snake();
