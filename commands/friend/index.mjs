@@ -6,31 +6,32 @@ import friendRPG from './game.mjs';
 import pause from "../../util/pause.js";
 
 async function friend() {
-    await type('L o a d i n g. . . ');
-
-    clear();
-
   
-
+  
+	clear();
+	say("Hi, elliot", 0.3, 0.8);
+	await type('L o a d i n g. . . ');
+	return new Promise(async resolve => {
+		// LOGO
+		clear()
 		let logoScreen = await showTemplateScreen("logo");
 		pause(2);
 
 		await waitForKey();
 		logoScreen.remove();
-		
-    let gameScreen = getScreen("friend");
+
+
+		// Main game screen
+		let gameScreen = getScreen("friend");
 
 		// Create the output for messages
 		let output = document.createElement("div");
 		output.classList.add("output");
-	addTemplate("console", gameScreen);
-		
-		let body = getComputedStyle(document.body);
+		gameScreen.appendChild(output);
 
-
-    
-    
-/*
+		addTemplate("console", gameScreen);
+	
+	/*
     // Set up the main game screen and output container
     const gameScreen = getScreen("console");
     const outputContainer = document.createElement("div");
@@ -62,6 +63,12 @@ async function friend() {
     */
     
     displayOutput("testing",output)
+	
+	
+	
+	});
+    
+
 }
 
 
