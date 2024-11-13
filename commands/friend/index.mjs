@@ -63,7 +63,6 @@ async function friend() {
     */
     
     
-        await type("testing type")
         displayOutput("test display", gameScreen)
           
 
@@ -124,7 +123,8 @@ async function friend() {
         if (event.key === "Enter") {
             const input = inputField.value;
             inputField.value = ''; // Clear input field after submitting
-  await type(input)
+            displayOutput(input, gameScreen)
+          
         }
     })
 gameScreen.appendChild(inputField);
