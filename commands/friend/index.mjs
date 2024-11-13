@@ -31,6 +31,7 @@ async function friend() {
 		// Create the output for messages
 		let output = document.createElement("div");
 		output.classList.add("output");
+        output.style.padding = "8vh 2vw"; // Setting the padding
 		gameScreen.appendChild(output);
 
 		addTemplate("console", gameScreen);
@@ -69,11 +70,14 @@ async function friend() {
     await type('teste')
         let reply = await getReply();
         clear()
+        reply.remove()
         await type('pergunta 2')
         let reply2 = await getReply();
+        reply2.remove()
         clear()
         await type('pergunta 3')
         let reply3 = await getReply();
+        reply3.remove()
 
 	
 	});
