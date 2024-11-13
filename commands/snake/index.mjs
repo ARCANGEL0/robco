@@ -6,7 +6,7 @@ const boardSize = 400;
 const cellSize = 20;
 
 let score = 0; // 점수를 저장하는 변수
-let snake = [
+let snakeB = [
   { x: 160, y: 200 },
   { x: 140, y: 200 },
   { x: 120, y: 200 },
@@ -26,7 +26,7 @@ function placeFood() {
     x: Math.floor(Math.random() * (boardSize / cellSize)) * cellSize,
     y: Math.floor(Math.random() * (boardSize / cellSize)) * cellSize,
   };
-  snake.forEach(function isFoodOnSnake(segment) {
+  snakeB.forEach(function isFoodOnSnake(segment) {
     if (segment.x === food.x && segment.y === food.y) {
       placeFood();
     }
@@ -35,7 +35,7 @@ function placeFood() {
 }
 
 function moveSnake() {
-  const newHead = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+  const newHead = { x: snakeB[0].x + direction.x, y: snakeB[0].y + direction.y };
 
   if (checkGameOver()) {
     endGame();
@@ -61,12 +61,12 @@ function moveSnake() {
   }
 
   snake.unshift(newHead);
-  if (snake[0].x === food.x && snake[0].y === food.y) {
+  if (snakeB[0].x === food.x && snakeB[0].y === food.y) {
     score += 100; // 음식을 먹을 때마다 점수 증가
     updateScore();
     placeFood(); // 푸드를 다시 배치
   } else {
-    snake.pop(); // 뱀의 꼬리를 제거
+    snakeB.pop(); // 뱀의 꼬리를 제거
   }
   updateBoard();
 }
@@ -78,8 +78,8 @@ function endGame() {
 }
 
 function checkGameOver() {
-  for (let i = 4; i < snake.length; i++) {
-    if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+  for (let i = 4; i < snakeB.length; i++) {
+    if (snakeB[i].x === snakeB[0].x && snakeB[i].y === snakeB[0].y) {
       return true; // 뱀이 자신의 몸에 닿았는지 확인
     }
   }
@@ -92,7 +92,7 @@ function updateScore() {
 
 function updateBoard() {
   board.innerHTML = "";
-  snake.forEach((segment, index) => {
+  snakeB.forEach((segment, index) => {
     const snakeElement = document.createElement("div");
     snakeElement.style.left = `${segment.x}px`;
     snakeElement.style.top = `${segment.y}px`;
@@ -131,7 +131,7 @@ function changeDirection(event) {
 restartButton.addEventListener("click", function () {
   score = 0;
   updateScore();
-  snake = [
+  snakeB = [
     { x: 160, y: 200 },
     { x: 140, y: 200 },
     { x: 120, y: 200 },
