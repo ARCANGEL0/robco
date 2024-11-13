@@ -301,91 +301,70 @@ button {
 	color: var(--dark);
 }
 #controls {
-	width: 100%;
-	margin-top: 2em;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+
+	display: none;
+	
 }
 
 #volume {
-	position: relative;
-	color: #888;
-	font-variant: small-caps;
+	
+	display: none;
+	
 }
 #volume:after {
-	position: absolute;
-	content: "volume";
-	bottom: -1.5rem;
-	width: 100%;
-	left: 0;
-	text-align: center;
+	
+	display: none;
+	
 }
 #dial-container {
-	display: inline-block;
-	padding: 5px;
-	transform: rotate(-130deg);
+	
+	display: none;
+	
 }
 #dial {
-	outline: none;
-	display: inline-block;
-	width: 5rem;
-	height: 5rem;
-	border-radius: 50%;
-	border: 0.25rem solid var(--dark);
-	pointer-events: none;
+	
+	display: none;
+	
 }
 #dial-marks {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
+	
+	display: none;
+	
 }
 
 .knob_gfx {
-	pointer-events: auto;
-	-webkit-touch-callout: none;
-	user-select: none;
+
+	display: none;
+	
 }
 #monitor:not(.off) button:active,
 #monitor:not(.off) #themes button.active {
-	background-color: var(--color);
-	position: relative;
+
+	display: none;
+	
 }
 #monitor:not(.off) #themes button.active:before {
-	content: " ";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	box-shadow: 0.6px 0px 25px -3px var(--color);
-	left: 0;
-	top: 0;
-	border-radius: 50%;
+	
+	display: none;
+	
 }
 
 #themes {
-	display: flex;
-	flex-direction: column;
+
+	display: none;
+	
 }
 
 #themes button {
-	width: 3rem;
-	height: 3rem;
-	margin: 0.5rem;
-	border: 0.25rem solid var(--dark);
-	border-radius: 50%;
-	box-shadow: inset 0 0 10px 0 #000;
-	cursor: pointer;
-	outline: none;
+	
+	display: none;
+	
 }
 
 #power {
-	display: flex;
-	align-items: flex-end;
+	
+	display: none;
+	
 }
 
 #fullscreen {
@@ -438,36 +417,12 @@ button[data-theme="blue"] {
 	z-index: 999;
 }
 
-.post-it {
-	transform: rotate(3deg);
-	line-height: 1;
-	text-align: center;
-	padding: 1rem;
-	border: 1px solid #e8e8e8;
-	font-family: "Permanent Marker", cursive;
-	font-size: 1rem;
-	color: #333;
-	border-bottom-right-radius: 40px 14px;
-	display: inline-block;
-	background: #ffff88;
-	background: linear-gradient(
-		135deg,
-		#ffff88 81%,
-		#ffff88 82%,
-		#ffff88 82%,
-		#ffffc6 100%
-	);
-	transition-property: left top transform;
-	transition-duration: 0.5s;
-	transition-timing-function: ease-in-out;
-	cursor: pointer;
-}
-.post-it:hover {
-	border-bottom-left-radius: 20px 5px;
-	border-bottom-right-radius: 40px 28px;
-}
+.post-it,
+.post-it:hover,
 .post-it.fly {
-	transform: translate(-5rem, 10rem) rotate(270deg);
+	
+	display: none;
+	
 }
 
 /*********** SLIDER ********************/
