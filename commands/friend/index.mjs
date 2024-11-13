@@ -74,6 +74,8 @@ img.src = "./images/assets/start.png";
 img.style.width = "40vw";
 img.style.height = "25vh";
 
+img.style.marginLeft = "5vw";
+
 exitHeader.appendChild(img);
 terminal.appendChild(exitHeader);
 
@@ -88,10 +90,10 @@ terminal.appendChild(input);
         let reply = await getReply();
         clear()
         
-        await type('pergunta 2')
+        await type('pergunta 2', exitHeader)
         let reply2 = await getReply();
         clear()
-        await type('pergunta 3')
+        await type('pergunta 3', exitHeader)
         let reply3 = await getReply();
         
 	
