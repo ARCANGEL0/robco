@@ -1,9 +1,5 @@
 const ROT = window.ROT;
-
-// Retrieve the selected language from localStorage
 const selectedLanguage = localStorage.getItem("selectedLanguage") || "en";
-
-// Multilingual messages for the game
 const messages = {
 	en: {
 		nope: [
@@ -83,26 +79,13 @@ const messages = {
 	}
 };
 
-// Function to retrieve the correct language-based message
 const getMessage = (key) => messages[selectedLanguage][key];
-
-const keyMap = {
-	38: 0,
-	33: 1,
-	39: 2,
-	34: 3,
-	40: 4,
-	35: 5,
-	37: 6,
-	36: 7
-};
-
+const keyMap = { 38: 0, 33: 1, 39: 2, 34: 3, 40: 4, 35: 5, 37: 6, 36: 7 };
 const WALL = "▦";
 const CLEAR = " ";
 const BOX = "▣";
 const EMPTY_BOX = "□";
 
-// Load player and mutant images
 const playerImage = new Image();
 playerImage.src = './images/assets/rogueBoy.png';
 
@@ -123,9 +106,7 @@ class Player {
 		this._x = x;
 		this._y = y;
 		this.game = game;
-
 		this.game.message(getMessage("start"));
-
 		document.querySelector(".up").addEventListener("click", () => this.move(0, -1));
 		document.querySelector(".right").addEventListener("click", () => this.move(1, 0));
 		document.querySelector(".left").addEventListener("click", () => this.move(-1, 0));
@@ -162,7 +143,6 @@ class Player {
 		let newX = this._x + dx;
 		let newY = this._y + dy;
 		let newKey = newX + "," + newY;
-
 		if (!(newKey in this.game.map)) return;
 		this._x = newX;
 		this._y = newY;
@@ -172,11 +152,9 @@ class Player {
 
 	async _checkBox() {
 		let key = this.key;
-
 		if (key === this.game.ananas) {
 			this.game.engine.lock();
 			window.removeEventListener("keydown", this.handleEvent);
-
 			await this.game.alert(getMessage("winner"));
 			this.game.quit();
 		} else if (this.game.map[key] === BOX) {
@@ -209,17 +187,14 @@ class Pedro {
 
 	async act() {
 		let [x, y] = this.game.player.coords;
-
 		let passableCallback = (x, y) => x + "," + y in this.game.map;
 		let astar = new ROT.Path.AStar(x, y, passableCallback, { topology: 4 });
-
 		let path = [];
 		let pathCallback = function(x, y) {
 			path.push([x, y]);
 		};
 		astar.compute(this._x, this._y, pathCallback);
-
-		path.shift(); // Remove Pedro's current position
+		path.shift();
 		if (path.length === 1) {
 			this.game.engine.lock();
 			await this.game.alert(getMessage("death"));
@@ -231,7 +206,6 @@ class Pedro {
 		}
 	}
 }
-
 class Game {
 	map = {};
 	walls = {};
@@ -245,8 +219,6 @@ class Game {
 
 	constructor(settings = {}) {
 		this.settings = settings;
-
-		// Create the ROT display
 		this.display = new ROT.Display({
 			fontFamily: "VT323",
 			...settings
@@ -254,14 +226,12 @@ class Game {
 
 		this._generateMap();
 
-		// Turn scheduler
 		let scheduler = new ROT.Scheduler.Simple();
 		scheduler.add(this.player, true);
 		scheduler.add(this.pedro, true);
 		this.engine = new ROT.Engine(scheduler);
 		this.engine.start();
 
-		// Show game
 		let canvas = this.display.getContainer();
 		canvas.classList.add("game");
 		settings.container.appendChild(canvas);
@@ -317,8 +287,8 @@ class Game {
 	_drawWholeMap() {
 		let { width, height } = this.settings;
 		let [cx, cy] = this.player.coords;
+		let [px, py] = this.pedro.coords;
 
-		// Calculate view boundaries
 		let topLeftX = Math.max(0, cx - width / 2);
 		topLeftX = Math.min(topLeftX, this.mapWidth - width);
 		let topLeftY = Math.max(0, cy - height / 2);
@@ -339,8 +309,8 @@ class Game {
 			}
 		}
 
-		// Draw player image
-		this.display.getContainer().getContext('2d').drawImage(
+		let ctx = this.display.getContainer().getContext('2d');
+		ctx.drawImage(
 			playerImage,
 			(cx - topLeftX) * cellWidth,
 			(cy - topLeftY) * cellHeight,
@@ -348,9 +318,7 @@ class Game {
 			cellHeight
 		);
 
-		// Draw Pedro (mutant) image
-		let [px, py] = this.pedro.coords;
-		this.display.getContainer().getContext('2d').drawImage(
+		ctx.drawImage(
 			mutantImage,
 			(px - topLeftX) * cellWidth,
 			(py - topLeftY) * cellHeight,
