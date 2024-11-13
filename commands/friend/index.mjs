@@ -65,10 +65,60 @@ async function friend() {
     
         await type("testing type")
         displayOutput("test display", gameScreen)
-            const inputField = document.createElement("input");
+          
 
-         inputField.type = "text";
-    inputField.classList.add("terminal-input");
+        const inputField = document.createElement("input");
+        inputField.type = "text";
+        inputField.classList.add("terminal-input");
+        
+        const inputContainer = document.createElement("div");
+        inputContainer.classList.add("input-container");
+        
+        const arrow = document.createElement("span");
+        arrow.classList.add("arrow");
+        arrow.textContent = ">";
+        
+        const blinkingCursor = document.createElement("span");
+        blinkingCursor.classList.add("blinking-cursor");
+        blinkingCursor.textContent = "_";
+        
+        inputContainer.appendChild(inputField);
+        inputContainer.appendChild(arrow);
+        inputContainer.appendChild(blinkingCursor);
+        document.body.appendChild(inputContainer);
+        
+        const style = document.createElement("style");
+        style.textContent = `
+            .terminal-input {
+                padding: 10px 5px;
+                background-color: transparent;
+                border: none;
+                color: #333;
+                outline: none;
+                font-size: 16px;
+                position: relative;
+            }
+            .input-container {
+                display: inline-flex;
+                align-items: center;
+            }
+            .arrow {
+                font-size: 20px;
+                color: #4CAF50;
+                margin-left: 5px;
+            }
+            .blinking-cursor {
+                font-size: 20px;
+                color: #4CAF50;
+                margin-left: 5px;
+                animation: blink 1s step-start infinite;
+            }
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
 
     inputField.addEventListener("keydown", async (event) => {
         if (event.key === "Enter") {
