@@ -75,8 +75,9 @@ async function friend() {
             inputField.value = ''; // Clear input field after submitting
   await type(input)
         }
-    });
-
+    })
+gameScreen.appendChild(inputField);
+    inputField.focus();
 
     
 	
