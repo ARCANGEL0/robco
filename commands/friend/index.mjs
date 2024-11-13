@@ -3,12 +3,21 @@
 import { getScreen, showTemplateScreen, addTemplate, clear } from "../../util/screens.js";
 import { type, waitForKey } from "../../util/io.js";
 import friendRPG from './game.mjs';
+import pause from "../../util/pause.js";
 
 async function friend() {
     await type('L o a d i n g. . . ');
 
     clear();
-  
+let gameScreen = getScreen("friend");
+
+		// Create the output for messages
+		let output = document.createElement("div");
+		output.classList.add("output");
+	addTemplate("console", gameScreen);
+		
+		let body = getComputedStyle(document.body);
+
   
     await showTemplateScreen("logo"); // Display the logo template
     await waitForKey(); // Wait for the player to press a key to continue
@@ -49,11 +58,11 @@ async function friend() {
 }
 
 
-function displayOutput(output) {
-    const term = document.querySelector(".terminal .output");
-    const el = document.createElement("pre");
-    el.innerHTML = output;
-    term.appendChild(el);
+async function displayOutput(output) {
+  
+		output.innerHTML = "";
+				await type(output, { initialWait: 0 }, output);
+				await pause(2);
 }
 
 const templates = ["friend"];
