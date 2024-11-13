@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let food = { x: 300, y: 200 };
   let gameInterval;
 
-  function snake() {
+  function snakeT() {
     gameInterval = setInterval(moveSnake, 100);
     placeFood();
   }
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("keydown", changeDirection);
-snake();
+snakeT();
 });
 
 
