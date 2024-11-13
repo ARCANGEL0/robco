@@ -75,15 +75,13 @@ terminal.appendChild(input);
     await type('teste')
         let reply = await getReply();
         clear()
-        reply.remove()
+        
         await type('pergunta 2')
         let reply2 = await getReply();
-        reply2.remove()
         clear()
         await type('pergunta 3')
         let reply3 = await getReply();
-        reply3.remove()
-
+        
 	
 	});
     
