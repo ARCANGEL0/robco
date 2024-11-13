@@ -9,7 +9,13 @@ async function friend() {
     await type('L o a d i n g. . . ');
 
     clear();
-let gameScreen = getScreen("friend");
+
+  
+    await showTemplateScreen("logo"); // Display the logo template
+    await waitForKey(); // Wait for the player to press a key to continue
+	logoScreen.remove();
+    
+    let gameScreen = getScreen("friend");
 
 		// Create the output for messages
 		let output = document.createElement("div");
@@ -18,11 +24,9 @@ let gameScreen = getScreen("friend");
 		
 		let body = getComputedStyle(document.body);
 
-  
-    await showTemplateScreen("logo"); // Display the logo template
-    await waitForKey(); // Wait for the player to press a key to continue
 
-    clear();
+    
+    
 /*
     // Set up the main game screen and output container
     const gameScreen = getScreen("console");
