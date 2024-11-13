@@ -2,7 +2,7 @@
 
 import { getScreen, showTemplateScreen, addTemplate, clear } from "../../util/screens.js";
 import { type, waitForKey,input, cleanInput,isPrintable } from "../../util/io.js";
-import friendRPG from './game.mjs';
+import eXit from './game.mjs';
 import pause from "../../util/pause.js";
 import { typeSound } from "../../sound/index.js"
 import say from "../../util/speak.js";
@@ -36,34 +36,7 @@ async function friend() {
 
 		addTemplate("console", gameScreen);
 	
-	/*
-    // Set up the main game screen and output container
-    const gameScreen = getScreen("console");
-    const outputContainer = document.createElement("div");
-    outputContainer.classList.add("output");
-    gameScreen.appendChild(outputContainer);
-
-  
-
-    // Set up input handling
-    const inputField = document.createElement("input");
-    inputField.type = "text";
-    inputField.classList.add("terminal-input");
-
-    inputField.addEventListener("keydown", async (event) => {
-        if (event.key === "Enter") {
-            const input = inputField.value;
-            inputField.value = ''; // Clear input field after submitting
-
-            const output = friendRPG(input);
-            displayOutput(output); // Display the result from friendRPG
-        }
-    });
-
-    gameScreen.appendChild(inputField);
-    inputField.focus();
-    */
-    
+	
     const terminal = document.querySelector(".output");
 
 const exitHeader = document.createElement("div");
@@ -101,78 +74,6 @@ terminal.appendChild(input);
     
 
 }
-
-/*
-async function getReply(pw) {
-	return new Promise((resolve) => {
-		// This handles all user input
-		const onKeyDown = (event) => {
-			typeSound();
-			// ENTER
-			if (event.keyCode === 13) {
-				event.preventDefault();
-				event.target.setAttribute(
-					"contenteditable",
-					false
-				);
-				let result = cleanInput(
-					event.target.textContent
-				);
-
-				resolve(result);
-			}
-			
-			// BACKSPACE
-			else if (event.keyCode === 8) {
-				// Prevent inserting a <br> when removing the last character
-				if (event.target.textContent.length === 1) {
-					event.preventDefault();
-					event.target.innerHTML = "";
-				}
-			}
-			// Check if character can be shown as output (skip if CTRL is pressed)
-			else if (isPrintable(event.keyCode) && !event.ctrlKey) {
-				event.preventDefault();
-				// Wrap the character in a span
-				let span = document.createElement("span");
-
-				let keyCode = event.keyCode;
-				let chrCode =
-					keyCode - 48 * Math.floor(keyCode / 48);
-				let chr = String.fromCharCode(
-					96 <= keyCode ? chrCode : keyCode
-				);
-				// Add span to the input
-				span.classList.add("char");
-				span.textContent = chr;
-				event.target.appendChild(span);
-
-				// For password field, fill the data-pw attr with asterisks
-				// which will be shown using CSS
-				if (pw) {
-					let length =
-						event.target.textContent.length;
-					event.target.setAttribute(
-						"data-pw",
-						Array(length).fill("*").join("")
-					);
-				}
-				moveCaretToEnd(event.target);
-			}
-		};
-
-		// Add input to terminal
-		let terminal = document.querySelector(".output");
-		let input = document.createElement("span");
-		input.setAttribute("id", "input");
-		
-		input.setAttribute("contenteditable", true);
-		input.addEventListener("keydown", onKeyDown);
-		terminal.appendChild(input);
-		input.focus();
-	});
-}
-    */
 
 async function getReply(pw) {
     return new Promise((resolve) => {

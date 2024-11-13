@@ -1,67 +1,85 @@
 // game.mjs
-
 const gameData = {
-        en: {
-            start: "You're trapped in a dungeon with your friend. You see a barrel. What do you do?",
-            pathA: "The barrel rolls aside and you find a secret tunnel. What do you do?",
-            pathB: "Your friend hands you a note. What do you do?",
-            pathA1: "You start to escape, but your friend is too weak to go. They hand you a note. What do you do?",
-            pathB1: "The note says 'Don't leave me here.' Do you want to leave your friend or stay?",
-            pathA2: "It is too dark to read the note. What do you do?",
-            pathA3: "You crawl through the tunnel to a beach. You see the water and the vast ocean ahead. What do you do?",
-            pathA4: "In the water, you see a boat. What do you do?",
-            easterEggEnding: "You won.",
-            freedomEnding: "Congratulations, you're heading to a new world!",
-            noteMessage: "The note says: 'Don't leave me here.'",
-            invalid: "You can't do this here.",
-            blockedPath: "The passage is now blocked. You can't go back."
-        },
-        es: {
-            start: "Estás atrapado en una mazmorra con tu amigo. Ves un barril. ¿Qué haces?",
-            pathA: "El barril rueda a un lado y encuentras un túnel secreto. ¿Qué haces?",
-            pathB: "Tu amigo te da una nota. ¿Qué haces?",
-            pathA1: "Comienzas a escapar, pero tu amigo está demasiado débil para ir. Te da una nota. ¿Qué haces?",
-            pathB1: "La nota dice 'No me dejes aquí'. ¿Quieres dejar a tu amigo o quedarte?",
-            pathA2: "Es demasiado oscuro para leer la nota. ¿Qué haces?",
-            pathA3: "Te arrastras por el túnel hasta una playa. Ves el agua y el vasto océano frente a ti. ¿Qué haces?",
-            pathA4: "En el agua, ves un bote. ¿Qué haces?",
-            easterEggEnding: "Has ganado.",
-            freedomEnding: "Felicidades, te diriges a un nuevo mundo!",
-            noteMessage: "La nota dice: 'No me dejes aquí.'",
-            invalid: "No puedes hacer esto aquí.",
-            blockedPath: "El pasaje está bloqueado. No puedes regresar."
-        },
-        fr: {
-            start: "Vous êtes piégé dans un donjon avec votre ami. Vous voyez un tonneau. Que faites-vous?",
-            pathA: "Le tonneau roule de côté et vous trouvez un tunnel secret. Que faites-vous?",
-            pathB: "Votre ami vous tend une note. Que faites-vous?",
-            pathA1: "Vous commencez à vous échapper, mais votre ami est trop faible pour partir. Il vous tend une note. Que faites-vous?",
-            pathB1: "La note dit 'Ne me laisse pas ici'. Voulez-vous laisser votre ami ou rester?",
-            pathA2: "Il fait trop sombre pour lire la note. Que faites-vous?",
-            pathA3: "Vous rampez à travers le tunnel jusqu'à une plage. Vous voyez l'eau et l'océan immense devant vous. Que faites-vous?",
-            pathA4: "Dans l'eau, vous voyez un bateau. Que faites-vous?",
-            easterEggEnding: "Vous avez gagné.",
-            freedomEnding: "Félicitations, vous vous dirigez vers un nouveau monde!",
-            noteMessage: "La note dit : 'Ne me laisse pas ici.'",
-            invalid: "Vous ne pouvez pas faire ça ici.",
-            blockedPath: "Le passage est maintenant bloqué. Vous ne pouvez pas revenir."
-        },
-        pt: {
-            start: "Você está preso em uma masmorra com seu amigo. Você vê um barril. O que você faz?",
-            pathA: "O barril rola para o lado e você encontra um túnel secreto. O que você faz?",
-            pathB: "Seu amigo lhe entrega uma nota. O que você faz?",
-            pathA1: "Você começa a escapar, mas seu amigo está fraco demais para ir. Ele te entrega uma nota. O que você faz?",
-            pathB1: "A nota diz 'Não me deixe aqui'. Você quer deixar seu amigo ou ficar?",
-            pathA2: "Está muito escuro para ler a nota. O que você faz?",
-            pathA3: "Você rasteja pelo túnel até uma praia. Você vê a água e o vasto oceano à frente. O que você faz?",
-            pathA4: "Na água, você vê um barco. O que você faz?",
-            easterEggEnding: "Você ganhou.",
-            freedomEnding: "Parabéns, você está indo para um novo mundo!",
-            noteMessage: "A nota diz: 'Não me deixe aqui.'",
-            invalid: "Você não pode fazer isso aqui.",
-            blockedPath: "A passagem está bloqueada. Não é possível voltar."
-        }
-    };
+    imgStart:'./images/assets/start.png' ,
+    imgA:'./images/assets/pathA.png' ,
+    imgB:'./images/assets/pathA1_B.png' ,
+    imgA1:'./images/assets/pathA1_B.png' ,
+    imgB1:'./images/assets/pathB1.png' ,
+    imgA2:'./images/assets/pathA2.png' ,
+    imgA3:'./images/assets/pathA3.png' ,
+    imgA4:'./images/assets/pathA4.png' ,
+    imgFail:'./images/assets/end.png' ,
+    imgWin:'./images/assets/win.png' ,
+    
+    en: {
+        start: "You're trapped in a dungeon with your friend. You see a barrel. What do you do?",
+        pathA: "The barrel rolls aside and you find a secret tunnel. What do you do?",
+        pathB: "Your friend hands you a note. What do you do?",
+        pathA1: "You start to escape, but your friend is too weak to go. They hand you a note. What do you do?",
+        pathB1: "The note says 'Don't leave me here.' Do you want to leave your friend or stay?",
+        pathA2: "It is too dark to read the note. What do you do?",
+        pathA3: "You crawl through the tunnel to a beach. You see the water and the vast ocean ahead. What do you do?",
+        pathA4: "In the water, you see a boat. What do you do?",
+        easterEggEnding: "You decided to stay with your friend. The tunnel collapsed and both of you got stuck. The dungeon started to fall in ruins, but you remained loyal beside your friend.",
+        freedomEnding: "Congratulations, you're heading to a new world!",
+        goodEnding1: "Congrats... Looks like you cracked Whiterose's enigma.",
+        goodEnding2: "You saved your friend.",
+        noteMessage: "The note says: 'Don't leave me here.'",
+        invalid: "You can't do this here.",
+        blockedPath: "The passage is now blocked. You can't go back."
+    },
+    es: {
+        start: "Estás atrapado en una mazmorra con tu amigo. Ves un barril. ¿Qué haces?",
+        pathA: "El barril rueda a un lado y encuentras un túnel secreto. ¿Qué haces?",
+        pathB: "Tu amigo te da una nota. ¿Qué haces?",
+        pathA1: "Comienzas a escapar, pero tu amigo está demasiado débil para ir. Te da una nota. ¿Qué haces?",
+        pathB1: "La nota dice 'No me dejes aquí'. ¿Quieres dejar a tu amigo o quedarte?",
+        pathA2: "Es demasiado oscuro para leer la nota. ¿Qué haces?",
+        pathA3: "Te arrastras por el túnel hasta una playa. Ves el agua y el vasto océano frente a ti. ¿Qué haces?",
+        pathA4: "En el agua, ves un bote. ¿Qué haces?",
+        easterEggEnding: "Decidiste quedarte con tu amigo. El túnel colapsó y ambos quedaron atrapados. La mazmorras comenzó a caer en ruinas, pero permaneciste leal junto a tu amigo.",
+        freedomEnding: "Felicidades, te diriges a un nuevo mundo!",
+        goodEnding1: "Felicidades... Parece que resolviste el enigma de Whiterose.",
+        goodEnding2: "Salvaste a tu amigo.",
+        noteMessage: "La nota dice: 'No me dejes aquí.'",
+        invalid: "No puedes hacer esto aquí.",
+        blockedPath: "El pasaje está bloqueado. No puedes regresar."
+    },
+    fr: {
+        start: "Vous êtes piégé dans un donjon avec votre ami. Vous voyez un tonneau. Que faites-vous?",
+        pathA: "Le tonneau roule de côté et vous trouvez un tunnel secret. Que faites-vous?",
+        pathB: "Votre ami vous tend une note. Que faites-vous?",
+        pathA1: "Vous commencez à vous échapper, mais votre ami est trop faible pour partir. Il vous tend une note. Que faites-vous?",
+        pathB1: "La note dit 'Ne me laisse pas ici'. Voulez-vous laisser votre ami ou rester?",
+        pathA2: "Il fait trop sombre pour lire la note. Que faites-vous?",
+        pathA3: "Vous rampez à travers le tunnel jusqu'à une plage. Vous voyez l'eau et l'océan immense devant vous. Que faites-vous?",
+        pathA4: "Dans l'eau, vous voyez un bateau. Que faites-vous?",
+        easterEggEnding: "Vous avez décidé de rester avec votre ami. Le tunnel s'est effondré et vous êtes restés coincés tous les deux. Le donjon a commencé à s'effondrer, mais vous êtes resté loyal auprès de votre ami.",
+        freedomEnding: "Félicitations, vous vous dirigez vers un nouveau monde!",
+        goodEnding1: "Félicitations... On dirait que vous avez résolu l'énigme de Whiterose.",
+        goodEnding2: "Vous avez sauvé votre ami.",
+        noteMessage: "La note dit : ' Ne me laisse pas ici.'",
+        invalid: "Vous ne pouvez pas faire ça ici.",
+        blockedPath: "Le passage est maintenant bloqué. Vous ne pouvez pas revenir."
+    },
+    pt: {
+        start: "Você está preso em uma masmorra com seu amigo. Você vê um barril. O que você faz?",
+        pathA: "O barril rola para o lado e você encontra um túnel secreto. O que você faz?",
+        pathB: "Seu amigo lhe entrega uma nota. O que você faz?",
+        pathA1: "Você começa a escapar, mas seu amigo está fraco demais para ir. Ele te entrega uma nota. O que você faz?",
+        pathB1: "A nota diz 'Não me deixe aqui'. Você quer deixar seu amigo ou ficar?",
+        pathA2: "Está muito escuro para ler a nota. O que você faz?",
+        pathA3: "Você rasteja pelo túnel até uma praia. Você vê a água e o vasto oceano à frente. O que você faz?",
+        pathA4: "Na água, você vê um barco. O que você faz?",
+        easterEggEnding: "Você decidiu ficar com seu amigo. O túnel desabou e ambos ficaram presos. A masmorra começou a cair em ruínas, mas você permaneceu leal ao lado de seu amigo.",
+        freedomEnding: "Parabéns, você está indo para um novo mundo!",
+        goodEnding1: "Parabéns... Parece que você resolveu o enigma de Whiterose.",
+        goodEnding2: "Você salvou seu amigo.",
+        noteMessage: "A nota diz: 'Não me deixe aqui.'",
+        invalid: "Você não pode fazer isso aqui.",
+        blockedPath: "A passagem está bloqueada. Não é possível voltar."
+    }
+};
 
     const options = {
     start: {
@@ -175,7 +193,7 @@ const gameData = {
 let currentStage = 'start';
 let hasTriedToReturn = false;
 
-function friendRPG(input) {
+function eXit(input) {
     const selectedLanguage = "en"; 
     const command = input.trim().toLowerCase();
 
@@ -275,4 +293,4 @@ function friendRPG(input) {
     
 }
 
-export default friendRPG;
+export default eXit;
