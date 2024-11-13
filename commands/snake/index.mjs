@@ -1,3 +1,5 @@
+function snake() {
+
 document.addEventListener("DOMContentLoaded", () => {
   const board = document.getElementById("game-board");
   const scoreElement = document.getElementById("score");
@@ -136,7 +138,10 @@ document.addEventListener("keydown", changeDirection);
 snake();
 });
 
+
+}
 const stylesheets = ["snake"];
 const templates = ["snake"];
 export { templates, stylesheets };
+
 export default snake;
