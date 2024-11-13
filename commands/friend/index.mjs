@@ -64,7 +64,12 @@ async function friend() {
     inputField.focus();
     */
     
-    
+    const terminal = document.querySelector(".output");
+const input = document.createElement("span");
+input.setAttribute("id", "input");
+input.setAttribute("contenteditable", true);
+terminal.appendChild(input);
+
         
           
     await type('teste')
@@ -158,7 +163,6 @@ async function getReply(pw) {
     */
 async function getReply(pw) {
     return new Promise((resolve) => {
-        // This handles all user input
         const onKeyDown = (event) => {
             typeSound();
             // ENTER
@@ -168,10 +172,8 @@ async function getReply(pw) {
                 resolve(result);
                 
                 // Clear the input after resolving
-                event.target.innerHTML = ""; // Clear the input
-                if (pw) {
-                    event.target.setAttribute("data-pw", "");
-                }
+                event.target.textContent = ""; // Clear the input
+             
                 moveCaretToEnd(event.target); // Move caret to the end
             }
             
@@ -180,47 +182,34 @@ async function getReply(pw) {
                 // Prevent inserting a <br> when removing the last character
                 if (event.target.textContent.length === 1) {
                     event.preventDefault();
-                    event.target.innerHTML = "";
+                    event.target.textContent = ""; // Clear the input
                 }
             }
             // Check if character can be shown as output (skip if CTRL is pressed)
             else if (isPrintable(event.keyCode) && !event.ctrlKey) {
                 event.preventDefault();
-                // Wrap the character in a span
-                let span = document.createElement("span");
-
+                // Get the character corresponding to the keyCode
                 let keyCode = event.keyCode;
                 let chrCode = keyCode - 48 * Math.floor(keyCode / 48);
                 let chr = String.fromCharCode(96 <= keyCode ? chrCode : keyCode);
                 
-                // Add span to the input
-                span.classList.add("char");
-                span.textContent = chr;
-                event.target.appendChild(span);
+                // Append the character directly to the input
+                event.target.textContent += chr;
 
                 // For password field, fill the data-pw attr with asterisks
                 // which will be shown using CSS
-                if (pw) {
-                    let length = event.target.textContent.length;
-                    event.target.setAttribute("data-pw", Array(length).fill("*").join(""));
-                }
+        
                 moveCaretToEnd(event.target);
             }
         };
 
-        // Add input to terminal
-        let terminal = document.querySelector(".output");
-        let input = document.createElement("span");
-        input.setAttribute("id", "input");
-        input.setAttribute("contenteditable", true);
+        // Clear previous input before setting the focus
+        input.textContent = ""; // Clear the input field
         input.addEventListener("keydown", onKeyDown);
-        
-        // Clear previous inputs (if any) before adding a new one
-        terminal.innerHTML = ""; // Clear the terminal content
-        terminal.appendChild(input);
         input.focus();
     });
 }
+
 async function displayOutput(txt,output) {
   
 		output.innerHTML = "";
