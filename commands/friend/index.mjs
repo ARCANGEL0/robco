@@ -547,8 +547,8 @@ pathA2: {
 
         // Spanish
         /leer.*nota/i, /checar.*nota/i, /mirar.*nota/i, /inspeccionar.*nota/i, /yo leo.*nota/i,
-        /revisar.*nota/i, /abrir.*nota/i, /examinar.*nota/i, /analizar.*nota/i, /observar.*nota/
-        /ver.*nota/i, /ver contenido/i, /leer contenido/i, /ver mensaje/i, /observar lo que dice/i,
+        /revisar.*nota/i, /abrir.*nota/i, /examinar.*nota/i, /analizar.*nota/i,
+        /observar.*nota/, /ver.*nota/i, /ver contenido/i, /leer contenido/i, /ver mensaje/i, /observar lo que dice/i,
         /revisar el mensaje/i, /abrir para leer/i, /mirar de cerca/i, /ver qué contiene/i, /revisar lo que dice/i,
         /ver contenido de la nota/i, /analizar contenido/i, /yo reviso.*nota/i, /checar el mensaje/i,
         /leer el mensaje/i, /mirar contenido/i, /yo leo el mensaje/i, /revisar el contenido/i, /leer atentamente/i,
