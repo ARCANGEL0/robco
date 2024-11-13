@@ -95,8 +95,6 @@ async function getReply(pw) {
 					event.target.textContent
 				);
 
-				// history
-				addToHistory(result);
 				resolve(result);
 			}
 			
