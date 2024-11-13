@@ -68,6 +68,7 @@ async function friend() {
           
     await type('teste')
         let reply = await getReply();
+        clear()
         await type(reply)
 
     
