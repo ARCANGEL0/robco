@@ -11,10 +11,13 @@ async function friend() {
     clear();
 
   
-    await showTemplateScreen("logo"); // Display the logo template
-    await waitForKey(); // Wait for the player to press a key to continue
-	logoScreen.remove();
-    
+
+		let logoScreen = await showTemplateScreen("logo");
+		pause(2);
+
+		await waitForKey();
+		logoScreen.remove();
+		
     let gameScreen = getScreen("friend");
 
 		// Create the output for messages
