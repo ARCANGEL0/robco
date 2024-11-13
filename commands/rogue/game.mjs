@@ -1,3 +1,4 @@
+
 const ROT = window.ROT;
 const selectedLanguage = localStorage.getItem("selectedLanguage") || "en";
 const messages = {
@@ -79,18 +80,16 @@ const messages = {
 	}
 };
 
+
 const getMessage = (key) => messages[selectedLanguage][key];
 const keyMap = { 38: 0, 33: 1, 39: 2, 34: 3, 40: 4, 35: 5, 37: 6, 36: 7 };
+
 const WALL = "▦";
 const CLEAR = " ";
 const BOX = "▣";
 const EMPTY_BOX = "□";
-
-const playerImage = new Image();
-playerImage.src = './images/assets/rogueBoy.png';
-
-const mutantImage = new Image();
-mutantImage.src = './images/assets/mutant.png';
+const PLAYER = "⚇";
+const MUTANT = "⨻";
 
 const nope = () => {
 	let answers = getMessage("nope");
@@ -206,6 +205,7 @@ class Pedro {
 		}
 	}
 }
+
 class Game {
 	map = {};
 	walls = {};
@@ -256,7 +256,6 @@ class Game {
 
 	updateControls() {
 		let [px, py] = this.player.coords;
-
 		document.querySelector(".up").toggleAttribute("disabled", this.isWall(px, py - 1));
 		document.querySelector(".down").toggleAttribute("disabled", this.isWall(px, py + 1));
 		document.querySelector(".left").toggleAttribute("disabled", this.isWall(px - 1, py));
@@ -294,37 +293,16 @@ class Game {
 		let topLeftY = Math.max(0, cy - height / 2);
 		topLeftY = Math.min(topLeftY, this.mapHeight - height);
 
-		let cellWidth = this.display._options.fontSize;
-		let cellHeight = this.display._options.fontSize;
-
 		for (let x = topLeftX; x < topLeftX + width; x++) {
 			for (let y = topLeftY; y < topLeftY + height; y++) {
 				let char = this.map[x + "," + y];
-				this.display.draw(x - topLeftX, y - topLeftY, char);
-
-				let wall = this.walls[x + "," + y];
-				if (wall) {
-					this.display.draw(x - topLeftX, y - topLeftY, wall, this.settings.wall);
-				}
+				let color = char === WALL ? this.settings.wall : this.settings.clear;
+				this.display.draw(x - topLeftX, y - topLeftY, char, color);
 			}
 		}
 
-		let ctx = this.display.getContainer().getContext('2d');
-		ctx.drawImage(
-			playerImage,
-			(cx - topLeftX) * cellWidth,
-			(cy - topLeftY) * cellHeight,
-			cellWidth,
-			cellHeight
-		);
-
-		ctx.drawImage(
-			mutantImage,
-			(px - topLeftX) * cellWidth,
-			(py - topLeftY) * cellHeight,
-			cellWidth,
-			cellHeight
-		);
+		this.display.draw(cx - topLeftX, cy - topLeftY, PLAYER, "green");
+		this.display.draw(px - topLeftX, py - topLeftY, MUTANT, "red");
 	}
 
 	_generateBoxes(freeCells) {
@@ -332,7 +310,6 @@ class Game {
 			let index = Math.floor(ROT.RNG.getUniform() * freeCells.length);
 			let key = freeCells.splice(index, 1)[0];
 			this.map[key] = BOX;
-
 			if (i === 0) {
 				this.ananas = key;
 			}
