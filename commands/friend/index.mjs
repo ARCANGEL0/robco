@@ -19,7 +19,7 @@ async function friend() {
     outputContainer.classList.add("output");
     gameScreen.appendChild(outputContainer);
 
-    addTemplate("layout", gameScreen);
+    
 
     // Display initial game text
     displayOutput(friendRPG(""));
