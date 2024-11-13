@@ -2,13 +2,18 @@
 <template id="logo">
 	<style>
 		pre {
-			font-family: monospace;
-			font-size: 2rem;
-			line-height: 2rem;
-			width: fit-content;
-			transform: translate(100%, 0);
-			animation: marquee 6s linear infinite;
-		}
+    font-family: monospace;
+    font-size: 2rem;
+    line-height: 2rem;
+    width: fit-content;
+    transform: translate(100vw, 0); /* Start off-screen to the right */
+    animation: marquee 6s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translate(100vw, 0); } /* Start off-screen right */
+    100% { transform: translate(-100vw, 0); } /* End off-screen left */
+}
 		.enter {
 			text-align: center;
 			font-size: 2rem;
