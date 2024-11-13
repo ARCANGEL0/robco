@@ -173,7 +173,7 @@ class Player {
 	}
 }
 
-class Pedro {
+class Mutant {
 	constructor(game, x, y) {
 		this.game = game;
 		this._x = x;
@@ -211,7 +211,7 @@ class Game {
 	walls = {};
 	display = null;
 	player = null;
-	pedro = null;
+	Mutant = null;
 	ananas = null;
 
 	mapWidth = 100;
@@ -228,7 +228,7 @@ class Game {
 
 		let scheduler = new ROT.Scheduler.Simple();
 		scheduler.add(this.player, true);
-		scheduler.add(this.pedro, true);
+		scheduler.add(this.Mutant, true);
 		this.engine = new ROT.Engine(scheduler);
 		this.engine.start();
 
@@ -279,14 +279,14 @@ class Game {
 
 		this._generateBoxes(freeCells);
 		this.player = this._createDuder(Player, freeCells);
-		this.pedro = this._createDuder(Pedro, freeCells);
+		this.Mutant = this._createDuder(Mutant, freeCells);
 		this._drawWholeMap();
 	}
 
 	_drawWholeMap() {
 		let { width, height } = this.settings;
 		let [cx, cy] = this.player.coords;
-		let [px, py] = this.pedro.coords;
+		let [px, py] = this.Mutant.coords;
 
 		let topLeftX = Math.max(0, cx - width / 2);
 		topLeftX = Math.min(topLeftX, this.mapWidth - width);
