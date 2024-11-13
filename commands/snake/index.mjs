@@ -1,127 +1,119 @@
 function snake() {
-  document.addEventListener("DOMContentLoaded", () => {
-    const board = document.getElementById("game-board");
-    const scoreElement = document.getElementById("score");
-    const restartButton = document.getElementById("restart-button");
+  const board = document.getElementById("game-board");
+  const scoreElement = document.getElementById("score");
+  const restartButton = document.getElementById("restart-button");
 
-    const boardSize = 400;
-    const cellSize = 20;
+  const boardWidth = 600;
+  const boardHeight = 400;
+  const cellSize = 20;
 
-    let score = 0;
-    let snakeB = [
-      { x: 160, y: 200 },
-      { x: 140, y: 200 },
-      { x: 120, y: 200 },
-    ];
-    let direction = { x: cellSize, y: 0 };
-    let food = { x: 300, y: 200 };
-    let gameInterval;
+  let score = 0;
+  let snake = [
+      { x: 12, y: 5 },
+      { x: 12, y: 6 }
+  ];
+  let direction = { x: 0, y: -1 };
+  let foodPos = { x: 5, y: 3 };
+  let interval;
 
-    function snakeT() {
-      gameInterval = setInterval(moveSnake, 100);
+  document.addEventListener("keydown", changeDirection);
+  restartButton.addEventListener("click", newGame);
+
+  function newGame() {
+      score = 0;
+      snake = [
+          { x: 12, y: 5 },
+          { x: 12, y: 6 }
+      ];
+      direction = { x: 0, y: -1 };
       placeFood();
-    }
+      updateScore();
+      clearInterval(interval);
+      interval = setInterval(loop, 200);
+      drawBoard();
+      restartButton.style.display = "none";
+  }
 
-    function placeFood() {
-      food = {
-        x: Math.floor(Math.random() * (boardSize / cellSize)) * cellSize,
-        y: Math.floor(Math.random() * (boardSize / cellSize)) * cellSize,
+  function placeFood() {
+      foodPos.x = Math.floor(Math.random() * (boardWidth / cellSize));
+      foodPos.y = Math.floor(Math.random() * (boardHeight / cellSize));
+  }
+
+  function changeDirection(event) {
+      switch (event.key) {
+          case "ArrowUp":
+              if (direction.y === 0) direction = { x: 0, y: -1 };
+              break;
+          case "ArrowDown":
+              if (direction.y === 0) direction = { x: 0, y: 1 };
+              break;
+          case "ArrowLeft":
+              if (direction.x === 0) direction = { x: -1, y: 0 };
+              break;
+          case "ArrowRight":
+              if (direction.x === 0) direction = { x: 1, y: 0 };
+              break;
+      }
+  }
+
+  function loop() {
+      const newHead = {
+          x: snake[0].x + direction.x,
+          y: snake[0].y + direction.y
       };
-      snakeB.forEach(function (segment) {
-        if (segment.x === food.x && segment.y === food.y) {
+
+      if (newHead.x < 0 || newHead.x >= boardWidth / cellSize || newHead.y < 0 || newHead.y >= boardHeight / cellSize || isEatingSelf(newHead)) {
+          gameOver();
+          return;
+      }
+
+      snake.unshift(newHead);
+
+      if (isEatingFood(newHead)) {
+          score++;
+          updateScore();
           placeFood();
-        }
-      });
-    }
-
-    function moveSnake() {
-      const newHead = { x: snakeB[0].x + direction.x, y: snakeB[0].y + direction.y };
-
-      if (checkGameOver()) {
-        endGame();
-        return;
-      }
-
-      if (newHead.x < 0) {
-        newHead.x = boardSize - cellSize;
-      } else if (newHead.x >= boardSize) {
-        newHead.x = 0;
-      } else if (newHead.y < 0) {
-        newHead.y = boardSize - cellSize;
-      } else if (newHead.y >= boardSize) {
-        newHead.y = 0;
-      }
-
-      snakeB.unshift(newHead);
-      if (snakeB[0].x === food.x && snakeB[0].y === food.y) {
-        score += 100;
-        updateScore();
-        placeFood();
       } else {
-        snakeB.pop();
+          snake.pop();
       }
-      updateBoard();
-    }
 
-    function endGame() {
-      clearInterval(gameInterval);
-      alert(`Game Over! Your score is: ${score}`);
-      restartButton.style.display = "block";
-    }
+      drawBoard();
+  }
 
-    function checkGameOver() {
-      for (let i = 4; i < snakeB.length; i++) {
-        if (snakeB[i].x === snakeB[0].x && snakeB[i].y === snakeB[0].y) {
-          return true;
-        }
-      }
-      return false;
-    }
+  function isEatingFood(head) {
+      return head.x === foodPos.x && head.y === foodPos.y;
+  }
 
-    function updateScore() {
-      scoreElement.textContent = score;
-    }
+  function isEatingSelf(head) {
+      return snake.some(segment => segment.x === head.x && segment.y === head.y);
+  }
 
-    function updateBoard() {
+  function drawBoard() {
       board.innerHTML = "";
-      snakeB.forEach((segment, index) => {
-        const snakeElement = document.createElement("div");
-        snakeElement.style.left = `${segment.x}px`;
-        snakeElement.style.top = `${segment.y}px`;
-        snakeElement.classList.add("snake");
-        if (index === 0) {
-          snakeElement.classList.add("snake-head");
-        }
-        board.appendChild(snakeElement);
+      snake.forEach(segment => {
+          const snakeElement = document.createElement("div");
+          snakeElement.style.left = `${segment.x * cellSize}px`;
+          snakeElement.style.top = `${segment.y * cellSize}px`;
+          snakeElement.classList.add("snake");
+          board.appendChild(snakeElement);
       });
 
       const foodElement = document.createElement("div");
-      foodElement.style.left = `${food.x}px`;
-      foodElement.style.top = `${food.y}px`;
+      foodElement.style.left = `${foodPos.x * cellSize}px`;
+      foodElement.style.top = `${foodPos.y * cellSize}px`;
       foodElement.classList.add("food");
       board.appendChild(foodElement);
-    }
+  }
 
-    function changeDirection(event) {
-      switch (event.keyCode) {
-        case 37:
-          direction = { x: -cellSize, y: 0 };
-          break;
-        case 38:
-          direction = { x: 0, y: -cellSize };
-          break;
-        case 39:
-          direction = { x: cellSize, y: 0 };
-          break;
-        case 40:
-          direction = { x: 0, y: cellSize };
-          break;
-      }
-    }
+  function updateScore() {
+      scoreElement.textContent = score;
+  }
 
-    document.addEventListener("keydown", changeDirection);
-    snakeT();
-  });
+  function gameOver() {
+      clearInterval(interval);
+      alert(`Game Over! Your score is: ${score}`);
+      restartButton.style.display = "block";
+  }
 }
 
 const stylesheets = ["snake"];
