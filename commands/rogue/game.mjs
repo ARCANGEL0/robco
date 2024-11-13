@@ -81,7 +81,7 @@ const messages = {
 };
 
 
-const getMessage = (key) => messages[selectedLanguage][key];
+const getMessage = (key) => messages[localStorage.getItem('selectedLanguage')][key];
 
 const nope = () => {
 	let answers = getMessage("nope");
