@@ -41,10 +41,7 @@ async function friend() {
     outputContainer.classList.add("output");
     gameScreen.appendChild(outputContainer);
 
-    
-
-    // Display initial game text
-    displayOutput(friendRPG(""));
+  
 
     // Set up input handling
     const inputField = document.createElement("input");
@@ -64,9 +61,24 @@ async function friend() {
     gameScreen.appendChild(inputField);
     inputField.focus();
     */
+    
+    
         await type("testing type")
+            const inputField = document.createElement("input");
 
-    displayOutput("testing",output)
+         inputField.type = "text";
+    inputField.classList.add("terminal-input");
+
+    inputField.addEventListener("keydown", async (event) => {
+        if (event.key === "Enter") {
+            const input = inputField.value;
+            inputField.value = ''; // Clear input field after submitting
+  await type(input)
+        }
+    });
+
+
+    
 	
 	
 	
