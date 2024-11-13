@@ -50,5 +50,6 @@ function displayOutput(output) {
     term.appendChild(el);
 }
 
+const templates = ["friend"];
+export { templates };
 export default friend;
-export { friend as templates };
