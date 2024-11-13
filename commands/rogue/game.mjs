@@ -1,6 +1,6 @@
 
 const ROT = window.ROT;
-
+let lang = localStorage.getItem('selectedLanguage') || 'en'
 const messages = {
 	en: {
 		nope: [
@@ -81,7 +81,7 @@ const messages = {
 };
 
 
-const getMessage = (key) => messages[localStorage.getItem('selectedLanguage')][key];
+const getMessage = (key) => messages[lang][key];
 
 const nope = () => {
 	let answers = getMessage("nope");
