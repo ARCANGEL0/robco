@@ -806,7 +806,7 @@ let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en'
 
     await type(gameData[selectedLanguage].start, {}, exitHeader)
         let answerStart = await getReply();
-  if (options.start.barrel.some(regex => regex.test(command))) {
+  if (options.start.barrel.some(regex => regex.test(answerStart))) {
     clear();
     
     currentStage = 'pathA';
@@ -816,7 +816,7 @@ let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en'
     
                 } 
                 
-    else if (options.start.friend.some(regex => regex.test(command))) {
+    else if (options.start.friend.some(regex => regex.test(answerStart))) {
       clear();
                     currentStage = 'pathB';
     img.src = gameData[currentStage];
