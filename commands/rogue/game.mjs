@@ -1,21 +1,5 @@
 const ROT = window.ROT;
 
-const keyMap = {
-	38: 0,
-	33: 1,
-	39: 2,
-	34: 3,
-	40: 4,
-	35: 5,
-	37: 6,
-	36: 7
-};
-
-const WALL = "▦";
-const CLEAR = " ";
-const BOX = "▣";
-const EMPTY_BOX = "□";
-
 // Retrieve the selected language from localStorage
 const selectedLanguage = localStorage.getItem("selectedLanguage") || "en";
 
@@ -27,7 +11,7 @@ const messages = {
 			"Nothing found here.",
 			"This box holds no items.",
 			"No supplies in this box.",
-			"Keep searching for supplies."
+			"Keep looking!"
 		],
 		start: ">>> RobCo Simulation Active: Wasteland Survival Mode\n>>> Locate supplies and secure the exit before encountering hostiles.",
 		objective: ">>> Objective: Search boxes for Stimpaks and Radaways to stay prepared.",
@@ -101,6 +85,22 @@ const messages = {
 
 // Function to retrieve the correct language-based message
 const getMessage = (key) => messages[selectedLanguage][key];
+
+const keyMap = {
+	38: 0,
+	33: 1,
+	39: 2,
+	34: 3,
+	40: 4,
+	35: 5,
+	37: 6,
+	36: 7
+};
+
+const WALL = "▦";
+const CLEAR = " ";
+const BOX = "▣";
+const EMPTY_BOX = "□";
 
 // Load player and mutant images
 const playerImage = new Image();
@@ -186,17 +186,30 @@ class Player {
 			this.game.message(getMessage("empty"));
 		}
 	}
+
+	get key() {
+		return this._x + "," + this._y;
+	}
+
+	get coords() {
+		return [this._x, this._y];
+	}
 }
 
-class Mutant {
+class Pedro {
 	constructor(game, x, y) {
 		this.game = game;
 		this._x = x;
 		this._y = y;
 	}
 
+	get coords() {
+		return [this._x, this._y];
+	}
+
 	async act() {
 		let [x, y] = this.game.player.coords;
+
 		let passableCallback = (x, y) => x + "," + y in this.game.map;
 		let astar = new ROT.Path.AStar(x, y, passableCallback, { topology: 4 });
 
@@ -206,15 +219,15 @@ class Mutant {
 		};
 		astar.compute(this._x, this._y, pathCallback);
 
-		path.shift();
+		path.shift(); // Remove Pedro's current position
 		if (path.length === 1) {
 			this.game.engine.lock();
 			await this.game.alert(getMessage("death"));
 			this.game.quit();
 		} else if (Math.random() > 0.5) {
-			[x, y] = path[0];
-			this._x = x;
-			this._y = y;
+			let [nextX, nextY] = path[0];
+			this._x = nextX;
+			this._y = nextY;
 		}
 	}
 }
@@ -224,20 +237,31 @@ class Game {
 	walls = {};
 	display = null;
 	player = null;
-	mutant = null;
+	pedro = null;
 	ananas = null;
+
+	mapWidth = 100;
+	mapHeight = 100;
 
 	constructor(settings = {}) {
 		this.settings = settings;
-		this.display = new ROT.Display({ fontFamily: "VT323", ...settings });
+
+		// Create the ROT display
+		this.display = new ROT.Display({
+			fontFamily: "VT323",
+			...settings
+		});
+
 		this._generateMap();
 
+		// Turn scheduler
 		let scheduler = new ROT.Scheduler.Simple();
 		scheduler.add(this.player, true);
-		scheduler.add(this.mutant, true);
+		scheduler.add(this.pedro, true);
 		this.engine = new ROT.Engine(scheduler);
 		this.engine.start();
 
+		// Show game
 		let canvas = this.display.getContainer();
 		canvas.classList.add("game");
 		settings.container.appendChild(canvas);
@@ -263,18 +287,10 @@ class Game {
 	updateControls() {
 		let [px, py] = this.player.coords;
 
-		document
-			.querySelector(".up")
-			.toggleAttribute("disabled", this.isWall(px, py - 1));
-		document
-			.querySelector(".down")
-			.toggleAttribute("disabled", this.isWall(px, py + 1));
-		document
-			.querySelector(".left")
-			.toggleAttribute("disabled", this.isWall(px - 1, py));
-		document
-			.querySelector(".right")
-			.toggleAttribute("disabled", this.isWall(px + 1, py));
+		document.querySelector(".up").toggleAttribute("disabled", this.isWall(px, py - 1));
+		document.querySelector(".down").toggleAttribute("disabled", this.isWall(px, py + 1));
+		document.querySelector(".left").toggleAttribute("disabled", this.isWall(px - 1, py));
+		document.querySelector(".right").toggleAttribute("disabled", this.isWall(px + 1, py));
 	}
 
 	_generateMap() {
@@ -294,14 +310,15 @@ class Game {
 
 		this._generateBoxes(freeCells);
 		this.player = this._createDuder(Player, freeCells);
-		this.mutant = this._createDuder(Mutant, freeCells);
+		this.pedro = this._createDuder(Pedro, freeCells);
 		this._drawWholeMap();
 	}
 
 	_drawWholeMap() {
 		let { width, height } = this.settings;
-
 		let [cx, cy] = this.player.coords;
+
+		// Calculate view boundaries
 		let topLeftX = Math.max(0, cx - width / 2);
 		topLeftX = Math.min(topLeftX, this.mapWidth - width);
 		let topLeftY = Math.max(0, cy - height / 2);
@@ -317,12 +334,7 @@ class Game {
 
 				let wall = this.walls[x + "," + y];
 				if (wall) {
-					this.display.draw(
-						x - topLeftX,
-						y - topLeftY,
-						wall,
-						this.settings.wall
-					);
+					this.display.draw(x - topLeftX, y - topLeftY, wall, this.settings.wall);
 				}
 			}
 		}
@@ -336,12 +348,12 @@ class Game {
 			cellHeight
 		);
 
-		// Draw mutant image
-		let [mx, my] = this.mutant.coords;
+		// Draw Pedro (mutant) image
+		let [px, py] = this.pedro.coords;
 		this.display.getContainer().getContext('2d').drawImage(
 			mutantImage,
-			(mx - topLeftX) * cellWidth,
-			(my - topLeftY) * cellHeight,
+			(px - topLeftX) * cellWidth,
+			(py - topLeftY) * cellHeight,
 			cellWidth,
 			cellHeight
 		);
