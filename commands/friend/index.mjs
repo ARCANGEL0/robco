@@ -54,14 +54,14 @@ let gameScreen = getScreen("friend");
     inputField.focus();
     */
     
-    displayOutput("testing")
+    displayOutput("testing",output)
 }
 
 
-async function displayOutput(output) {
+async function displayOutput(txt,output) {
   
 		output.innerHTML = "";
-				await type(output, { initialWait: 0 }, output);
+				await type(txt, { initialWait: 0 }, output);
 				await pause(2);
 }
 
