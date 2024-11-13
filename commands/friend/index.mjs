@@ -4,6 +4,9 @@ import { getScreen, showTemplateScreen, addTemplate, clear } from "../../util/sc
 import { type, waitForKey } from "../../util/io.js";
 import friendRPG from './game.mjs';
 import pause from "../../util/pause.js";
+import say from "../../util/speak.js";
+
+
 
 async function friend() {
   
