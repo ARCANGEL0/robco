@@ -72,7 +72,7 @@ exitHeader.classList.add("exitHEADER");
 const img = document.createElement("img");
 img.src = "./images/assets/start.png";
 img.style.width = "40vw";
-img.style.height = "15vh";
+img.style.height = "25vh";
 
 exitHeader.appendChild(img);
 terminal.appendChild(exitHeader);
