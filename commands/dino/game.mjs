@@ -36,23 +36,12 @@ function Dinosaur(x, dividerY) {
 	this.y = dividerY - this.height;
 	this.vy = 0;
 	this.jumpVelocity = -1 * V_JUMP;
-
-	// Create the animated GIF overlay
-	this.imageElement = document.createElement("img");
-	this.imageElement.src = './images/assets/pipboy.gif';
-	this.imageElement.style.position = "absolute";
-	this.imageElement.style.width = `${this.width}px`;
-	this.imageElement.style.height = `${this.height}px`;
-	this.imageElement.style.pointerEvents = "none";
-	document.body.appendChild(this.imageElement);
-
-	this.updateImagePosition();
 }
-
-Dinosaur.prototype.updateImagePosition = function () {
-	// Update the position of the GIF image to follow the dinosaur's coordinates
-	this.imageElement.style.left = `${this.x}px`;
-	this.imageElement.style.top = `${this.y}px`;
+Dinosaur.prototype.draw = function (context) {
+	let oldFill = context.fillStyle;
+	context.fillStyle = "green";
+	context.fillRect(this.x, this.y, this.width, this.height);
+	context.fillStyle = oldFill;
 };
 
 Dinosaur.prototype.draw = function (context) {
@@ -125,19 +114,32 @@ function Game({ container, onGameOver }) {
 	this.firstJump = true;
 	this.spacePressed = false;
 
-	document.addEventListener("keydown", (e) => {
-		if (e.key === " " && this.firstJump) {
+	const handleJump = () => {
+		if (this.firstJump) {
 			this.spacePressed = true;
 		}
-	});
-	document.addEventListener("keyup", (e) => {
+	};
+
+	const releaseJump = () => {
+		this.firstJump = false;
+		this.spacePressed = false;
+	};
+
+	document.addEventListener("keydown", (e) => {
 		if (e.key === " ") {
-			this.firstJump = false;
-			this.spacePressed = false;
+			handleJump();
 		}
 	});
-}
 
+	document.addEventListener("keyup", (e) => {
+		if (e.key === " ") {
+			releaseJump();
+		}
+	});
+
+	document.addEventListener("mousedown", handleJump);
+	document.addEventListener("mouseup", releaseJump);
+}
 Game.prototype.resize = function () {
 	let { width, height } = this.container.getBoundingClientRect();
 	this.canvas.setAttribute('width', width);
