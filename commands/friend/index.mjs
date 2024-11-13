@@ -161,20 +161,18 @@ async function getReply(pw) {
 	});
 }
     */
+
 async function getReply(pw) {
     return new Promise((resolve) => {
+        // This handles all user input
         const onKeyDown = (event) => {
             typeSound();
             // ENTER
             if (event.keyCode === 13) {
                 event.preventDefault();
+                event.target.setAttribute("contenteditable", false);
                 let result = cleanInput(event.target.textContent);
                 resolve(result);
-                
-                // Clear the input after resolving
-                event.target.textContent = ""; // Clear the input
-             
-                moveCaretToEnd(event.target); // Move caret to the end
             }
             
             // BACKSPACE
@@ -182,30 +180,46 @@ async function getReply(pw) {
                 // Prevent inserting a <br> when removing the last character
                 if (event.target.textContent.length === 1) {
                     event.preventDefault();
-                    event.target.textContent = ""; // Clear the input
+                    event.target.innerHTML = "";
                 }
             }
             // Check if character can be shown as output (skip if CTRL is pressed)
             else if (isPrintable(event.keyCode) && !event.ctrlKey) {
                 event.preventDefault();
-                // Get the character corresponding to the keyCode
+                // Wrap the character in a span
+                let span = document.createElement("span");
+
                 let keyCode = event.keyCode;
                 let chrCode = keyCode - 48 * Math.floor(keyCode / 48);
                 let chr = String.fromCharCode(96 <= keyCode ? chrCode : keyCode);
-                
-                // Append the character directly to the input
-                event.target.textContent += chr;
+                // Add span to the input
+                span.classList.add("char");
+                span.textContent = chr;
+                event.target.appendChild(span);
 
                 // For password field, fill the data-pw attr with asterisks
                 // which will be shown using CSS
-        
+                if (pw) {
+                    let length = event.target.textContent.length;
+                    event.target.setAttribute("data-pw", Array(length).fill("*").join(""));
+                }
                 moveCaretToEnd(event.target);
             }
         };
 
-        // Clear previous input before setting the focus
-        input.textContent = ""; // Clear the input field
+        // Check if there's an existing input span and remove it
+        let terminal = document.querySelector(".output");
+        let existingInput = terminal.querySelector("#input");
+        if (existingInput) {
+            terminal.removeChild(existingInput);
+        }
+
+        // Add input to terminal
+        let input = document.createElement("span");
+        input.setAttribute("id", "input");
+        input.setAttribute("contenteditable", true);
         input.addEventListener("keydown", onKeyDown);
+        terminal.appendChild(input);
         input.focus();
     });
 }
