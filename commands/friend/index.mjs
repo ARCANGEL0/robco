@@ -61,7 +61,8 @@ async function friend() {
     gameScreen.appendChild(inputField);
     inputField.focus();
     */
-    
+        await type("testing type")
+
     displayOutput("testing",output)
 	
 	
