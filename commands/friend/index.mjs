@@ -1,48 +1,54 @@
+// friend.mjs
 
 import { getScreen, showTemplateScreen, addTemplate, clear } from "../../util/screens.js";
 import { type, waitForKey } from "../../util/io.js";
-import say from "../../util/speak.js";
-import alert from "../../util/alert.js";
-import pause from "../../util/pause.js";
-
-import Game from './game.mjs';
-
+import friendRPG from './game.mjs';
 
 async function friend() {
-   await type('L o a d i n g. . . ');
-  
-		pause(3);
-  
-  
-	clear();
-	say("eXit", 0.5, 0.8);
-	return new Promise(async resolve => {
-		// LOGO
-		let logoScreen = await showTemplateScreen("logo");
-		pause(2);
+    await type('L o a d i n g. . . ');
 
-		await waitForKey();
-		logoScreen.remove();
+    clear();
+    await showTemplateScreen("logo"); // Display the logo template
+    await waitForKey(); // Wait for the player to press a key to continue
 
+    clear();
 
-		// Main game screen
-		let gameScreen = getScreen("console");
+    // Set up the main game screen and output container
+    const gameScreen = getScreen("console");
+    const outputContainer = document.createElement("div");
+    outputContainer.classList.add("output");
+    gameScreen.appendChild(outputContainer);
 
-		// Create the output for messages
-		let output = document.createElement("div");
-		output.classList.add("output");
-		gameScreen.appendChild(output);
+    addTemplate("layout", gameScreen);
 
-		addTemplate("layout", gameScreen);
-		
-		let body = getComputedStyle(document.body);
-	
-	
-	/////game logic to receive input and show outputs
-	});
+    // Display initial game text
+    displayOutput(friendRPG(""));
+
+    // Set up input handling
+    const inputField = document.createElement("input");
+    inputField.type = "text";
+    inputField.classList.add("terminal-input");
+
+    inputField.addEventListener("keydown", async (event) => {
+        if (event.key === "Enter") {
+            const input = inputField.value;
+            inputField.value = ''; // Clear input field after submitting
+
+            const output = friendRPG(input);
+            displayOutput(output); // Display the result from friendRPG
+        }
+    });
+
+    gameScreen.appendChild(inputField);
+    inputField.focus();
 }
 
-const templates = ["friend"];
+function displayOutput(output) {
+    const term = document.querySelector(".terminal .output");
+    const el = document.createElement("pre");
+    el.innerHTML = output;
+    term.appendChild(el);
+}
 
 export default friend;
-export { templates };
+export { friend as templates };
