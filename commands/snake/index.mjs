@@ -1,57 +1,47 @@
 function snake() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const board = document.getElementById("game-board");
+    const scoreElement = document.getElementById("score");
+    const restartButton = document.getElementById("restart-button");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const board = document.getElementById("game-board");
-  const scoreElement = document.getElementById("score");
-  const restartButton = document.getElementById("restart-button");
+    const boardSize = 400;
+    const cellSize = 20;
 
-  const boardSize = 400;
-  const cellSize = 20;
+    let score = 0;
+    let snakeB = [
+      { x: 160, y: 200 },
+      { x: 140, y: 200 },
+      { x: 120, y: 200 },
+    ];
+    let direction = { x: cellSize, y: 0 };
+    let food = { x: 300, y: 200 };
+    let gameInterval;
 
-  let score = 0; // 점수를 저장하는 변수
-  let snakeB = [
-    { x: 160, y: 200 },
-    { x: 140, y: 200 },
-    { x: 120, y: 200 },
-  ];
-  let direction = { x: cellSize, y: 0 };
-  let food = { x: 300, y: 200 };
-  let gameInterval;
-
-  function snakeT() {
-    gameInterval = setInterval(moveSnake, 100);
-    placeFood();
-  }
-
-  function placeFood() {
-    // 뱀위 위치와 겹치지 않는 임의의 위치에 음식 배치
-    food = {
-      x: Math.floor(Math.random() * (boardSize / cellSize)) * cellSize,
-      y: Math.floor(Math.random() * (boardSize / cellSize)) * cellSize,
-    };
-    snakeB.forEach(function isFoodOnSnake(segment) {
-      if (segment.x === food.x && segment.y === food.y) {
-        placeFood();
-      }
-    });
-  }
-
-  function moveSnake() {
-    const newHead = { x: snakeB[0].x + direction.x, y: snakeB[0].y + direction.y };
-
-    if (checkGameOver()) {
-      endGame();
-      return; // Early return to prevent further execution
+    function snakeT() {
+      gameInterval = setInterval(moveSnake, 100);
+      placeFood();
     }
 
-    // 보드 경계를 넘어가는지 확인
-    if (
-      newHead.x < 0 ||
-      newHead.x >= boardSize ||
-      newHead.y < 0 ||
-      newHead.y >= boardSize
-    ) {
-      // 보드 경계를 넘어갔다면 반대 쪽으로 이동
+    function placeFood() {
+      food = {
+        x: Math.floor(Math.random() * (boardSize / cellSize)) * cellSize,
+        y: Math.floor(Math.random() * (boardSize / cellSize)) * cellSize,
+      };
+      snakeB.forEach(function (segment) {
+        if (segment.x === food.x && segment.y === food.y) {
+          placeFood();
+        }
+      });
+    }
+
+    function moveSnake() {
+      const newHead = { x: snakeB[0].x + direction.x, y: snakeB[0].y + direction.y };
+
+      if (checkGameOver()) {
+        endGame();
+        return;
+      }
+
       if (newHead.x < 0) {
         newHead.x = boardSize - cellSize;
       } else if (newHead.x >= boardSize) {
@@ -61,87 +51,80 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (newHead.y >= boardSize) {
         newHead.y = 0;
       }
+
+      snakeB.unshift(newHead);
+      if (snakeB[0].x === food.x && snakeB[0].y === food.y) {
+        score += 100;
+        updateScore();
+        placeFood();
+      } else {
+        snakeB.pop();
+      }
+      updateBoard();
     }
 
-    snakeB.unshift(newHead);
-    if (snakeB[0].x === food.x && snakeB[0].y === food.y) {
-      score += 100; // 음식을 먹을 때마다 점수 증가
-      updateScore();
-      placeFood(); // 푸드를 다시 배치
-    } else {
-      snakeB.pop(); // 뱀의 꼬리를 제거
+    function endGame() {
+      clearInterval(gameInterval);
+      alert(`Game Over! Your score is: ${score}`);
+      restartButton.style.display = "block";
     }
-    updateBoard();
-  }
 
-  function endGame() {
-    clearInterval(gameInterval);
-    alert(`Game Over! Your score is: ${score}`);
-    restartButton.style.display = "block"; // 재시작 버튼 표시
-  }
+    function checkGameOver() {
+      for (let i = 4; i < snakeB.length; i++) {
+        if (snakeB[i].x === snakeB[0].x && snakeB[i].y === snakeB[0].y) {
+          return true;
+        }
+      }
+      return false;
+    }
 
-  function checkGameOver() {
-    for (let i = 4; i < snakeB.length; i++) {
-      if (snakeB[i].x === snakeB[0].x && snakeB[i].y === snakeB[0].y) {
-        return true; // 뱀이 자신의 몸에 닿았는지 확인
+    function updateScore() {
+      scoreElement.textContent = score;
+    }
+
+    function updateBoard() {
+      board.innerHTML = "";
+      snakeB.forEach((segment, index) => {
+        const snakeElement = document.createElement("div");
+        snakeElement.style.left = `${segment.x}px`;
+        snakeElement.style.top = `${segment.y}px`;
+        snakeElement.classList.add("snake");
+        if (index === 0) {
+          snakeElement.classList.add("snake-head");
+        }
+        board.appendChild(snakeElement);
+      });
+
+      const foodElement = document.createElement("div");
+      foodElement.style.left = `${food.x}px`;
+      foodElement.style.top = `${food.y}px`;
+      foodElement.classList.add("food");
+      board.appendChild(foodElement);
+    }
+
+    function changeDirection(event) {
+      switch (event.keyCode) {
+        case 37:
+          direction = { x: -cellSize, y: 0 };
+          break;
+        case 38:
+          direction = { x: 0, y: -cellSize };
+          break;
+        case 39:
+          direction = { x: cellSize, y: 0 };
+          break;
+        case 40:
+          direction = { x: 0, y: cellSize };
+          break;
       }
     }
-    return false;
-  }
 
-  function updateScore() {
-    scoreElement.textContent = score;
-  }
-
-  function updateBoard() {
-    board.innerHTML = "";
-    snakeB.forEach((segment, index) => {
-      const snakeElement = document.createElement("div");
-      snakeElement.style.left = `${segment.x}px`;
-      snakeElement.style.top = `${segment.y}px`;
-      snakeElement.classList.add("snake");
-      if (index === 0) {
-        // 첫 번째 세그먼트에는 'snake-head' 클래스 추가
-        snakeElement.classList.add("snake-head");
-      }
-      board.appendChild(snakeElement);
-    });
-
-    const foodElement = document.createElement("div");
-    foodElement.style.left = `${food.x}px`;
-    foodElement.style.top = `${food.y}px`;
-    foodElement.classList.add("food");
-    board.appendChild(foodElement);
-  }
-
-  function changeDirection(event) {
-    switch (event.keyCode) {
-        case 37: // 왼쪽
-            direction = { x: -cellSize, y: 0 };
-            break;
-        case 38: // 위쪽
-            direction = { x: 0, y: -cellSize };
-            break;
-        case 39: // 오른쪽
-            direction = { x: cellSize, y: 0 };
-            break;
-        case 40: // 아래쪽
-            direction = { x: 0, y: cellSize };
-            break;
-    }
+    document.addEventListener("keydown", changeDirection);
+    snakeT();
+  });
 }
 
-
-
-
-document.addEventListener("keydown", changeDirection);
-snakeT();
-});
-
-
-}
 const stylesheets = ["snake"];
 const templates = ["snake"];
 export { templates, stylesheets };
-
 export default snake;
