@@ -1,7 +1,7 @@
 // friend.mjs
 
 import { getScreen, showTemplateScreen, addTemplate, clear } from "../../util/screens.js";
-import { type, waitForKey,input, cleanInput } from "../../util/io.js";
+import { type, waitForKey,input, cleanInput,isPrintable } from "../../util/io.js";
 import friendRPG from './game.mjs';
 import pause from "../../util/pause.js";
 import { typeSound } from "../../sound/index.js"
@@ -85,6 +85,7 @@ async function friend() {
 
 }
 
+/*
 async function getReply(pw) {
 	return new Promise((resolve) => {
 		// This handles all user input
@@ -153,6 +154,72 @@ async function getReply(pw) {
 		terminal.appendChild(input);
 		input.focus();
 	});
+}
+    */
+async function getReply(pw) {
+    return new Promise((resolve) => {
+        // This handles all user input
+        const onKeyDown = (event) => {
+            typeSound();
+            // ENTER
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                let result = cleanInput(event.target.textContent);
+                resolve(result);
+                
+                // Clear the input after resolving
+                event.target.innerHTML = ""; // Clear the input
+                if (pw) {
+                    event.target.setAttribute("data-pw", "");
+                }
+                moveCaretToEnd(event.target); // Move caret to the end
+            }
+            
+            // BACKSPACE
+            else if (event.keyCode === 8) {
+                // Prevent inserting a <br> when removing the last character
+                if (event.target.textContent.length === 1) {
+                    event.preventDefault();
+                    event.target.innerHTML = "";
+                }
+            }
+            // Check if character can be shown as output (skip if CTRL is pressed)
+            else if (isPrintable(event.keyCode) && !event.ctrlKey) {
+                event.preventDefault();
+                // Wrap the character in a span
+                let span = document.createElement("span");
+
+                let keyCode = event.keyCode;
+                let chrCode = keyCode - 48 * Math.floor(keyCode / 48);
+                let chr = String.fromCharCode(96 <= keyCode ? chrCode : keyCode);
+                
+                // Add span to the input
+                span.classList.add("char");
+                span.textContent = chr;
+                event.target.appendChild(span);
+
+                // For password field, fill the data-pw attr with asterisks
+                // which will be shown using CSS
+                if (pw) {
+                    let length = event.target.textContent.length;
+                    event.target.setAttribute("data-pw", Array(length).fill("*").join(""));
+                }
+                moveCaretToEnd(event.target);
+            }
+        };
+
+        // Add input to terminal
+        let terminal = document.querySelector(".output");
+        let input = document.createElement("span");
+        input.setAttribute("id", "input");
+        input.setAttribute("contenteditable", true);
+        input.addEventListener("keydown", onKeyDown);
+        
+        // Clear previous inputs (if any) before adding a new one
+        terminal.innerHTML = ""; // Clear the terminal content
+        terminal.appendChild(input);
+        input.focus();
+    });
 }
 async function displayOutput(txt,output) {
   
