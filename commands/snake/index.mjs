@@ -15,7 +15,7 @@ let direction = { x: cellSize, y: 0 };
 let food = { x: 300, y: 200 };
 let gameInterval;
 
-function startGame() {
+function snake() {
   gameInterval = setInterval(moveSnake, 100);
   placeFood();
 }
@@ -137,12 +137,15 @@ restartButton.addEventListener("click", function () {
     { x: 120, y: 200 },
   ];
   direction = { x: cellSize, y: 0 };
-  startGame();
+  snake();
   restartButton.style.display = "none"; // 재시작 버튼 숨기기
 });
 
 document.addEventListener("keydown", changeDirection);
-startGame();
+snake();
 
 
-export default snake
+const stylesheets = ["snake"];
+const templates = ["snake"];
+export { templates, stylesheets };
+export default snake;
