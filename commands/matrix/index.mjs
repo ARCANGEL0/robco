@@ -1,6 +1,6 @@
 import { getScreen, clear } from "../../util/screens.js";
 
-const output = "There is no spoon.";
+const output = "W a k e  u p,  N e o . . . . .";
 async function matrix() {
 	clear();
 
