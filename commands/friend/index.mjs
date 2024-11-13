@@ -65,14 +65,26 @@ async function friend() {
     */
     
     const terminal = document.querySelector(".output");
+
+const exitHeader = document.createElement("div");
+exitHeader.classList.add("exitHEADER");
+
+const img = document.createElement("img");
+img.src = "./images/assets/start.png";
+img.style.width = "40vw";
+img.style.height = "15vh";
+
+exitHeader.appendChild(img);
+terminal.appendChild(exitHeader);
+
 const input = document.createElement("span");
 input.setAttribute("id", "input");
 input.setAttribute("contenteditable", true);
 terminal.appendChild(input);
 
-        
+
           
-    await type('teste')
+    await type('teste', {}, exitHeader)
         let reply = await getReply();
         clear()
         
