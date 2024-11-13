@@ -64,6 +64,7 @@ async function friend() {
     
     
         await type("testing type")
+        displayOutput("test display", gameScreen)
             const inputField = document.createElement("input");
 
          inputField.type = "text";
