@@ -1,12 +1,31 @@
+function topWall(obj) {
+	return obj.y;
+}
+function bottomWall(obj) {
+	return obj.y + obj.height;
+}
+function leftWall(obj) {
+	return obj.x;
+}
+function rightWall(obj) {
+	return obj.x + obj.width;
+}
+
 // Gameplay parameters
 const GRAVITY = 0.15;
 const V_JUMP = 7;
+
 const RUN_SPEED = 2;
-const SPEED_INCREASE = 0.5;
-const CACTUS_BASE = 30;
-const CACTUS_MAX = 150;
-const CACTUS_CHANCE = 0.2;
+const SPEED_INCREASE = 0.5; // every 1000 frames
+
+const CACTUS_BASE = 30; // height
+const CACTUS_MAX = 150; // max random extra height
+const CACTUS_CHANCE = 0.2; // spawn chance
 const EXTRA_CACTUS_CHANCE = 0.05;
+
+// This is the number of pixels of where the player 
+// is still allowed to gain vertical velocity while already jumping.
+// Allows for low/high jumps by keeping space pressed.
 const JUMP_THRESHOLD = 200;
 
 // DINOSAUR
