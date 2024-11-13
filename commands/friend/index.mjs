@@ -8,11 +8,13 @@ async function friend() {
     await type('L o a d i n g. . . ');
 
     clear();
+  
+  
     await showTemplateScreen("logo"); // Display the logo template
     await waitForKey(); // Wait for the player to press a key to continue
 
     clear();
-
+/*
     // Set up the main game screen and output container
     const gameScreen = getScreen("console");
     const outputContainer = document.createElement("div");
@@ -41,7 +43,11 @@ async function friend() {
 
     gameScreen.appendChild(inputField);
     inputField.focus();
+    */
+    
+    displayOutput("testing")
 }
+
 
 function displayOutput(output) {
     const term = document.querySelector(".terminal .output");
