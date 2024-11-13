@@ -69,11 +69,12 @@ async function friend() {
     await type('teste')
         let reply = await getReply();
         clear()
-        await type(reply)
+        await type('pergunta 2')
+        let reply2 = await getReply();
+        clear()
+        await type('pergunta 3')
+        let reply3 = await getReply();
 
-    
-	
-	
 	
 	});
     
