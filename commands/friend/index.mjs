@@ -1335,7 +1335,7 @@ consOutput.classList.add("exitOUTPUT");
 const img = document.createElement("img");
 
 img.style.width = "40vw";
-consOutput.style.width = "45vw";
+consOutput.style.width = "70vw";
 img.style.height = "25vh";
 
 img.style.marginLeft = "5vw";
@@ -1387,7 +1387,7 @@ consOutput.classList.add("exitOUTPUT");
 const img = document.createElement("img");
 
 img.style.width = "40vw";
-consOutput.style.width = "45vw";
+consOutput.style.width = "70vw";
 img.style.height = "25vh";
 
 img.style.marginLeft = "5vw";
