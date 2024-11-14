@@ -22,7 +22,10 @@ const gameData = {
     pathWin:'./images/assets/win.png' ,
     
     en: {
+      
       // English
+nolight: "You don’t have any matches with you, and no other way to light up the note."
+,
 lostNote: "You tried to read the note in the dark, but it flew away."
 ,
 tooWeak: "Your friend says he is too weak to go and doesn't have enough strength, he asks you to read the note."
@@ -46,6 +49,8 @@ tooWeak: "Your friend says he is too weak to go and doesn't have enough strength
     es: {
       
 // Spanish
+nolight: "No tienes cerillas contigo, y no tienes otra forma de iluminar la nota."
+,
 lostNote: "Intentaste leer la nota en la oscuridad, pero se fue volando."
 ,
 tooWeak: "Tu amigo dice que está demasiado débil para ir y no tiene suficiente fuerza, te pide que leas la nota."
@@ -69,7 +74,10 @@ tooWeak: "Tu amigo dice que está demasiado débil para ir y no tiene suficiente
     },
     fr: {
  
+ 
 // French
+nolight: "Vous n'avez pas d'allumettes avec vous, et aucun autre moyen d'éclairer la note."
+,
 lostNote: "Vous avez essayé de lire la note dans le noir, mais elle s'est envolée."
 ,
  
@@ -93,7 +101,10 @@ tooWeak: "Votre ami dit qu'il est trop faible pour y aller et qu'il n'a pas asse
     },
     pt: {
  
+ 
 // Portuguese
+nolight: "Você não tem nenhum fósforo com você, e nenhum outro meio de iluminar a nota."
+,
 tooWeak: "Seu amigo diz que está fraco demais para ir e não tem força suficiente, ele pede para você ler a nota."
 ,
 lostNote: "Você tentou ler a nota no escuro, mas ela voou para longe."
