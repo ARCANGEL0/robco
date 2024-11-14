@@ -20,6 +20,7 @@ const gameData = {
     pathA4:'./images/assets/pathA4.png' ,
     pathFail:'./images/assets/end.png' ,
     pathWin:'./images/assets/win.png' ,
+    pathMatch:'./images/assets/giveMatch.png' ,
     
     en: {
       
@@ -549,7 +550,7 @@ pathA2: {
         /voltar para o começo/i, /retorno ao começo/i, /vou dar a volta/i, /sair dessa área/i,
         /voltar para trás/i, /vou para a entrada/i, /eu vou embora/i, /eu me retiro/i, /sair dessa área/i
     ],
-    lookAroundIgnoreNote: [
+    lookAround: [
         // English
         /look around/i, /ignore.*note/i, /throw.*note/i, /toss.*note/i, /put.*note.*pocket/i,
         /leave.*note.*behind/i, /I ignore.*note/i, /I discard.*note/i, /I don’t read.*note/i,
@@ -647,7 +648,7 @@ pathA2: {
         
 },
 pathA3:{
-  lookAroundBeach: [
+  lookAround: [
     // English
     /look.*(around|beach|water|sea|ocean|shore|sand|scenery|view|horizon|area|surroundings)/i,
     /observe.*(beach|surroundings|water|landscape|scene|area|coastline|shore|view)/i,
@@ -1071,11 +1072,11 @@ async function handlePathB2() {
 
     if (options.move.some(regex => regex.test(pathB2answer))) {
         clear();
-        currentStage = 'pathA2match';
-        const message = `${gameData[selectedLanguage].givesMatch}. ${gameData[selectedLanguage].A2}`;
+        currentStage = 'pathMatch';
+        const message = `${gameData[selectedLanguage].givesMatch}`;
         img.src = gameData[currentStage];
         await type(message, {}, exitHeader);
-        await handlePathA();
+        await handlePathB2();
     } 
     else if (options.pathB.some(regex => regex.test(pathB2answer))) {
         const message = `${gameData[selectedLanguage].pathB1}`;
@@ -1094,8 +1095,12 @@ async function handlePathB2() {
         await handlePathA();
     } 
     else {
-        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
-            await handlePathB2();
+          clear();
+        currentStage = 'pathMatch';
+        const message = `${gameData[selectedLanguage].givesMatch}`;
+        img.src = gameData[currentStage];
+        await type(message, {}, exitHeader);
+        await handlePathB2();
     }
 } //fixed
 
@@ -1132,7 +1137,9 @@ async function handlePathB3() {
 async function handlePathA3() {
     let pathA3answer = await getReply();
     if (options.pathA3.readNote.some(regex => regex.test(pathA3answer))) {
-        await type(gameData[selectedLanguage].noteMessage, {}, exitHeader);
+      let message = `${gameData[selectedLanguage].noteMessage}.
+      ${gameData[selectedLanguage].A3}`
+        await type(message, {}, exitHeader);
         await handlePathA3(); // Stay on pathA3 after reading note
     } else if (options.pathA3.lookAround.some(regex => regex.test(pathA3answer))) {
         clear();
@@ -1144,7 +1151,7 @@ async function handlePathA3() {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
             await handlePathA3();
     }
-}
+} // fixed
 
 // Handle Path A4 flow (Boat - Freedom Ending)
 async function handlePathA4() {
