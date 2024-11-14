@@ -1333,7 +1333,7 @@ consOutput.classList.add("exitOUTPUT");
 const img = document.createElement("img");
 
 img.style.width = "40vw";
-consOutput.style.width = "15vw";
+consOutput.style.width = "45vw";
 img.style.height = "25vh";
 
 img.style.marginLeft = "5vw";
