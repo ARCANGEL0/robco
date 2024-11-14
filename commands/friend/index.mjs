@@ -1309,8 +1309,19 @@ async function friend() {
 
 		await waitForKey();
 		logoScreen.remove();
+		eXitGame();
 }
-await logoTitle()
+
+function clean() {
+    const element = document.querySelector('.typer');
+   if (element) {
+        element.remove();
+    } 
+}
+
+async function eXitGame() {
+  
+  
 		// Main game screen
 		let gameScreen = getScreen("friend");
 
@@ -1358,14 +1369,8 @@ let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
 let hasTriedToReturn = false;
 img.src = gameData[currentStage];
 
-function clean() {
-    const element = document.querySelector('.typer');
-   if (element) {
-        element.remove();
-    } 
-}
 
-async function eXitGame() {
+
     await type(gameData[selectedLanguage].start, {}, consOutput);
     let answerStart = await getReply();
 
@@ -1665,13 +1670,16 @@ async function winGame() {
   resolve()
 } // fixed
 async function failGame() {
-  pause(10)
+  pause(30)
   clean()
+  clear()
+  gameScreen.remove()
   await logoTitle()
 } // fixed
 // Start the game
-eXitGame();
+
         
+        await logoTitle()
         
 	////////////////
 	});
