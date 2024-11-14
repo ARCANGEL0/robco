@@ -991,7 +991,7 @@ async function handlePathA() {
         await handlePathA();
         
     }
-} 
+} // fixed
 
 // Handle Path A1 flow (Escape Alone)
 async function handlePathA1() {
