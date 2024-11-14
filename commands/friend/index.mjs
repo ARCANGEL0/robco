@@ -154,55 +154,95 @@ const gameData = {
             /perto de.*amigo/i, /me aproximo.*dele/i, /me coloco ao lado de.*amigo/i, /eu assisto.*amigo/i
         ]
     },
-pathA: [
-    // English
-    /enter.*tunnel/i, /go.*tunnel/i, /crawl.*tunnel/i, /I’m entering.*tunnel/i, /head.*tunnel/i, 
-    /move into.*tunnel/i, /walk into.*tunnel/i, /begin.*tunnel/i, /start.*tunnel/i, /continue.*tunnel/i,
-    /move toward.*tunnel/i, /I go into.*tunnel/i, /in.*tunnel/i, /entering the tunnel/i, /get inside.*tunnel/i,
-    /step into.*tunnel/i, /heading toward.*tunnel/i, /make my way.*tunnel/i, /advance.*tunnel/i, /I go in/i,
-    /I'm crawling into.*tunnel/i, /proceed.*tunnel/i, /walk toward.*tunnel/i, /move forward.*tunnel/i, /venture into.*tunnel/i,
-    /go forth.*tunnel/i, /descend into.*tunnel/i, /find.*tunnel/i, /I step into.*tunnel/i, /move along.*tunnel/i,
-    /I decide to enter.*tunnel/i, /I advance into.*tunnel/i, /I venture.*tunnel/i, /take.*path/i, /explore.*tunnel/i,
-    /I get in.*tunnel/i, /creep into.*tunnel/i, /delve into.*tunnel/i, /head inside.*tunnel/i, /make way.*tunnel/i,
-    /I'm heading into.*tunnel/i, /proceeding.*tunnel/i, /I’ll enter.*tunnel/i, /go deeper.*tunnel/i, /into.*tunnel/i,
-    /I head.*tunnel/i, /I'm going.*tunnel/i, /move down.*tunnel/i, /take the route into.*tunnel/i, /descend into.*tunnel/i,
-    
-    // Spanish
-    /entrar.*tunel/i, /entrando.*tunel/i, /voy hacia.*tunel/i, /me meto.*tunel/i, /entro en.*tunel/i,
-    /voy al.*tunel/i, /camino hacia.*tunel/i, /me dirijo.*tunel/i, /me voy.*tunel/i, /yo entro.*tunel/i,
-    /empiezo a.*tunel/i, /sigo.*tunel/i, /avanzar.*tunel/i, /caminar hacia.*tunel/i, /decido entrar.*tunel/i,
-    /entro en el.*tunel/i, /sigo por.*tunel/i, /continuo.*tunel/i, /me acerco.*tunel/i, /hacia el tunel/i,
-    /entro en el túnel/i, /avanzando por.*tunel/i, /me adentro.*tunel/i, /yo voy a.*tunel/i, /comienzo.*tunel/i,
-    /me bajo.*tunel/i, /entro hacia.*tunel/i, /entro al.*tunel/i, /entro directo.*tunel/i, /camino a través de.*tunel/i,
-    /camino hasta.*tunel/i, /sigo adelante.*tunel/i, /empiezo.*tunel/i, /entro hacia.*tunel/i, /exploro.*tunel/i,
-    /descender.*tunel/i, /me lanzo.*tunel/i, /me meto al.*tunel/i, /me encamino a.*tunel/i, /comienzo hacia.*tunel/i,
-    /me adentro en.*tunel/i, /entro de una vez.*tunel/i, /entro directamente.*tunel/i, /camino hacia.*tunel/i, /voy adentro.*tunel/i,
-    /decido bajar.*tunel/i, /decido ir.*tunel/i, /bajar hacia.*tunel/i, /entro al tunel/i, /me dirijo hacia.*tunel/i,
-    
-    // French
-    /je vais.*tunnel/i, /j'entre.*tunnel/i, /descends.*tunnel/i, /aller dans.*tunnel/i, /me diriger.*tunnel/i,
-    /j'avance.*tunnel/i, /je me rends.*tunnel/i, /je commence.*tunnel/i, /je continue.*tunnel/i, /je marche.*tunnel/i,
-    /entrer dans.*tunnel/i, /commencer.*tunnel/i, /aller à.*tunnel/i, /se rendre.*tunnel/i, /aller plus loin.*tunnel/i,
-    /je vais dans.*tunnel/i, /je descends.*tunnel/i, /progresser dans.*tunnel/i, /m'engage.*tunnel/i, /je poursuis.*tunnel/i,
-    /prendre.*tunnel/i, /approcher.*tunnel/i, /descendre dans.*tunnel/i, /descend.*tunnel/i, /explorer.*tunnel/i,
-    /marcher jusqu'à.*tunnel/i, /aller vers.*tunnel/i, /prendre le chemin.*tunnel/i, /marcher dans.*tunnel/i, /entrer.*tunnel/i,
-    /j'entre dans.*tunnel/i, /me déplace vers.*tunnel/i, /je me déplace.*tunnel/i, /aller.*tunnel/i, /pénétrer.*tunnel/i,
-    /enfoncer.*tunnel/i, /approcher de.*tunnel/i, /marcher dans le.*tunnel/i, /me diriger vers.*tunnel/i, /chemin vers.*tunnel/i,
-    /chemin du.*tunnel/i, /descends dans.*tunnel/i, /approche.*tunnel/i, /avance dans.*tunnel/i, /je vais me rendre.*tunnel/i,
-    
-    // Portuguese
-    /entrar.*túnel/i, /entro.*túnel/i, /vou para.*túnel/i, /eu sigo.*túnel/i, /me movo.*túnel/i,
-    /me dirijo.*túnel/i, /caminho até.*túnel/i, /entro no.*túnel/i, /começo.*túnel/i, /ir para.*túnel/i,
-    /caminhar até.*túnel/i, /vou em direção.*túnel/i, /eu me movo.*túnel/i, /avançar.*túnel/i, /continuo no.*túnel/i,
-    /seguir.*túnel/i, /explorar.*túnel/i, /me aproximo.*túnel/i, /seguir caminho.*túnel/i, /entrando no.*túnel/i,
-    /descendo.*túnel/i, /aproximo.*túnel/i, /entrar no túnel/i, /seguir o túnel/i, /ir.*túnel/i,
-    /vou para dentro.*túnel/i, /vou para o fundo.*túnel/i, /ando para.*túnel/i, /descendo no.*túnel/i,
-    /dirijo até.*túnel/i, /mover até.*túnel/i, /ir em direção ao túnel/i, /vou rumo ao túnel/i,
-    /me adentro no túnel/i, /avançar pelo túnel/i, /ir até o túnel/i, /explorar.*túnel/i,
-    /exploro o túnel/i, /vou na direção do túnel/i, /descendo.*túnel/i, /entro.*túnel/i,
-    /decido descer.*túnel/i, /vou continuar pelo túnel/i, /caminho para.*túnel/i, /seguir rumo.*túnel/i,
-    /dirijo-me ao.*túnel/i, /aproximo-me.*túnel/i, /eu vou adiante.*túnel/i, /vou me enfiar.*túnel/i
-],
+pathA: {
+    enter: [
+        // Portuguese
+        /.*\bentrar.*túnel\b.*/i, /.*\beu entro.*túnel\b.*/i, /.*\bdecido entrar.*túnel\b.*/i,
+        /.*\bcontinuo.*túnel\b.*/i, /.*\bvou.*túnel\b.*/i, /.*\bcaminho até.*túnel\b.*/i,
+        /.*\binicio.*túnel\b.*/i, /.*\bcaminhar para.*túnel\b.*/i, /.*\bexplorar.*túnel\b.*/i,
+        /.*\bindo.*túnel\b.*/i, /.*\bvou para.*túnel\b.*/i, /.*\bindo em direção.*túnel\b.*/i,
+        /.*\bme aproximo.*túnel\b.*/i, /.*\bdescendo.*túnel\b.*/i, /.*\bcaminho até o túnel\b.*/i,
+        /.*\bvou direto.*túnel\b.*/i, /.*\bdescer no.*túnel\b.*/i, /.*\bentrar para.*túnel\b.*/i,
+        /.*\bdecido descer.*túnel\b.*/i, /.*\bindo em direção ao.*túnel\b.*/i,
+
+        // English
+        /.*\benter.*tunnel\b.*/i, /.*\bI enter.*tunnel\b.*/i, /.*\bdecide to enter.*tunnel\b.*/i,
+        /.*\bcontinue.*tunnel\b.*/i, /.*\bgoing to.*tunnel\b.*/i, /.*\bwalk towards.*tunnel\b.*/i,
+        /.*\bI’m entering.*tunnel\b.*/i, /.*\bgoing down.*tunnel\b.*/i, /.*\bheading to.*tunnel\b.*/i,
+        /.*\bmove towards.*tunnel\b.*/i, /.*\bstart moving.*tunnel\b.*/i, /.*\bexploring.*tunnel\b.*/i,
+        /.*\bdecide to go into.*tunnel\b.*/i, /.*\bin.*tunnel\b.*/i, /.*\bI proceed into.*tunnel\b.*/i,
+        /.*\bdescend into.*tunnel\b.*/i, /.*\bwalking into.*tunnel\b.*/i,
+
+        // Spanish
+        /.*\bentrar.*túnel\b.*/i, /.*\bentro.*túnel\b.*/i, /.*\bdecido entrar.*túnel\b.*/i,
+        /.*\bcontinuo.*túnel\b.*/i, /.*\bme voy.*túnel\b.*/i, /.*\bme dirijo.*túnel\b.*/i,
+        /.*\bexplorar.*túnel\b.*/i, /.*\bcomienzo.*túnel\b.*/i, /.*\bme adentro.*túnel\b.*/i,
+        /.*\bdescender.*túnel\b.*/i, /.*\bvoy hacia.*túnel\b.*/i, /.*\bempiezo a bajar.*túnel\b.*/i,
+        /.*\bcamino hacia.*túnel\b.*/i, /.*\bdecido.*túnel\b.*/i, /.*\bsigo.*túnel\b.*/i,
+
+        // French
+        /.*\bentrer.*tunnel\b.*/i, /.*\bj'entre.*tunnel\b.*/i, /.*\bje commence.*tunnel\b.*/i,
+        /.*\bj'avance.*tunnel\b.*/i, /.*\bdescendre.*tunnel\b.*/i, /.*\bje vais vers.*tunnel\b.*/i,
+        /.*\bm'engage.*tunnel\b.*/i, /.*\bexplorer.*tunnel\b.*/i, /.*\bprogresser.*tunnel\b.*/i,
+        /.*\bje vais dans.*tunnel\b.*/i, /.*\bje commence à entrer.*tunnel\b.*/i,
+        /.*\bj'avance dans.*tunnel\b.*/i, /.*\bje descends.*tunnel\b.*/i, /.*\bprendre.*tunnel\b.*/i
+    ],
+
+    stay: [
+        // Portuguese
+        /.*\bfico aqui\b.*/i, /.*\bdecido ficar\b.*/i, /.*\bparado\b.*/i, /.*\bnão vou me mover\b.*/i,
+        /.*\bespero aqui\b.*/i, /.*\bme mantenho\b.*/i, /.*\bcontinuo aqui\b.*/i, /.*\bnão vou a lugar algum\b.*/i,
+        /.*\bnão saio\b.*/i, /.*\bfiquei\b.*/i, /.*\bme seguro\b.*/i, /.*\bpermaneço\b.*/i, /.*\bficar parado\b.*/i,
+        /.*\bpermanecer\b.*/i, /.*\bnão saio daqui\b.*/i, /.*\bficarei\b.*/i, /.*\bfico no mesmo lugar\b.*/i,
+
+        // English
+        /.*\bI stay\b.*/i, /.*\bstaying here\b.*/i, /.*\bremain\b.*/i, /.*\bnot moving\b.*/i, /.*\bstand still\b.*/i,
+        /.*\bnot going anywhere\b.*/i, /.*\bhold position\b.*/i, /.*\bkeeping still\b.*/i, /.*\bI’m waiting\b.*/i,
+        /.*\bstaying put\b.*/i, /.*\bholding my ground\b.*/i, /.*\bdecide to stay\b.*/i, /.*\bno moving\b.*/i,
+
+        // Spanish
+        /.*\bme quedo aquí\b.*/i, /.*\bno hago nada\b.*/i, /.*\bquedarse\b.*/i, /.*\bno me muevo\b.*/i,
+        /.*\bme mantengo\b.*/i, /.*\bdecido quedarme\b.*/i, /.*\bme paro\b.*/i, /.*\bme quedo con\b.*/i,
+        /.*\besperaré\b.*/i, /.*\bquieto\b.*/i, /.*\bquedo aquí\b.*/i, /.*\bno me voy\b.*/i, /.*\bme quedo\b.*/i,
+
+        // French
+        /.*\brester\b.*/i, /.*\bje reste ici\b.*/i, /.*\bpause\b.*/i, /.*\bje décide de rester\b.*/i,
+        /.*\bje ne bouge pas\b.*/i, /.*\bje suis ici\b.*/i, /.*\bje reste avec\b.*/i, /.*\bje vais rester\b.*/i,
+        /.*\bpremier choix\b.*/i, /.*\bje m’arrête\b.*/i, /.*\bje reste ici\b.*/i, /.*\bje ne vais nulle part\b.*/i
+    ],
+
+    call: [
+        // English
+        /.*\bcall.*friend\b.*/i, /.*\btake.*friend\b.*/i, /.*\bI bring my friend\b.*/i, /.*\bdrag.*friend\b.*/i,
+        /.*\bcome along\b.*/i, /.*\bbring him with me\b.*/i, /.*\bI take him\b.*/i, /.*\btake friend along\b.*/i,
+        /.*\bhelp my friend\b.*/i, /.*\bI pull my friend\b.*/i, /.*\bbring my friend\b.*/i, /.*\btogether with friend\b.*/i,
+        /.*\bfriend comes with\b.*/i, /.*\bnot leave friend\b.*/i, /.*\bget friend\b.*/i, /.*\bgrab friend\b.*/i,
+        /.*\bcall him along\b.*/i, /.*\bguide friend\b.*/i, /.*\bmake sure friend joins\b.*/i, /.*\bmy friend follows\b.*/i,
+
+        // Spanish
+        /.*\bllamo.*amigo\b.*/i, /.*\bme llevo.*amigo\b.*/i, /.*\btraigo.*amigo\b.*/i, /.*\blevo.*amigo\b.*/i,
+        /.*\barrastro.*amigo\b.*/i, /.*\bvenir con amigo\b.*/i, /.*\bmi amigo viene\b.*/i, /.*\bno dejo a mi amigo\b.*/i,
+        /.*\bme lo llevo\b.*/i, /.*\bamigo me acompaña\b.*/i, /.*\bme acompaña\b.*/i, /.*\bmi amigo conmigo\b.*/i,
+        /.*\bme lleva.*amigo\b.*/i, /.*\bme lo traigo\b.*/i, /.*\bjunto con amigo\b.*/i, /.*\bme aseguro de llevar\b.*/i,
+        /.*\bamigo conmigo\b.*/i, /.*\bmi amigo viene\b.*/i, /.*\blo traigo conmigo\b.*/i, /.*\blevar mi amigo\b.*/i,
+
+        // French
+        /.*\bj’emmène mon ami\b.*/i, /.*\bje prends mon ami\b.*/i, /.*\bje l’amène\b.*/i, /.*\bje l’emmène\b.*/i,
+        /.*\bmon ami avec moi\b.*/i, /.*\bmon ami vient\b.*/i, /.*\bje ne le laisse pas\b.*/i, /.*\bje prends avec\b.*/i,
+        /.*\bmon ami m’accompagne\b.*/i, /.*\bje vais avec mon ami\b.*/i, /.*\bje reste avec mon ami\b.*/i, 
+        /.*\bmon ami me suit\b.*/i, /.*\bje le prends avec\b.*/i, /.*\bavec mon ami\b.*/i, /.*\bje le prends avec moi\b.*/i,
+        /.*\bj’apporte mon ami\b.*/i, /.*\bensemble avec ami\b.*/i, /.*\bmon ami vient avec moi\b.*/i,
+        /.*\bje vais emmener mon ami\b.*/i, /.*\bmon ami reste avec moi\b.*/i,
+
+        // Portuguese
+        /.*\blevo meu amigo\b.*/i, /.*\bchamo meu amigo\b.*/i, /.*\bcarrego meu amigo\b.*/i, /.*\bmeu amigo me acompanha\b.*/i,
+        /.*\blevar junto meu amigo\b.*/i, /.*\btrago meu amigo\b.*/i, /.*\bnão deixo meu amigo\b.*/i, /.*\blevo ele junto\b.*/i,
+        /.*\btrago ele comigo\b.*/i, /.*\btrazer ele comigo\b.*/i, /.*\bjunto com meu amigo\b.*/i, /.*\bpego meu amigo\b.*/i,
+        /.*\btrazer meu amigo\b.*/i, /.*\bajudo meu amigo\b.*/i, /.*\blevo ele comigo\b.*/i, /.*\btrazer ele junto\b.*/i,
+        /.*\bele acompanha\b.*/i, /.*\bele vem comigo\b.*/i, /.*\blevo ele junto\b.*/i, /.*\bele está comigo\b.*/i,
+        /.*\bele fica comigo\b.*/i, /.*\blevo junto comigo\b.*/i, /.*\btrago meu amigo\b.*/i
+    ]
+},
 pathB: [
     // English
     /light.*match/i, /ignite.*match/i, /burn.*match/i, /spark.*match/i, /strike.*match/i,
@@ -885,18 +925,35 @@ async function eXitGame() {
 // Handle Path A flow (Secret Tunnel)
 async function handlePathA() {
     let pathA1answer = await getReply();
-    if (options.pathA.some(regex => regex.test(pathA1answer))) {
+    if (options.pathA.enter.some(regex => regex.test(pathA1answer))) {
         clear();
         currentStage = 'pathA1';
         img.src = gameData[currentStage];
         await type(gameData[selectedLanguage].pathA1, {}, exitHeader);
         await handlePathA1();
-    } else {
+    } //enter tunnel 
+    else if (options.move.some(regex => regex.test(pathA1answer)))
+    {
+        clear();
+        currentStage = 'pathA1';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA1, {}, exitHeader);
+        await handlePathA1();
+    }
+    else if (options.pathB1.stay.some(regex => regex.test(pathA1answer)))
+    {
+        clear();
+        currentStage = 'pathB';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathB, {}, exitHeader);
+        await handlePathB();
+    }
+    else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
         await handlePathA();
         
     }
-}
+} 
 
 // Handle Path A1 flow (Escape Alone)
 async function handlePathA1() {
@@ -986,7 +1043,7 @@ async function handlePathB2() {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
             await handlePathB2();
     }
-}
+} //fixed
 
 // Handle lighr a match flow B3
 async function handlePathB3() {
@@ -1003,16 +1060,6 @@ async function handlePathB3() {
     } 
     //fim game
     
-
-    
-    else if (options.pathB.some(regex => regex.test(pathB2answer))) {
-        const message = `${gameData[selectedLanguage].pathB1}`;
-        clear();
-        currentStage = 'pathB3';
-        img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
-        await handlePathB3(); // leads to open note
-    } 
     else if (options.pathB1.leave.some(regex => regex.test(pathB2answer))) {
         const message = gameData[selectedLanguage].pathA
         clear();
@@ -1025,7 +1072,7 @@ async function handlePathB3() {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
             await handlePathB3();
     }
-}
+} // fixed
 
 // Handle Path A3 flow (Beach)
 async function handlePathA3() {
