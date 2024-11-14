@@ -142,6 +142,43 @@ lostNote: "Você tentou ler a nota no escuro, mas ela voou para longe."
 };
 
     const options = {
+      readNote: [
+        // English
+        /read.*note/i, /check.*note/i, /examine.*note/i, /I read.*note/i, /open.*note/i,
+        /look.*note/i, /inspect.*note/i, /study.*note/i, /see.*note/i, /I observe.*note/i,
+        /analyze.*note/i, /I review.*note/i, /check the contents/i, /what’s in.*note/i, 
+        /look at the message/i, /take a closer look/i, /review contents/i, /open note to read/i, 
+        /take time to read/i, /read through the note/i, /I open and read/i, /observe the message/i, 
+        /scrutinize the note/i, /read what's written/i, /review what’s inside/i, /I go over.*note/i,
+        /take note of contents/i, /analyze what's there/i, /study carefully/i, /read all/i,
+        /inspect the contents/i, /I read it carefully/i, /glance over the note/i, /I examine/i,
+        /take a look at what it says/i, /focus on.*note/i, /I inspect closely/i, /read message carefully/i,
+        /look over what’s there/i, /inspect text/i, /what’s in this note/i, /review the note/i,
+        /observe what’s inside/i, /what’s the message/i, /I read the message/i, /see message/i,
+        /take a look inside/i, /open the note/i, /read and understand/i, /check what it says/i,
+
+        // Spanish
+        /leer.*nota/i, /checar.*nota/i, /mirar.*nota/i, /inspeccionar.*nota/i, /yo leo.*nota/i,
+        /revisar.*nota/i, /abrir.*nota/i, /examinar.*nota/i, /analizar.*nota/i,
+        /observar.*nota/, /ver.*nota/i, /ver contenido/i, /leer contenido/i, /ver mensaje/i, /observar lo que dice/i,
+        /revisar el mensaje/i, /abrir para leer/i, /mirar de cerca/i, /ver qué contiene/i, /revisar lo que dice/i,
+        /ver contenido de la nota/i, /analizar contenido/i, /yo reviso.*nota/i, /checar el mensaje/i,
+        /leer el mensaje/i, /mirar contenido/i, /yo leo el mensaje/i, /revisar el contenido/i, /leer atentamente/i,
+        /observar el contenido/i, /inspeccionar el mensaje/i, /ver lo que dice/i, /abrir para leer/i,
+        /revisar texto/i, /mirar con calma/i, /analizar lo escrito/i, /leer cuidadosamente/i, /ver qué contiene/i,
+        /leer lo que está en la nota/i, /examinar lo que está ahí/i, /yo observo el mensaje/i, /ver contenido/i,
+        /yo leo.*texto/i, /examinar atentamente/i, /mirar lo que hay escrito/i, /leer cada detalle/i,
+        /mirar lo que contiene la nota/i, /leer lo que hay/i, /examinar mensaje/i, /mirar mensaje/i,
+        /revisar detenidamente/i, /observar qué contiene/i, /revisar lo que tiene/i, /checar el texto/i,
+        /examinar lo que está en la nota/i, /revisar la escritura/i, /yo veo lo que dice/i, /leer con detenimiento/i,
+
+        // French
+        /lire.*note/i, /examiner.*note/i, /observer.*note/i, /consulter.*note/i,
+        /voir.*note/i,
+        /analyser.*note/i, /je lis.*note/i, /ouvrir.*note/i, /regarder.*note/i, /lire le contenu/i,
+        /observer le message/i, /voir ce qu’il y a/i, /étudier.*note/i, /lire attentivement/i,
+        /inspecter.*note/i, /observer ce qui est écrit/i, /analyser le contenu/i, /prendre connaissance.*note/i,
+        ],
     start: {
         barrel: [
             // English
@@ -637,43 +674,6 @@ pathA2: {
         /passo sem ler/i, /não quero ver/i, /guardar.*nota para mais tarde/i, /não me preocupo com.*nota/i,
         /não me interesso pela nota/i, /vou ignorar.*nota/i, /não mexo com a nota/i, /pôr a nota no bolso/i
     ],
-    readNote: [
-        // English
-        /read.*note/i, /check.*note/i, /examine.*note/i, /I read.*note/i, /open.*note/i,
-        /look.*note/i, /inspect.*note/i, /study.*note/i, /see.*note/i, /I observe.*note/i,
-        /analyze.*note/i, /I review.*note/i, /check the contents/i, /what’s in.*note/i, 
-        /look at the message/i, /take a closer look/i, /review contents/i, /open note to read/i, 
-        /take time to read/i, /read through the note/i, /I open and read/i, /observe the message/i, 
-        /scrutinize the note/i, /read what's written/i, /review what’s inside/i, /I go over.*note/i,
-        /take note of contents/i, /analyze what's there/i, /study carefully/i, /read all/i,
-        /inspect the contents/i, /I read it carefully/i, /glance over the note/i, /I examine/i,
-        /take a look at what it says/i, /focus on.*note/i, /I inspect closely/i, /read message carefully/i,
-        /look over what’s there/i, /inspect text/i, /what’s in this note/i, /review the note/i,
-        /observe what’s inside/i, /what’s the message/i, /I read the message/i, /see message/i,
-        /take a look inside/i, /open the note/i, /read and understand/i, /check what it says/i,
-
-        // Spanish
-        /leer.*nota/i, /checar.*nota/i, /mirar.*nota/i, /inspeccionar.*nota/i, /yo leo.*nota/i,
-        /revisar.*nota/i, /abrir.*nota/i, /examinar.*nota/i, /analizar.*nota/i,
-        /observar.*nota/, /ver.*nota/i, /ver contenido/i, /leer contenido/i, /ver mensaje/i, /observar lo que dice/i,
-        /revisar el mensaje/i, /abrir para leer/i, /mirar de cerca/i, /ver qué contiene/i, /revisar lo que dice/i,
-        /ver contenido de la nota/i, /analizar contenido/i, /yo reviso.*nota/i, /checar el mensaje/i,
-        /leer el mensaje/i, /mirar contenido/i, /yo leo el mensaje/i, /revisar el contenido/i, /leer atentamente/i,
-        /observar el contenido/i, /inspeccionar el mensaje/i, /ver lo que dice/i, /abrir para leer/i,
-        /revisar texto/i, /mirar con calma/i, /analizar lo escrito/i, /leer cuidadosamente/i, /ver qué contiene/i,
-        /leer lo que está en la nota/i, /examinar lo que está ahí/i, /yo observo el mensaje/i, /ver contenido/i,
-        /yo leo.*texto/i, /examinar atentamente/i, /mirar lo que hay escrito/i, /leer cada detalle/i,
-        /mirar lo que contiene la nota/i, /leer lo que hay/i, /examinar mensaje/i, /mirar mensaje/i,
-        /revisar detenidamente/i, /observar qué contiene/i, /revisar lo que tiene/i, /checar el texto/i,
-        /examinar lo que está en la nota/i, /revisar la escritura/i, /yo veo lo que dice/i, /leer con detenimiento/i,
-
-        // French
-        /lire.*note/i, /examiner.*note/i, /observer.*note/i, /consulter.*note/i,
-        /voir.*note/i,
-        /analyser.*note/i, /je lis.*note/i, /ouvrir.*note/i, /regarder.*note/i, /lire le contenu/i,
-        /observer le message/i, /voir ce qu’il y a/i, /étudier.*note/i, /lire attentivement/i,
-        /inspecter.*note/i, /observer ce qui est écrit/i, /analyser le contenu/i, /prendre connaissance.*note/i,
-        ],
         
 },
 pathA3:{
@@ -1027,7 +1027,7 @@ async function handlePathA() {
 async function handlePathA1() {
     let pathA2answer = await getReply();
 
-    if (options.pathA1.readNote.some(regex => regex.test(pathA2answer))) {
+    if (options.readNote.some(regex => regex.test(pathA2answer))) {
         clear();
         currentStage = 'pathA2';
         img.src = gameData[currentStage];
@@ -1089,7 +1089,7 @@ async function handlePathA2() {
         await type(message, {}, exitHeader);
         await handlePathA3();
     } 
-    else if (options.pathA2.readNote.some(regex => regex.test(pathA2answer))) {
+    else if (options.readNote.some(regex => regex.test(pathA2answer))) {
         const message = `${gameData[selectedLanguage].lostNote}. ${gameData[selectedLanguage].A3}`;
         clear();
         currentStage = 'pathA3';
@@ -1173,7 +1173,7 @@ async function handlePathB3() {
 // Handle Path A3 flow (Beach)
 async function handlePathA3() {
     let pathA3answer = await getReply();
-    if (options.pathA3.readNote.some(regex => regex.test(pathA3answer))) {
+    if (options.readNote.some(regex => regex.test(pathA3answer))) {
             currentStage = 'pathB1';
         img.src = gameData[currentStage];
       let message = `${gameData[selectedLanguage].noteMessage}.
@@ -1211,7 +1211,7 @@ async function handlePathA4() {
 async function handlePathB() {
     let pathBanswer = await getReply();
     
-    if (options.pathA2.readNote.some(regex => regex.test(pathBanswer))) {
+    if (options.readNote.some(regex => regex.test(pathBanswer))) {
         clear();
         currentStage = 'pathA2';
         img.src = gameData[currentStage];
