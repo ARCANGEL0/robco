@@ -1326,11 +1326,14 @@ await logoTitle()
     const terminal = document.querySelector(".output");
 
 const exitHeader = document.createElement("div");
+const consOutput = document.createElement("div");
 exitHeader.classList.add("exitHEADER");
+consOutput.classList.add("exitOUTPUT");
 
 const img = document.createElement("img");
 
 img.style.width = "40vw";
+consOutput.style.width = "16vw";
 img.style.height = "25vh";
 
 img.style.marginLeft = "5vw";
@@ -1352,24 +1355,31 @@ let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
 let hasTriedToReturn = false;
 img.src = gameData[currentStage];
 
+function clean() {
+    const element = document.querySelector('.typer');
+    if (element) {
+        element.remove();
+    }
+}
+
 async function eXitGame() {
-    await type(gameData[selectedLanguage].start, {}, exitHeader);
+    await type(gameData[selectedLanguage].start, {}, consOutput);
     let answerStart = await getReply();
 
     if (options.start.barrel.some(regex => regex.test(answerStart))) {
-        clear();
+        clean();
         currentStage = 'pathA';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathA, {}, consOutput);
         await handlePathA();
     } else if (options.start.friend.some(regex => regex.test(answerStart))) {
-        clear();
+        clean();
         currentStage = 'pathB';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathB, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathB, {}, consOutput);
         await handlePathB();
     } else {
-        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+        await type(gameData[selectedLanguage].invalid, {}, consOutput);
             await eXitGame();
     }
 }
@@ -1378,30 +1388,30 @@ async function eXitGame() {
 async function handlePathA() {
     let pathA1answer = await getReply();
     if (options.enter.some(regex => regex.test(pathA1answer))) {
-        clear();
+        clean();
         currentStage = 'pathA1';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA1, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathA1, {}, consOutput);
         await handlePathA1();
     } //enter tunnel 
-    else if (options.pathA4.move.some(regex => regex.test(pathA1answer)))
+    else if (options.move.some(regex => regex.test(pathA1answer)))
     {
-        clear();
+        clean();
         currentStage = 'pathA1';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA1, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathA1, {}, consOutput);
         await handlePathA1();
     }
     else if (options.stay.some(regex => regex.test(pathA1answer)))
     {
-        clear();
+        clean();
         currentStage = 'pathB';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathB, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathB, {}, consOutput);
         await handlePathB();
     }
     else {
-        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+        await type(gameData[selectedLanguage].invalid, {}, consOutput);
         await handlePathA();
         
     }
@@ -1412,29 +1422,29 @@ async function handlePathA1() {
     let pathA2answer = await getReply();
 
     if (options.readNote.some(regex => regex.test(pathA2answer))) {
-        clear();
+        clean();
         currentStage = 'pathA2';
         img.src = gameData[currentStage];
-        await type(`${gameData[selectedLanguage].pathA2}`, {}, exitHeader);
+        await type(`${gameData[selectedLanguage].pathA2}`, {}, consOutput);
         await handlePathA2();
     } 
-    else if (options.pathA4.move.some(regex => regex.test(pathA2answer))) {
-        clear();
+    else if (options.move.some(regex => regex.test(pathA2answer))) {
+        clean();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA3, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathA3, {}, consOutput);
         await handlePathA3();
     } 
     else if (options.pathA.call.some(regex => regex.test(pathA2answer))) {
-        clear();
+        clean();
     const message = `${gameData[selectedLanguage].tooWeak}. ${gameData[selectedLanguage].A3}`;
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathA3();
     } 
     else {
-        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+        await type(gameData[selectedLanguage].invalid, {}, consOutput);
             await handlePathA1();
     }
 } // fixed
@@ -1443,46 +1453,46 @@ async function handlePathA1() {
 async function handlePathA2() {
     let pathA2answer = await getReply();
 
-    if (options.pathA4.move.some(regex => regex.test(pathA2answer))) {
-        clear();
+    if (options.move.some(regex => regex.test(pathA2answer))) {
+        clean();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA3, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathA3, {}, consOutput);
         await handlePathA3();
     } 
     else if (options.pathA2.lookAround.some(regex => regex.test(pathA2answer))) {
-        clear();
+        clean();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA3, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathA3, {}, consOutput);
         await handlePathA3();
     } 
     else if (options.pathB.some(regex => regex.test(pathA2answer))) {
         const message = `${gameData[selectedLanguage].nolight}. ${gameData[selectedLanguage].A3}`;
-        clear();
+        clean();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathA3();
     } 
     else if (options.pathA2.voltar.some(regex => regex.test(pathA2answer))) {
         const message = `${gameData[selectedLanguage].blockedPath}. ${gameData[selectedLanguage].A3}`;
-        clear();
+        clean();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathA3();
     } 
     else if (options.readNote.some(regex => regex.test(pathA2answer))) {
         const message = `${gameData[selectedLanguage].lostNote}. ${gameData[selectedLanguage].A3}`;
-        clear();
+        clean();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathA3();
     } 
     else {
-        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+        await type(gameData[selectedLanguage].invalid, {}, consOutput);
             await handlePathA2();
     }
 } //fixed
@@ -1491,36 +1501,36 @@ async function handlePathA2() {
 async function handlePathB2() {
     let pathB2answer = await getReply();
 
-    if (options.pathA4.move.some(regex => regex.test(pathB2answer))) {
-        clear();
+    if (options.move.some(regex => regex.test(pathB2answer))) {
+        clean();
         currentStage = 'pathMatch';
         const message = `${gameData[selectedLanguage].givesMatches}`;
         img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathB2();
     } 
     else if (options.pathB.some(regex => regex.test(pathB2answer))) {
         const message = `${gameData[selectedLanguage].pathB1}`;
-        clear();
+        clean();
         currentStage = 'pathB1';
         img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathB3(); // leads to open note
     } 
     else if (options.pathB1.leave.some(regex => regex.test(pathB2answer))) {
         const message = gameData[selectedLanguage].pathA
-        clear();
+        clean();
         currentStage = 'pathA';
         img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathA();
     } 
     else {
-          clear();
+          clean();
         currentStage = 'pathMatch';
         const message = `${gameData[selectedLanguage].givesMatch}`;
         img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathB2();
     }
 } //fixed
@@ -1530,10 +1540,10 @@ async function handlePathB3() {
     let pathB2answer = await getReply();
 
     if (options.pathB1.stay.some(regex => regex.test(pathB2answer))) {
-        clear();
+        clean();
         currentStage = 'pathWin';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathWin, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathWin, {}, consOutput);
         await winGame();
         
         
@@ -1542,14 +1552,14 @@ async function handlePathB3() {
     
     else if (options.pathB1.leave.some(regex => regex.test(pathB2answer))) {
         const message = gameData[selectedLanguage].pathA
-        clear();
+        clean();
         currentStage = 'pathA';
         img.src = gameData[currentStage];
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathA();
     } 
     else {
-        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+        await type(gameData[selectedLanguage].invalid, {}, consOutput);
             await handlePathB3();
     }
 } // fixed
@@ -1562,16 +1572,16 @@ async function handlePathA3() {
         img.src = gameData[currentStage];
       let message = `${gameData[selectedLanguage].noteMessage}.
       ${gameData[selectedLanguage].A3}`
-        await type(message, {}, exitHeader);
+        await type(message, {}, consOutput);
         await handlePathA3(); // Stay on pathA3 after reading note
     } else if (options.pathA3.lookAround.some(regex => regex.test(pathA3answer))) {
-        clear();
+        clean();
         currentStage = 'pathA4';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA4, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathA4, {}, consOutput);
         await handlePathA4();
     } else {
-        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+        await type(gameData[selectedLanguage].invalid, {}, consOutput);
             await handlePathA3();
     }
 } // fixed
@@ -1580,13 +1590,13 @@ async function handlePathA3() {
 async function handlePathA4() {
     let pathA4answer = await getReply();
     if (options.pathA4.some(regex => regex.test(pathA4answer))) {
-        clear();
+        clean();
         currentStage = 'pathFail';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathFail, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathFail, {}, consOutput);
         await failGame()
     } else {
-        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+        await type(gameData[selectedLanguage].invalid, {}, consOutput);
             await handlePathA4();
     }
 } // fixed
@@ -1596,29 +1606,29 @@ async function handlePathB() {
     let pathBanswer = await getReply();
     
     if (options.readNote.some(regex => regex.test(pathBanswer))) {
-        clear();
+        clean();
         currentStage = 'pathA2';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA2, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathA2, {}, consOutput);
         await handlePathB2();
     }
-    else if (options.pathA4.move.some(regex => regex.test(pathBanswer))) {
-        clear();
+    else if (options.move.some(regex => regex.test(pathBanswer))) {
+        clean();
         currentStage = 'pathA';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathA, {}, consOutput);
         await handlePathA();
     }
     else if (options.pathB.some(regex => regex.test(pathBanswer))) {
-        await type(gameData[selectedLanguage].noMatchMessage, {}, exitHeader); 
-        clear();
+        await type(gameData[selectedLanguage].noMatchMessage, {}, consOutput); 
+        clean();
         currentStage = 'pathB1';
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathB3, {}, exitHeader);
+        await type(gameData[selectedLanguage].pathB3, {}, consOutput);
         await handlePathB3();
     }
     else {
-        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+        await type(gameData[selectedLanguage].invalid, {}, consOutput);
             await handlePathB();
     }
 } // fixed
@@ -1626,11 +1636,11 @@ async function handlePathB() {
 // Stay with friend end
 async function winGame() {
   pause(4)
-  clear()
+  clean()
   exitHeader.remove()
   await type(gameData[selectedLanguage].win1); 
   pause(10)
-  clear()
+  clean()
   await type(gameData[selectedLanguage].win2); 
   pause(15)
   gameScreen.remove()
@@ -1638,7 +1648,7 @@ async function winGame() {
 } // fixed
 async function failGame() {
   pause(10)
-  clear()
+  clean()
   await logoTitle()
 } // fixed
 // Start the game
