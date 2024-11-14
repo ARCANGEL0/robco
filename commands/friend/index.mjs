@@ -434,6 +434,7 @@ stay: [
     /\b(?:je reste pour lui|je décide de rester ici|je ne le laisse pas seul|je reste là pour lui)\b[\.,\!\?]*/i,
     // Verbos Simples e Variantes
     /\b(?:qued(?:o|arse|ando|ate aquí|ándome)|permanezco|permanecer|est(?:oy|ar|é)|acompañ(?:o|ar|ando)|me quedo|esper(?:o|ar))\b[\.,\!\?]*/i
+    ,
     // Expressões para "ficar com o amigo" e variações 
     /\b(?:qued(?:o|arse|ando|ate aquí|ándome)|permanezco|permanecer|est(?:oy|ar|é)|acompañ(?:o|ar|ando)|me quedo|esper(?:o|ar))\b[\.,\!\?]*/i 
     ,
