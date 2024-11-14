@@ -1051,11 +1051,19 @@ async function handlePathA2() {
         await type(message, {}, exitHeader);
         await handlePathA3();
     } 
+    else if (options.pathA2.readNote.some(regex => regex.test(pathA2answer))) {
+        const message = `${gameData[selectedLanguage].lostNote}. ${gameData[selectedLanguage].A3}`;
+        clear();
+        currentStage = 'pathA3';
+        img.src = gameData[currentStage];
+        await type(message, {}, exitHeader);
+        await handlePathA3();
+    } 
     else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
             await handlePathA2();
     }
-}
+} //fixed
 
 // Handle Path B2 flow (Read note in dark)
 async function handlePathB2() {
