@@ -495,7 +495,7 @@ leave: [
 ]
 },
 pathA2: {
-  leaveOrGoBack: [
+  voltar: [
         // English
         /leave/i, /go.*back/i, /turn.*back/i, /exit/i, /escape/i, /get.*out/i, 
         /walk.*out/i, /return/i, /backtrack/i, /head.*back/i, /step.*back/i,
@@ -1043,8 +1043,8 @@ async function handlePathA2() {
         await type(message, {}, exitHeader);
         await handlePathA3();
     } 
-    else if (options.pathA2.return.some(regex => regex.test(pathA2answer))) {
-        const message = `${gameData[selectedLanguage].nolight}. ${gameData[selectedLanguage].A3}`;
+    else if (options.pathA2.voltar.some(regex => regex.test(pathA2answer))) {
+        const message = `${gameData[selectedLanguage].blockedPath}. ${gameData[selectedLanguage].A3}`;
         clear();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
