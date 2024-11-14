@@ -966,7 +966,7 @@ async function handlePathA1() {
         await type(`${gameData[selectedLanguage].pathA2}`, {}, exitHeader);
         await handlePathA2();
     } 
-    else if (options.pathA1.continue.some(regex => regex.test(pathA2answer))) {
+    else if (options.move.some(regex => regex.test(pathA2answer))) {
         clear();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
