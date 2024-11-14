@@ -19,7 +19,7 @@ const gameData = {
     pathA3:'./images/assets/pathA3.png' ,
     pathA4:'./images/assets/pathA4.png' ,
     pathFail:'./images/assets/end.png' ,
-    pathWin:'./images/assets/win.png' ,
+    pathWin:'./images/assets/pathWin.png' ,
     pathMatch:'./images/assets/giveMatch.png' ,
     
     en: {
@@ -907,13 +907,14 @@ async function friend() {
 	return new Promise(async resolve => {
 		// LOGO
 		clear()
+		async function logoTitle() { 
 		let logoScreen = await showTemplateScreen("logo");
 		pause(2);
 
 		await waitForKey();
 		logoScreen.remove();
-
-
+}
+await logoTitle()
 		// Main game screen
 		let gameScreen = getScreen("friend");
 
@@ -1198,7 +1199,7 @@ async function handlePathB() {
     
     if (options.pathA2.readNote.some(regex => regex.test(pathBanswer))) {
         clear();
-        currentStage = 'pathB2';
+        currentStage = 'pathA2';
         img.src = gameData[currentStage];
         await type(gameData[selectedLanguage].pathA2, {}, exitHeader);
         await handlePathB2();
@@ -1213,7 +1214,7 @@ async function handlePathB() {
     else if (options.pathB.some(regex => regex.test(pathBanswer))) {
         await type(gameData[selectedLanguage].noMatchMessage, {}, exitHeader); 
         clear();
-        currentStage = 'pathB3';
+        currentStage = 'pathB1';
         img.src = gameData[currentStage];
         await type(gameData[selectedLanguage].pathB3, {}, exitHeader);
         await handlePathB3();
@@ -1228,13 +1229,19 @@ async function handlePathB() {
 async function winGame() {
   pause(4)
   clear()
-  await type(gameData[selectedLanguage].win1, {}, exitHeader); 
-  pause(3)
+  exitHeader.remove()
+  await type(gameData[selectedLanguage].win1); 
+  pause(10)
   clear()
-  await type(gameData[selectedLanguage].win2, {}, exitHeader); 
-  pause(4)
+  await type(gameData[selectedLanguage].win2); 
+  pause(15)
   gameScreen.remove()
   resolve()
+} // fixed
+async function failGame() {
+  pause(10)
+  clear()
+  await logoTitle()
 } // fixed
 // Start the game
 eXitGame();
