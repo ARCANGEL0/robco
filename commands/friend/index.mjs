@@ -142,6 +142,257 @@ lostNote: "Você tentou ler a nota no escuro, mas ela voou para longe."
 };
 
     const options = {
+      enter: [
+    // Verbos Simples
+    /\bentro\b/i, /\bentrar\b/i, /\bentrando\b/i, /\bexplorar\b/i, /\binvestigar\b/i, /\bdescobrir\b/i, 
+    /\besgueirar\b/i, /\bseguir\b/i, /\bfugir\b/i, /\bescapar\b/i, /\bcaminhar\b/i, /\biniciar\b/i, 
+    /\badentrar\b/i, /\bpassar\b/i, /\bpartir\b/i, /\brumo\b/i, /\bchegar\b/i, /\blançar\b/i, 
+    /\bmover\b/i, /\bavançar\b/i, /\benfrentar\b/i, /\binfiltrar\b/i, /\btransitar\b/i, /\bme encaminho\b/i,
+
+    // Combinações com "Túnel"
+    /\bentro.*t[uú]nel\b/i, /\bentrando.*t[uú]nel\b/i, /\bentrar.*t[uú]nel\b/i, /\bme escondo.*t[uú]nel\b/i, 
+    /\bdecido entrar.*t[uú]nel\b/i, /\bdecidi.*entrar.*t[uú]nel\b/i, /\besgueirando.*t[uú]nel\b/i,
+    /\badentro.*t[uú]nel\b/i, /\binvestigar.*t[uú]nel\b/i, /\bvou para o.*t[uú]nel\b/i, /\bvou.*no túnel\b/i,
+    /\bcaminho.*para.*t[uú]nel\b/i, /\bchegar.*ao túnel\b/i, /\bvou.*em direção.*t[uú]nel\b/i, 
+    /\bseguindo.*para o túnel\b/i, /\bcontinuo.*t[uú]nel\b/i, /\bpasso.*pelo túnel\b/i, /\bdesço.*para o túnel\b/i,
+    /\bme dirijo.*t[uú]nel\b/i, /\bparto.*para.*t[uú]nel\b/i, /\bavançando.*para o túnel\b/i, 
+    /\bme lanço.*no túnel\b/i, /\bexplorando.*t[uú]nel\b/i, /\bfazer meu caminho.*t[uú]nel\b/i, /\bentro em.*t[uú]nel\b/i,
+    /\bme enfio.*no túnel\b/i, /\bentrar para explorar\b.*t[uú]nel\b/i, /\bcaminhar até.*t[uú]nel\b/i,
+    /\besgueirando-se para.*t[uú]nel\b/i, /\bdecido descer.*o túnel\b/i, /\besconde no túnel\b/i,
+
+    // Termos de Fuga e Escapar
+    /\bfujo para.*t[uú]nel\b/i, /\bfugir para.*t[uú]nel\b/i, /\bescapo para.*t[uú]nel\b/i,
+    /\bescondo.*no túnel\b/i, /\bescapar para.*t[uú]nel\b/i, /\bfugindo.*para o túnel\b/i,
+    /\bdecido fugir.*para o túnel\b/i, /\bme escondo no túnel\b/i, /\brefugio no túnel\b/i,
+    /\bescapando.*para o túnel\b/i, /\bprocurando refúgio.*no túnel\b/i, /\bfugir.*direto.*t[uú]nel\b/i,
+    /\bme abrigar.*no túnel\b/i, /\bdesapareço no túnel\b/i, /\bfugindo em direção.*ao túnel\b/i,
+    /\bescondendo-se.*no túnel\b/i, /\bfugindo.*t[uú]nel\b/i, /\bfugindo direto.*t[uú]nel\b/i,
+
+    // Variações Contextuais
+    /\bparto.*t[uú]nel\b/i, /\badentro.*do túnel\b/i, /\bentro em.*t[uú]nel\b/i,
+    /\bme aproximo.*do túnel\b/i, /\brumo.*t[uú]nel\b/i, /\bindo para.*t[uú]nel\b/i,
+    /\bcaminhando rumo.*ao túnel\b/i, /\bavançar em direção.*ao túnel\b/i, /\bexploro.*t[uú]nel\b/i,
+    /\bme preparo para entrar.*t[uú]nel\b/i, /\bavançando para.*t[uú]nel\b/i, /\bentrando cada vez mais no túnel\b/i,
+    /\bcontinuo em direção.*ao túnel\b/i, /\bme aproximo.*do túnel\b/i, /\bvou para dentro.*t[uú]nel\b/i,
+    /\badentro.*do túnel\b/i, /\bme enfio.*para dentro.*t[uú]nel\b/i, /\bfazendo meu caminho.*t[uú]nel\b/i,
+    /\bdescendo em direção.*ao túnel\b/i, /\bchego ao início.*do túnel\b/i, /\bcomeço a adentrar.*t[uú]nel\b/i,
+    /\bsigo pelo túnel\b/i, /\bcaminho pelo túnel\b/i, /\badentro ainda mais.*no túnel\b/i,
+
+    // Variantes de Ação
+    /\blanço-me.*no túnel\b/i, /\bfazer minha entrada.*no túnel\b/i, /\bavançar fundo.*no túnel\b/i,
+    /\bindo.*em direção.*ao túnel\b/i, /\brumo ao interior.*do túnel\b/i, /\bavanço.*ao encontro.*t[uú]nel\b/i,
+    /\bme aproximo cada vez mais.*do túnel\b/i, /\bme aproximo do túnel\b/i, /\bcontinuo adentrando.*t[uú]nel\b/i,
+    /\badentro mais.*no túnel\b/i, /\beu sigo.*dentro do túnel\b/i, /\btomo caminho.*para o túnel\b/i,
+    /\bsigo diretamente.*ao túnel\b/i, /\bdescendo ao longo.*do túnel\b/i, /\bentro.*profundamente.*no túnel\b/i,
+    /\bexploro interior.*do túnel\b/i, /\bfugindo cada vez mais.*ao túnel\b/i, /\bprocuro um esconderijo.*no túnel\b/i,
+    /\bavanço adentrando.*no túnel\b/i, /\btomo rumo.*para o túnel\b/i, /\bsigo entrando.*no túnel\b/i,
+    /\brumo fundo.*no túnel\b/i, /\beu entro bem dentro.*do túnel\b/i, /\beu entro até o final.*do túnel\b/i,
+
+    // Expressões de Intenção
+    /\bdecido me abrigar.*no túnel\b/i, /\bme aproximo.*para entrar.*t[uú]nel\b/i, /\bdecidi entrar ainda mais.*no túnel\b/i,
+    /\bprocuro segurança.*no túnel\b/i, /\bme escondo diretamente.*no túnel\b/i, /\bdecido descer.*ao túnel\b/i,
+    /\beu me movo.*ao longo.*do túnel\b/i, /\beu entro.*no meio.*do túnel\b/i, /\beu entro completamente.*no túnel\b/i,
+    /\beu procuro um caminho.*no túnel\b/i, /\bentro.*ao túnel.*para explorar\b/i, /\beu sigo.*profundamente.*no túnel\b/i,
+    /\bdecido ir.*para o túnel\b/i, /\beu vou até o final.*do túnel\b/i, /\bexploro o interior.*do túnel\b/i,
+    /\btomo decisão.*ao entrar.*t[uú]nel\b/i, /\beu me lanço diretamente.*no túnel\b/i, /\bsigo o túnel.*até o fim\b/i,
+    /\bprossigo.*entrando.*no túnel\b/i, /\bdecido seguir.*pelo túnel\b/i, /\bentro até.*o fundo.*do túnel\b/i,
+    /\binvestigo.*o espaço.*no túnel\b/i, /\bprocuro.*no túnel\b/i, /\btomo meu rumo.*ao túnel\b/i
+,    /\bentre\b/i, /\bentrer\b/i, /\bentrant\b/i, /\bexplorer\b/i, /\binvestiguer\b/i, /\bdécouvrir\b/i,
+    /\binfiltrer\b/i, /\bsuivre\b/i, /\bfuir\b/i, /\béchapper\b/i, /\bmarcher\b/i, /\binitialiser\b/i,
+    /\binfiltrer\b/i, /\btransiter\b/i, /\bme dirige\b/i, /\bapprocher\b/i, /\bdescendre\b/i,
+
+    // Combinações com "Tunnel"
+    /\bentre.*dans le tunnel\b/i, /\bentrant.*dans le tunnel\b/i, /\bentrer.*dans le tunnel\b/i,
+    /\bme cache.*dans le tunnel\b/i, /\bje décide d'entrer.*dans le tunnel\b/i, /\bj'ai décidé\b.*d'entrer dans le tunnel\b/i,
+    /\binfiltrer.*le tunnel\b/i, /\bexplorer.*le tunnel\b/i, /\bj'avance.*vers le tunnel\b/i,
+    /\bmarche.*vers.*le tunnel\b/i, /\bdescend.*vers le tunnel\b/i, /\bje vais.*vers le tunnel\b/i,
+    /\bje vais entrer.*dans le tunnel\b/i, /\bchemin vers le tunnel\b/i, /\bje m'approche du tunnel\b/i,
+    /\bpartir.*vers le tunnel\b/i, /\bj'explore.*le tunnel\b/i, /\bje fais mon chemin.*vers le tunnel\b/i,
+    /\bje me réfugie.*dans le tunnel\b/i, /\bje fuis vers le tunnel\b/i, /\bme diriger.*vers le tunnel\b/i,
+    /\bcontinuer vers.*le tunnel\b/i, /\bme rendre dans.*le tunnel\b/i, /\bme lancer.*dans le tunnel\b/i,
+    /\btrouver refuge.*dans le tunnel\b/i, /\bje pars pour.*le tunnel\b/i, /\bexplorant le tunnel\b/i,
+
+    // Termos de Fuga e Escapar
+    /\bje fuis vers.*le tunnel\b/i, /\bfuir dans.*le tunnel\b/i, /\béchapper dans.*le tunnel\b/i,
+    /\bme cache dans.*le tunnel\b/i, /\béchapper vers.*le tunnel\b/i, /\bme réfugie dans.*le tunnel\b/i,
+    /\bje décide de fuir.*dans le tunnel\b/i, /\bme protéger.*dans le tunnel\b/i, /\bm'echapper.*vers le tunnel\b/i,
+    /\bje m'abrite dans.*le tunnel\b/i, /\bdisparaître dans le tunnel\b/i, /\bme cache directement.*dans le tunnel\b/i,
+    /\bfuir en direction du tunnel\b/i, /\bfuyant dans le tunnel\b/i, /\bje m'aventure.*dans le tunnel\b/i,
+
+    // Variações Contextuais
+    /\bpartir dans le tunnel\b/i, /\bdescends dans le tunnel\b/i, /\bme réfugie dans le tunnel\b/i,
+    /\bchemin vers le tunnel\b/i, /\bj'avance.*vers le tunnel\b/i, /\bj'ouvre.*le passage dans le tunnel\b/i,
+    /\bj'entre dans.*le tunnel\b/i, /\bme rapproche du tunnel\b/i, /\bje poursuis dans.*le tunnel\b/i,
+    /\bje décide de continuer.*dans le tunnel\b/i, /\bs'approcher.*du tunnel\b/i, /\bje vais m'aventurer.*dans le tunnel\b/i,
+    /\bm'avancer.*dans le tunnel\b/i, /\bme lancer dans.*le tunnel\b/i, /\bje m'enfonce dans le tunnel\b/i,
+    /\bm'approche dans le tunnel\b/i, /\bm'engager.*dans le tunnel\b/i, /\bexplorer encore plus loin.*dans le tunnel\b/i,
+
+    // Variantes de Ação
+    /\bse lancer.*dans le tunnel\b/i, /\bfaire mon entrée.*dans le tunnel\b/i, /\bprogresser dans le tunnel\b/i,
+    /\bapprocher du tunnel\b/i, /\bs'approcher encore plus.*du tunnel\b/i, /\btrouver une sortie.*dans le tunnel\b/i,
+    /\bme sauver dans.*le tunnel\b/i, /\bm'introduire.*dans le tunnel\b/i, /\bmarcher à travers.*le tunnel\b/i,
+    /\bm'engager.*vers le tunnel\b/i, /\bpartir.*directement dans le tunnel\b/i, /\bcontinuer dans le tunnel\b/i,
+    /\bapprocher le passage.*du tunnel\b/i, /\bm'approcher de.*la sortie du tunnel\b/i, /\bexplorant encore plus.*le tunnel\b/i,
+    /\bexplorer profondément.*dans le tunnel\b/i, /\bme déplacer.*vers le tunnel\b/i, /\bm'enfuir directement.*dans le tunnel\b/i,
+
+    // Expressões de Intenção
+    /\bje décide de m'abriter.*dans le tunnel\b/i, /\bje m'approche.*pour entrer dans le tunnel\b/i,
+    /\bje décide d'entrer encore plus loin.*dans le tunnel\b/i, /\bje cherche un abri.*dans le tunnel\b/i,
+    /\bje me cache directement.*dans le tunnel\b/i, /\bje décide de descendre.*dans le tunnel\b/i,
+    /\bje me déplace.*à travers.*le tunnel\b/i, /\bj'entre profondément.*dans le tunnel\b/i,
+    /\bje fais mon chemin.*dans le tunnel\b/i, /\bje pars en exploration.*dans le tunnel\b/i,
+    /\bj'avance.*profondément dans le tunnel\b/i, /\bje décide de continuer.*dans le tunnel\b/i,
+    /\bje pars jusqu'au bout.*du tunnel\b/i, /\bje vais explorer.*le fond du tunnel\b/i,
+    /\bje choisis de m'abriter.*dans le tunnel\b/i, /\bme protéger.*directement dans le tunnel\b/i,
+    /\bje m'introduis directement.*dans le tunnel\b/i, /\bje progresse.*à l'intérieur du tunnel\b/i,
+    /\bm'aventurer.*encore plus loin dans le tunnel\b/i, /\bm'enfoncer.*profondément dans le tunnel\b/i,
+    /\bje vais encore plus loin.*dans le tunnel\b/i, /\bexplorer.*le passage intérieur du tunnel\b/i,
+    /\bje décide de m'introduire.*encore plus dans le tunnel\b/i, /\bje cherche une issue.*dans le tunnel\b/i
+,
+
+    // Verbos Simples
+    /\bentro\b/i, /\bentrar\b/i, /\bentrando\b/i, /\bexplorar\b/i, /\binvestigar\b/i, /\bdescubrir\b/i,
+    /\besconderse\b/i, /\bseguir\b/i, /\bhuir\b/i, /\bescapar\b/i, /\bcaminar\b/i, /\biniciar\b/i,
+    /\badentrarse\b/i, /\bpasar\b/i, /\bdirigirse\b/i, /\bacercarse\b/i, /\bdescender\b/i,
+
+    // Combinações com "Túnel"
+    /\bentro.*en el túnel\b/i, /\bentrando.*en el túnel\b/i, /\bentrar.*en el túnel\b/i,
+    /\bme escondo.*en el túnel\b/i, /\bdecido entrar.*en el túnel\b/i, /\bdecidí.*entrar en el túnel\b/i,
+    /\binfiltrar.*en el túnel\b/i, /\bexplorar.*el túnel\b/i, /\bme acerco.*al túnel\b/i,
+    /\bme dirijo.*al túnel\b/i, /\bdescender.*hacia el túnel\b/i, /\bme muevo hacia.*el túnel\b/i,
+    /\bvoy a entrar.*en el túnel\b/i, /\bhacia el túnel\b/i, /\bllegar.*al túnel\b/i, /\bseguir.*el túnel\b/i,
+    /\bme refugio.*en el túnel\b/i, /\bhuyendo.*hacia el túnel\b/i, /\bfugarse.*al túnel\b/i,
+    /\bparto hacia.*el túnel\b/i, /\bme lanzo.*al túnel\b/i, /\bavanzando hacia.*el túnel\b/i,
+    /\bme voy.*al túnel\b/i, /\bllegando.*al túnel\b/i, /\bencaminarse.*al túnel\b/i, /\bfugir.*al túnel\b/i,
+    /\bexplorando.*el túnel\b/i, /\binfiltrarme en.*el túnel\b/i, /\biniciar.*en el túnel\b/i,
+
+    // Termos de Fuga e Escapar
+    /\bhuyo hacia.*el túnel\b/i, /\bescapar al túnel\b/i, /\bfugarse al túnel\b/i,
+    /\bme refugio en.*el túnel\b/i, /\bhuyendo hacia el túnel\b/i, /\bme escondo.*en el túnel\b/i,
+    /\bdecido huir.*al túnel\b/i, /\bme escondo directamente.*en el túnel\b/i, /\bme pierdo.*en el túnel\b/i,
+    /\bme abro camino.*al túnel\b/i, /\bfugir directamente.*al túnel\b/i, /\bme protejo.*en el túnel\b/i,
+    /\bme escondo en lo profundo.*del túnel\b/i, /\bhuyo.*directamente al túnel\b/i, /\bdesaparezco.*en el túnel\b/i,
+
+    // Variações Contextuais
+    /\bparto en dirección.*al túnel\b/i, /\bme acerco al túnel\b/i, /\bvoy hacia el túnel\b/i,
+    /\bcamino hacia el túnel\b/i, /\biniciar camino.*en el túnel\b/i, /\bavanzo al interior.*del túnel\b/i,
+    /\bme voy hacia el túnel\b/i, /\bdecido entrar.*en el túnel\b/i, /\bme aproximo.*al túnel\b/i,
+    /\bme dirijo hacia.*el túnel\b/i, /\bme lanzo.*en el túnel\b/i, /\bproseguir en el túnel\b/i,
+    /\bmeterme.*en el túnel\b/i, /\bme abro paso.*en el túnel\b/i, /\bme muevo por.*el túnel\b/i,
+    /\badentrándome en el túnel\b/i, /\bexploro cada vez más.*en el túnel\b/i, /\bseguir adentrándome.*en el túnel\b/i,
+
+    // Variantes de Ação
+    /\biniciar exploración.*en el túnel\b/i, /\bhaciendo mi camino.*al túnel\b/i, /\bexplorar.*lo profundo del túnel\b/i,
+    /\bacercarme.*al túnel\b/i, /\bhacia la profundidad.*del túnel\b/i, /\bme aventuro en el túnel\b/i,
+    /\bexploro el interior.*del túnel\b/i, /\bme muevo hacia adentro.*del túnel\b/i, /\bme aproximo aún más.*al túnel\b/i,
+    /\bdecido avanzar.*en el túnel\b/i, /\bme preparo para entrar.*en el túnel\b/i, /\bme dirijo profundamente.*al túnel\b/i,
+    /\biniciar travesía.*en el túnel\b/i, /\bme escondo bien dentro.*del túnel\b/i, /\bprogreso en el túnel\b/i,
+    /\bencamino hacia lo más profundo.*del túnel\b/i, /\bme lanzo hacia lo profundo.*del túnel\b/i,
+    /\bentrando cada vez más.*en el túnel\b/i, /\bmoverme en dirección.*al túnel\b/i,
+
+    // Expressões de Intenção
+    /\bme refugio aún más.*en el túnel\b/i, /\bdecido seguir.*adentrándome en el túnel\b/i,
+    /\bme pierdo más.*en el túnel\b/i, /\bexplorando cada rincón.*del túnel\b/i, /\bme adentro por completo.*en el túnel\b/i,
+    /\bseguir investigando.*en el túnel\b/i, /\bdescender hasta.*el túnel\b/i, /\bme muevo más allá.*en el túnel\b/i,
+    /\bexploro cada rincón.*del túnel\b/i, /\btomar refugio.*en el túnel\b/i, /\bmoverme más profundamente.*en el túnel\b/i,
+    /\binvestigar aún más.*en el túnel\b/i, /\bseguir avanzando.*en el túnel\b/i, /\bme pierdo completamente.*en el túnel\b/i,
+    /\bme voy adentrando cada vez más.*en el túnel\b/i, /\bme pierdo en la oscuridad.*del túnel\b/i,
+    /\bdecido continuar.*por el túnel\b/i, /\badentrarme profundamente.*en el túnel\b/i,
+    /\binvestigar lo profundo.*del túnel\b/i, /\bllegar al fondo.*del túnel\b/i, /\bexploro hacia el final.*del túnel\b/i,
+    /\bhacer mi camino.*hasta el túnel\b/i, /\bpermanecer en el túnel\b/i, /\bocultarme en el túnel\b/i,
+    /\bescondiéndome en el túnel\b/i, /\bperderme completamente.*en el túnel\b/i, /\bexplorar el fondo.*del túnel\b/i,
+    /\bme acerco cada vez más.*al túnel\b/i, /\bme sumerjo más.*en el túnel\b/i, /\bcontinúo avanzando.*en el túnel\b/i
+,
+    // Verbos simples e variantes (conjugações e formas alternativas)
+    /\b(?:ent(?:ro|rar|rando|rei|remos|rei|ramos)|avanç(?:o|ar|ando)|explor(?:ar|o|ando)|vou|indo|seguir|procuro|entro\b)/i,
+    /\b(?:esgueir(?:o|ar|ando)|caminh(?:o|ar|ando)|adentr(?:o|ar|ando)|dirig(?:o|ir|indo)|fug(?:ir|o)|escap(?:ar|o))\b/i,
+    
+    // Combinando verbos e variações com "túnel", capturando várias preposições e palavras de ligação
+    /\b(?:decid(?:o|ir|indo) (?:me )?entrar|part(?:o|ir)|me (?:aproximo|aproximando)|come(?:ço|çar|çando)|cheg(?:o|ar|ando) ao?)? t[uú]nel\b/i,
+    /\b(?:entr(?:ando|ar|rei|aria|ando) ?(?:no|para o|ao)? t[uú]nel|prossig(?:o|uir|uindo) ?(?:no|rumo ao|para o)? t[uú]nel)\b/i,
+    /\b(?:me dirijo|vou) (?:em dire[cç][ãa]o|ao|para o) t[uú]nel\b/i,
+    /\b(?:vou|me lan[cç]o|me aventuro|me movo|me enfio|me escondo) (?:no|para dentro do|rumo ao|at[ée] o) t[uú]nel\b/i,
+
+    // Termos de fuga, esconderijo e busca de refúgio
+    /\b(?:fu(?:g(?:ir|indo)|jo|jindo)|escap(?:o|ar|ando)|me refugi(?:o|ar|ando)|procur(?:o|ar|ando) abrigo|me perco) (?:dentro|no|ao) t[uú]nel\b/i,
+    /\b(?:desapare(?:[çc]o|cer|cendo)|me escondo|busco refugio|fugindo em dire[cç][ãa]o ao) t[uú]nel\b/i,
+    /\b(?:entro para fugir|escondendo-me no|em refugio no) t[uú]nel\b/i,
+    /\b(?:evito o perigo ao entrar no|procuro refúgio no|abrigo no) t[uú]nel\b/i,
+
+    // Combinações de palavras com ações e expressões contextuais
+    /\b(?:me aventuro|vou explorar|come[çc]o a caminhar|me adentro cada vez mais|me aproximo|me enfio|vou pro) t[uú]nel\b/i,
+    /\b(?:fa[çc]o meu caminho|come[çc]o a adentrar|avan[çc]ando rumo ao|me enfio de vez) no t[uú]nel\b/i,
+    /\b(?:me escondo|me movo|me lan[çc]o) ao? t[uú]nel\b/i,
+    /\b(?:percorro o|chego ao fundo do|avan[çc]o pelo|entro cada vez mais no) t[uú]nel\b/i,
+    /\b(?:vou fundo|parto em dire[cç][ãa]o|decido adentrar|sigo diretamente) no t[uú]nel\b/i,
+
+    // Outras formas de entrada e exploração
+    /\b(?:fa[çc]o minha entrada|inicio a caminhada|prossigo para o|vou me enfiando) no t[uú]nel\b/i,
+    /\b(?:me aprofundo|me arrisco|continuo explorando) o t[uú]nel\b/i,
+    /\b(?:come[çc]o a investigar|decido ir mais fundo|vou explorar mais) o t[uú]nel\b/i,
+    /\b(?:entro para ver|exploro cada canto|fa[çc]o caminho|caminho rumo ao) t[uú]nel\b/i,
+    /\b(?:me embrenho|vou descendo|fa[çc]o um desvio para|procuro algo) no t[uú]nel\b/i,
+
+    // Gírias, formas alternativas e expressões coloquiais
+    /\b(?:me mando|dou um pulo|me taco|fa[çc]o uma visita|me jogo) no t[uú]nel\b/i,
+    /\b(?:toco para o t[uú]nel|dou um jeito de entrar|sigo reto para o|corto caminho pelo) t[uú]nel\b/i,
+    /\b(?:me aproximo devagar|me enfio na parada do|fa[çc]o uma caminhada até o) t[uú]nel\b/i,
+    /\b(?:dou uma conferida|entro na vibe do|me envolvo no clima do|meto marcha pro) t[uú]nel\b/i,
+    /\b(?:mergulho na parada do|vou direto ao ponto no|fa[çc]o minha rota pelo) t[uú]nel\b/i,
+    /\b(?:chego e entro|me aproximo e dou um jeito de entrar) no t[uú]nel\b/i
+],
+stay: [
+    // Verbos simples e variantes (conjugações e formas alternativas)
+    /\b(?:stay|staying|remain|remaining|sit|sitting|wait|waiting|hang around|stick around|not leave|keep company)\b/i,
+
+    // Expressões de "ficar com o amigo" e variações
+    /\b(?:stay|stick around|hang out|keep company|remain|wait) (?:here|with him|beside him|next to him|by his side|nearby)\b/i,
+    /\b(?:stay close to|sit with|be near|stay beside|remain by|keep close to|hang by) (?:my friend|him)\b/i,
+    /\b(?:not go anywhere|decide to stay|sit around|sit down|sit on the ground|stay still|choose to stay) (?:with my friend|near him|beside him|right here)\b/i,
+    /\b(?:I stay|I choose to stay|I remain|I sit down|I stick around|I keep him company|I hang out) (?:near him|with my friend|by his side|right here)\b/i,
+    
+    // Combinações para "permanecer com o amigo" e "fazer companhia"
+    /\b(?:stay put|keep him company|keep him close|do nothing|just sit with him|stay calm|stick with him|not leave his side)\b/i,
+    /\b(?:choose to stay|opt to remain|decide to keep him close|prefer to stay|end up staying|remain seated) (?:by his side|next to him|with my friend|right here)\b/i,
+    /\b(?:stay calm|sit quietly|sit down with him|sit beside him|stay grounded|remain quiet|just be here|make no move)\b/i,
+    /\b(?:I make no move|I sit and stay|I stay where I am|I stay here|I decide to stay|I keep my friend company|I sit down next to him)\b/i,
+    
+    // Expressões de "sentar" e "permanecer ao lado do amigo"
+    /\b(?:sit next to him|sit on the ground|sit by him|sit here with him|sit beside my friend|sit close to my friend|just sit|just stay|stay close)\b/i,
+    /\b(?:sit with him|stay seated|choose to stay here|decide to stay put|decide not to go|stay put|stay where I am|sit still|sit tight)\b/i,
+    /\b(?:remain seated|keep my friend company|choose not to leave|not go anywhere|stay by his side|remain here|decide to remain)\b/i,
+    
+    // Variações contextuais de permanência e quietude
+    /\b(?:keep him company|stay right here|remain sitting|stick by his side|decide to do nothing|do nothing and stay|stay put and wait)\b/i,
+    /\b(?:stay close|just stay|not leave|not go anywhere|not move from here|decide to stay here|decide to stay still|stay by my friend)\b/i,
+    /\b(?:I keep still|I sit quietly|I remain close|I make no attempt to leave|I decide to keep him company|I choose to stay beside him)\b/i,
+
+    // Gírias e expressões coloquiais
+    /\b(?:I’m sticking around|I’m not going anywhere|I’ll just chill here|I’ll hang tight|I’m staying put|I’ll keep him company|I’m sitting tight)\b/i,
+    /\b(?:I’m here for him|I’ll hang around|I’ll keep him close|I’m not leaving|I’m sticking close|I’ll stay by his side|I’m chilling here)\b/i,
+    /\b(?:chilling with him|hanging by him|chilling close by|sticking around with him|sitting right here with him|hanging out here)\b/i,
+    /\b(?:keepin’ it cool here|I’m just kickin’ it here|I’m holding down the fort|keeping my friend company|I’m staying grounded here)\b/i,
+    
+    // Frases longas e estruturadas com decisão de ficar
+    /\b(?:decide to stay put with him|choose to remain by his side|opt to stay here and wait|prefer to stay right here|decide to sit here and wait)\b/i,
+    /\b(?:I stay with him|I hang out beside him|I sit down next to him|I stay right here with him|I’m sticking around)\b/i,
+    /\b(?:I’m not leaving him|I decide to stay calm|I stay by his side|I sit and wait with him|I’ll stay here with him|I’m keeping him company)\b/i,
+    
+    // Outras formas de ficar em companhia ou permanecer ao lado
+    /\b(?:stay and support him|sit and keep him company|sit and wait|sit close to him|stay close to my friend|decide to be here with him)\b/i,
+    /\b(?:choose not to move|stay here for him|stay calm for him|wait beside him|not leaving him|stick by his side)\b/i,
+    /\b(?:sit around|just be here|stay and talk to him|stay here and watch over him|stay with him for now|stay seated with him)\b/i,
+    /\b(?:remain seated and wait|sit down and be here|stick around for him|sit still by his side|stay grounded by his side|sit here with him)\b/i,
+    
+    // Variações adicionais para "não sair", "não fazer nada" e "apoiar o amigo"
+    /\b(?:I’m staying with him|I decide to stay here|I won’t leave him alone|I choose to stay here quietly|I’ll sit here and wait)\b/i,
+    /\b(?:I’ll be by his side|I’ll wait with him|I’m here if he needs me|I’m here for my friend|staying by his side|supporting him quietly)\b/i,
+    /\b(?:decide to be here with him|decide not to move|I’m sitting beside him|choosing to remain seated|just gonna stay here|sitting with him)\b/i,
+    /\b(?:stick around by his side|hold steady with him|chill here with him|I’ll keep him company|I’m staying here for him)\b/i,
+    /\b(?:I’m here beside him|I won’t leave his side|I’ll be here waiting|I’ll stay grounded|I’ll be sitting here quietly)\b/i
+], 
+
+
       readNote: [
         // English
         /read.*note/i, /check.*note/i, /examine.*note/i, /I read.*note/i, /open.*note/i,
