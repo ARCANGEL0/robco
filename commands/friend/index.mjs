@@ -22,6 +22,9 @@ const gameData = {
     pathWin:'./images/assets/win.png' ,
     
     en: {
+      // English
+tooWeak: "Your friend says he is too weak to go and doesn't have enough strength, he asks you to read the note."
+,
         start: "You're trapped in a dungeon with your friend. You see a barrel. What do you do?",
         pathA: "The barrel rolls aside and you find a secret tunnel. What do you do?",
         pathB: "Your friend hands you a note. What do you do?",
@@ -39,6 +42,11 @@ const gameData = {
         blockedPath: "The passage is now blocked. You can't go back."
     },
     es: {
+
+// Spanish
+tooWeak: "Tu amigo dice que está demasiado débil para ir y no tiene suficiente fuerza, te pide que leas la nota."
+  ,
+  
         start: "Estás atrapado en una mazmorra con tu amigo. Ves un barril. ¿Qué haces?",
         pathA: "El barril rueda a un lado y encuentras un túnel secreto. ¿Qué haces?",
         pathB: "Tu amigo te da una nota. ¿Qué haces?",
@@ -56,6 +64,11 @@ const gameData = {
         blockedPath: "El pasaje está bloqueado. No puedes regresar."
     },
     fr: {
+      
+ 
+// French
+tooWeak: "Votre ami dit qu'il est trop faible pour y aller et qu'il n'a pas assez de force, il vous demande de lire la note."
+,
         start: "Vous êtes piégé dans un donjon avec votre ami. Vous voyez un tonneau. Que faites-vous?",
         pathA: "Le tonneau roule de côté et vous trouvez un tunnel secret. Que faites-vous?",
         pathB: "Votre ami vous tend une note. Que faites-vous?",
@@ -73,6 +86,11 @@ const gameData = {
         blockedPath: "Le passage est maintenant bloqué. Vous ne pouvez pas revenir."
     },
     pt: {
+ 
+// Portuguese
+tooWeak: "Seu amigo diz que está fraco demais para ir e não tem força suficiente, ele pede para você ler a nota."
+,
+  
         start: "Você está preso em uma masmorra com seu amigo. Você vê um barril. O que você faz?",
         pathA: "O barril rola para o lado e você encontra um túnel secreto. O que você faz?",
         pathB: "Seu amigo lhe entrega uma nota. O que você faz?",
