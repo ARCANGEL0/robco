@@ -1205,7 +1205,7 @@ async function handlePathB() {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
             await handlePathB();
     }
-}
+} // fixed
 
 // Stay with friend end
 async function winGame() {
