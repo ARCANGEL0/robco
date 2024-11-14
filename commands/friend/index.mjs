@@ -1309,7 +1309,7 @@ async function friend() {
 
 		await waitForKey();
 		logoScreen.remove();
-		eXitGame();
+		
 }
   
   
@@ -1679,7 +1679,7 @@ async function failGame() {
 // Start the game
 
         
-        await logoTitle()
+        await eXitGame()
         
 	////////////////
 	});
