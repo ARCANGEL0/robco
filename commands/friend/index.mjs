@@ -1218,7 +1218,7 @@ async function winGame() {
   pause(4)
   gameScreen.remove()
   resolve()
-}
+} // fixed
 // Start the game
 eXitGame();
         
