@@ -1333,13 +1333,16 @@ consOutput.classList.add("exitOUTPUT");
 const img = document.createElement("img");
 
 img.style.width = "40vw";
-consOutput.style.width = "16vw";
+consOutput.style.width = "15vw";
 img.style.height = "25vh";
 
 img.style.marginLeft = "5vw";
 
 exitHeader.appendChild(img);
+exitHeader.appendChild(consOutput);
 terminal.appendChild(exitHeader);
+;
+
 
 const input = document.createElement("span");
 input.setAttribute("id", "input");
@@ -1357,9 +1360,9 @@ img.src = gameData[currentStage];
 
 function clean() {
     const element = document.querySelector('.typer');
-    if (element) {
+   if (element) {
         element.remove();
-    }
+    } 
 }
 
 async function eXitGame() {
