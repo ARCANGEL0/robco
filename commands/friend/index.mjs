@@ -878,6 +878,7 @@ async function eXitGame() {
         await handlePathB();
     } else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+            await eXitGame();
     }
 }
 
@@ -892,6 +893,8 @@ async function handlePathA() {
         await handlePathA1();
     } else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+        await handlePathA();
+        
     }
 }
 
@@ -903,7 +906,7 @@ async function handlePathA1() {
         clear();
         currentStage = 'pathA2';
         img.src = gameData[currentStage];
-        await type(`${gameData[selectedLanguage].pathA2} - It is too dark to read the note. What do you do?`, {}, exitHeader);
+        await type(`${gameData[selectedLanguage].pathA2}`, {}, exitHeader);
         await handlePathA2();
     } 
     else if (options.pathA1.continue.some(regex => regex.test(pathA2answer))) {
@@ -915,6 +918,7 @@ async function handlePathA1() {
     } 
     else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+            await handlePathA1();
     }
 }
 
@@ -947,6 +951,7 @@ async function handlePathA2() {
     } 
     else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+            await handlePathA2();
     }
 }
 
@@ -979,6 +984,7 @@ async function handlePathB2() {
     } 
     else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+            await handlePathB2();
     }
 }
 
@@ -997,8 +1003,7 @@ async function handlePathB3() {
     } 
     //fim game
     
-    
-    
+
     
     else if (options.pathB.some(regex => regex.test(pathB2answer))) {
         const message = `${gameData[selectedLanguage].pathB1}`;
@@ -1018,6 +1023,7 @@ async function handlePathB3() {
     } 
     else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+            await handlePathB3();
     }
 }
 
@@ -1035,6 +1041,7 @@ async function handlePathA3() {
         await handlePathA4();
     } else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+            await handlePathA3();
     }
 }
 
@@ -1045,6 +1052,7 @@ async function handlePathA4() {
         await type(gameData[selectedLanguage].pathFail, {}, exitHeader);
     } else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+            await handlePathA4();
     }
 }
 
@@ -1076,6 +1084,7 @@ async function handlePathB() {
     }
     else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+            await handlePathB();
     }
 }
 
