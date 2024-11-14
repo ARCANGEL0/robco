@@ -23,6 +23,8 @@ const gameData = {
     
     en: {
       // English
+lostNote: "You tried to read the note in the dark, but it flew away."
+,
 tooWeak: "Your friend says he is too weak to go and doesn't have enough strength, he asks you to read the note."
 ,
         start: "You're trapped in a dungeon with your friend. You see a barrel. What do you do?",
@@ -42,8 +44,10 @@ tooWeak: "Your friend says he is too weak to go and doesn't have enough strength
         blockedPath: "The passage is now blocked. You can't go back."
     },
     es: {
-
+      
 // Spanish
+lostNote: "Intentaste leer la nota en la oscuridad, pero se fue volando."
+,
 tooWeak: "Tu amigo dice que está demasiado débil para ir y no tiene suficiente fuerza, te pide que leas la nota."
   ,
   
@@ -64,9 +68,11 @@ tooWeak: "Tu amigo dice que está demasiado débil para ir y no tiene suficiente
         blockedPath: "El pasaje está bloqueado. No puedes regresar."
     },
     fr: {
-      
  
 // French
+lostNote: "Vous avez essayé de lire la note dans le noir, mais elle s'est envolée."
+,
+ 
 tooWeak: "Votre ami dit qu'il est trop faible pour y aller et qu'il n'a pas assez de force, il vous demande de lire la note."
 ,
         start: "Vous êtes piégé dans un donjon avec votre ami. Vous voyez un tonneau. Que faites-vous?",
@@ -89,6 +95,8 @@ tooWeak: "Votre ami dit qu'il est trop faible pour y aller et qu'il n'a pas asse
  
 // Portuguese
 tooWeak: "Seu amigo diz que está fraco demais para ir e não tem força suficiente, ele pede para você ler a nota."
+,
+lostNote: "Você tentou ler a nota no escuro, mas ela voou para longe."
 ,
   
         start: "Você está preso em uma masmorra com seu amigo. Você vê um barril. O que você faz?",
