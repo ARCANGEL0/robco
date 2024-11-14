@@ -185,11 +185,28 @@ lostNote: "Você tentou ler a nota no escuro, mas ela voou para longe."
             /je suis là avec.*ami/i, /je m’assois auprès de.*ami/i, /je garde.*ami/i, /je m’approche/i,
 
             // Portuguese
-            /sento com.*amigo/i, /eu fico com.*amigo/i, /converso.*amigo/i, /eu apoio.*amigo/i,
-            /me aproximo.*amigo/i, /me sento perto.*amigo/i, /permanecer.*amigo/i, /fico ao lado.*amigo/i,
-            /tento.*ajudar.*amigo/i, /acompanho.*amigo/i, /converso com.*amigo/i, /apoio.*amigo/i,
-            /vejo.*amigo/i, /eu fico.*amigo/i, /eu espero com.*amigo/i, /estar com.*amigo/i,
-            /perto de.*amigo/i, /me aproximo.*dele/i, /me coloco ao lado de.*amigo/i, /eu assisto.*amigo/i
+    
+    /.*\bsentar\b.*(com|ao lado de|junto a).*amigo\b.*/i, /.*\bfiquei\b.*(com|perto de|ao lado de).*amigo\b.*/i,
+    /.*\bfiquei ao lado\b.*amigo\b.*/i, /.*\bfiquei com\b.*meu amigo\b.*/i, /.*\bfiquei esperando\b.*amigo\b.*/i,
+    /.*\bapoio\b.*amigo\b.*/i, /.*\bficar\b.*com.*amigo\b.*/i, /.*\bpermaneci\b.*com.*amigo\b.*/i,
+    /.*\bestou\b.*com.*amigo\b.*/i, /.*\bconversei\b.*amigo\b.*/i, /.*\bpermanecer\b.*com amigo\b.*/i,
+    /.*\bconversar com\b.*amigo\b.*/i, /.*\bestar com\b.*amigo\b.*/i, /.*\besperar\b.*(com|por).*amigo\b.*/i,
+    /.*\bme aproximei\b.*amigo\b.*/i, /.*\bcheguei perto de\b.*amigo\b.*/i, /.*\btentei ajudar\b.*amigo\b.*/i,
+    /.*\beu me sentei perto de\b.*amigo\b.*/i, /.*\bfiquei ao lado\b.*dele\b.*/i, /.*\beu fico com\b.*amigo\b.*/i,
+    /.*\bfico junto\b.*amigo\b.*/i, /.*\besperando com\b.*amigo\b.*/i, /.*\bme mantenho\b.*ao lado de.*amigo\b.*/i,
+    /.*\bcontinuo perto\b.*amigo\b.*/i, /.*\beu fico ao lado de\b.*amigo\b.*/i, /.*\bsentar ao lado de\b.*amigo\b.*/i,
+    /.*\bfiquei sentado\b.*com.*amigo\b.*/i, /.*\bsentei perto\b.*dele\b.*/i, /.*\bcontinuo junto\b.*amigo\b.*/i,
+    /.*\btentei apoiar\b.*amigo\b.*/i, /.*\bfiquei esperando por\b.*amigo\b.*/i, /.*\bme coloco ao lado de\b.*amigo\b.*/i,
+    /.*\bdecido esperar com\b.*amigo\b.*/i, /.*\bperto de\b.*amigo\b.*/i, /.*\bconverso com\b.*amigo\b.*/i,
+    /.*\bme coloco\b.*junto de\b.*amigo\b.*/i, /.*\bfiquei de olho\b.*no meu amigo\b.*/i, /.*\bdecido ficar perto de\b.*amigo\b.*/i,
+    /.*\bestar\b.*junto.*amigo\b.*/i, /.*\bme aproximei de\b.*amigo\b.*/i, /.*\bespero perto\b.*amigo\b.*/i,
+    /.*\bestar perto\b.*dele\b.*/i, /.*\bdecido sentar\b.*ao lado de\b.*amigo\b.*/i, /.*\bdecidi\b.*esperar com\b.*amigo\b.*/i,
+    /.*\bme mantenho\b.*ao lado\b.*dele\b.*/i, /.*\bdecido\b.*ficar.*com\b.*meu amigo\b.*/i, /.*\bcontinuo com\b.*amigo\b.*/i,
+    /.*\bpermaneço ao lado\b.*dele\b.*/i, /.*\bcontinuo ali com\b.*amigo\b.*/i, /.*\bfico.*com ele\b.*/i,
+    /.*\bfico perto\b.*dele\b.*/i, /.*\bfico aqui\b.*com.*amigo\b.*/i, /.*\bfiquei observando\b.*meu amigo\b.*/i,
+    /.*\beu apoio\b.*meu amigo\b.*/i, /.*\bfiquei ao lado\b.*dele\b.*/i, /.*\bespero aqui\b.*com.*amigo\b.*/i,
+    /.*\bpermaneci ao lado\b.*amigo\b.*/i, /.*\bfico aqui com\b.*amigo\b.*/i, /.*\bpermaneço com\b.*amigo\b.*/i
+
         ]
     },
 pathA: {
@@ -1193,7 +1210,7 @@ async function handlePathB() {
         await type(gameData[selectedLanguage].pathA, {}, exitHeader);
         await handlePathA();
     }
-    else if (options.pathB.lightMatch.some(regex => regex.test(pathBanswer))) {
+    else if (options.pathB.some(regex => regex.test(pathBanswer))) {
         await type(gameData[selectedLanguage].noMatchMessage, {}, exitHeader); 
         clear();
         currentStage = 'pathB3';
