@@ -1067,7 +1067,7 @@ async function handlePathB() {
         await type(gameData[selectedLanguage].pathA2, {}, exitHeader);
         await handlePathB2();
     }
-    else if (options.pathB.continue.some(regex => regex.test(pathBanswer))) {
+    else if (options.move.some(regex => regex.test(pathBanswer))) {
         clear();
         currentStage = 'pathA';
         img.src = gameData[currentStage];
