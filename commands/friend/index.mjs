@@ -23,8 +23,9 @@ const gameData = {
     pathMatch:'./images/assets/giveMatch.png' ,
     
     en: {
-      
       // English
+givesMatches: "Your friend gave you a box of matches he had in his pocket. What do you do?"
+,
 nolight: "You don’t have any matches with you, and no other way to light up the note."
 ,
 lostNote: "You tried to read the note in the dark, but it flew away."
@@ -48,8 +49,11 @@ tooWeak: "Your friend says he is too weak to go and doesn't have enough strength
         blockedPath: "The passage is now blocked. You can't go back."
     },
     es: {
-      
+    
+
 // Spanish
+givesMatches: "Tu amigo te dio una caja de cerillas que tenía en su bolsillo. ¿Qué haces?"
+,
 nolight: "No tienes cerillas contigo, y no tienes otra forma de iluminar la nota."
 ,
 lostNote: "Intentaste leer la nota en la oscuridad, pero se fue volando."
@@ -74,9 +78,13 @@ tooWeak: "Tu amigo dice que está demasiado débil para ir y no tiene suficiente
         blockedPath: "El pasaje está bloqueado. No puedes regresar."
     },
     fr: {
- 
- 
+
+
 // French
+givesMatches: "Votre ami vous a donné une boîte d'allumettes qu'il avait dans sa poche. Que faites-vous?"
+,
+
+
 nolight: "Vous n'avez pas d'allumettes avec vous, et aucun autre moyen d'éclairer la note."
 ,
 lostNote: "Vous avez essayé de lire la note dans le noir, mais elle s'est envolée."
