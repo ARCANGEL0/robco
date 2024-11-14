@@ -1011,7 +1011,7 @@ async function handlePathA1() {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
             await handlePathA1();
     }
-}
+} // fixed
 
 // Handle Path A2 flow (Darkness)
 async function handlePathA2() {
