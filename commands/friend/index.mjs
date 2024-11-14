@@ -390,7 +390,50 @@ stay: [
     /\b(?:decide to be here with him|decide not to move|I’m sitting beside him|choosing to remain seated|just gonna stay here|sitting with him)\b/i,
     /\b(?:stick around by his side|hold steady with him|chill here with him|I’ll keep him company|I’m staying here for him)\b/i,
     /\b(?:I’m here beside him|I won’t leave his side|I’ll be here waiting|I’ll stay grounded|I’ll be sitting here quietly)\b/i
-], 
+,
+    // Verbos Simples e Variantes
+    /\b(?:rester|reste|attendre|attendant|s’asseoir|m’assieds|garder compagnie|ne pas partir|se tenir prêt|ne rien faire|s’installer)\b[\.,\!\?]*/i,
+
+    // Expressões para "ficar com o amigo" e variações
+    /\b(?:rester|rester près de|rester avec|rester à côté de|garder compagnie|être avec|rester au côté de|attendre) (?:mon ami|lui)\b[\.,\!\?]*/i,
+    /\b(?:je reste|je décide de rester|je préfère rester|je m’assois|je me tiens prêt) (?:près de lui|à côté de lui|avec lui|avec mon ami)\b[\.,\!\?]*/i,
+    /\b(?:je ne pars pas|je reste ici|je choisis de rester|je choisis de ne rien faire|je reste calme|je reste là)\b[\.,\!\?]*/i,
+    
+    // Combinações para "permanecer avec l'ami" e "garder compagnie"
+    /\b(?:garder compagnie|ne rien faire|se poser|juste être ici|rester tranquille|je ne fais rien et reste ici|je reste immobile)\b[\.,\!\?]*/i,
+    /\b(?:je reste là pour lui|rester ici avec lui|je ne le quitte pas|je reste auprès de lui|je décide de rester)\b[\.,\!\?]*/i,
+    /\b(?:je reste assis|je reste calmement|je reste pour lui|je garde sa compagnie|je m’assois tranquillement)\b[\.,\!\?]*/i,
+    
+    // Expressões de "s’asseoir" e "être là pour lui"
+    /\b(?:je m’assois à côté de lui|je m’assois avec lui|je reste avec lui|je reste assis|je reste ici)\b[\.,\!\?]*/i,
+    /\b(?:m’asseoir ici|je m’assois là|rester à ses côtés|rester là pour lui|rester ici calmement|rester assis)\b[\.,\!\?]*/i,
+    /\b(?:je garde son soutien|je décide de ne pas bouger|je choisis de rester immobile|je reste et ne fais rien)\b[\.,\!\?]*/i,
+    
+    // Variações contextuais de permanecer em apoio ao amigo
+    /\b(?:rester pour lui|je décide de rester ici|je ne vais nulle part|rester à son côté|je décide de rester calme)\b[\.,\!\?]*/i,
+    /\b(?:je me pose ici|je reste avec lui|je choisis de rester à côté|je reste pour le soutenir|je ne bouge pas)\b[\.,\!\?]*/i,
+    /\b(?:je décide de ne pas partir|je reste et je l’accompagne|je reste là tranquillement|je reste pour lui)\b[\.,\!\?]*/i,
+
+    // Gírias e expressões coloquiais
+    /\b(?:je traîne ici|je m’accroche ici|je vais rester ici|je reste là sans rien faire|je suis là pour lui)\b[\.,\!\?]*/i,
+    /\b(?:je reste là pour le soutenir|je ne bouge pas|je suis là si il a besoin|je le soutiens|je reste calmement)\b[\.,\!\?]*/i,
+    /\b(?:je m’installe|je prends un moment|je me mets à côté de lui|je suis posé ici|je garde sa compagnie)\b[\.,\!\?]*/i,
+    /\b(?:je suis là pour lui|je ne le quitte pas|je reste juste ici|je reste au calme|je reste posé)\b[\.,\!\?]*/i,
+    
+    // Frases longas e estruturadas com decisão de ficar
+    /\b(?:je choisis de rester à ses côtés|je décide de rester ici avec lui|je préfère ne pas partir)\b[\.,\!\?]*/i,
+    /\b(?:je décide de rester calme|je reste tranquillement|je choisis de rester là|je reste juste là)\b[\.,\!\?]*/i,
+    /\b(?:je décide d’être là pour lui|je reste ici et j’attends|je suis là à ses côtés)\b[\.,\!\?]*/i,
+    
+    // Outras formas de ficar em companhia ou em apoio
+    /\b(?:rester là sans bouger|ne pas partir et rester|rester à ses côtés|être là pour lui|rester ici et attendre)\b[\.,\!\?]*/i,
+    /\b(?:rester assis et ne rien faire|s’asseoir et être avec lui|rester près de lui|rester immobile)\b[\.,\!\?]*/i,
+    /\b(?:choisir de rester ici|décider de rester tranquille|ne pas partir|ne pas bouger et rester là)\b[\.,\!\?]*/i,
+    
+    // Variações adicionais para “ne pas partir” e “garder la compagnie”
+    /\b(?:je reste pour lui|je décide de rester ici|je ne le laisse pas seul|je reste là pour lui\b[\.,\!\?]*/i
+]
+, 
 
 
       readNote: [
