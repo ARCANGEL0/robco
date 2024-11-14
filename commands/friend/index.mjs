@@ -433,11 +433,10 @@ stay: [
     /\b(?:choisir de rester ici|décider de rester tranquille|ne pas partir|ne pas bouger et rester là)\b[\.,\!\?]*/i,
     /\b(?:je reste pour lui|je décide de rester ici|je ne le laisse pas seul|je reste là pour lui)\b[\.,\!\?]*/i,
     // Verbos Simples e Variantes
-    /\b(?:qued(?:o|arse|ando|ate
-    aquí|ándome)|permanezco|permanecer|est(?:oy|ar|é)|acompañ(?:o|ar|ando)|me
-    quedo|esper(?:o|ar))\b[\.,\!\?]*/i,
-
-    // Expressões para "ficar com o amigo" e variações
+    /\b(?:qued(?:o|arse|ando|ate aquí|ándome)|permanezco|permanecer|est(?:oy|ar|é)|acompañ(?:o|ar|ando)|me quedo|esper(?:o|ar))\b[\.,\!\?]*/i
+    // Expressões para "ficar com o amigo" e variações 
+    /\b(?:qued(?:o|arse|ando|ate aquí|ándome)|permanezco|permanecer|est(?:oy|ar|é)|acompañ(?:o|ar|ando)|me quedo|esper(?:o|ar))\b[\.,\!\?]*/i 
+    ,
     /\b(?:quedar|quedarse|quedarse cerca de|permanecer|permanecer aquí|estar con|quedar junto a|estar junto a|esperar con) (?:mi amigo|él|al lado de él)\b[\.,\!\?]*/i,
     /\b(?:me quedo|decido quedarme|prefiero quedarme|me siento con él|me quedo junto a) (?:aquí|al lado de él|con él|con mi amigo)\b[\.,\!\?]*/i,
     /\b(?:no me voy|me quedo aquí|decido no irme|prefiero quedarme|me quedo en este lugar)\b[\.,\!\?]*/i,
