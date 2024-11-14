@@ -1118,7 +1118,7 @@ async function handlePathB2() {
     else if (options.pathB.some(regex => regex.test(pathB2answer))) {
         const message = `${gameData[selectedLanguage].pathB1}`;
         clear();
-        currentStage = 'pathB3';
+        currentStage = 'pathB1';
         img.src = gameData[currentStage];
         await type(message, {}, exitHeader);
         await handlePathB3(); // leads to open note
@@ -1174,6 +1174,8 @@ async function handlePathB3() {
 async function handlePathA3() {
     let pathA3answer = await getReply();
     if (options.pathA3.readNote.some(regex => regex.test(pathA3answer))) {
+            currentStage = 'pathB1';
+        img.src = gameData[currentStage];
       let message = `${gameData[selectedLanguage].noteMessage}.
       ${gameData[selectedLanguage].A3}`
         await type(message, {}, exitHeader);
