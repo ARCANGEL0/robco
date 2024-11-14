@@ -427,14 +427,10 @@ stay: [
     
     // Outras formas de ficar em companhia ou em apoio
     /\b(?:rester là sans bouger|ne pas partir et rester|rester à ses côtés|être là pour lui|rester ici et attendre)\b[\.,\!\?]*/i,
-    /\b(?:rester assis et ne rien faire|s’asseoir et être avec lui|rester près de lui|rester immobile)\b[\.,\!\?]*/i,
-    /\b(?:choisir de rester ici|décider de rester tranquille|ne pas partir|ne pas bouger et rester là)\b[\.,\!\?]*/i,
-    
-    // Variações adicionais para “ne pas partir” e “garder la compagnie”
-    /\b(?:je reste pour lui|je décide de rester ici|je ne le laisse pas seul|je reste là pour lui\b[\.,\!\?]*/i
- ,
-    // Verbos Simples e Variantes
-    /\b(?:qued(?:o|arse|ando|ate aquí|ándome)|permanezco|permanecer|est(?:oy|ar|é)|acompañ(?:o|ar|ando)|me quedo|esper(?:o|ar))\b[\.,\!\?]*/i,
+/\b(?:rester assis et ne rien faire|s’asseoir et être avec lui|rester près de lui|rester immobile)\b[\.,\!\?]*/i,
+/\b(?:choisir de rester ici|décider de rester tranquille|ne pas partir|ne pas bouger et rester là)\b[\.,\!\?]*/i,/\b(?:je reste pour lui|je décide de rester ici|je ne le laisse pas seul|je reste là pour lui)\b[\.,\!\?]*/i,
+// Verbos Simples e Variantes
+/\b(?:qued(?:o|arse|ando|ate aquí|ándome)|permanezco|permanecer|est(?:oy|ar|é)|acompañ(?:o|ar|ando)|me quedo|esper(?:o|ar))\b[\.,\!\?]*/i,
 
     // Expressões para "ficar com o amigo" e variações
     /\b(?:quedar|quedarse|quedarse cerca de|permanecer|permanecer aquí|estar con|quedar junto a|estar junto a|esperar con) (?:mi amigo|él|al lado de él)\b[\.,\!\?]*/i,
