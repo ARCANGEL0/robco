@@ -993,7 +993,7 @@ async function eXitGame() {
 // Handle Path A flow (Secret Tunnel)
 async function handlePathA() {
     let pathA1answer = await getReply();
-    if (options.pathA.enter.some(regex => regex.test(pathA1answer))) {
+    if (options.enter.some(regex => regex.test(pathA1answer))) {
         clear();
         currentStage = 'pathA1';
         img.src = gameData[currentStage];
@@ -1008,7 +1008,7 @@ async function handlePathA() {
         await type(gameData[selectedLanguage].pathA1, {}, exitHeader);
         await handlePathA1();
     }
-    else if (options.pathB1.stay.some(regex => regex.test(pathA1answer)))
+    else if (options.stay.some(regex => regex.test(pathA1answer)))
     {
         clear();
         currentStage = 'pathB';
