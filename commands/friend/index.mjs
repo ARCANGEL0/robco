@@ -1312,7 +1312,7 @@ async function friend() {
 		
 }
   
-  
+     await logoTitle()
 		// Main game screen
 		let gameScreen = getScreen("friend");
 
@@ -1365,7 +1365,54 @@ function clean() {
         element.remove();
     } 
 }
+async function resetGame() {
+  let gameScreen = getScreen("friend");
 
+		// Create the output for messages
+		let output = document.createElement("div");
+		output.classList.add("output");
+        output.style.padding = "8vh 2vw"; // Setting the padding
+		gameScreen.appendChild(output);
+
+		addTemplate("console", gameScreen);
+	
+	
+    const terminal = document.querySelector(".output");
+
+const exitHeader = document.createElement("div");
+const consOutput = document.createElement("div");
+exitHeader.classList.add("exitHEADER");
+consOutput.classList.add("exitOUTPUT");
+
+const img = document.createElement("img");
+
+img.style.width = "40vw";
+consOutput.style.width = "45vw";
+img.style.height = "25vh";
+
+img.style.marginLeft = "5vw";
+
+exitHeader.appendChild(img);
+exitHeader.appendChild(consOutput);
+terminal.appendChild(exitHeader);
+
+
+
+const input = document.createElement("span");
+input.setAttribute("id", "input");
+input.setAttribute("contenteditable", true);
+terminal.appendChild(input);
+
+
+/////////////////// gamelogic
+
+
+let currentStage = 'start';
+let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+let hasTriedToReturn = false;
+img.src = gameData[currentStage];
+eXitGame()
+}
 async function eXitGame() {
 
 
@@ -1674,7 +1721,7 @@ async function failGame() {
   clean()
   clear()
   gameScreen.remove()
-  await logoTitle()
+  await resetGame()
 } // fixed
 // Start the game
 
