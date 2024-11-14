@@ -1311,15 +1311,6 @@ async function friend() {
 		logoScreen.remove();
 		eXitGame();
 }
-
-function clean() {
-    const element = document.querySelector('.typer');
-   if (element) {
-        element.remove();
-    } 
-}
-
-async function eXitGame() {
   
   
 		// Main game screen
@@ -1352,7 +1343,7 @@ img.style.marginLeft = "5vw";
 exitHeader.appendChild(img);
 exitHeader.appendChild(consOutput);
 terminal.appendChild(exitHeader);
-;
+
 
 
 const input = document.createElement("span");
@@ -1368,6 +1359,15 @@ let currentStage = 'start';
 let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
 let hasTriedToReturn = false;
 img.src = gameData[currentStage];
+function clean() {
+    const element = document.querySelector('.typer');
+   if (element) {
+        element.remove();
+    } 
+}
+
+async function eXitGame() {
+
 
 
 
