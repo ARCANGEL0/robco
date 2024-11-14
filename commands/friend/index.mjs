@@ -1024,7 +1024,7 @@ async function handlePathA1() {
     }
 } // fixed
 
-// Handle Path A2 flow (Darkness)
+// Handle Path A2 flow (read in darkness)
 async function handlePathA2() {
     let pathA2answer = await getReply();
 
@@ -1065,15 +1065,16 @@ async function handlePathA2() {
     }
 } //fixed
 
-// Handle Path B2 flow (Read note in dark)
+// Handle Path B2 flow (Read note with friend)
 async function handlePathB2() {
     let pathB2answer = await getReply();
 
     if (options.move.some(regex => regex.test(pathB2answer))) {
         clear();
-        currentStage = 'pathA';
+        currentStage = 'pathA2match';
+        const message = `${gameData[selectedLanguage].givesMatch}. ${gameData[selectedLanguage].A2}`;
         img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA, {}, exitHeader);
+        await type(message, {}, exitHeader);
         await handlePathA();
     } 
     else if (options.pathB.some(regex => regex.test(pathB2answer))) {
