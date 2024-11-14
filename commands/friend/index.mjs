@@ -1036,6 +1036,13 @@ async function handlePathA2() {
         await type(gameData[selectedLanguage].pathA3, {}, exitHeader);
         await handlePathA3();
     } 
+    else if (options.pathA2.lookAround.some(regex => regex.test(pathA2answer))) {
+        clear();
+        currentStage = 'pathA3';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA3, {}, exitHeader);
+        await handlePathA3();
+    } 
     else if (options.pathB.some(regex => regex.test(pathA2answer))) {
         const message = `${gameData[selectedLanguage].nolight}. ${gameData[selectedLanguage].A3}`;
         clear();
@@ -1157,12 +1164,16 @@ async function handlePathA3() {
 async function handlePathA4() {
     let pathA4answer = await getReply();
     if (options.pathA4.some(regex => regex.test(pathA4answer))) {
+        clear();
+        currentStage = 'pathFail';
+        img.src = gameData[currentStage];
         await type(gameData[selectedLanguage].pathFail, {}, exitHeader);
+        await failGame()
     } else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
             await handlePathA4();
     }
-}
+} // fixed
 
 // Handle Path B flow (Friend Interaction)
 async function handlePathB() {
