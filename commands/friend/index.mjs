@@ -1052,7 +1052,7 @@ async function handlePathA4() {
 async function handlePathB() {
     let pathBanswer = await getReply();
     
-    if (options.pathB.readNote.some(regex => regex.test(pathBanswer))) {
+    if (options.pathA2.readNote.some(regex => regex.test(pathBanswer))) {
         clear();
         currentStage = 'pathB2';
         img.src = gameData[currentStage];
