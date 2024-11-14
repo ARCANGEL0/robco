@@ -973,6 +973,14 @@ async function handlePathA1() {
         await type(gameData[selectedLanguage].pathA3, {}, exitHeader);
         await handlePathA3();
     } 
+    else if (options.pathA.call.some(regex => regex.test(pathA2answer))) {
+        clear();
+    const message = `${gameData[selectedLanguage].tooWeak}. ${gameData[selectedLanguage].A3}`;
+        currentStage = 'pathA3';
+        img.src = gameData[currentStage];
+        await type(message, {}, exitHeader);
+        await handlePathA3();
+    } 
     else {
         await type(gameData[selectedLanguage].invalid, {}, exitHeader);
             await handlePathA1();
