@@ -2,7 +2,7 @@
 
 import { getScreen, showTemplateScreen, addTemplate, clear } from "../../util/screens.js";
 import { type, waitForKey,input, cleanInput,isPrintable } from "../../util/io.js";
-import eXit from './game.mjs';
+
 import pause from "../../util/pause.js";
 import { typeSound } from "../../sound/index.js"
 import say from "../../util/speak.js";
@@ -30,10 +30,10 @@ const gameData = {
         pathA2: "It is too dark to read the note. What do you do?",
         pathA3: "You crawl through the tunnel to a beach. You see the water and the vast ocean ahead. What do you do?",
         pathA4: "In the water, you see a boat. What do you do?",
-        easterEggEnding: "You decided to stay with your friend. The tunnel collapsed and both of you got stuck. The dungeon started to fall in ruins, but you remained loyal beside your friend.",
-        freedomEnding: "Congratulations, you're heading to a new world!",
-        goodEnding1: "Congrats... Looks like you cracked Whiterose's enigma.",
-        goodEnding2: "You saved your friend.",
+        pathWin: "You decided to stay with your friend. The tunnel collapsed and both of you got stuck. The dungeon started to fall in ruins, but you remained loyal beside your friend.",
+        pathFail: "Congratulations, you're heading to a new world!",
+        win1: "Congrats... Looks like you cracked Whiterose's enigma.",
+        win2: "You saved your friend.",
         noteMessage: "The note says: 'Don't leave me here.'",
         invalid: "You can't do this here.",
         blockedPath: "The passage is now blocked. You can't go back."
@@ -47,10 +47,10 @@ const gameData = {
         pathA2: "Es demasiado oscuro para leer la nota. ¿Qué haces?",
         pathA3: "Te arrastras por el túnel hasta una playa. Ves el agua y el vasto océano frente a ti. ¿Qué haces?",
         pathA4: "En el agua, ves un bote. ¿Qué haces?",
-        easterEggEnding: "Decidiste quedarte con tu amigo. El túnel colapsó y ambos quedaron atrapados. La mazmorras comenzó a caer en ruinas, pero permaneciste leal junto a tu amigo.",
-        freedomEnding: "Felicidades, te diriges a un nuevo mundo!",
-        goodEnding1: "Felicidades... Parece que resolviste el enigma de Whiterose.",
-        goodEnding2: "Salvaste a tu amigo.",
+        pathWin: "Decidiste quedarte con tu amigo. El túnel colapsó y ambos quedaron atrapados. La mazmorras comenzó a caer en ruinas, pero permaneciste leal junto a tu amigo.",
+        pathFail: "Felicidades, te diriges a un nuevo mundo!",
+        win1: "Felicidades... Parece que resolviste el enigma de Whiterose.",
+        win2: "Salvaste a tu amigo.",
         noteMessage: "La nota dice: 'No me dejes aquí.'",
         invalid: "No puedes hacer esto aquí.",
         blockedPath: "El pasaje está bloqueado. No puedes regresar."
@@ -64,10 +64,10 @@ const gameData = {
         pathA2: "Il fait trop sombre pour lire la note. Que faites-vous?",
         pathA3: "Vous rampez à travers le tunnel jusqu'à une plage. Vous voyez l'eau et l'océan immense devant vous. Que faites-vous?",
         pathA4: "Dans l'eau, vous voyez un bateau. Que faites-vous?",
-        easterEggEnding: "Vous avez décidé de rester avec votre ami. Le tunnel s'est effondré et vous êtes restés coincés tous les deux. Le donjon a commencé à s'effondrer, mais vous êtes resté loyal auprès de votre ami.",
-        freedomEnding: "Félicitations, vous vous dirigez vers un nouveau monde!",
-        goodEnding1: "Félicitations... On dirait que vous avez résolu l'énigme de Whiterose.",
-        goodEnding2: "Vous avez sauvé votre ami.",
+        pathWin: "Vous avez décidé de rester avec votre ami. Le tunnel s'est effondré et vous êtes restés coincés tous les deux. Le donjon a commencé à s'effondrer, mais vous êtes resté loyal auprès de votre ami.",
+        pathFail: "Félicitations, vous vous dirigez vers un nouveau monde!",
+        win1: "Félicitations... On dirait que vous avez résolu l'énigme de Whiterose.",
+        win2: "Vous avez sauvé votre ami.",
         noteMessage: "La note dit : ' Ne me laisse pas ici.'",
         invalid: "Vous ne pouvez pas faire ça ici.",
         blockedPath: "Le passage est maintenant bloqué. Vous ne pouvez pas revenir."
@@ -81,10 +81,10 @@ const gameData = {
         pathA2: "Está muito escuro para ler a nota. O que você faz?",
         pathA3: "Você rasteja pelo túnel até uma praia. Você vê a água e o vasto oceano à frente. O que você faz?",
         pathA4: "Na água, você vê um barco. O que você faz?",
-        easterEggEnding: "Você decidiu ficar com seu amigo. O túnel desabou e ambos ficaram presos. A masmorra começou a cair em ruínas, mas você permaneceu leal ao lado de seu amigo.",
-        freedomEnding: "Parabéns, você está indo para um novo mundo!",
-        goodEnding1: "Parabéns... Parece que você resolveu o enigma de Whiterose.",
-        goodEnding2: "Você salvou seu amigo.",
+        pathWin: "Você decidiu ficar com seu amigo. O túnel desabou e ambos ficaram presos. A masmorra começou a cair em ruínas, mas você permaneceu leal ao lado de seu amigo.",
+        pathFail: "Parabéns, você está indo para um novo mundo!",
+        win1: "Parabéns... Parece que você resolveu o enigma de Whiterose.",
+        win2: "Você salvou seu amigo.",
         noteMessage: "A nota diz: 'Não me deixe aqui.'",
         invalid: "Você não pode fazer isso aqui.",
         blockedPath: "A passagem está bloqueada. Não é possível voltar."
@@ -742,6 +742,62 @@ pathA4: [
     /preciso de ajuda/i, /chamar ajuda/i, /pedir ajuda/i, /vou pedir ajuda/i,
     /me ajudem.*(subir|embarcar)/i, /chamo ajuda para chegar no barco/i, /eu clamo por ajuda/i
 ],
+    move: [
+        // English
+        /move.*in.*tunnel/i, /get.*in.*tunnel/i, /keep.*moving/i, /continue/i, /advance/i,
+        /proceed.*forward/i, /go forward/i, /keep going/i, /keep walking/i, /push forward/i,
+        /head forward/i, /step forward/i, /take.*next step/i, /move along/i, /move ahead/i,
+        /progress.*forward/i, /head on/i, /go on/i, /keep heading/i, /march forward/i,
+        /go forth/i, /I move on/i, /I keep going/i, /keep advancing/i, /press ahead/i,
+        /step ahead/i, /push onward/i, /continue onward/i, /keep pushing/i, /press forward/i,
+        /onward we go/i, /I forge ahead/i, /make way forward/i, /go further/i, /walk further/i,
+        /progress onward/i, /head on further/i, /step further/i, /advance onward/i, /take a step/i,
+        /onward/i, /let’s keep moving/i, /go on further/i, /head deeper/i, /journey forward/i,
+        /keep journeying/i, /move down/i, /get going/i, /I keep on/i, /march on/i,
+        /moving forward/i, /moving onward/i, /head forward/i, /pushing on/i, /I step forward/i,
+
+        // Spanish
+        /seguir.*adelante/i, /continuar.*caminando/i, /avanzar/i, /proseguir/i, /continuar/i,
+        /sigo.*camino/i, /sigo adelante/i, /mantener.*movimiento/i, /continuar adelante/i, /seguir/i,
+        /avanzando/i, /camino.*adelante/i, /seguir avanzando/i, /me muevo.*adelante/i, /proseguir adelante/i,
+        /continuo.*camino/i, /camino hacia adelante/i, /prosigo/i, /moverse adelante/i, /mantengo movimiento/i,
+        /sigo moviéndome/i, /camino más lejos/i, /voy más lejos/i, /me mantengo/i, /avanzando.*en.*camino/i,
+        /avanzando por.*tunel/i, /me dirijo adelante/i, /voy adelante/i, /seguir adelante/i, /prosigo.*camino/i,
+        /seguir andando/i, /caminar más/i, /voy.*camino/i, /emprender.*camino/i, /voy adelante/i,
+        /dirijo adelante/i, /sigo hacia adelante/i, /voy en el camino/i, /avanzar en.*camino/i, /prosigo.*dirección/i,
+        /ir adelante/i, /caminando adelante/i, /camino al frente/i, /avanzar en.*dirección/i, /prosigo adelante/i,
+        /muevo adelante/i, /voy al frente/i, /avanzar adelante/i, /me voy adelante/i, /sigo andando/i,
+        /mantengo camino/i, /camino recto/i, /mantengo movimiento/i, /muevo adelante/i, /me mantengo en camino/i,
+
+        // French
+        /continuer.*avancer/i, /progresser/i, /continuer.*chemin/i, /je continue/i, /je poursuis/i,
+        /je progresse/i, /j’avance/i, /je continue.*avancer/i, /aller de l’avant/i, /en avant/i,
+        /je vais.*avant/i, /je marche/i, /continuer à marcher/i, /je vais plus loin/i, /j’avance encore/i,
+        /je continue le chemin/i, /progresser.*chemin/i, /je poursuis mon chemin/i, /je continue mon chemin/i,
+        /aller encore/i, /je marche en avant/i, /je fais un pas en avant/i, /j’avance vers/i, /je vais plus avant/i,
+        /chemin en avant/i, /en avant/i, /aller de l’avant encore/i, /continuer encore/i, /continuer en avant/i,
+        /marchons en avant/i, /je progresse plus loin/i, /chemin avant/i, /je me dirige/i, /je poursuis encore/i,
+        /en avant vers le chemin/i, /je me rends plus loin/i, /vers l’avant/i, /j’avance un peu/i,
+        /vers un autre niveau/i, /je vais au chemin suivant/i, /je vais à l’étape suivante/i, /je poursuis encore plus/i,
+        /continuer mon chemin encore/i, /je vais plus profond/i, /progresser dans la voie/i, /continuer à suivre/i,
+        /je progresse encore/i, /je vais vers/i, /je progresse en avant/i, /je vais continuer/i,
+        /je vais encore plus loin/i, /je me dirige en avant/i, /je marche en avant encore/i, /je continue à aller/i,
+
+        // Portuguese
+        /seguir.*em frente/i, /avançar/i, /continuar.*caminho/i, /eu sigo/i, /prosseguir/i,
+        /mantenho o caminho/i, /continuo em frente/i, /vou para frente/i, /avanço/i, /vou em direção/i,
+        /eu avanço/i, /caminho para frente/i, /continuar andando/i, /continuar avançando/i, /prosseguir caminho/i,
+        /continuar em frente/i, /sigo para frente/i, /eu vou para frente/i, /avanço para frente/i, /andar para frente/i,
+        /mantenho movimento/i, /continuar andando para frente/i, /continuo caminho/i, /seguir para frente/i, /em frente/i,
+        /ir para frente/i, /vou adiante/i, /prosseguir andando/i, /continuar no caminho/i, /vou indo/i,
+        /prosseguindo caminho/i, /seguir mais além/i, /caminho mais além/i, /eu ando para frente/i, /vou além/i,
+        /eu sigo mais além/i, /mover para frente/i, /caminho reto/i, /continuo caminho reto/i, /continuo meu caminho/i,
+        /vou até o fim/i, /continuidade em frente/i, /manter movimento/i, /prosseguir em frente/i, /avançar caminho/i,
+        /vou para frente/i, /ando para frente/i, /andar para o túnel/i, /eu continuo/i, /vou adiante/i,
+        /seguindo em frente/i, /movendo-me adiante/i, /sigo no caminho/i, /vou em frente/i, /prosseguindo além/i
+    ]
+
+
 
 
 }
@@ -800,35 +856,243 @@ terminal.appendChild(input);
 
 
 let currentStage = 'start';
+let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+let hasTriedToReturn = false;
 img.src = gameData[currentStage];
-let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en'
 
+async function eXitGame() {
+    await type(gameData[selectedLanguage].start, {}, exitHeader);
+    let answerStart = await getReply();
 
-    await type(gameData[selectedLanguage].start, {}, exitHeader)
-        let answerStart = await getReply();
-  if (options.start.barrel.some(regex => regex.test(answerStart))) {
-    clear();
-    
-    currentStage = 'pathA';
-    img.src = gameData[currentStage];
-      await type(gameData[selectedLanguage].pathA, {}, exitHeader)
-        let pathA1answer = await getReply();
-    
-                } 
-                
-    else if (options.start.friend.some(regex => regex.test(answerStart))) {
-      clear();
-                    currentStage = 'pathB';
-    img.src = gameData[currentStage];
-      await type(gameData[selectedLanguage].pathB, {}, exitHeader)
-        let pathBanswer = await getReply();
-  
-  
-                } 
-                
+    if (options.start.barrel.some(regex => regex.test(answerStart))) {
+        clear();
+        currentStage = 'pathA';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA, {}, exitHeader);
+        await handlePathA();
+    } else if (options.start.friend.some(regex => regex.test(answerStart))) {
+        clear();
+        currentStage = 'pathB';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathB, {}, exitHeader);
+        await handlePathB();
+    } else {
+        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+    }
+}
+
+// Handle Path A flow (Secret Tunnel)
+async function handlePathA() {
+    let pathA1answer = await getReply();
+    if (options.pathA.some(regex => regex.test(pathA1answer))) {
+        clear();
+        currentStage = 'pathA1';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA1, {}, exitHeader);
+        await handlePathA1();
+    } else {
+        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+    }
+}
+
+// Handle Path A1 flow (Escape Alone)
+async function handlePathA1() {
+    let pathA2answer = await getReply();
+
+    if (options.pathA1.readNote.some(regex => regex.test(pathA2answer))) {
+        clear();
+        currentStage = 'pathA2';
+        img.src = gameData[currentStage];
+        await type(`${gameData[selectedLanguage].pathA2} - It is too dark to read the note. What do you do?`, {}, exitHeader);
+        await handlePathA2();
+    } 
+    else if (options.pathA1.continue.some(regex => regex.test(pathA2answer))) {
+        clear();
+        currentStage = 'pathA3';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA3, {}, exitHeader);
+        await handlePathA3();
+    } 
     else {
-          await type(gameData[selectedLanguage].invalid, {}, exitHeader)
-      }     
+        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+    }
+}
+
+// Handle Path A2 flow (Darkness)
+async function handlePathA2() {
+    let pathA2answer = await getReply();
+
+    if (options.pathA2.move.some(regex => regex.test(pathA2answer))) {
+        clear();
+        currentStage = 'pathA3';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA3, {}, exitHeader);
+        await handlePathA3();
+    } 
+    else if (options.pathB.some(regex => regex.test(pathA2answer))) {
+        const message = `${gameData[selectedLanguage].nolight}. ${gameData[selectedLanguage].A3}`;
+        clear();
+        currentStage = 'pathA3';
+        img.src = gameData[currentStage];
+        await type(message, {}, exitHeader);
+        await handlePathA3();
+    } 
+    else if (options.pathA2.return.some(regex => regex.test(pathA2answer))) {
+        const message = `${gameData[selectedLanguage].nolight}. ${gameData[selectedLanguage].A3}`;
+        clear();
+        currentStage = 'pathA3';
+        img.src = gameData[currentStage];
+        await type(message, {}, exitHeader);
+        await handlePathA3();
+    } 
+    else {
+        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+    }
+}
+
+// Handle Path B2 flow (Read note in dark)
+async function handlePathB2() {
+    let pathB2answer = await getReply();
+
+    if (options.move.some(regex => regex.test(pathB2answer))) {
+        clear();
+        currentStage = 'pathA';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA, {}, exitHeader);
+        await handlePathA();
+    } 
+    else if (options.pathB.some(regex => regex.test(pathB2answer))) {
+        const message = `${gameData[selectedLanguage].pathB1}`;
+        clear();
+        currentStage = 'pathB3';
+        img.src = gameData[currentStage];
+        await type(message, {}, exitHeader);
+        await handlePathB3(); // leads to open note
+    } 
+    else if (options.pathB1.leave.some(regex => regex.test(pathB2answer))) {
+        const message = gameData[selectedLanguage].pathA
+        clear();
+        currentStage = 'pathA';
+        img.src = gameData[currentStage];
+        await type(message, {}, exitHeader);
+        await handlePathA();
+    } 
+    else {
+        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+    }
+}
+
+// Handle lighr a match flow B3
+async function handlePathB3() {
+    let pathB2answer = await getReply();
+
+    if (options.pathB1.stay.some(regex => regex.test(pathB2answer))) {
+        clear();
+        currentStage = 'pathWin';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathWin, {}, exitHeader);
+        await winGame();
+        
+        
+    } 
+    //fim game
+    
+    
+    
+    
+    else if (options.pathB.some(regex => regex.test(pathB2answer))) {
+        const message = `${gameData[selectedLanguage].pathB1}`;
+        clear();
+        currentStage = 'pathB3';
+        img.src = gameData[currentStage];
+        await type(message, {}, exitHeader);
+        await handlePathB3(); // leads to open note
+    } 
+    else if (options.pathB1.leave.some(regex => regex.test(pathB2answer))) {
+        const message = gameData[selectedLanguage].pathA
+        clear();
+        currentStage = 'pathA';
+        img.src = gameData[currentStage];
+        await type(message, {}, exitHeader);
+        await handlePathA();
+    } 
+    else {
+        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+    }
+}
+
+// Handle Path A3 flow (Beach)
+async function handlePathA3() {
+    let pathA3answer = await getReply();
+    if (options.pathA3.readNote.some(regex => regex.test(pathA3answer))) {
+        await type(gameData[selectedLanguage].noteMessage, {}, exitHeader);
+        await handlePathA3(); // Stay on pathA3 after reading note
+    } else if (options.pathA3.lookAround.some(regex => regex.test(pathA3answer))) {
+        clear();
+        currentStage = 'pathA4';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA4, {}, exitHeader);
+        await handlePathA4();
+    } else {
+        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+    }
+}
+
+// Handle Path A4 flow (Boat - Freedom Ending)
+async function handlePathA4() {
+    let pathA4answer = await getReply();
+    if (options.pathA4.some(regex => regex.test(pathA4answer))) {
+        await type(gameData[selectedLanguage].pathFail, {}, exitHeader);
+    } else {
+        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+    }
+}
+
+// Handle Path B flow (Friend Interaction)
+async function handlePathB() {
+    let pathBanswer = await getReply();
+    
+    if (options.pathB.readNote.some(regex => regex.test(pathBanswer))) {
+        clear();
+        currentStage = 'pathB2';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA2, {}, exitHeader);
+        await handlePathB2();
+    }
+    else if (options.pathB.continue.some(regex => regex.test(pathBanswer))) {
+        clear();
+        currentStage = 'pathA';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathA, {}, exitHeader);
+        await handlePathA();
+    }
+    else if (options.pathB.lightMatch.some(regex => regex.test(pathBanswer))) {
+        await type(gameData[selectedLanguage].noMatchMessage, {}, exitHeader); 
+        clear();
+        currentStage = 'pathB3';
+        img.src = gameData[currentStage];
+        await type(gameData[selectedLanguage].pathB3, {}, exitHeader);
+        await handlePathB3();
+    }
+    else {
+        await type(gameData[selectedLanguage].invalid, {}, exitHeader);
+    }
+}
+
+// Stay with friend end
+async function winGame() {
+  pause(4)
+  clear()
+  await type(gameData[selectedLanguage].win1, {}, exitHeader); 
+  pause(3)
+  clear()
+  await type(gameData[selectedLanguage].win2, {}, exitHeader); 
+  pause(4)
+  gameScreen.remove()
+  resolve()
+}
+// Start the game
+eXitGame();
         
         
 	////////////////
