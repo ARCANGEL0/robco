@@ -109,9 +109,13 @@ tooWeak: "Votre ami dit qu'il est trop faible pour y aller et qu'il n'a pas asse
         blockedPath: "Le passage est maintenant bloqué. Vous ne pouvez pas revenir."
     },
     pt: {
- 
- 
+
+
 // Portuguese
+givesMatches: "Seu amigo lhe deu uma caixa de fósforos que tinha no bolso. O que você faz?"
+,
+ 
+
 nolight: "Você não tem nenhum fósforo com você, e nenhum outro meio de iluminar a nota."
 ,
 tooWeak: "Seu amigo diz que está fraco demais para ir e não tem força suficiente, ele pede para você ler a nota."
@@ -1106,7 +1110,7 @@ async function handlePathB2() {
     if (options.move.some(regex => regex.test(pathB2answer))) {
         clear();
         currentStage = 'pathMatch';
-        const message = `${gameData[selectedLanguage].givesMatch}`;
+        const message = `${gameData[selectedLanguage].givesMatches}`;
         img.src = gameData[currentStage];
         await type(message, {}, exitHeader);
         await handlePathB2();
