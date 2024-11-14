@@ -432,8 +432,97 @@ stay: [
     
     // Variações adicionais para “ne pas partir” e “garder la compagnie”
     /\b(?:je reste pour lui|je décide de rester ici|je ne le laisse pas seul|je reste là pour lui\b[\.,\!\?]*/i
+ ,
+    // Verbos Simples e Variantes
+    /\b(?:qued(?:o|arse|ando|ate aquí|ándome)|permanezco|permanecer|est(?:oy|ar|é)|acompañ(?:o|ar|ando)|me quedo|esper(?:o|ar))\b[\.,\!\?]*/i,
+
+    // Expressões para "ficar com o amigo" e variações
+    /\b(?:quedar|quedarse|quedarse cerca de|permanecer|permanecer aquí|estar con|quedar junto a|estar junto a|esperar con) (?:mi amigo|él|al lado de él)\b[\.,\!\?]*/i,
+    /\b(?:me quedo|decido quedarme|prefiero quedarme|me siento con él|me quedo junto a) (?:aquí|al lado de él|con él|con mi amigo)\b[\.,\!\?]*/i,
+    /\b(?:no me voy|me quedo aquí|decido no irme|prefiero quedarme|me quedo en este lugar)\b[\.,\!\?]*/i,
+
+    // Combinações para "permanecer con el amigo" e "hacer compañía"
+    /\b(?:me quedo sin moverme|me quedo y le hago compañía|decido no irme|decido esperar aquí|no hago nada y me quedo)\b[\.,\!\?]*/i,
+    /\b(?:decido quedarme a su lado|quedarme aquí para acompañarlo|no quiero dejarlo solo|quedarme cerca de él|lo acompaño)\b[\.,\!\?]*/i,
+    /\b(?:me siento junto a él|me quedo para apoyarlo|decido quedarme con él|espero a su lado|permanezco con él)\b[\.,\!\?]*/i,
+
+    // Expressões de "sentarse" e "estar ahí para él"
+    /\b(?:me siento al lado de él|me siento con él|me quedo aquí con él|me quedo a su lado|estoy con él)\b[\.,\!\?]*/i,
+    /\b(?:me quedo sentado aquí|me quedo al lado|me siento junto a mi amigo|me quedo sin moverme|decido quedarme cerca)\b[\.,\!\?]*/i,
+    /\b(?:me quedo a su lado sin hacer nada|decido quedarme donde estoy|me quedo sin moverme)\b[\.,\!\?]*/i,
+
+    // Variações contextuais de "quedarse" e apoio ao amigo
+    /\b(?:me quedo con él|decido quedarme cerca|no me voy de aquí|decido no moverme|prefiero quedarme a su lado)\b[\.,\!\?]*/i,
+    /\b(?:me quedo aquí|no hago nada|me mantengo a su lado|decido permanecer|me quedo tranquilamente)\b[\.,\!\?]*/i,
+    /\b(?:decido esperar|me quedo acompañándolo|me quedo para apoyarlo|me siento a su lado|me quedo calmado)\b[\.,\!\?]*/i,
+
+    // Gírias e expressões coloquiais
+    /\b(?:me quedo con él sin moverme|no me muevo de aquí|me quedo acá|me hago presente para él|me quedo a su lado)\b[\.,\!\?]*/i,
+    /\b(?:me quedo aquí con calma|aquí estoy para él|me quedo por si me necesita|decido quedarme cerca de él)\b[\.,\!\?]*/i,
+    /\b(?:no lo dejo solo|me quedo para hacerle compañía|me mantengo aquí con él|me siento aquí tranquilo)\b[\.,\!\?]*/i,
+    /\b(?:me quedo firme|me quedo apoyándolo|me quedo con él sin moverme|me mantengo junto a él)\b[\.,\!\?]*/i,
+    
+    // Frases longas e estruturadas com decisão de ficar
+    /\b(?:decido no moverme de aquí|decido quedarme a su lado sin irme|prefiero quedarme cerca de él|me quedo en su compañía)\b[\.,\!\?]*/i,
+    /\b(?:me quedo en el lugar|me quedo con calma|me quedo a su lado tranquilamente|me quedo en este lugar con él)\b[\.,\!\?]*/i,
+    /\b(?:me quedo donde estoy|me quedo aquí por él|me mantengo en su lado|me quedo con él y no me muevo)\b[\.,\!\?]*/i,
+
+    // Outras formas de ficar em companhia ou em apoio
+    /\b(?:decido hacerle compañía|me quedo a su lado|me quedo aquí para él|permaneceré con él|decido apoyarlo)\b[\.,\!\?]*/i,
+    /\b(?:me mantengo al lado de él|prefiero no irme|me quedo en calma junto a él|me siento con él para apoyarlo)\b[\.,\!\?]*/i,
+    /\b(?:quedarme aquí y esperar|me quedo al lado de mi amigo|me siento para estar con él|me quedo en este sitio)\b[\.,\!\?]*/i,
+
+    // Variações adicionais para "no salir" e "hacer compañía"
+    /\b(?:decido no salir de aquí|no me aparto de él|me quedo aquí para apoyarlo|me siento tranquilo aquí)\b[\.,\!\?]*/i,
+    /\b(?:no lo dejo solo|me quedo aquí para él|me quedo firme en este lugar|decido no alejarme)\b[\.,\!\?]*/i,
+    /\b(?:me mantengo al lado de él sin moverme|me quedo para acompañarlo|me quedo en este sitio por él)\b[\.,\!\?]*/i
+ ,
+    // Verbos Simples e Variantes
+    /\b(?:fic(?:o|ar|ando|ar com meu amigo)|permanec(?:o|er|endo)|est(?:ou|ar|ou com ele)|esper(?:o|ar|ando|ando aqui))\b[\.,\!\?]*/i,
+    
+    // Expressões para "ficar com o amigo" e variações
+    /\b(?:fic(?:o|ar) (?:perto de|ao lado de|com meu amigo|junto a)|espero (?:com meu amigo|por ele)|permanecer(?: com ele)?|permaneço)\b[\.,\!\?]*/i,
+    /\b(?:decido ficar|prefiro ficar|me sento perto dele|fico ao lado dele|fico com ele|fico ao lado de)\b[\.,\!\?]*/i,
+    /\b(?:não vou sair|fico aqui|decido ficar aqui|espero aqui mesmo|fico onde estou|prefiro não ir embora)\b[\.,\!\?]*/i,
+
+    // Combinações para "permanecer com o amigo" e "fazer companhia"
+    /\b(?:permanecer quieto|ficar parado|espero com calma|decido não fazer nada|continuo com ele|fico aqui sem sair)\b[\.,\!\?]*/i,
+    /\b(?:fico para apoiá-lo|decido não ir embora|me sento com ele|mantenho a companhia|fico calmo aqui|decido ficar aqui)\b[\.,\!\?]*/i,
+    /\b(?:me mantenho perto de meu amigo|decido ficar ao lado dele|fico ao lado dele em silêncio|fico junto com ele)\b[\.,\!\?]*/i,
+
+    // Expressões de "sentar" e "ficar ali para ele"
+    /\b(?:me sento com meu amigo|decido esperar com ele|fico ao lado dele para dar suporte|me acomodo com ele|fico aqui mesmo)\b[\.,\!\?]*/i,
+    /\b(?:me sento no chão|me sento ao lado dele|me sento junto a ele|espero aqui perto dele|me coloco ao lado de meu amigo)\b[\.,\!\?]*/i,
+    /\b(?:decido me sentar ao lado de meu amigo|fico com ele em silêncio|não me movo|decido não sair daqui)\b[\.,\!\?]*/i,
+
+    // Variações contextuais para "ficar" e "apoiar o amigo"
+    /\b(?:decido não me afastar|espero aqui com ele|fico tranquilo ao lado de meu amigo|não vou a lugar nenhum)\b[\.,\!\?]*/i,
+    /\b(?:fico aqui com calma|não faço nada e fico|decido não me mover|prefiro ficar aqui com ele|mantenho-me ao lado)\b[\.,\!\?]*/i,
+    /\b(?:fico esperando com ele|mantenho a calma e fico|decido ficar onde estou|espero por ele aqui)\b[\.,\!\?]*/i,
+
+    // Gírias e expressões coloquiais
+    /\b(?:fico de boa|tô aqui com ele|não saio daqui|fico segurando a barra|fico de boa ao lado dele|tô aqui por ele)\b[\.,\!\?]*/i,
+    /\b(?:não vou largar ele|fico aqui se precisar|me mantenho firme com ele|fico acompanhando ele|não deixo ele)\b[\.,\!\?]*/i,
+    /\b(?:fico junto a ele|tô aqui do lado|fico com ele na moral|fico parado por aqui|tô aqui segurando a onda)\b[\.,\!\?]*/i,
+    /\b(?:espero por ele|não largo ele|me mantenho aqui|tô aqui tranquilo com ele|fico com ele na paz)\b[\.,\!\?]*/i,
+
+    // Frases longas e estruturadas com decisão de ficar
+    /\b(?:decido esperar aqui com ele|prefiro não sair de perto|fico aqui para dar suporte|fico para não deixá-lo só)\b[\.,\!\?]*/i,
+    /\b(?:me sento ao lado dele para apoiar|mantenho-me em silêncio aqui com ele|fico esperando ele aqui)\b[\.,\!\?]*/i,
+    /\b(?:fico ao lado de meu amigo em paz|espero por ele|fico onde estou e aguardo|fico com ele no mesmo lugar)\b[\.,\!\?]*/i,
+
+    // Outras formas de ficar em companhia ou em apoio
+    /\b(?:decido estar aqui para ele|mantenho-me com ele|fico esperando para ajudar|fico ao lado dele para apoiar)\b[\.,\!\?]*/i,
+    /\b(?:não saio do lado dele|decido não me afastar|fico com meu amigo|espero com ele|mantenho-me junto dele)\b[\.,\!\?]*/i,
+    /\b(?:não faço nada além de esperar|fico ao lado para dar apoio|fico aqui e observo|me mantenho perto)\b[\.,\!\?]*/i,
+
+    // Variações adicionais para "não sair" e "fazer companhia"
+    /\b(?:decido não sair daqui|espero ao lado|fico para manter a companhia|fico para ajudar)\b[\.,\!\?]*/i,
+    /\b(?:não me afasto|fico firme ao lado|me mantenho perto|fico por ele|fico na companhia dele)\b[\.,\!\?]*/i,
+    /\b(?:espero ao lado dele|decido ficar ao lado dele|me mantenho junto a ele|tô por aqui com ele)\b[\.,\!\?]*/i
 ]
 , 
+
 
 
       readNote: [
@@ -1294,7 +1383,7 @@ async function handlePathA() {
         await type(gameData[selectedLanguage].pathA1, {}, exitHeader);
         await handlePathA1();
     } //enter tunnel 
-    else if (options.move.some(regex => regex.test(pathA1answer)))
+    else if (options.pathA4.move.some(regex => regex.test(pathA1answer)))
     {
         clear();
         currentStage = 'pathA1';
@@ -1328,7 +1417,7 @@ async function handlePathA1() {
         await type(`${gameData[selectedLanguage].pathA2}`, {}, exitHeader);
         await handlePathA2();
     } 
-    else if (options.move.some(regex => regex.test(pathA2answer))) {
+    else if (options.pathA4.move.some(regex => regex.test(pathA2answer))) {
         clear();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
@@ -1353,7 +1442,7 @@ async function handlePathA1() {
 async function handlePathA2() {
     let pathA2answer = await getReply();
 
-    if (options.pathA2.move.some(regex => regex.test(pathA2answer))) {
+    if (options.pathA4.move.some(regex => regex.test(pathA2answer))) {
         clear();
         currentStage = 'pathA3';
         img.src = gameData[currentStage];
@@ -1401,7 +1490,7 @@ async function handlePathA2() {
 async function handlePathB2() {
     let pathB2answer = await getReply();
 
-    if (options.move.some(regex => regex.test(pathB2answer))) {
+    if (options.pathA4.move.some(regex => regex.test(pathB2answer))) {
         clear();
         currentStage = 'pathMatch';
         const message = `${gameData[selectedLanguage].givesMatches}`;
@@ -1512,7 +1601,7 @@ async function handlePathB() {
         await type(gameData[selectedLanguage].pathA2, {}, exitHeader);
         await handlePathB2();
     }
-    else if (options.move.some(regex => regex.test(pathBanswer))) {
+    else if (options.pathA4.move.some(regex => regex.test(pathBanswer))) {
         clear();
         currentStage = 'pathA';
         img.src = gameData[currentStage];
