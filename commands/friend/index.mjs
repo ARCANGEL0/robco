@@ -1587,7 +1587,7 @@ async function handlePathA3() {
         currentStage = 'pathA4';
         img.src = gameData[currentStage];
         await type(gameData[selectedLanguage].pathA4, {}, consOutput);
-        await handlePathA4();    }
+        await handlePathA4();    
     } else if (options.pathB1.leave.some(regex => regex.test(pathA3answer))) {
         clean();
         currentStage = 'pathA4';
