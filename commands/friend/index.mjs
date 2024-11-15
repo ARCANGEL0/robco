@@ -1357,8 +1357,12 @@ async function friend() {
 
      
     await eXitGame()
-  
-let currentStage, selectedLanguage, hasTriedToReturn
+    // Declare game variables at a higher scope
+    let currentStage;
+    let selectedLanguage;
+    let hasTriedToReturn;
+    let img; // Declare img here so it's accessible in other functions
+
     async function initializeGame() {
         // Main game screen
         let gameScreen = getScreen("friend");
