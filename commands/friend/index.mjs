@@ -1360,10 +1360,7 @@ async function friend() {
   await eXitGame()
     async function initializeGame() {
 
-           // Declare game variables at a higher scope
-    let currentStage;
 
-    let hasTriedToReturn;
     
 
         // Main game screen
@@ -1400,9 +1397,9 @@ async function friend() {
         terminal.appendChild(input);
 
         // Game logic initialization
-        currentStage = 'start';
-        selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-        hasTriedToReturn = false;
+        let currentStage = 'start';
+        let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+        let hasTriedToReturn = false;
         img.src = gameData[currentStage];
     }
 
@@ -1415,8 +1412,7 @@ function clean() {
 }
 
 async function eXitGame() {
-    let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-    let hasTriedToReturn = false;
+  
 
 
     await type(gameData[selectedLanguage].start, {}, consOutput);
