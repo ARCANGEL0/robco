@@ -1416,6 +1416,7 @@ async function friend() {
     let img; 
     let consOutput; 
     let exitHeader
+    let gameScreen
     // LOGO
     clear();
     async function logoTitle() { 
@@ -1429,7 +1430,7 @@ async function friend() {
 
     async function initializeGame() {
         // Main game screen
-        let gameScreen = getScreen("friend");
+        gameScreen = getScreen("friend");
 
         // Create the output for messages
         let output = document.createElement("div");
