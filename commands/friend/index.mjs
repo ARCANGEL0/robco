@@ -1602,9 +1602,7 @@ async function handlePathB2() {
     } 
     else { 
           clean();
-        currentStage = 'pathMatch';
-        const message = `${gameData[selectedLanguage].givesMatch}`;
-        img.src = gameData[currentStage];
+        const message = `${gameData[selectedLanguage].invalid}`;
         await type(message, {}, consOutput);
         await handlePathB2();
     }
