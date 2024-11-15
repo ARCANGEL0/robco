@@ -1444,6 +1444,8 @@ async function friend() {
     // Initialize the game for the first time
     await initializeGame();
     // Start the game
+
+    
     await eXitGame();
 
 
