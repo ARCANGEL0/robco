@@ -693,12 +693,9 @@ stay: [
             /je commence.*rouler.*tonneau/i, /je lève.*tonneau/i, /je transporte.*tonneau/i,
 
             // Portuguese
-            /movo.*barril/i, /empurro.*barril/i, /eu movo.*barril/i, /eu arrasto.*barril/i,
-            /tentando.*mover.*barril/i, /puxo.*barril/i, /chuto.*barril/i, /empurrar.*barril/i,
-            /movo o tambor/i, /arrasto.*tambor/i, /vou.*empurrar.*barril/i, /tentando.*tirar.*barril/i,
-            /empurro.*tambor/i, /levanto.*barril/i, /sai.*da frente.*barril/i, /retiro.*barril/i,
-            /eu ajeito.*barril/i, /mexo.*barril/i
-        ],
+/\b(?:(?:eu\s+)?(?:movo|movendo|mover|moviment(?:o|ando)|mex(?:o|endo))\s*(?:o|um)?\s*(?:barril|tambor)|(?:eu\s+)?(?:empurr(?:o|ando|ar)|chut(?:o|ando)|arrast(?:o|ando|ar)|levant(?:o|ando|ar)|pux(?:o|ando))\s*(?:o|um)?\s*(?:barril|tambor)|tentando\s*(?:mover|empurrar|tirar|arrastar)\s*(?:o|um)?\s*(?:barril|tambor)|sai(?:r|am)?\s*(?:da frente|do caminho)?\s*(?:do|de um|de o)?\s*(?:barril|tambor)|retiro\s*(?:o|um)?\s*(?:barril|tambor)|ajeito\s*(?:o|um)?\s*(?:barril|tambor)|vou\s+(?:mover|empurrar|arrastar|mexer|tirar)\s*(?:o|um)?\s*(?:barril|tambor))\b/i
+
+],
         friend: [
             // English
             /sit.*friend/i, /stay.*friend/i, /I sit by.*friend/i, /stay with.*friend/i,
@@ -837,6 +834,25 @@ pathA: {
     ]
 },
 pathB: [
+  
+  
+    /\b(?:eu\s+)?(?:acend(?:o|endo|er|endo)|risco|vou\s+acender|quero\s+acender|tent(?:o|ar\s+acender)|uso|usando)\s*(?:um|o|algum)?\s*(?:fósforo|palito)\b/i,
+    /\b(?:faço|cri(?:o|ando)|quero\s+fazer|vou\s+fazer|tent(?:o|ando\s+fazer))\s*(?:uma\s+chama|fogo)\s*(?:com\s+)?(?:fósforo|palito)?\b/i,
+    /\b(?:coloc(?:o|ando)|ponh(?:o|endo))\s*(?:o|um)?\s*(?:fósforo|palito)\s*(?:no fogo|em chamas)?\b/i,
+    /\b(?:provoc(?:o|ar|ando))\s*(?:fogo|chamas)\s*(?:com\s+)?(?:fósforo|palito)?\b/i,
+    /\b(?:faço|crio|quero\s+criar|vou\s+criar|tent(?:o|ando\s+criar))\s*(?:uma\s+faísca|faisca)\s*(?:com\s+)?(?:fósforo|palito)?\b/i,
+    /\b(?:acenda|acender)\s+(?:o|um)?\s*(?:fósforo|palito)?\b/i,
+    /\b(?:riscar|risco|vou\s+riscar|quero\s+riscar)\s*(?:o|um)?\s*(?:fósforo|palito)?\b/i,
+    /\b(?:uso|usando|vou\s+usar|quero\s+usar)\s*(?:o|um)?\s*(?:fósforo|palito)?\b/i,
+    /\b(?:faço|fazer|vou\s+fazer)\s+(?:fogo|uma\s+chama|um\s+incêndio)\s*(?:com\s+)?(?:fósforo|palito)?\b/i,
+    /\b(?:chama|faisca|incêndio)\s*(?:com\s+)?(?:fósforo|palito)?\b/i,
+    /\b(?:vou\s+fazer|vou\s+acender|quero\s+acender|tentando\s+acender)\s+(?:um\s+fósforo|fogo)?\b/i,
+    /\b(?:faça|crie|acenda|acendendo|risque)\s*(?:o|um)?\s*(?:fósforo|palito)?\b/i,
+    /\b(?:incendeio|vou\s+incendiar|quero\s+incendiar|tent(?:o|ando\s+incendiar))\s*(?:o|um)?\s*(?:fósforo|palito|fogo)?\b/i,
+    /\b(?:uso|utilizo)\s*(?:o|um)?\s*(?:fósforo|palito)?\b/i,
+    /\b(?:quero\s+fazer\s+fogo|faço\s+uma\s+chama|crio\s+faisca)\s*(?:com\s+)?(?:fósforo|palito)?\b/i,
+    /\b(?:fósforo|palito\s*(?:de\s+fósforo)?|faísca|chama|fogo)\b/i ,
+
     // English
     /light.*match/i, /ignite.*match/i, /burn.*match/i, /spark.*match/i, /strike.*match/i,
     /use.*match/i, /set fire.*match/i, /I light.*match/i, /I’m lighting.*match/i, /light it up/i,
@@ -1680,7 +1696,7 @@ async function handlePathB2() {
 async function handlePathB3() {
     let pathB2answer = await getReply();
 
-    if (options.pathB1.stay.some(regex => regex.test(pathB2answer))) {
+    if (options.stay.some(regex => regex.test(pathB2answer))) {
         clean();
         currentStage = 'pathWin';
         img.src = gameData[currentStage];
