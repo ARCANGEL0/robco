@@ -1,7 +1,7 @@
 // friend.mjs
 
 import { getScreen, showTemplateScreen, addTemplate, clear } from "../../util/screens.js";
-import { type, waitForKey,input, cleanInput,isPrintable } from "../../util/io.js";
+import { type, waitForKey,input, cleanInput,isPrintable,moveCaretToEnd  } from "../../util/io.js";
 
 import pause from "../../util/pause.js";
 import { typeSound } from "../../sound/index.js"
@@ -1359,60 +1359,15 @@ let currentStage = 'start';
 let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
 let hasTriedToReturn = false;
 img.src = gameData[currentStage];
+
+
 function clean() {
     const element = document.querySelector('.typer');
    if (element) {
         element.remove();
     } 
 }
-async function resetGame() {
-  let gameScreen = getScreen("friend");
 
-		// Create the output for messages
-		let output = document.createElement("div");
-		output.classList.add("output");
-        output.style.padding = "8vh 2vw"; // Setting the padding
-		gameScreen.appendChild(output);
-
-		addTemplate("console", gameScreen);
-	
-	
-    const terminal = document.querySelector(".output");
-
-const exitHeader = document.createElement("div");
-const consOutput = document.createElement("div");
-exitHeader.classList.add("exitHEADER");
-consOutput.classList.add("exitOUTPUT");
-
-const img = document.createElement("img");
-
-img.style.width = "40vw";
-consOutput.style.width = "70vw";
-img.style.height = "25vh";
-
-img.style.marginLeft = "5vw";
-
-exitHeader.appendChild(img);
-exitHeader.appendChild(consOutput);
-terminal.appendChild(exitHeader);
-
-
-
-const input = document.createElement("span");
-input.setAttribute("id", "input");
-input.setAttribute("contenteditable", true);
-terminal.appendChild(input);
-
-
-/////////////////// gamelogic
-
-
-let currentStage = 'start';
-let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-let hasTriedToReturn = false;
-img.src = gameData[currentStage];
-eXitGame()
-}
 async function eXitGame() {
 
 
@@ -1732,6 +1687,55 @@ async function failGame() {
     clear(); // Clear the screen after key press
 
     // Start the game again
+
+    let gameScreen = getScreen("friend");
+
+    // Create the output for messages
+    let output = document.createElement("div");
+    output.classList.add("output");
+    output.style.padding = "8vh 2vw"; // Setting the padding
+    gameScreen.appendChild(output);
+
+    addTemplate("console", gameScreen);
+
+
+const terminal = document.querySelector(".output");
+
+const exitHeader = document.createElement("div");
+const consOutput = document.createElement("div");
+exitHeader.classList.add("exitHEADER");
+consOutput.classList.add("exitOUTPUT");
+
+const img = document.createElement("img");
+
+img.style.width = "54vw";
+consOutput.style.width = "80vw";
+img.style.height = "32vh";
+
+img.style.marginLeft = "5vw";
+
+exitHeader.appendChild(img);
+exitHeader.appendChild(consOutput);
+terminal.appendChild(exitHeader);
+
+
+
+const input = document.createElement("span");
+input.setAttribute("id", "input");
+input.setAttribute("contenteditable", true);
+terminal.appendChild(input);
+
+
+/////////////////// gamelogic
+
+
+let currentStage = 'start';
+let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+let hasTriedToReturn = false;
+img.src = gameData[currentStage];
+
+
+
     await eXitGame();
 } // fixed
 // Start the game
