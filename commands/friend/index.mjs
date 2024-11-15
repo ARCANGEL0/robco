@@ -1395,6 +1395,7 @@ async function friend() {
         terminal.appendChild(input);
 
         // Game logic initialization
+        currentStage = 'start'
         img.src = gameData[currentStage];
     }
 
@@ -1445,7 +1446,7 @@ async function friend() {
     await initializeGame();
     // Start the game
 
-    
+
     await eXitGame();
 
 
