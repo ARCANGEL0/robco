@@ -1362,7 +1362,7 @@ async function friend() {
 
            // Declare game variables at a higher scope
     let currentStage;
-    let selectedLanguage;
+
     let hasTriedToReturn;
     
 
@@ -1415,8 +1415,8 @@ function clean() {
 }
 
 async function eXitGame() {
-
-
+    let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    let hasTriedToReturn = false;
 
 
     await type(gameData[selectedLanguage].start, {}, consOutput);
