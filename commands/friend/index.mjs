@@ -143,6 +143,44 @@ lostNote: "Você tentou ler a nota no escuro, mas ela voou para longe."
 
     const options = {
       enter: [
+// Simple verbs
+/\benter\b/i, /\bentering\b/i, /\bexplore\b/i, /\binvestigate\b/i, /\bdiscover\b/i, 
+/\bcreep\b/i, /\bfollow\b/i, /\bflee\b/i, /\bescape\b/i, /\bwalk\b/i, /\bstart\b/i, 
+/\badvance\b/i, /\bmove\b/i, /\bproceed\b/i, /\bjourney\b/i, /\bget to\b/i, 
+/\bhead\b/i, /\blaunch\b/i, /\bset off\b/i, /\bgo\b/i, /\btravel\b/i, /\bmake my way\b/i,
+
+// Combinations with "tunnel"
+    /\benter.*tunnel\b/i, /\bentering.*tunnel\b/i, /\benter.*the tunnel\b/i, /\bhide.*in the tunnel\b/i, 
+    /\bdecide to enter.*the tunnel\b/i, /\bdecided.*to enter.*the tunnel\b/i, /\bcreeping.*into the tunnel\b/i,
+    /\binside.*the tunnel\b/i, /\binvestigate.*the tunnel\b/i, /\bgoing to.*the tunnel\b/i, /\bgoing.*into the tunnel\b/i,
+    /\bpath.*to.*the tunnel\b/i, /\barrive.*at the tunnel\b/i, /\bgoing.*toward.*the tunnel\b/i, 
+    /\bfollowing.*to the tunnel\b/i, /\bcontinuing.*to the tunnel\b/i, /\bstep.*into the tunnel\b/i, /\bdescend.*into the tunnel\b/i,
+    /\bheading.*to the tunnel\b/i, /\bset off.*for the tunnel\b/i, /\badvancing.*to the tunnel\b/i, 
+    /\blaunching into.*the tunnel\b/i, /\bexploring.*the tunnel\b/i, /\bmake my way.*to the tunnel\b/i, /\bentering into.*the tunnel\b/i,
+    /\bslipping into.*the tunnel\b/i, /\benter to explore.*the tunnel\b/i, /\bwalk to.*the tunnel\b/i,
+    /\bcreeping toward.*the tunnel\b/i, /\bdecide to descend.*the tunnel\b/i, /\bhide in the tunnel\b/i,
+
+// Escape and Flee Terms
+    /\bflee to.*the tunnel\b/i, /\bflee into.*the tunnel\b/i, /\bescape to.*the tunnel\b/i,
+    /\bhiding.*in the tunnel\b/i, /\bescape into.*the tunnel\b/i, /\bfleeing.*to the tunnel\b/i,
+    /\bdecide to flee.*to the tunnel\b/i, /\bhide in the tunnel\b/i, /\bseeking refuge in the tunnel\b/i,
+    /\bescaping.*to the tunnel\b/i, /\bseeking shelter.*in the tunnel\b/i, /\bflee.*straight to the tunnel\b/i,
+    /\btake refuge.*in the tunnel\b/i, /\bdisappear into the tunnel\b/i, /\bfleeing toward.*the tunnel\b/i,
+    /\bhiding in the tunnel\b/i, /\bfleeing.*the tunnel\b/i, /\bfleeing straight into.*the tunnel\b/i,
+
+// Contextual Variations
+    /\bset off.*for the tunnel\b/i, /\binside.*the tunnel\b/i, /\bentering into.*the tunnel\b/i,
+    /\bapproaching.*the tunnel\b/i, /\bjourneying to.*the tunnel\b/i, /\bwalking toward.*the tunnel\b/i,
+    /\badvancing toward.*the tunnel\b/i, /\bexploring.*the tunnel\b/i, /\bpreparing to enter.*the tunnel\b/i,
+    /\badvancing into.*the tunnel\b/i, /\bgetting deeper into.*the tunnel\b/i, /\bcontinuing toward.*the tunnel\b/i,
+    /\bgetting closer to.*the tunnel\b/i, /\bgoing into.*the tunnel\b/i, /\bslipping into.*the tunnel\b/i,
+    /\bgetting lost in.*the tunnel\b/i, /\bstarting to enter.*the tunnel\b/i, /\bfollowing through the tunnel\b/i,
+    /\bpath through the tunnel\b/i, /\bjourneying through the tunnel\b/i, /\bgetting further into.*the tunnel\b/i,
+
+// Action Variants
+    /\blaunch myself into.*the tunnel\b/i, /\bmake my entrance into.*the tunnel\b/i,
+
+
     // Verbos Simples
     /\bentro\b/i, /\bentrar\b/i, /\bentrando\b/i, /\bexplorar\b/i, /\binvestigar\b/i, /\bdescobrir\b/i, 
     /\besgueirar\b/i, /\bseguir\b/i, /\bfugir\b/i, /\bescapar\b/i, /\bcaminhar\b/i, /\biniciar\b/i, 
