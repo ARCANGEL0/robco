@@ -1717,12 +1717,11 @@ async function winGame() {
   resolve()
 } // fixed
 async function failGame() {
-
+    console.log('Wrong decision. . . . . . . ')
     pause(30);
     await waitForKey(); // Wait for user input
+ 
 
-    clean();
-    clear();
     gameScreen.remove(); // Remove the current game screen
 
     // Show intro page using the existing template or function
