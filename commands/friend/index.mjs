@@ -1358,7 +1358,7 @@ async function friend() {
      
     await eXitGame()
   
-çlet currentStage
+let currentStage
     async function initializeGame() {
         // Main game screen
         let gameScreen = getScreen("friend");
