@@ -1348,7 +1348,7 @@ async function friend() {
     let hasTriedToReturn = false;
     let img; 
     let consOutput; 
-
+    let exitHeader
     // LOGO
     clear();
     async function logoTitle() { 
@@ -1374,7 +1374,7 @@ async function friend() {
 
         const terminal = document.querySelector(".output");
 
-        const exitHeader = document.createElement("div");
+        exitHeader = document.createElement("div");
         consOutput = document.createElement("div");
         exitHeader.classList.add("exitHEADER");
         consOutput.classList.add("exitOUTPUT");
