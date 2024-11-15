@@ -1700,14 +1700,15 @@ async function handlePathB() {
 
 // Stay with friend end
 async function winGame() {
-  pause(4)
+  pause(10)
   clean()
   exitHeader.remove()
   await type(gameData[selectedLanguage].win1); 
-  pause(10)
+  pause(30)
   clean()
   await type(gameData[selectedLanguage].win2); 
-  pause(15)
+  pause(35)
+  clean()
   gameScreen.remove()
   resolve()
 } // fixed
@@ -1726,7 +1727,7 @@ async function failGame() {
     // Re-initialize the game
     await initializeGame();
     await eXitGame();
-    
+
 } // fixed
 // Start the game
 
