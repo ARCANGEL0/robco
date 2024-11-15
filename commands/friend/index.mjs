@@ -1710,7 +1710,7 @@ async function handlePathB() {
         await handlePathA();
     }
     else if (options.pathB.some(regex => regex.test(pathBanswer))) {
-        await type(gameData[selectedLanguage].noMatchMessage, {}, consOutput); 
+        await type(gameData[selectedLanguage].givesMatches, {}, consOutput); 
         clean();
         currentStage = 'pathB1';
         img.src = gameData[currentStage];
