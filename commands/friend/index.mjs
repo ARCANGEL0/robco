@@ -1341,35 +1341,33 @@ async function friend() {
 	return new Promise(async resolve => {
 		// LOGO
 		clear()
-		async function logoTitle() { 
-		let logoScreen = await showTemplateScreen("logo");
-		pause(2);
 
-		await waitForKey();
-		logoScreen.remove();
-		
-}
+            // Declare game variables at a higher scope
+    let currentStage = 'start';
+    let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    let hasTriedToReturn = false;
+    let img; 
+    let consOutput; 
+
+    // LOGO
+    clear();
+    async function logoTitle() { 
+        let logoScreen = await showTemplateScreen("logo");
+        pause(2);
+        await waitForKey();
+        logoScreen.remove();
+    }
   
-     await logoTitle()
+    await logoTitle();
 
-    // Initialize game
-    await initializeGame();
-
-     
- 
-  await eXitGame()
     async function initializeGame() {
-
-
-    
-
         // Main game screen
         let gameScreen = getScreen("friend");
 
         // Create the output for messages
         let output = document.createElement("div");
         output.classList.add("output");
-        output.style.padding = "8vh 2vw"; // Setting the padding
+        output.style.padding = "8vh 2vw"; 
         gameScreen.appendChild(output);
 
         addTemplate("console", gameScreen);
@@ -1377,11 +1375,11 @@ async function friend() {
         const terminal = document.querySelector(".output");
 
         const exitHeader = document.createElement("div");
-        const consOutput = document.createElement("div");
+        consOutput = document.createElement("div");
         exitHeader.classList.add("exitHEADER");
         consOutput.classList.add("exitOUTPUT");
 
-        const img = document.createElement("img");
+        img = document.createElement("img");
         img.style.width = "54vw";
         consOutput.style.width = "80vw";
         img.style.height = "32vh";
@@ -1397,11 +1395,56 @@ async function friend() {
         terminal.appendChild(input);
 
         // Game logic initialization
-        let currentStage = 'start';
-        let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-        let hasTriedToReturn = false;
         img.src = gameData[currentStage];
     }
+
+    async function failGame() {
+        console.log('Wrong decision. . . . . . . ');
+        pause(30);
+
+        // Remove the current game screen
+        const gameScreen = document.querySelector('.output');
+        if (gameScreen) {
+            gameScreen.remove();
+        }
+
+        // Show logo and wait for input
+        await logoTitle();
+
+        // Re-initialize the game
+        await initializeGame();
+
+        // Start the game again
+        await eXitGame();
+    }
+
+    async function eXitGame() {
+        await type(gameData[selectedLanguage].start, {}, consOutput);
+        let answerStart = await getReply();
+
+        if (options.start.barrel.some(regex => regex.test(answerStart))) {
+            clean();
+            currentStage = 'pathA';
+            img.src = gameData[currentStage];
+            await type(gameData[selectedLanguage].pathA, {}, consOutput);
+            await handlePathA();
+        } else if (options.start.friend.some(regex => regex.test(answerStart))) {
+            clean();
+            currentStage = 'pathB';
+            img.src = gameData[currentStage];
+            await type(gameData[selectedLanguage].pathB, {}, consOutput);
+            await handlePathB();
+        } else { 
+            clean();
+            await type(gameData[selectedLanguage].invalid, {}, consOutput);
+            await eXitGame();
+        }
+    }
+
+    // Initialize the game for the first time
+    await initializeGame();
+    // Start the game
+    await eXitGame();
 
 
 function clean() {
@@ -1411,30 +1454,7 @@ function clean() {
     } 
 }
 
-async function eXitGame() {
-  
 
-
-    await type(gameData[selectedLanguage].start, {}, consOutput);
-    let answerStart = await getReply();
-
-    if (options.start.barrel.some(regex => regex.test(answerStart))) {
-        clean();
-        currentStage = 'pathA';
-        img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathA, {}, consOutput);
-        await handlePathA();
-    } else if (options.start.friend.some(regex => regex.test(answerStart))) {
-        clean();
-        currentStage = 'pathB';
-        img.src = gameData[currentStage];
-        await type(gameData[selectedLanguage].pathB, {}, consOutput);
-        await handlePathB();
-    } else { clean()
-        await type(gameData[selectedLanguage].invalid, {}, consOutput);
-            await eXitGame();
-    }
-}
 
 // Handle Path A flow (Secret Tunnel)
 async function handlePathA() {
@@ -1714,23 +1734,7 @@ async function winGame() {
   gameScreen.remove()
   resolve()
 } // fixed
-async function failGame() {
-   
-    console.log('Wrong decision. . . . . . . ');
-    pause(30);
-    gameScreen.remove(); // Remove the current game screen
 
-    // Show intro page using the existing template or function
-    let restartGame = await showTemplateScreen("logo"); // Assuming you have a function or template for the intro screen
-    await waitForKey(); // Wait for user input
-    restartGame.remove();
-    clear(); // Clear the screen after key press
-
-    // Re-initialize the game
-    await initializeGame();
-    await eXitGame();
-
-} // fixed
 // Start the game
 
    
