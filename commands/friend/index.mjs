@@ -1334,9 +1334,9 @@ consOutput.classList.add("exitOUTPUT");
 
 const img = document.createElement("img");
 
-img.style.width = "40vw";
-consOutput.style.width = "70vw";
-img.style.height = "25vh";
+img.style.width = "54vw";
+consOutput.style.width = "80vw";
+img.style.height = "32vh";
 
 img.style.marginLeft = "5vw";
 
@@ -1717,11 +1717,23 @@ async function winGame() {
   resolve()
 } // fixed
 async function failGame() {
-  pause(30)
-  clean()
-  clear()
-  gameScreen.remove()
-  await resetGame()
+
+    pause(30);
+    await waitForKey(); // Wait for user input
+
+    clean();
+    clear();
+    gameScreen.remove(); // Remove the current game screen
+
+    // Show intro page using the existing template or function
+    let restartGame = await showTemplateScreen("logo"); // Assuming you have a function or template for the intro screen
+
+    await waitForKey(); // Wait for user input
+    restartGame.remove()
+    clear(); // Clear the screen after key press
+
+    // Start the game again
+    await eXitGame();
 } // fixed
 // Start the game
 
