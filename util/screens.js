@@ -35,6 +35,7 @@ const triggerParam = urlParams.get("tr");
 
 if (triggerParam=='robco') {
   // start terminal
+  on()
   login();
   
 }
@@ -45,6 +46,7 @@ else if(triggerParam=='d3bug') {
   return !0
 }
  else {
+	on()
     intro();
     
     }
