@@ -13,86 +13,77 @@
 }
 .glitch {
   position: relative;
-  font-size: 2rem;
-  color: white;
-  background: black;
-  text-transform: uppercase;
-  font-weight: bold;
-  display: inline-block;
+  animation: screen-glitch 0.2s infinite, glitch-bleep 1s infinite;
   overflow: hidden;
 }
 
 .glitch::before,
 .glitch::after {
-  content: attr(data-text);
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: black;
-  clip-path: inset(0 0 0 0);
-  animation: glitch-clip 2s infinite linear alternate-reverse;
+  background: inherit;
+  z-index: 2;
+  mix-blend-mode: difference;
+  animation: glitch-layers 0.3s infinite;
 }
 
 .glitch::before {
-  color: #f00; /* Red glitch */
-  z-index: 1;
   transform: translate(-2px, -2px);
-  animation: glitch-skew 0.2s infinite linear alternate-reverse;
+  filter: hue-rotate(90deg);
+  opacity: 0.7;
 }
 
 .glitch::after {
-  color: #0ff; /* Cyan glitch */
-  z-index: -1;
   transform: translate(2px, 2px);
-  animation: glitch-skew 0.2s infinite linear alternate;
+  filter: hue-rotate(270deg);
+  opacity: 0.7;
 }
 
-@keyframes glitch-clip {
+@keyframes screen-glitch {
   0% {
-    clip-path: inset(0 0 30% 0);
+    transform: scale(1);
   }
-  25% {
-    clip-path: inset(15% 0 15% 0);
+  20% {
+    transform: scaleX(1.1);
   }
-  50% {
-    clip-path: inset(0 0 30% 0);
+  40% {
+    transform: scaleY(0.9);
   }
-  75% {
-    clip-path: inset(15% 0 15% 0);
+  60% {
+    transform: scaleX(1.05);
+  }
+  80% {
+    transform: scaleY(1.05);
   }
   100% {
-    clip-path: inset(0 0 30% 0);
+    transform: scale(1);
   }
 }
 
-@keyframes glitch-skew {
+@keyframes glitch-layers {
   0% {
-    transform: translate(2px, -2px) skew(0.5deg);
+    clip-path: polygon(0% 10%, 100% 10%, 100% 15%, 0% 15%);
   }
   50% {
-    transform: translate(-2px, 2px) skew(-0.5deg);
+    clip-path: polygon(0% 40%, 100% 40%, 100% 45%, 0% 45%);
   }
   100% {
-    transform: translate(2px, -2px) skew(0.5deg);
+    clip-path: polygon(0% 70%, 100% 70%, 100% 75%, 0% 75%);
   }
 }
 
-.glitch:hover {
-  animation: flicker 0.3s infinite;
-}
-
-@keyframes flicker {
-  0%, 100% {
+@keyframes glitch-bleep {
+  0%, 90% {
     opacity: 1;
   }
-  50% {
-    opacity: 0.7;
+  92%, 100% {
+    opacity: 0.2;
   }
 }
-
-
 body {
     padding: 0;
     margin: 0;
