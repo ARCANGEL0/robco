@@ -42,7 +42,7 @@ async function breach() {
 	say("BREACH DETECTED", 0.5, 0.8);
 	return new Promise(async resolve => {
         console.log('breaching')
-        let hackPad = await showTemplateScreen("hack");
+      getScreen('breach')
     
         const matrixElement = document.getElementById('matrix');
 
