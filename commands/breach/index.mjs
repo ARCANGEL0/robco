@@ -14,6 +14,17 @@ const output = [
     ">>> LOG: TRACE IN PROGRESS [0xC0000409]",
 
 ];
+let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+   
+const texts = {
+    es: { title1: "Acceso a la Red", title2: "Recopilar Datos", title3: "Simulación de Salida", desc1: "Infiltra el sistema para obtener acceso a la red.", desc2: "Recopila datos críticos de los registros del sistema.", desc3: "Ejecuta la simulación de salida para salir del sistema." },
+    fr: { title1: "Accès au Réseau", title2: "Collecter des Données", title3: "Simulation de Sortie", desc1: "Infiltrez le système pour obtenir un accès au réseau.", desc2: "Collectez des données critiques à partir des journaux du système.", desc3: "Exécutez la simulation de sortie pour quitter le système." },
+    pt: { title1: "Acesso à Rede", title2: "Coletar Dados", title3: "Simulação de Saída", desc1: "Infiltre o sistema para obter acesso à rede.", desc2: "Coleta dados críticos dos registros do sistema.", desc3: "Execute a simulação de saída para sair do sistema." },
+    en: { title1: "Network Access", title2: "Data Retrieval", title3: "Exit Simulation", desc1: "Infiltrate the system to gain access to the network.", desc2: "Retrieve critical data from the system logs.", desc3: "Execute exit simulation to safely disengage from the system." }
+  };
+
+const { title1, title2, title3, desc1, desc2, desc3 } = texts[selectedLanguage];
+
 
 // Game states
 const state = {
@@ -167,6 +178,13 @@ function timer() {
 }
 
 function initMatrix() {
+  
+
+    ["sequence-0", "sequence-1", "sequence-2"].forEach((id, index) => {
+      const seq = document.getElementById(id);
+      seq.querySelector(".title").textContent = eval(`title${index + 1}`);
+      seq.querySelector(".description").textContent = eval(`desc${index + 1}`);
+    });
     const matrixElement = document.getElementById('matrix');
 
     const values = ['E9', '7A', 'BD', '55', '1C'];
