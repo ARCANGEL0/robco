@@ -43,9 +43,10 @@ async function breach() {
 	return new Promise(async resolve => {
         console.log('breaching')
 gameScreen = getScreen("breach");
+await addTemplate('hack', gameScreen);
             let output = document.createElement("div");
         output.classList.add("output");
-        output.style.padding = "8vh 2vw"; 
+        
         gameScreen.appendChild(output);
 
         
