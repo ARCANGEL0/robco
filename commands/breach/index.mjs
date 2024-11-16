@@ -54,7 +54,7 @@ async function breach() {
   let output 
     async function reboot() {
 
-        document.querySelectorAll('.center').classList.add('glitch');
+        document.querySelector('.center').classList.add('glitch');
 
         console.log('Wrong decision. . . . . . . ');
         await pause(30);
