@@ -2,6 +2,7 @@
 
 import { getScreen, showTemplateScreen, addTemplate, clear } from "../../util/screens.js";
 import { type, waitForKey,input, cleanInput,isPrintable,moveCaretToEnd  } from "../../util/io.js";
+import alert from "../../util/alert.js";
 
 import pause from "../../util/pause.js";
 import { typeSound } from "../../sound/index.js"
