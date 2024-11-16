@@ -49,25 +49,9 @@ await addTemplate('hack', gameScreen);
         
         gameScreen.appendChild(output);
 
+        start()
+
         
-
-        const matrixElement = document.getElementById('matrix');
-
-        const values = ['E9', '7A', 'BD', '55', '1C'];
-    
-        for (let i = 0; i < 6; i++) {
-            const row = document.createElement('tr');
-            row.classList.add("row")
-            for (let k = 0; k < 6; k++) {
-                const item = document.createElement('td');
-                item.innerText = values[Math.floor(Math.random() * values.length)];
-                item.classList.add('item');
-                item.classList.add('row-' + i.toString());
-                item.classList.add('column-' + k.toString());
-                row.appendChild(item);
-            }
-            matrixElement.appendChild(row);
-        }
     
        
     })
