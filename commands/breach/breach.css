@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 :root {
-    --primary: rgba(0, 65, 0, 1);
+    --primary: rgba(0, 65, 0, 0.3);
     --primary-inactive: rgba(255, 23, 45, 0.7);
-    --primary-dimmed: rgb(44, 36, 46, 0.3);
-    --secondary-light: rgb(233, 254, 129);
-    --secondary: rgba(234, 254, 124, 0.8);
-    --secondary-glow: rgba(136, 216, 89, 0.6);
-    --secondary-dimmed: rgba(234, 254, 124, 0.3);
-    --secondary-very-low: rgba(234, 254, 124, 0.1);
-    --highlight: rgba(233, 254, 129, 0.3);
+    --primary-dimmed: rgb(44, 16, 46, 0.8);
+    --secondary-light: rgb(133, 254, 129);
+    --secondary: rgba(14, 254, 14, 0.8);
+    --secondary-glow: rgba(36, 216, 59, 0.6);
+    --secondary-dimmed: rgba(34, 254, 124, 0.3);
+    --secondary-very-low: rgba(34, 254, 124, 0.1);
+    --highlight: rgba(33, 254, 129, 0.3);
 }
 
 body {
@@ -480,7 +480,7 @@ body {
 
 .sequence-row {
     display: flex;
-    color: white;
+    color: rgba(14, 254, 14, 0.8);
     width: 45%;
     margin-bottom: 16px;
 }
@@ -495,7 +495,7 @@ body {
 }
 
 .description-row > .title {
-    color: white;
+    color: rgba(14, 254, 14, 0.8);
 }
 
 .sequences-noise {
