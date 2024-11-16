@@ -54,15 +54,14 @@ async function breach() {
   let output 
     async function reboot() {
 
-        document.querySelector('.center').classList.add('glitch');
-
         console.log('Wrong decision. . . . . . . ');
         await pause(30);
         alert('YOU HAVE BEEN FLAGGED');
         await pause(50);
         await waitForKey();
         
-        // Start the game again
+        // Start the game again 
+        gameScreen.remove()
         await start();
     }
     async function escape() {
