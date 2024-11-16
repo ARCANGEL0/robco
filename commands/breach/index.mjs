@@ -55,6 +55,7 @@ async function breach() {
   let output 
     async function reboot() {
 
+       document.querySelector('.center').classList.add('glitch')
         console.log('Wrong decision. . . . . . . ');
         await pause(30);
         alert('YOU HAVE BEEN FLAGGED');
