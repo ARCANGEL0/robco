@@ -37,7 +37,7 @@ const triggerParam = urlParams.get("tr");
 
 if (triggerParam=='robco') {
   // start terminal
-
+await power()
   console.log('TERMINAL')
   login();
   
@@ -49,7 +49,7 @@ else if(triggerParam=='d3bug') {
   return !0
 }
  else {
-	
+await power()	
     intro();
     
     }
