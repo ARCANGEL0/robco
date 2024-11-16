@@ -39,7 +39,7 @@ const sequences = [
 ];
 
 async function breach() {
-    await logoTitle();
+    
     clear();
 	say("BREACH DETECTED", 0.5, 0.8);
 	return new Promise(async resolve => {
