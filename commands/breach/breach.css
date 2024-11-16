@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 :root {
-    --primary: #2C242E;
-    --primary-inactive: #443f46;
+    --primary: rgba(0, 65, 0, 1);
+    --primary-inactive: rgba(255, 23, 45, 0.7);
     --primary-dimmed: rgb(44, 36, 46, 0.3);
     --secondary-light: rgb(233, 254, 129);
     --secondary: rgba(234, 254, 124, 0.8);
     --secondary-glow: rgba(136, 216, 89, 0.6);
     --secondary-dimmed: rgba(234, 254, 124, 0.3);
     --secondary-very-low: rgba(234, 254, 124, 0.1);
-    --highlight: #444B5A;
+    --highlight: rgba(233, 254, 129, 0.3);
 }
 
 body {
@@ -18,7 +18,7 @@ body {
     display: grid;
     height: 100vh;
     width: 100vw;
-    background-color: var(--primary);
+   
     grid-template-columns: 5vw 1fr 5vw;
     grid-template-rows: 80px 1fr 10vh;
     grid-template-areas: 'top top top' 'left center right' 'bottom bottom bottom';
@@ -370,6 +370,7 @@ body {
 
 .item.inactive {
     color: var(--primary-inactive);
+    text-shadow: 0 1px 1px rgba(255, 0, 0, 0.9), 0 0 5px rgba(255, 0, 0, 0.7);
 }
 
 .code-matrix-bottom-noise {

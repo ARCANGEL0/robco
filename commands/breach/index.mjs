@@ -1,4 +1,21 @@
-/** GAME START FUNCTION IS AT THE END OF FILE. */
+// friend.mjs
+
+import { getScreen, showTemplateScreen, addTemplate, clear } from "../../util/screens.js";
+import { type, waitForKey,input, cleanInput,isPrintable,moveCaretToEnd  } from "../../util/io.js";
+
+import pause from "../../util/pause.js";
+import { typeSound } from "../../sound/index.js"
+import say from "../../util/speak.js";
+
+const output = [
+    ">>> SYSTEM INITIATED... [0x00000000]",
+    ">>> ERROR: DATA CORRUPTION DETECTED [0x80070057]",
+    ">>> REBOOTING... [0xC000021A]",
+    ">>> ACCESS DENIED: UNAUTHORIZED USER [0xC000006A]",
+    ">>> SYSTEM MALFUNCTION: REPAIR REQUIRED [0x0000001E]",
+    ">>> HACK ATTEMPT LOGGED: TRACE IN PROGRESS [0xC0000409]",
+    ">>> TERMINAL LOCKED: SECURITY PROTOCOL ENGAGED [0x80004005]"
+];
 
 // Game states
 const state = {
@@ -20,6 +37,21 @@ const sequences = [
     "BD BD",
     "BD E9"
 ];
+
+async function breach() {
+    await logoTitle();
+    clear();
+	say("BREACH DETECTED", 0.5, 0.8);
+	return new Promise(async resolve => {
+        let screen = await getScreen("breach");
+        let hackPad = await showTemplateScreen("hack");
+    
+        start()
+    })
+
+}
+
+
 
 function initGame() {
     highlightItems();
@@ -148,7 +180,14 @@ function initMatrix() {
 }
 
 // Closure for game start
-(function init() {
+function start() {
     initMatrix();
     initGame();
-})();
+}
+
+const templates = ["breach"];
+const stylesheets = ["breach"];
+
+
+export { output, templates , stylesheets};
+export default breach;
