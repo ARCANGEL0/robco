@@ -69,14 +69,14 @@ async function breach() {
     async function escape() {
     
         pause(10)
-        clean()
+        clear()
         exitHeader.remove()
         await type(gameData[selectedLanguage].win1); 
         pause(30)
-        clean()
+        clear()
         await type(gameData[selectedLanguage].win2); 
         pause(35)
-        clean()
+        clear()
         gameScreen.remove()
         resolve()
     }
@@ -235,7 +235,7 @@ async function start() {
     await addTemplate('hack', gameScreen);
             output = document.createElement("div");
             output.classList.add("output");
-            
+            mainDiv = document.querySelectorAll('.center')
             gameScreen.appendChild(output);
 
             
