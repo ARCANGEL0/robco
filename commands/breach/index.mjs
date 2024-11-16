@@ -42,8 +42,14 @@ async function breach() {
 	say("BREACH DETECTED", 0.5, 0.8);
 	return new Promise(async resolve => {
         console.log('breaching')
-      getScreen('breach')
-    
+gameScreen = getScreen("breach");
+            let output = document.createElement("div");
+        output.classList.add("output");
+        output.style.padding = "8vh 2vw"; 
+        gameScreen.appendChild(output);
+
+        addTemplate("console", gameScreen);
+
         const matrixElement = document.getElementById('matrix');
 
         const values = ['E9', '7A', 'BD', '55', '1C'];
