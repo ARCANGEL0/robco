@@ -49,7 +49,7 @@ else if(triggerParam=='d3bug') {
   return !0
 }
  else {
-	on()
+	
     intro();
     
     }
