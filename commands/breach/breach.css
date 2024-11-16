@@ -12,96 +12,73 @@
     --highlight: rgba(33, 254, 129, 0.3);
 }
 
+
 .glitch {
   position: relative;
-  overflow: hidden;
-  font-size: 2rem; /* Adjust font size as needed */
+  font-size: 2rem; /* Adjust to your desired font size */
   color: white;
-  text-transform: uppercase;
-  background: black; /* Base color for glitch effect */
-  animation: glitch-background 0.15s infinite linear;
+  background: black;
+  overflow: hidden;
 }
 
-/* Glitch distortion layers */
 .glitch::before,
 .glitch::after {
-  content: attr(data-text); /* Copies the same text */
+  content: attr(data-text); /* Copy the same text for distortion */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   mix-blend-mode: difference;
-  animation: glitch-layers 0.2s infinite alternate ease-in-out;
+  animation: glitch-distort 0.2s infinite alternate-reverse ease-in-out, glitch-offset 1s infinite ease-in-out;
 }
 
 .glitch::before {
-  transform: translate(-5px, -2px);
-  clip-path: polygon(0 10%, 100% 10%, 100% 15%, 0 15%);
-  filter: hue-rotate(20deg);
+  color: red; /* Add red distortion layer */
+  clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); /* Initial slice */
+  transform: translate(-5px, 0);
   z-index: 2;
 }
 
 .glitch::after {
-  transform: translate(5px, 2px);
-  clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%);
-  filter: hue-rotate(340deg);
-  z-index: 3;
+  color: blue; /* Add blue distortion layer */
+  clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); /* Initial slice */
+  transform: translate(5px, 0);
+  z-index: 1;
 }
 
-/* Glitch background shaking effect */
-@keyframes glitch-background {
-  0%, 100% {
-    transform: scale(1) translate(0, 0);
-  }
-  25% {
-    transform: scale(1.02) translate(-3px, 2px);
-  }
-  50% {
-    transform: scale(0.98) translate(2px, -3px);
-  }
-  75% {
-    transform: scale(1.01) translate(-2px, -1px);
-  }
-}
-
-/* Distortion layers animation */
-@keyframes glitch-layers {
+@keyframes glitch-distort {
   0% {
     clip-path: polygon(0 5%, 100% 5%, 100% 10%, 0 10%);
-    transform: translate(2px, -2px);
+    transform: translate(-3px, -3px);
+  }
+  25% {
+    clip-path: polygon(0 30%, 100% 30%, 100% 35%, 0 35%);
+    transform: translate(3px, 3px);
   }
   50% {
-    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
-    transform: translate(-5px, 5px);
+    clip-path: polygon(0 55%, 100% 55%, 100% 60%, 0 60%);
+    transform: translate(-5px, 2px);
+  }
+  75% {
+    clip-path: polygon(0 75%, 100% 75%, 100% 80%, 0 80%);
+    transform: translate(4px, -4px);
   }
   100% {
-    clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%);
-    transform: translate(5px, -5px);
+    clip-path: polygon(0 95%, 100% 95%, 100% 100%, 0 100%);
+    transform: translate(-3px, 3px);
   }
 }
 
-/* Noise effect added as background */
-.glitch::after {
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(0, 0, 0, 0.1) 2%,
-    rgba(255, 255, 255, 0.1) 4%
-  );
-  background-size: 200% 200%;
-  animation: glitch-noise 0.2s infinite steps(10);
-  opacity: 0.1;
-}
-
-/* Noise animation */
-@keyframes glitch-noise {
+@keyframes glitch-offset {
   0% {
-    background-position: 0 0;
+    transform: translate(2px, 0);
+  }
+  50% {
+    transform: translate(-2px, -2px);
   }
   100% {
-    background-position: 100% 100%;
+    transform: translate(2px, 2px);
   }
 }
 
