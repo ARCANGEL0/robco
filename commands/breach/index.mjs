@@ -29,7 +29,7 @@ let timerState = {
     startTime: new Date().getTime(),
     lastTime: new Date().getTime(),
 }
-
+let gameScreen
 const sequences = [
     "55 BD",
     "BD BD",
