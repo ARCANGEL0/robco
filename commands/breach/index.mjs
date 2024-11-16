@@ -24,7 +24,7 @@ const texts = {
   };
 
 const { title1, title2, title3, desc1, desc2, desc3 } = texts[selectedLanguage];
-
+let mainDiv
 
 // Game states
 const state = {
@@ -52,25 +52,36 @@ async function breach() {
     clear();
 	say("BREACH DETECTED", 0.5, 0.8);
 	return new Promise(async resolve => {
-        console.log('breaching')
-gameScreen = getScreen("breach");
-await addTemplate('hack', gameScreen);
-            let output = document.createElement("div");
-        output.classList.add("output");
-        
-        gameScreen.appendChild(output);
+  let output 
+    async function reboot() {
 
-        start()
+        mainDiv.classList.add('glitch');
 
+        console.log('Wrong decision. . . . . . . ');
+        await pause(30);
+        alert('YOU HAVE BEEN FLAGGED');
+        await pause(50);
+        await waitForKey();
         
+        // Start the game again
+        await start();
+    }
+    async function escape() {
     
+        pause(10)
+        clean()
+        exitHeader.remove()
+        await type(gameData[selectedLanguage].win1); 
+        pause(30)
+        clean()
+        await type(gameData[selectedLanguage].win2); 
+        pause(35)
+        clean()
+        gameScreen.remove()
+        resolve()
+    }
        
-    })
-
-}
-
-
-
+    
 function initGame() {
     highlightItems();
     document.querySelectorAll('.item').forEach(elem => {elem.addEventListener('click', selectItem)})
@@ -95,6 +106,11 @@ function resetHighlight() {
     selectedRow.forEach(elem => {
         elem.classList.remove('active');
     });
+}
+
+function checkAllSequencesDone() {
+    // Check if all sequences are marked as done
+    return sequences.every(sequence => sequence === "XXXX");
 }
 
 function selectItem(e) {
@@ -130,6 +146,13 @@ function selectItem(e) {
         state.gameStarted = false;
         state.gameOver = true;
         resetHighlight();
+
+        if (checkAllSequencesDone()) {
+            escape()
+        } else {
+            reboot();
+        }
+
         return;
     }
 }
@@ -168,6 +191,7 @@ function timer() {
             resetHighlight();
             state.gameOver = true;
             state.gameStarted = false;
+            reboot()
         }
         if (state.timer > 0) {
             requestAnimationFrame(timer);
@@ -205,10 +229,31 @@ function initMatrix() {
 }
 
 // Closure for game start
-function start() {
+async function start() {
+    console.log('breaching')
+    gameScreen = getScreen("breach");
+    await addTemplate('hack', gameScreen);
+            output = document.createElement("div");
+            output.classList.add("output");
+            
+            gameScreen.appendChild(output);
+
+            
     initMatrix();
     initGame();
 }
+
+
+       await start()
+
+        
+    
+       
+    })
+
+}
+
+
 
 const templates = ["breach"];
 const stylesheets = ["breach"];
