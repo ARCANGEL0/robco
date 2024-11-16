@@ -3,7 +3,7 @@ import pause from "./pause.js";
 import alert from "./alert.js";
 import say from "./speak.js";
 import { intro, outro} from '../commands/fallout/index.mjs'
-import { on, off } from "./power.js";
+import { on, off,power } from "./power.js";
 
 
 const FAST = {
