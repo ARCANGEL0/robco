@@ -48,7 +48,7 @@ gameScreen = getScreen("breach");
         output.style.padding = "8vh 2vw"; 
         gameScreen.appendChild(output);
 
-        addTemplate("console", gameScreen);
+        s\
 
         const matrixElement = document.getElementById('matrix');
 
