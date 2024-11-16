@@ -24,7 +24,6 @@ const texts = {
   };
 
 const { title1, title2, title3, desc1, desc2, desc3 } = texts[selectedLanguage];
-let mainDiv
 
 // Game states
 const state = {
@@ -55,7 +54,7 @@ async function breach() {
   let output 
     async function reboot() {
 
-        mainDiv.classList.add('glitch');
+        document.querySelectorAll('.center').classList.add('glitch');
 
         console.log('Wrong decision. . . . . . . ');
         await pause(30);
@@ -235,7 +234,7 @@ async function start() {
     await addTemplate('hack', gameScreen);
             output = document.createElement("div");
             output.classList.add("output");
-            mainDiv = document.querySelectorAll('.center')
+         
             gameScreen.appendChild(output);
 
             
