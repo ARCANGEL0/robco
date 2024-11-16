@@ -8,13 +8,11 @@ import { typeSound } from "../../sound/index.js"
 import say from "../../util/speak.js";
 
 const output = [
-    ">>> SYSTEM INITIATED... [0x00000000]",
     ">>> ERROR: DATA CORRUPTION DETECTED [0x80070057]",
     ">>> REBOOTING... [0xC000021A]",
-    ">>> ACCESS DENIED: UNAUTHORIZED USER [0xC000006A]",
     ">>> SYSTEM MALFUNCTION: REPAIR REQUIRED [0x0000001E]",
-    ">>> HACK ATTEMPT LOGGED: TRACE IN PROGRESS [0xC0000409]",
-    ">>> TERMINAL LOCKED: SECURITY PROTOCOL ENGAGED [0x80004005]"
+    ">>> LOG: TRACE IN PROGRESS [0xC0000409]",
+
 ];
 
 // Game states
