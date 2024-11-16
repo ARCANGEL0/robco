@@ -68,22 +68,6 @@
   }
 }
 
-.center {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  color: white;
-  overflow: hidden;
-}
-
-.center h1 {
-  font-size: 4rem;
-  z-index: 1;
-}
-
 .glitch {
   position: relative;
   display: inline-block;
@@ -92,7 +76,6 @@
   font-size: 4rem;
   animation: flicker 1.5s infinite;
 }
-
 .glitch::before,
 .glitch::after {
   content: attr(data-text);
