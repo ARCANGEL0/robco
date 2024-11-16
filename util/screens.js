@@ -36,7 +36,7 @@ const triggerParam = urlParams.get("tr");
 if (triggerParam=='robco') {
   // start terminal
   on()
-  console.log('TERMINAL MODE')
+  console.log('TERMINAL')
   login();
   
 }
