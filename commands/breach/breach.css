@@ -13,6 +13,12 @@
 }
 
 
+.glitch {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1); /* Light background */
+  animation: glitch-flicker 2s infinite, glitch-noise 0.2s infinite;
+  overflow: hidden;
+}
 .hackFail {
     font-size: clamp(1rem, 2vw, 3rem); /* Dynamically adjusts font size */
     display: flex;
@@ -32,12 +38,65 @@
     z-index: 999;
     box-sizing: border-box; /* Ensures padding is included in size calculations */
 }
+.win {
+    font-size: clamp(1rem, 2vw, 3rem); /* Dynamically adjusts font size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: auto; /* Automatically adjusts height */
+    position: fixed;
+    text-align: center;
+    border: 2px solid #5bf870;
+    padding: 10px 30px;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%); /* Centers both vertically and horizontally */
+    z-index: 999;
+    box-sizing: border-box; /* Ensures padding is included in size calculations */
+    background-color: black;
+    color: #5bf870;
+    animation: glitch-quick 2s linear, screen-shutdown 2s 2s forwards; /* Glitch and then shutdown */
+}
 
-.glitch {
-  position: relative;
-  background: rgba(255, 255, 255, 0.1); /* Light background */
-  animation: glitch-flicker 2s infinite, glitch-noise 0.2s infinite;
-  overflow: hidden;
+/* Glitch animation (quick glitch effect for 2 seconds) */
+@keyframes glitch-quick {
+    0%, 100% {
+        clip-path: inset(0% 0% 0% 0%);
+        transform: none;
+    }
+    20% {
+        clip-path: inset(10% 0% 80% 0%);
+        transform: translateX(-5px);
+    }
+    40% {
+        clip-path: inset(30% 0% 50% 0%);
+        transform: translateX(5px);
+    }
+    60% {
+        clip-path: inset(60% 0% 30% 0%);
+        transform: translateX(-3px);
+    }
+    80% {
+        clip-path: inset(20% 0% 70% 0%);
+        transform: translateX(2px);
+    }
+}
+
+/* Retro screen shutdown animation */
+@keyframes screen-shutdown {
+    0% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scaleY(0.1);
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
 }
 
 @keyframes glitch-flicker {
