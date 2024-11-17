@@ -170,7 +170,7 @@ access.innerHTML = `<pre>${failure}</pre>`;;
         
                                            	let terminalWin = document.querySelector(".breach");
                                            	let accessWin = document.createElement("div");
- accessWin.setAttribute("class", "hackFail");
+ accessWin.setAttribute("class", "win");
 accessWin.innerHTML = `<pre>${winText}</pre>`;
 terminalWin.appendChild(accessWin);
 
