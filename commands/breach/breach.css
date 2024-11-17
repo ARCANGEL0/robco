@@ -10,77 +10,150 @@
     --secondary-dimmed: rgba(34, 254, 124, 0.3);
     --secondary-very-low: rgba(34, 254, 124, 0.1);
     --highlight: rgba(33, 254, 129, 0.3);
+  --color-text: #fff;
+  --color-bg: #000;
+  --color-link: #f9d77e;
+  --color-link-hover: #fff;
+  --color-info: #efc453;
+  --glitch-width: 100vw;
+  --glitch-height: 100vh;
+  --gap-horizontal: 10px;
+  --gap-vertical: 5px;
+  --time-anim: 4s;
+  --delay-anim: 2s;
+  --blend-mode-1: none;
+  --blend-mode-2: none;
+  --blend-mode-3: none;
+  --blend-mode-4: none;
+  --blend-mode-5: overlay;
+  --blend-color-1: transparent;
+  --blend-color-2: transparent;
+  --blend-color-3: transparent;
+  --blend-color-4: transparent;
+  --blend-color-5: #af4949;
 }
 
-
 .glitch {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
   position: relative;
-  font-size: 2rem; /* Adjust to your desired font size */
-  color: white;
-  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
-.glitch::before,
-.glitch::after {
-  content: attr(data-text); /* Copy the same text for distortion */
-  position: absolute;
+.glitch__item {
+  background: url('https://i.ibb.co/0X3KdH0/work-progress.png') no-repeat 50% 50% / cover;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
+  position: absolute;
+}
+
+.glitch__item:nth-child(n+2) {
+  opacity: 0;
+  animation-duration: var(--time-anim);
+  animation-delay: var(--delay-anim);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.glitch__item:nth-child(2) {
+  background-color: var(--blend-color-2);
+  background-blend-mode: var(--blend-mode-2);
+  animation-name: glitch-anim-2;
+}
+
+.glitch__item:nth-child(3) {
+  background-color: var(--blend-color-3);
+  background-blend-mode: var(--blend-mode-3);
+  animation-name: glitch-anim-3;
+}
+
+.glitch__item:nth-child(4) {
+  background-color: var(--blend-color-4);
+  background-blend-mode: var(--blend-mode-4);
+  animation-name: glitch-anim-4;
+}
+
+.glitch__item:nth-child(5) {
+  background-color: var(--blend-color-5);
+  background-blend-mode: var(--blend-mode-5);
+  animation-name: glitch-anim-flash;
+}
+
+.glitch__title {
+  font-family: 'Creepster', cursive;
+  font-size: 100px;
+  color: #ffffff;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.glitch__title::before,
+.glitch__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  mix-blend-mode: difference;
-  animation: glitch-distort 0.2s infinite alternate-reverse ease-in-out, glitch-offset 1s infinite ease-in-out;
+  overflow: hidden;
 }
 
-.glitch::before {
-  color: red; /* Add red distortion layer */
-  clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); /* Initial slice */
-  transform: translate(-5px, 0);
-  z-index: 2;
+.glitch__title::before {
+  left: 2px;
+  text-shadow: -1px 0 #00ffea;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 2s linear infinite alternate-reverse;
 }
 
-.glitch::after {
-  color: blue; /* Add blue distortion layer */
-  clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); /* Initial slice */
-  transform: translate(5px, 0);
-  z-index: 1;
+.glitch__title::after {
+  left: -2px;
+  text-shadow: -1px 0 #fe3a7f;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2s 1s linear infinite alternate-reverse;
 }
 
-@keyframes glitch-distort {
+@keyframes glitch-anim {
   0% {
-    clip-path: polygon(0 5%, 100% 5%, 100% 10%, 0 10%);
-    transform: translate(-3px, -3px);
-  }
-  25% {
-    clip-path: polygon(0 30%, 100% 30%, 100% 35%, 0 35%);
-    transform: translate(3px, 3px);
+    clip: rect(20px, 9999px, 160px, 0);
   }
   50% {
-    clip-path: polygon(0 55%, 100% 55%, 100% 60%, 0 60%);
-    transform: translate(-5px, 2px);
-  }
-  75% {
-    clip-path: polygon(0 75%, 100% 75%, 100% 80%, 0 80%);
-    transform: translate(4px, -4px);
+    clip: rect(50px, 9999px, 120px, 0);
   }
   100% {
-    clip-path: polygon(0 95%, 100% 95%, 100% 100%, 0 100%);
-    transform: translate(-3px, 3px);
+    clip: rect(30px, 9999px, 180px, 0);
   }
 }
 
-@keyframes glitch-offset {
-  0% {
-    transform: translate(2px, 0);
+@keyframes glitch-anim-flash {
+  0%, 5% {
+    opacity: 0.2;
+    transform: translate3d(var(--gap-horizontal), var(--glitch-height), 0);
   }
-  50% {
-    transform: translate(-2px, -2px);
-  }
-  100% {
-    transform: translate(2px, 2px);
+  5.5%, 100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
   }
 }
+
+@keyframes glitch-anim-2 {
+  /* Add keyframe content similar to the SCSS */
+}
+
+@keyframes glitch-anim-3 {
+  /* Add keyframe content similar to the SCSS */
+}
+
+@keyframes glitch-anim-4 {
+  /* Add keyframe content similar to the SCSS */
+}
+
+
 
 body {
     padding: 0;
