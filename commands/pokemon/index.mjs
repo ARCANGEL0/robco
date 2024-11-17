@@ -8,11 +8,6 @@ import { typeSound } from "../../sound/index.js"
 import say from "../../util/speak.js";
 
 
-
-
-async function pokemon() {
-  
-  
     let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
     
 const messages = {
@@ -59,6 +54,11 @@ const messages = {
 };
 
 const output = messages[selectedLanguage];
+
+
+async function pokemon() {
+  
+  
 
 	clear();
 	say("BATTLE", 0.3, 0.8);
