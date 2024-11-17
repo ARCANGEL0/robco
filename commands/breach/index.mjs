@@ -118,19 +118,34 @@ async function breach() {
 
         await start();
     }
-    async function escape() {
+    async function exitSimulation() {
     
-        pause(10)
-        clear()
-        exitHeader.remove()
-        await type(gameData[selectedLanguage].win1); 
-        pause(30)
-        clear()
-        await type(gameData[selectedLanguage].win2); 
-        pause(35)
+
+       document.querySelector('.center').classList.add('win')
+  
+        console.log('Wrong decision. . . . . . . ');
+        await pause(2);
+        
+	let terminalWin = document.querySelector(".breach");
+	let accessWin = document.createElement("div");
+	accessWin.setAttribute("class", "hackFail");
+	accessWin.innerHTML = winText;
+	terminalWin.appendChild(accessWin);
+
+        
+        await pause(2);
+        
+        await waitForKey();
+        access.remove()
+        // Start the game again 
+        gameScreen.remove()
+
         clear()
         gameScreen.remove()
         resolve()
+    
+    
+
     }
        
     
@@ -200,7 +215,7 @@ function selectItem(e) {
         resetHighlight();
 
         if (checkAllSequencesDone()) {
-            escape()
+            exitSimulation()
         } else {
             reboot();
         }
