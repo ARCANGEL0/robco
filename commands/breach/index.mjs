@@ -123,7 +123,7 @@ async function breach() {
 
        document.querySelector('.center').classList.add('win')
   
-        console.log('Wrong decision. . . . . . . ');
+        console.log('you win. . . . . . . ');
         await pause(2);
         
 	let terminalWin = document.querySelector(".breach");
