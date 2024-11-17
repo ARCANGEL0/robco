@@ -60,7 +60,7 @@ async function breach() {
         console.log('Wrong decision. . . . . . . ');
         await pause(5);
         
-	let terminal = document.querySelector(".glitch");
+	let terminal = document.querySelector(".breach");
 	let access = document.createElement("div");
 	access.setAttribute("class", "hackFail");
 	access.innerHTML = failure;
@@ -68,8 +68,9 @@ async function breach() {
 
         
         await pause(10);
-        await waitForKey();
         
+        await waitForKey();
+        access.remove()
         // Start the game again 
         gameScreen.remove()
         await start();
