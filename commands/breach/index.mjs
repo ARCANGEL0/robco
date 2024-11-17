@@ -58,7 +58,7 @@ async function breach() {
        document.querySelector('.center').classList.add('glitch')
   
         console.log('Wrong decision. . . . . . . ');
-        await pause(5);
+        await pause(2);
         
 	let terminal = document.querySelector(".breach");
 	let access = document.createElement("div");
@@ -67,7 +67,7 @@ async function breach() {
 	terminal.appendChild(access);
 
         
-        await pause(10);
+        await pause(2);
         
         await waitForKey();
         access.remove()
