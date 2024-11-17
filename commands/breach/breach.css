@@ -39,23 +39,10 @@
     box-sizing: border-box; /* Ensures padding is included in size calculations */
 }
 .win {
-      font-size: clamp(1rem, 2vw, 3rem); /* Dynamically adjusts font size */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50vw;
-    height: auto; /* Automatically adjusts height */
-    animation: flicker 2s infinite;
-    position: fixed;
-    text-align: center;
-     /* Corrected the "alig" property */
-    border: 2px solid #5bf870;
-    padding: 10px 30px;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%); /* Centers both vertically and horizontally */
-    z-index: 999;
-    box-sizing: border-box; /* Ensures padding is included in size calculations */
+  position: relative;
+  background: rgba(255, 255, 255, 0.1); /* Light background */
+  
+  overflow: hidden;
     animation: glitch-quick 2s linear, screen-shutdown 2s 2s forwards; /* Glitch and then shutdown */
 }
 
