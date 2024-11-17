@@ -18,7 +18,18 @@ const output = [
 let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
    
 const texts = {
-    es: { failure:`[:: ERROR FATAL: NETWATCH DETECTADO ::]
+    es: {     
+    winText: `
+[ NOTIFICACIÓN DEL SISTEMA ]
+----------------------------
+> ANULACIÓN DE NETWATCH EXITOSA
+> BRECHA COMPLETADA
+> ACCESO CONCEDIDO
+> RASTREO NEUTRALIZADO
+----------------------------
+ESTADO: VÍNCULO ACTIVO
+    `,
+    failure:`[:: ERROR FATAL: NETWATCH DETECTADO ::]
 CÓDIGO: 0x00000CE7-3AT
 >> BRECHA CRÍTICA BLOQUEADA <<
 [0xA77F3] ACCESO DENEGADO.
@@ -28,7 +39,17 @@ CÓDIGO: 0x00000CE7-3AT
 PRESIONA CUALQUIER TECLA PARA SALIR...`, title1: "Acceso a la Red", title2: "Recopilar Datos", title3:
     "Simulación de Salida", desc1: "Infiltra el sistema para obtener acceso a la red.", desc2: "Recopila datos críticos de los registros del sistema.",
     desc3: "Ejecuta la simulación de salida para salir del sistema." },
-    fr: { failure:`[:: ERREUR FATALE : NETWATCH DÉTECTÉ ::] 
+    fr: {     winText: `
+[ NOTIFICATION DU SYSTÈME ]
+---------------------------
+> RÉUSSITE DE L'OVERRIDE NETWATCH
+> INTRUSION RÉUSSIE
+> ACCÈS AUTORISÉ
+> TRACE NEUTRALISÉ
+---------------------------
+STATUT: LIAISON ACTIVE
+    `,
+    failure:`[:: ERREUR FATALE : NETWATCH DÉTECTÉ ::] 
 CODE : 0x00000CD2-98C  
 >> VIOLATION CRITIQUE BLOQUÉE << 
 [0xA77F3] ACCÈS REFUSÉ.  
@@ -36,7 +57,18 @@ CODE : 0x00000CD2-98C
 [0xB4D10] SYSTÈME VERROUILLÉ. TOUS LES PRIVILÈGES RÉVOQUÉS.
 
 APPUYEZ SUR UNE TOUCHE POUR QUITTER...`, title1: "Accès au Réseau", title2: "Collecter des Données", title3: "Simulation de Sortie", desc1: "Infiltrez le système pour obtenir un accès au réseau.", desc2: "Collectez des données critiques à partir des journaux du système.", desc3: "Exécutez la simulation de sortie pour quitter le système." },
-    pt: {failure:`[:: ERRO FATAL: NETWATCH DETECTADO ::]
+    pt: {
+      winText: `
+[ NOTIFICAÇÃO DO SISTEMA ]
+--------------------------
+> OVERRIDE NETWATCH BEM-SUCEDIDO
+> INVASÃO CONCLUÍDA
+> ACESSO PERMITIDO
+> RASTREAMENTO NEUTRALIZADO
+--------------------------
+STATUS: UPLINK ATIVO
+    `,
+    failure:`[:: ERRO FATAL: NETWATCH DETECTADO ::]
 CÓDIGO: 0x00000C36-F5T 
 >> BRECHA CRÍTICA BLOQUEADA <<  
 [0xA77F3] ACESSO NEGADO.
@@ -44,7 +76,16 @@ CÓDIGO: 0x00000C36-F5T
 [0xB4D10] SISTEMA BLOQUEADO. TODOS OS PRIVILÉGIOS REVOGADOS. 
 
 PRESSIONE QUALQUER TECLA PARA SAIR...`, title1: "Acesso à Rede", title2: "Coletar Dados", title3: "Simulação de Saída", desc1: "Infiltre o sistema para obter acesso à rede.", desc2: "Coleta dados críticos dos registros do sistema.", desc3: "Execute a simulação de saída para sair do sistema." },
-    en: { failure:`[:: FATAL ERROR: NETWATCH DETECTED ::] 
+    en: {     winText: `
+[ SYSTEM NOTIFICATION ]
+-----------------------
+> NETWATCH OVERRIDE SUCCESS
+> BREACH SUCCESSFUL
+> ACCESS GRANTED
+> TRACE NEUTRALIZED
+-----------------------
+STATUS: UPLINK ACTIVE
+    `, failure:`[:: FATAL ERROR: NETWATCH DETECTED ::] 
 CODE: 0x00000CE7-3AT
 >> CRITICAL BREACH BLOCKED << 
 [0xA77F3] ACCESS DENIED.  
@@ -54,7 +95,8 @@ CODE: 0x00000CE7-3AT
 PRESS ANY KEY TO EXIT...`, title1: "Network Access", title2: "Data Retrieval", title3: "Exit Simulation", desc1: "Infiltrate the system to gain access to the network.", desc2: "Retrieve critical data from the system logs.", desc3: "Execute exit simulation to safely disengage from the system." }
   };
 
-const { title1, title2, title3, desc1, desc2, desc3 , failure} = texts[selectedLanguage];
+
+const { winText, title1, title2, title3, desc1, desc2, desc3 , failure} = texts[selectedLanguage];
 
 // Game states
 let state = {
