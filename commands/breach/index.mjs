@@ -56,10 +56,7 @@ async function breach() {
     async function reboot() {
 
        document.querySelector('.center').classList.add('glitch')
-       const glitchContainer = document.querySelector('.glitch');
-Array.from({ length: 5 }).forEach(() => 
-  glitchContainer.prepend(Object.assign(document.createElement('div'), { className: 'glitch__item' }))
-);
+  
         console.log('Wrong decision. . . . . . . ');
         await pause(30);
         alert('YOU HAVE BEEN FLAGGED');
