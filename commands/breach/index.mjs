@@ -141,7 +141,6 @@ async function breach() {
         gameScreen.remove()
 
         clear()
-        gameScreen.remove()
         resolve()
     
     
