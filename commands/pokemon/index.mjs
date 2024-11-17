@@ -13,13 +13,78 @@ import say from "../../util/speak.js";
 async function pokemon() {
   
   
+    let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    
+const messages = {
+    EN: [
+        "Booting GBA...",
+        "Pokedex.v1.5 ready!",
+        "Trainer spotted >> [READY]",
+        "Battle Zone > Active!",
+        "⚡ A trainer has appeared! ⚡",
+        "L o a d i n g . . .",
+        ". . . . . . . . . .",
+        "⚔️ Get ready to battle! ⚔️"
+    ],
+    PT: [
+        "Iniciando GBA...",
+        "Pokedex.v1.5 pronta!",
+        "Treinador detectado >> [PRONTO]",
+        "Zona de Batalha > Ativa!",
+        "⚡ Um treinador surgiu! ⚡",
+        "C a r r e g a n d o . . .",
+        ". . . . . . . . . .",
+        "⚔️ Prepare-se para a batalha! ⚔️"
+    ],
+    ES: [
+        "Cargando GBA...",
+        "Pokedex.v1.5 lista!",
+        "Entrenador localizado >> [LISTO]",
+        "Zona de Batalla > Activa!",
+        "⚡ ¡Un entrenador apareció! ⚡",
+        "C a r g a n d o . . .",
+        ". . . . . . . . . .",
+        "⚔️ ¡Prepárate para la batalla! ⚔️"
+    ],
+    FR: [
+        "Démarrage GBA...",
+        "Pokedex.v1.5 prêt!",
+        "Entraîneur repéré >> [PRÊT]",
+        "Zone de Combat > Active!",
+        "⚡ Un entraîneur est arrivé! ⚡",
+        "C h a r g e m e n t . . .",
+        ". . . . . . . . . .",
+        "⚔️ Préparez-vous pour le combat! ⚔️"
+    ]
+};
+
+const output = messages[selectedLanguage];
+
 	clear();
 	say("BATTLE", 0.3, 0.8);
-	await type('L o a d i n g. . . ');
+	
 	return new Promise(async resolve =>
 	{
+	  let gameScreen
 	  
-	  let moves = {
+	  
+	  async function initializeGame() {
+        // Main game screen
+        gameScreen = getScreen("pokemon");
+
+        // Create the output for messages
+        let output = document.createElement("div");
+        output.classList.add("gba");
+        gameScreen.appendChild(output);
+
+        addTemplate("game", gameScreen);
+
+    }
+
+                      	  
+await initializeGame()	  
+                      	  
+                      	  let moves = {
     'tackle': {
         name: 'TACKLE',
         damage: 15,
@@ -425,5 +490,5 @@ function endGame() {
 
 const stylesheets = ["pokemon"];
 const templates = ["pokemon"];
-export { templates,stylesheets };
+export { output, templates,stylesheets };
 export default pokemon;
