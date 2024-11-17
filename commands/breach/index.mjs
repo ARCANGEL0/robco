@@ -18,13 +18,13 @@ const output = [
 let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
    
 const texts = {
-    es: { title1: "Acceso a la Red", title2: "Recopilar Datos", title3: "Simulación de Salida", desc1: "Infiltra el sistema para obtener acceso a la red.", desc2: "Recopila datos críticos de los registros del sistema.", desc3: "Ejecuta la simulación de salida para salir del sistema." },
-    fr: { title1: "Accès au Réseau", title2: "Collecter des Données", title3: "Simulation de Sortie", desc1: "Infiltrez le système pour obtenir un accès au réseau.", desc2: "Collectez des données critiques à partir des journaux du système.", desc3: "Exécutez la simulation de sortie pour quitter le système." },
-    pt: { title1: "Acesso à Rede", title2: "Coletar Dados", title3: "Simulação de Saída", desc1: "Infiltre o sistema para obter acesso à rede.", desc2: "Coleta dados críticos dos registros do sistema.", desc3: "Execute a simulação de saída para sair do sistema." },
-    en: { title1: "Network Access", title2: "Data Retrieval", title3: "Exit Simulation", desc1: "Infiltrate the system to gain access to the network.", desc2: "Retrieve critical data from the system logs.", desc3: "Execute exit simulation to safely disengage from the system." }
+    es: { failure:'erro', title1: "Acceso a la Red", title2: "Recopilar Datos", title3: "Simulación de Salida", desc1: "Infiltra el sistema para obtener acceso a la red.", desc2: "Recopila datos críticos de los registros del sistema.", desc3: "Ejecuta la simulación de salida para salir del sistema." },
+    fr: { failure:'erro', title1: "Accès au Réseau", title2: "Collecter des Données", title3: "Simulation de Sortie", desc1: "Infiltrez le système pour obtenir un accès au réseau.", desc2: "Collectez des données critiques à partir des journaux du système.", desc3: "Exécutez la simulation de sortie pour quitter le système." },
+    pt: {failure:'erro', title1: "Acesso à Rede", title2: "Coletar Dados", title3: "Simulação de Saída", desc1: "Infiltre o sistema para obter acesso à rede.", desc2: "Coleta dados críticos dos registros do sistema.", desc3: "Execute a simulação de saída para sair do sistema." },
+    en: { failure:'erro', title1: "Network Access", title2: "Data Retrieval", title3: "Exit Simulation", desc1: "Infiltrate the system to gain access to the network.", desc2: "Retrieve critical data from the system logs.", desc3: "Execute exit simulation to safely disengage from the system." }
   };
 
-const { title1, title2, title3, desc1, desc2, desc3 } = texts[selectedLanguage];
+const { title1, title2, title3, desc1, desc2, desc3 , failure} = texts[selectedLanguage];
 
 // Game states
 const state = {
@@ -59,7 +59,14 @@ async function breach() {
   
         console.log('Wrong decision. . . . . . . ');
         await pause(5);
-        alert('YOU HAVE BEEN FLAGGED');
+        
+	let terminal = document.querySelector(".glitch");
+	let access = document.createElement("div");
+	access.setAttribute("class", "hackFail");
+	access.innerHTML = failure;
+	terminal.appendChild(access);
+
+        
         await pause(10);
         await waitForKey();
         
