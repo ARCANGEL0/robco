@@ -14,7 +14,7 @@
 
 
 .hackFail {
-    font-size: clamp(1rem, 5vw, 10vw); /* Dynamically adjusts font size */
+    font-size: clamp(1rem, 1rem, 3rem); /* Dynamically adjusts font size */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@
     animation: flicker 2s infinite;
     position: fixed;
     text-align: center;
-    color: #05321e; /* Corrected the "alig" property */
+    color: var(--secondary-light); /* Corrected the "alig" property */
     border: 2px solid #5bf870;
     padding: 10px 30px;
     left: 50%;
