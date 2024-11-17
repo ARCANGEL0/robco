@@ -13,7 +13,7 @@
 }
 
 
-.hackFail {
+.breach.hackFail {
 	animation: flicker 2s infinite;
 	position: fixed;
 	width: 40vw;
