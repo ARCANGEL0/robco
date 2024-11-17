@@ -13,7 +13,7 @@
 }
 
 
-.hackerFail {
+.hackFail {
     font-size: clamp(1rem, 5vw, 10vw); /* Dynamically adjusts font size */
     display: flex;
     justify-content: center;
