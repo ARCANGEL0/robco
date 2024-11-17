@@ -281,26 +281,26 @@ class Pokemon {
 };
 
 pokemon = [];
-pokemon.push(new Pokemon('PIKACHU', 50, 117, [moves['tackle'], moves['thundershock']], './assets/img/pikachu.png', './assets/img/pikachuback.png'));
-pokemon.push(new Pokemon('CHARIZARD', 50, 163, [moves['fire blast'], moves['mega punch']], './assets/img/charizard.png', './assets/img/charizardback.png'));
-pokemon.push(new Pokemon('BLASTOISE', 50, 180, [moves['hydro pump'], moves['skull bash']], './assets/img/blastoise.png', './assets/img/blastoiseback.png'));
-pokemon.push(new Pokemon('KADABRA', 50, 128, [moves['psychic'], moves['rest']], './assets/img/kadabra.png', './assets/img/kadabraback.png'));
-pokemon.push(new Pokemon('VENUSAUR', 50, 171, [moves['solar beam'], moves['body slam']], './assets/img/venusaur.png', './assets/img/venusaurback.png'));
-pokemon.push(new Pokemon('JOLTEON', 50, 152, [moves['quick attack'], moves['thunder']], './assets/img/jolteon.png', './assets/img/jolteonback.png'));
-pokemon.push(new Pokemon('ARBOK', 50, 133, [moves['acid'], moves['belch']], './assets/img/arbok.png', './assets/img/arbokback.png'));
-pokemon.push(new Pokemon('SCYTHER', 50, 155, [moves['slash'], moves['hyper beam']], './assets/img/scyther.png', './assets/img/scytherback.png'));
-pokemon.push(new Pokemon('STARMIE', 50, 146, [moves['hydro pump'], moves['rest']], './assets/img/starmie.png', './assets/img/starmieback.png'));
-pokemon.push(new Pokemon('HITMONLEE', 50, 138, [moves['hi jump kick'], moves['mega kick']], './assets/img/hitmonlee.png', './assets/img/hitmonleeback.png'));
-pokemon.push(new Pokemon('HAUNTER', 50, 120, [moves['lick'], moves['psychic']], './assets/img/haunter.png', './assets/img/haunterback.png'));
-pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic punch']], './assets/img/machamp.png', './assets/img/machampback.png'));
+pokemon.push(new Pokemon('PIKACHU', 50, 117, [moves['tackle'], moves['thundershock']], 'commands/pokemon/assets/img/pikachu.png', 'commands/pokemon/assets/img/pikachuback.png'));
+pokemon.push(new Pokemon('CHARIZARD', 50, 163, [moves['fire blast'], moves['mega punch']], 'commands/pokemon/assets/img/charizard.png', 'commands/pokemon/assets/img/charizardback.png'));
+pokemon.push(new Pokemon('BLASTOISE', 50, 180, [moves['hydro pump'], moves['skull bash']], 'commands/pokemon/assets/img/blastoise.png', 'commands/pokemon/assets/img/blastoiseback.png'));
+pokemon.push(new Pokemon('KADABRA', 50, 128, [moves['psychic'], moves['rest']], 'commands/pokemon/assets/img/kadabra.png', 'commands/pokemon/assets/img/kadabraback.png'));
+pokemon.push(new Pokemon('VENUSAUR', 50, 171, [moves['solar beam'], moves['body slam']], 'commands/pokemon/assets/img/venusaur.png', 'commands/pokemon/assets/img/venusaurback.png'));
+pokemon.push(new Pokemon('JOLTEON', 50, 152, [moves['quick attack'], moves['thunder']], 'commands/pokemon/assets/img/jolteon.png', 'commands/pokemon/assets/img/jolteonback.png'));
+pokemon.push(new Pokemon('ARBOK', 50, 133, [moves['acid'], moves['belch']], 'commands/pokemon/assets/img/arbok.png', 'commands/pokemon/assets/img/arbokback.png'));
+pokemon.push(new Pokemon('SCYTHER', 50, 155, [moves['slash'], moves['hyper beam']], 'commands/pokemon/assets/img/scyther.png', 'commands/pokemon/assets/img/scytherback.png'));
+pokemon.push(new Pokemon('STARMIE', 50, 146, [moves['hydro pump'], moves['rest']], 'commands/pokemon/assets/img/starmie.png', 'commands/pokemon/assets/img/starmieback.png'));
+pokemon.push(new Pokemon('HITMONLEE', 50, 138, [moves['hi jump kick'], moves['mega kick']], 'commands/pokemon/assets/img/hitmonlee.png', 'commands/pokemon/assets/img/hitmonleeback.png'));
+pokemon.push(new Pokemon('HAUNTER', 50, 120, [moves['lick'], moves['psychic']], 'commands/pokemon/assets/img/haunter.png', 'commands/pokemon/assets/img/haunterback.png'));
+pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic punch']], 'commands/pokemon/assets/img/machamp.png', 'commands/pokemon/assets/img/machampback.png'));
 
 
 let playerParty = [];
 let enemyParty = [];
 
-let titlesfx = new Audio('./assets/sfx/pokemonopening.mp3');
-let battlesfx = new Audio('./assets/sfx/pokemonbattle.mp3');
-let victorysfx = new Audio('./assets/sfx/pokemonvictory.mp3');
+let titlesfx = new Audio('commands/pokemon/assets/sfx/pokemonopening.mp3');
+let battlesfx = new Audio('commands/pokemon/assets/sfx/pokemonbattle.mp3');
+let victorysfx = new Audio('commands/pokemon/assets/sfx/pokemonvictory.mp3');
 
 let playerPokemon;
 let enemyPokemon;
@@ -319,7 +319,7 @@ function startButton() {
 }
 
 function transition() {
-	document.getElementById('black').src = './assets/img/black.png';
+	document.getElementById('black').src = 'commands/pokemon/assets/img/black.png';
 	document.getElementById('black').style.zIndex = '1';
 	document.getElementById('opening').style.zIndex = '-1';
 	setTimeout(function() {
@@ -377,7 +377,7 @@ function itemButton() {
 }
 
 function fightButton() {
-	document.getElementById('b2').src = "./assets/img/pkmnbattle2.png";
+	document.getElementById('b2').src = "commands/pokemon/assets/img/pkmnbattle2.png";
 	document.getElementById('attackcancel').style.zIndex = '1';
 	document.getElementById('attack1').style.zIndex = '1';
 	document.getElementById('attack2').style.zIndex = '1';
@@ -471,7 +471,7 @@ function removeListeners() {
 }
 
 function endGame() {
-	document.getElementById('ending').src = './assets/img/pkmnvictory.png';
+	document.getElementById('ending').src = 'commands/pokemon/assets/img/pkmnvictory.png';
 	document.getElementById('ending').style.zIndex = '1';
 	document.getElementById('endingtext').style.zIndex = '1';
 	battlesfx.pause();
