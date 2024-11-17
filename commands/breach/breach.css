@@ -13,18 +13,24 @@
 }
 
 
-.hackFail {
-	animation: flicker 2s infinite;
-	position: fixed;
-
-	text-align: center;
-	background: #05321e; 
-	border: 2px solid #5bf870;
-	padding: 10px 30px;
-	left: 50%;
-	top: 40%;
-	transform: translateX(-50%);
-	z-index: 999;
+.hackerFail {
+    font-size: clamp(1rem, 5vw, 10vw); /* Dynamically adjusts font size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: auto; /* Automatically adjusts height */
+    animation: flicker 2s infinite;
+    position: fixed;
+    text-align: center;
+    color: #05321e; /* Corrected the "alig" property */
+    border: 2px solid #5bf870;
+    padding: 10px 30px;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%); /* Centers both vertically and horizontally */
+    z-index: 999;
+    box-sizing: border-box; /* Ensures padding is included in size calculations */
 }
 
 .glitch {
