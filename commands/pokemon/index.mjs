@@ -11,7 +11,7 @@ import say from "../../util/speak.js";
     let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
     
 const messages = {
-    EN: [
+    en: [
         "Booting GBA...",
         "Pokedex.v1.5 ready!",
         "Trainer spotted >> [READY]",
@@ -21,7 +21,7 @@ const messages = {
         ". . . . . . . . . .",
         "⚔️ Get ready to battle! ⚔️"
     ],
-    PT: [
+    pt: [
         "Iniciando GBA...",
         "Pokedex.v1.5 pronta!",
         "Treinador detectado >> [PRONTO]",
@@ -31,7 +31,7 @@ const messages = {
         ". . . . . . . . . .",
         "⚔️ Prepare-se para a batalha! ⚔️"
     ],
-    ES: [
+    es: [
         "Cargando GBA...",
         "Pokedex.v1.5 lista!",
         "Entrenador localizado >> [LISTO]",
@@ -41,7 +41,7 @@ const messages = {
         ". . . . . . . . . .",
         "⚔️ ¡Prepárate para la batalla! ⚔️"
     ],
-    FR: [
+    fr: [
         "Démarrage GBA...",
         "Pokedex.v1.5 prêt!",
         "Entraîneur repéré >> [PRÊT]",
@@ -78,7 +78,8 @@ async function pokemon() {
         gameScreen.appendChild(output);
 
         addTemplate("game", gameScreen);
-
+        addListeners();
+initGame()
     }
 
                       	  
@@ -305,7 +306,7 @@ let victorysfx = new Audio('commands/pokemon/assets/sfx/pokemonvictory.mp3');
 let playerPokemon;
 let enemyPokemon;
 
-addListeners();
+
 
 function startButton() {
 	document.getElementById('startbutton').style.zIndex = '-1';
@@ -490,5 +491,5 @@ function endGame() {
 
 const stylesheets = ["pokemon"];
 const templates = ["pokemon"];
-export { output, templates,stylesheets };
 export default pokemon;
+export { output, templates,stylesheets };
