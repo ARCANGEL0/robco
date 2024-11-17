@@ -57,7 +57,7 @@ PRESS ANY KEY TO EXIT...`, title1: "Network Access", title2: "Data Retrieval", t
 const { title1, title2, title3, desc1, desc2, desc3 , failure} = texts[selectedLanguage];
 
 // Game states
-const state = {
+let state = {
     selectedRow: 0,
     selectedColumn: null,
     bufferSlots: [],
@@ -103,6 +103,19 @@ async function breach() {
         access.remove()
         // Start the game again 
         gameScreen.remove()
+   
+    state.selectedRow = 0;
+    state.selectedColumn = null;
+    state.bufferSlots = [];
+    state.gameStarted = false;
+    state.gameOver = false;
+    state.timer = 75.50 * 1000;
+
+    timerState.startTime = new Date().getTime();
+    timerState.lastTime = new Date().getTime();
+
+    console.log('State and TimerState reset to defaults.');
+
         await start();
     }
     async function escape() {
