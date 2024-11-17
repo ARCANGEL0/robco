@@ -21,7 +21,7 @@ button:focus {
 
 .click:hover::before {
 	position: absolute;
-	content: url(../assets/img/pkmncursor.png);
+	content: url(./assets/img/pkmncursor.png);
 	left: -22px;
 	top: 1px;
 }
