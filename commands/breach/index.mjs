@@ -58,9 +58,9 @@ async function breach() {
        document.querySelector('.center').classList.add('glitch')
   
         console.log('Wrong decision. . . . . . . ');
-        await pause(30);
+        await pause(5);
         alert('YOU HAVE BEEN FLAGGED');
-        await pause(50);
+        await pause(10);
         await waitForKey();
         
         // Start the game again 
