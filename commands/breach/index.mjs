@@ -135,7 +135,7 @@ async function breach() {
 	let terminal = document.querySelector(".breach");
 	let access = document.createElement("div");
 	access.setAttribute("class", "hackFail");
-	access.innerHTML = failure;
+access.innerHTML = `<pre>${failure}</pre>`;;
 	terminal.appendChild(access);
 
         
@@ -168,17 +168,17 @@ async function breach() {
         console.log('Exiting simulation ');
         await pause(2);
         
-	let terminalWin = document.querySelector(".breach");
-	let accessWin = document.createElement("div");
-	accessWin.setAttribute("class", "hackFail");
-	accessWin.innerHTML = winText;
-	terminalWin.appendChild(accessWin);
+                                           	let terminalWin = document.querySelector(".breach");
+                                           	let accessWin = document.createElement("div");
+ accessWin.setAttribute("class", "hackFail");
+accessWin.innerHTML = `<pre>${winText}</pre>`;
+terminalWin.appendChild(accessWin);
 
         
         await pause(2);
         
         await waitForKey();
-        access.remove()
+        accessWin.remove()
         // Start the game again 
         gameScreen.remove()
 
