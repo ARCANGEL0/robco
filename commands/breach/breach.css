@@ -10,28 +10,22 @@
     --secondary-dimmed: rgba(34, 254, 124, 0.3);
     --secondary-very-low: rgba(34, 254, 124, 0.1);
     --highlight: rgba(33, 254, 129, 0.3);
-  --color-text: #fff;
-  --color-bg: #000;
-  --color-link: #f9d77e;
-  --color-link-hover: #fff;
-  --color-info: #efc453;
-  --glitch-width: 100vw;
-  --glitch-height: 100vh;
-  --gap-horizontal: 10px;
-  --gap-vertical: 5px;
-  --time-anim: 4s;
-  --delay-anim: 2s;
-  --blend-mode-1: none;
-  --blend-mode-2: none;
-  --blend-mode-3: none;
-  --blend-mode-4: none;
-  --blend-mode-5: overlay;
-  --blend-color-1: transparent;
-  --blend-color-2: transparent;
-  --blend-color-3: transparent;
-  --blend-color-4: transparent;
-  --blend-color-5: #af4949;
 }
+
+
+.hackFail {
+	animation: flicker 2s infinite;
+	position: fixed;
+	text-align: center;
+	background: #05321e; 
+	border: 2px solid #5bf870;
+	padding: 10px 30px;
+	left: 50%;
+	top: 40%;
+	transform: translateX(-50%);
+	z-index: 999;
+}
+
 .glitch {
   position: relative;
   background: rgba(255, 255, 255, 0.1); /* Light background */
@@ -97,18 +91,6 @@ body {
 
 /* NET TECH */
 
-.hackFail {
-	animation: flicker 2s infinite;
-	position: fixed;
-	text-align: center;
-	background: #05321e; 
-	border: 2px solid #5bf870;
-	padding: 10px 30px;
-	left: 50%;
-	top: 40%;
-	transform: translateX(-50%);
-	z-index: 999;
-}
 
 
 .net-tech {
