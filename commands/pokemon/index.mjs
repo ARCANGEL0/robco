@@ -364,7 +364,7 @@ console.log('show pokemon')
 }
 
 function showPokemon(){
-	console.log(enemyPokemon);
+	console.log('showing pokemon');
 	document.getElementById('pkmnback').src = playerPokemon.imgback;
 	document.getElementById('pkmn').src = enemyPokemon.imgfront;
 	document.getElementById('pkmnback-name').textContent = playerPokemon.pokename;
@@ -379,6 +379,8 @@ function showPokemon(){
 	document.getElementById('player-hp-bar').style.width = ((161 * percentage) + "px");
 	percentage = enemyPokemon.health / enemyPokemon.maxhealth;
 	document.getElementById('enemy-hp-bar').style.width = ((161 * percentage) + "px");
+
+
 }
 
 function switchPokemon() {
@@ -487,8 +489,7 @@ function endGame() {
 
 
 	  // game
-	                        	  
-await initializeGame()	  
+	                
 	});
     
 
