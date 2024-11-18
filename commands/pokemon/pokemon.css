@@ -38,10 +38,10 @@ button:focus {
 
 #game-window {
 	position: absolute;
-	width: 537px;
-	height: 487px;
-	left: 691px;
-	top: 202px;
+    width: 50vw;
+    height: 50vh;
+    left: 30%;
+    top: 20vh;
 }
 
 #battle {
@@ -179,12 +179,10 @@ button:focus {
 }
 
 #startbutton {
-	position: absolute;
+
 	font-family: 'pokemon-font', monospace;
 	font-size: 20px;
-    width: 215px;
-    top: 200px;
-    left: 160px;
+    color: #5bf870;
 	background: transparent;
     border: none !important;
 	z-index: 1;
