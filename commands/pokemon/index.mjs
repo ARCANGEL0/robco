@@ -238,7 +238,7 @@ titlesfx.play();
 introScreen.remove();
 
 let gameScreen = getScreen("pokemon");
-
+let battle = await showTemplateScreen("game");
 
 let output = document.createElement("div");
 		output.classList.add("output");
