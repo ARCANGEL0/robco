@@ -345,6 +345,7 @@ function transition() {
 //Starts the game and sets the beginning pokemon at random
 //Pokemon max of six for enemy and player
 function initGame() {
+  console.log('adding pokemoj')
 	for (var i = 0; i < 6; i++) {
 		var tempPokemon = pokemon.splice(Math.floor(Math.random() * pokemon.length), 1)[0];
 		tempPokemon.owner = 'player';
