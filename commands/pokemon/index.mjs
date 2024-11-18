@@ -305,7 +305,7 @@ pokemon.push(new Pokemon('STARMIE', 50, 146, [moves['hydro pump'], moves['rest']
 pokemon.push(new Pokemon('HITMONLEE', 50, 138, [moves['hi jump kick'], moves['mega kick']], 'commands/pokemon/assets/img/hitmonlee.png', 'commands/pokemon/assets/img/hitmonleeback.png'));
 pokemon.push(new Pokemon('HAUNTER', 50, 120, [moves['lick'], moves['psychic']], 'commands/pokemon/assets/img/haunter.png', 'commands/pokemon/assets/img/haunterback.png'));
 pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic punch']], 'commands/pokemon/assets/img/machamp.png', 'commands/pokemon/assets/img/machampback.png'));
-
+console.log(pokemon)
 
 let playerParty = [];
 let enemyParty = [];
