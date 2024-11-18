@@ -349,7 +349,7 @@ function transition() {
 //Pokemon max of six for enemy and player
 async function initGame() {
   console.log('adding pokemoj');
-  
+  console.log(pokemon)
   // Ensure pokemon array is not empty
   if (!pokemon || pokemon.length < 12) {
     console.error('Not enough Pokemon available for initialization');
