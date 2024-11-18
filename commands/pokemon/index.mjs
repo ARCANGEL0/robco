@@ -226,7 +226,7 @@ async function pokemon() {
 
 // INTRO
 let introScreen = await showTemplateScreen("intro");
-document.getElementById('battle').style.visibility = 'visible';
+
 document.getElementById('opening').style.zIndex = '1';
 
 titlesfx.play();
@@ -238,7 +238,7 @@ titlesfx.play();
 introScreen.remove();
 
 let gameScreen = getScreen("pokemon");
-
+document.getElementById('battle').style.visibility = 'visible';
 
 let output = document.createElement("div");
 		output.classList.add("output");
