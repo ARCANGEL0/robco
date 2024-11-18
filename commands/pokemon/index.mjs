@@ -80,13 +80,29 @@ async function pokemon() {
         addTemplate("game", gameScreen);
  console.log('adding listeners')
  
- 	document.getElementById('startbutton').addEventListener('click', startButton);
-	document.getElementById('fight').addEventListener('click', fightButton);
-	document.getElementById('attackcancel').addEventListener('click', cancelButton);
-	document.getElementById('attack1').addEventListener('click', attack1);
-	document.getElementById('attack2').addEventListener('click', attack2);
-	 document.getElementById('items').addEventListener('click', potion);
- 
+ document
+ .querySelector('#startbutton')
+ .addEventListener('click', () => startButton());
+
+document
+ .querySelector('#fight')
+ .addEventListener('click', () => fightButton());
+
+document
+ .querySelector('#attackcancel')
+ .addEventListener('click', () => cancelButton());
+
+document
+ .querySelector('#attack1')
+ .addEventListener('click', () => attack1());
+
+document
+ .querySelector('#attack2')
+ .addEventListener('click', () => attack2());
+
+document
+ .querySelector('#items')
+ .addEventListener('click', () => potion());
  
  
 initGame()
@@ -489,7 +505,8 @@ function endGame() {
 
 
 	  // game
-	                
+	                        	  
+await initializeGame()	  
 	});
     
 
