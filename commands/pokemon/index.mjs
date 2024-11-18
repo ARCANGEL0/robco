@@ -308,11 +308,11 @@ class Pokemon {
 
 
 
-function startButton() {
-	document.getElementById('startbutton').style.zIndex = '-1';
+async function startButton() {
+
+	document.querySelector('#startbutton').remove()
 	document.getElementById('battle').style.visibility = 'visible';
 	document.getElementById('opening').style.zIndex = '1';
-	document.querySelector('#startbutton').remove()
 	titlesfx.play();
 	
 	await waitForKey()
@@ -390,7 +390,7 @@ pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic
   
   // Await user interaction
   await waitForKey();
-  startButton();
+ await startButton();
 }
 
 function showPokemon(){
