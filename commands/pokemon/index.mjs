@@ -296,6 +296,8 @@ let enemyPokemon;
 
 
 function startButton() {
+console.log('Starting game')
+
 	document.getElementById('startbutton').style.zIndex = '-1';
 	document.getElementById('battle').style.visibility = 'visible';
 	document.getElementById('opening').style.zIndex = '1';
