@@ -66,8 +66,8 @@ async function pokemon() {
 	return new Promise(async resolve =>
 	{
 	  let gameScreen
-	  let pokemon
-	  let tempPokemon
+	  let pokemon = []
+	  let tempPokemon = []
 	  
 
 let playerParty = [];
