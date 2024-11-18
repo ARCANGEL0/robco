@@ -79,20 +79,16 @@ async function pokemon() {
 
         addTemplate("game", gameScreen);
  console.log('adding listeners')
-
-
-
- document.querySelector('#startbutton').addEventListener('click', () => startButton());
-
-document.querySelector('#fight').addEventListener('click', () => fightButton());
-
-document.querySelector('#attackcancel').addEventListener('click', () => cancelButton());
-
-document.querySelector('#attack1').addEventListener('click', () => attack1());
-
-document.querySelector('#attack2').addEventListener('click', () => attack2());
-
-document.querySelector('#items').addEventListener('click', () => potion());
+ 
+ 
+ /*
+	document.getElementById('startbutton').addEventListener('click', startButton);
+	document.getElementById('fight').addEventListener('click', fightButton);
+	document.getElementById('attackcancel').addEventListener('click', cancelButton);
+	document.getElementById('attack1').addEventListener('click', attack1);
+	document.getElementById('attack2').addEventListener('click', attack2);
+	 document.getElementById('items').addEventListener('click', potion);
+ */
  
  
 initGame()
@@ -324,8 +320,6 @@ let enemyPokemon;
 
 
 function startButton() {
-
-	console.log('TESTING BUTTON HERE')
 	document.getElementById('startbutton').style.zIndex = '-1';
 	document.getElementById('battle').style.visibility = 'visible';
 	document.getElementById('opening').style.zIndex = '1';
@@ -365,12 +359,12 @@ function initGame() {
 	playerPokemon = playerParty[0];
 	console.log(playerPokemon);
 	enemyPokemon = enemyParty[0];
-console.log('show pokemon')
+
 	showPokemon();
 }
 
 function showPokemon(){
-	console.log('showing pokemon');
+	console.log(enemyPokemon);
 	document.getElementById('pkmnback').src = playerPokemon.imgback;
 	document.getElementById('pkmn').src = enemyPokemon.imgfront;
 	document.getElementById('pkmnback-name').textContent = playerPokemon.pokename;
@@ -385,8 +379,6 @@ function showPokemon(){
 	document.getElementById('player-hp-bar').style.width = ((161 * percentage) + "px");
 	percentage = enemyPokemon.health / enemyPokemon.maxhealth;
 	document.getElementById('enemy-hp-bar').style.width = ((161 * percentage) + "px");
-
-
 }
 
 function switchPokemon() {
