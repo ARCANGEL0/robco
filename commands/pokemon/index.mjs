@@ -69,6 +69,18 @@ async function pokemon() {
 	  let pokemon
 	  let tempPokemon
 	  
+
+let playerParty = [];
+let enemyParty = [];
+
+let titlesfx = new Audio('commands/pokemon/assets/sfx/pokemonopening.mp3');
+let battlesfx = new Audio('commands/pokemon/assets/sfx/pokemonbattle.mp3');
+let victorysfx = new Audio('commands/pokemon/assets/sfx/pokemonvictory.mp3');
+
+let playerPokemon;
+let enemyPokemon;
+
+
 	  async function initializeGame() {
         // Main game screen
         gameScreen = getScreen("pokemon");
@@ -91,7 +103,7 @@ async function pokemon() {
 	 document.getElementById('items').addEventListener('click', potion);
  
  
-	 
+
     }
 
 
@@ -292,30 +304,8 @@ class Pokemon {
 	}
 };
 
-pokemon = [];
-pokemon.push(new Pokemon('PIKACHU', 50, 117, [moves['tackle'], moves['thundershock']], 'commands/pokemon/assets/img/pikachu.png', 'commands/pokemon/assets/img/pikachuback.png'));
-pokemon.push(new Pokemon('CHARIZARD', 50, 163, [moves['fire blast'], moves['mega punch']], 'commands/pokemon/assets/img/charizard.png', 'commands/pokemon/assets/img/charizardback.png'));
-pokemon.push(new Pokemon('BLASTOISE', 50, 180, [moves['hydro pump'], moves['skull bash']], 'commands/pokemon/assets/img/blastoise.png', 'commands/pokemon/assets/img/blastoiseback.png'));
-pokemon.push(new Pokemon('KADABRA', 50, 128, [moves['psychic'], moves['rest']], 'commands/pokemon/assets/img/kadabra.png', 'commands/pokemon/assets/img/kadabraback.png'));
-pokemon.push(new Pokemon('VENUSAUR', 50, 171, [moves['solar beam'], moves['body slam']], 'commands/pokemon/assets/img/venusaur.png', 'commands/pokemon/assets/img/venusaurback.png'));
-pokemon.push(new Pokemon('JOLTEON', 50, 152, [moves['quick attack'], moves['thunder']], 'commands/pokemon/assets/img/jolteon.png', 'commands/pokemon/assets/img/jolteonback.png'));
-pokemon.push(new Pokemon('ARBOK', 50, 133, [moves['acid'], moves['belch']], 'commands/pokemon/assets/img/arbok.png', 'commands/pokemon/assets/img/arbokback.png'));
-pokemon.push(new Pokemon('SCYTHER', 50, 155, [moves['slash'], moves['hyper beam']], 'commands/pokemon/assets/img/scyther.png', 'commands/pokemon/assets/img/scytherback.png'));
-pokemon.push(new Pokemon('STARMIE', 50, 146, [moves['hydro pump'], moves['rest']], 'commands/pokemon/assets/img/starmie.png', 'commands/pokemon/assets/img/starmieback.png'));
-pokemon.push(new Pokemon('HITMONLEE', 50, 138, [moves['hi jump kick'], moves['mega kick']], 'commands/pokemon/assets/img/hitmonlee.png', 'commands/pokemon/assets/img/hitmonleeback.png'));
-pokemon.push(new Pokemon('HAUNTER', 50, 120, [moves['lick'], moves['psychic']], 'commands/pokemon/assets/img/haunter.png', 'commands/pokemon/assets/img/haunterback.png'));
-pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic punch']], 'commands/pokemon/assets/img/machamp.png', 'commands/pokemon/assets/img/machampback.png'));
-console.log(pokemon)
 
-let playerParty = [];
-let enemyParty = [];
 
-let titlesfx = new Audio('commands/pokemon/assets/sfx/pokemonopening.mp3');
-let battlesfx = new Audio('commands/pokemon/assets/sfx/pokemonbattle.mp3');
-let victorysfx = new Audio('commands/pokemon/assets/sfx/pokemonvictory.mp3');
-
-let playerPokemon;
-let enemyPokemon;
 
 
 
@@ -347,6 +337,21 @@ function transition() {
 //Starts the game and sets the beginning pokemon at random
 //Pokemon max of six for enemy and player
 async function initGame() {
+
+	pokemon.push(new Pokemon('PIKACHU', 50, 117, [moves['tackle'], moves['thundershock']], 'commands/pokemon/assets/img/pikachu.png', 'commands/pokemon/assets/img/pikachuback.png'));
+pokemon.push(new Pokemon('CHARIZARD', 50, 163, [moves['fire blast'], moves['mega punch']], 'commands/pokemon/assets/img/charizard.png', 'commands/pokemon/assets/img/charizardback.png'));
+pokemon.push(new Pokemon('BLASTOISE', 50, 180, [moves['hydro pump'], moves['skull bash']], 'commands/pokemon/assets/img/blastoise.png', 'commands/pokemon/assets/img/blastoiseback.png'));
+pokemon.push(new Pokemon('KADABRA', 50, 128, [moves['psychic'], moves['rest']], 'commands/pokemon/assets/img/kadabra.png', 'commands/pokemon/assets/img/kadabraback.png'));
+pokemon.push(new Pokemon('VENUSAUR', 50, 171, [moves['solar beam'], moves['body slam']], 'commands/pokemon/assets/img/venusaur.png', 'commands/pokemon/assets/img/venusaurback.png'));
+pokemon.push(new Pokemon('JOLTEON', 50, 152, [moves['quick attack'], moves['thunder']], 'commands/pokemon/assets/img/jolteon.png', 'commands/pokemon/assets/img/jolteonback.png'));
+pokemon.push(new Pokemon('ARBOK', 50, 133, [moves['acid'], moves['belch']], 'commands/pokemon/assets/img/arbok.png', 'commands/pokemon/assets/img/arbokback.png'));
+pokemon.push(new Pokemon('SCYTHER', 50, 155, [moves['slash'], moves['hyper beam']], 'commands/pokemon/assets/img/scyther.png', 'commands/pokemon/assets/img/scytherback.png'));
+pokemon.push(new Pokemon('STARMIE', 50, 146, [moves['hydro pump'], moves['rest']], 'commands/pokemon/assets/img/starmie.png', 'commands/pokemon/assets/img/starmieback.png'));
+pokemon.push(new Pokemon('HITMONLEE', 50, 138, [moves['hi jump kick'], moves['mega kick']], 'commands/pokemon/assets/img/hitmonlee.png', 'commands/pokemon/assets/img/hitmonleeback.png'));
+pokemon.push(new Pokemon('HAUNTER', 50, 120, [moves['lick'], moves['psychic']], 'commands/pokemon/assets/img/haunter.png', 'commands/pokemon/assets/img/haunterback.png'));
+pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic punch']], 'commands/pokemon/assets/img/machamp.png', 'commands/pokemon/assets/img/machampback.png'));
+
+
   console.log('adding pokemoj');
   console.log(pokemon)
   // Ensure pokemon array is not empty
@@ -357,7 +362,7 @@ async function initGame() {
   
   for (let i = 0; i < 6; i++) {
     // Ensure safe array access
-    let tempPokemon = pokemon.splice(Math.floor(Math.random() * pokemon.length), 1)[0];
+    tempPokemon = pokemon.splice(Math.floor(Math.random() * pokemon.length), 1)[0];
     if (!tempPokemon) {
       console.error('Failed to fetch a Pokemon for the player');
       return;
