@@ -312,11 +312,12 @@ function startButton() {
 	document.getElementById('startbutton').style.zIndex = '-1';
 	document.getElementById('battle').style.visibility = 'visible';
 	document.getElementById('opening').style.zIndex = '1';
+	document.querySelector('#startbutton').remove()
 	titlesfx.play();
 	setTimeout(function() {
 		titlesfx.pause();
 		transition();
-	}, 9000);
+	}, 239000);
 }
 
 function transition() {

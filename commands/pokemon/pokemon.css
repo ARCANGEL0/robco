@@ -38,10 +38,11 @@ button:focus {
 
 #game-window {
 	position: absolute;
-	width: 537px;
-	height: 487px;
-	left: 691px;
-	top: 202px;
+    padding: 8vw;
+    /* width: 537px; */
+    /* height: 487px; */
+    /* left: 691px; */
+    /* top: 202px;
 }
 
 #battle {
@@ -179,19 +180,20 @@ button:focus {
 }
 
 #startbutton {
-	position: absolute;
-	font-family: 'pokemon-font', monospace;
-	font-size: 20px;
-    width: 215px;
-    top: 200px;
-    left: 160px;
-	background: transparent;
+    /* position: absolute; */
+    font-family: 'pokemon-font', monospace;
+    font-size: 20px;
+    width: 25vw;
+    /* top: 200px; */
+    /* left: 160px; */
+    color: green;
+    background: transparent;
     border: none !important;
-	z-index: 1;
-	visibility: visible;
-	animation-name: blink;
-	animation-duration: 0.5s;
-	animation-iteration-count: infinite;
+    z-index: 1;
+    visibility: visible;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
 }
 
 #black {
