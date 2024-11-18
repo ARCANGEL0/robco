@@ -238,7 +238,7 @@ titlesfx.play();
 introScreen.remove();
 
 let gameScreen = getScreen("pokemon");
-document.getElementById('battle').style.visibility = 'visible';
+
 
 let output = document.createElement("div");
 		output.classList.add("output");
@@ -253,7 +253,7 @@ canva.classList.add("gba");
 canva.appendChild(gameScreen);
 
 addTemplate("game", gameScreen);
-
+document.getElementById('battle').style.visibility = 'visible';
 console.log('adding listeners')
 addListeners()
 
