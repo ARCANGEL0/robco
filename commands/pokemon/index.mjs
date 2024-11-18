@@ -314,10 +314,12 @@ function startButton() {
 	document.getElementById('opening').style.zIndex = '1';
 	document.querySelector('#startbutton').remove()
 	titlesfx.play();
-	setTimeout(function() {
+	
+	await waitForKey()
+
 		titlesfx.pause();
 		transition();
-	}, 239000);
+
 }
 
 function transition() {
