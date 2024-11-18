@@ -81,10 +81,6 @@ async function pokemon() {
  console.log('adding listeners')
 
 
-  document.querySelector('#testing').addEventListener('click', () => console.log('testando botao!!'));
- 
- document.querySelector('#testing').addEventListener('click', () => console.log('testando botao!!'));
- 
 
  document.querySelector('#startbutton').addEventListener('click', () => startButton());
 
