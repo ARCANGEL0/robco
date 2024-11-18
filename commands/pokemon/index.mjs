@@ -473,7 +473,7 @@ function removeListeners() {
 	document.getElementById('attackcancel').removeEventListener('click', cancelButton);
 	document.getElementById('attack1').removeEventListener('click', attack1);
 	document.getElementById('attack2').removeEventListener('click', attack2);
-	// document.getElementById('items').removeEventListener('click', potion);
+ document.getElementById('items').removeEventListener('click', potion);
 }
 
 function endGame() {
