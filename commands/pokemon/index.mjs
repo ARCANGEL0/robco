@@ -81,14 +81,14 @@ async function pokemon() {
  console.log('adding listeners')
  
  
- /*
+ 
 	document.getElementById('startbutton').addEventListener('click', startButton);
 	document.getElementById('fight').addEventListener('click', fightButton);
 	document.getElementById('attackcancel').addEventListener('click', cancelButton);
 	document.getElementById('attack1').addEventListener('click', attack1);
 	document.getElementById('attack2').addEventListener('click', attack2);
 	 document.getElementById('items').addEventListener('click', potion);
- */
+ 
  
  
 initGame()
