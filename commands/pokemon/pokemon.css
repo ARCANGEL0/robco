@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'pokemon-font';
-	src: url(./assets/fonts/pokemon-font.woff2) format('woff2');
+	src: url(../assets/fonts/pokemon-font.woff2) format('woff2');
 }
 
 @keyframes blink {
@@ -21,7 +21,7 @@ button:focus {
 
 .click:hover::before {
 	position: absolute;
-	content: url(./assets/img/pkmncursor.png);
+	content: url(../assets/img/pkmncursor.png);
 	left: -22px;
 	top: 1px;
 }
@@ -38,11 +38,10 @@ button:focus {
 
 #game-window {
 	position: absolute;
-    padding: 8vw;
-    /* width: 537px; */
-    /* height: 487px; */
-    /* left: 691px; */
-    /* top: 202px;
+	width: 537px;
+	height: 487px;
+	left: 691px;
+	top: 202px;
 }
 
 #battle {
@@ -180,20 +179,20 @@ button:focus {
 }
 
 #startbutton {
-    /* position: absolute; */
-    font-family: 'pokemon-font', monospace;
-    font-size: 20px;
-    width: 25vw;
-    /* top: 200px; */
-    /* left: 160px; */
-    color: green;
-    background: transparent;
+	position: absolute;
+	font-family: 'pokemon-font', monospace;
+	font-size: 20px;
+    width: 215px;
+    color:green;
+    top: 200px;
+    left: 160px;
+	background: transparent;
     border: none !important;
-    z-index: 1;
-    visibility: visible;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-iteration-count: infinite;
+	z-index: 1;
+	visibility: visible;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
 }
 
 #black {
