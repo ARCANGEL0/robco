@@ -38,10 +38,8 @@ button:focus {
 
 #game-window {
 	position: absolute;
-	width: 537px;
-	height: 487px;
-	left: 691px;
-	top: 202px;
+padding: 8vw ;
+width: 80vw;;
 }
 
 #battle {
