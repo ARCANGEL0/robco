@@ -65,188 +65,9 @@ async function pokemon() {
 	
 	return new Promise(async resolve =>
 	{
-		                   	  
-		let moves = {
-			'tackle': {
-				name: 'TACKLE',
-				damage: 15,
-				target: 'enemy'
-			},
-			'thundershock': {
-				name: 'THUNDERSHOCK',
-				damage: 25,
-				target: 'enemy'
-			},
-			'scratch': {
-				name: 'SCRATCH',
-				damage: 4,
-				target: 'enemy'
-			},
-			'ember': {
-				name: 'EMBER',
-				damage: 6,
-				target: 'enemy'
-			},
-			'quick attack': {
-				name: 'QUICK ATTACK',
-				damage: 20,
-				target: 'enemy'
-			},
-			'thunder': {
-				name: 'THUNDER',
-				damage: 40,
-				target: 'enemy'
-			},
-			'fire blast': {
-				name: 'FIRE BLAST',
-				damage: 60,
-				target: 'enemy'
-			},
-			'mega punch': {
-				name: 'MEGA PUNCH',
-				damage: 35,
-				target: 'enemy'
-			},
-			'hydro pump': {
-				name: 'HYDRO PUMP',
-				damage: 60,
-				target: 'enemy'
-			},
-			'skull bash': {
-				name: 'SKULL BASH',
-				damage: 35,
-				target: 'enemy'
-			},
-			'acid': {
-				name: 'ACID',
-				damage: 28,
-				target: 'enemy'
-			},
-			'belch': {
-				name: 'BELCH',
-				damage: 60,
-				target: 'enemy'
-			},
-			'psychic': {
-				name: 'PSYCHIC',
-				damage: 40,
-				target: 'enemy'
-			},
-			'rest': {
-				name: 'REST',
-				damage: -.6,
-				target: 'self'
-			},
-			'solar beam': {
-				name: 'SOLAR BEAM',
-				damage: 60,
-				target: 'enemy'
-			},
-			'body slam': {
-				name: 'BODY SLAM',
-				damage: 35,
-				target: 'enemy'
-			},
-			'slash': {
-				name: 'SLASH',
-				damage: 35,
-				target: 'enemy'
-			},
-			'hyper beam': {
-				name: 'HYPERBEAM',
-				damage: 70,
-				target: 'enemy'
-			},
-			'hi jump kick': {
-				name: 'HI JUMP KICK',
-				damage: 50,
-				target: 'enemy'
-			},
-			'mega kick': {
-				name: 'MEGA KICK',
-				damage: 60,
-				target: 'enemy'
-			},
-			'lick': {
-				name: 'LICK',
-				damage: 35,
-				target: 'enemy'
-			},
-			'low sweep': {
-				name: 'LOW SWEEP',
-				damage: 35,
-				target: 'enemy'
-			},
-			'dynamic punch': {
-				name: 'DYNAMIC PUNCH',
-				damage: 50,
-				target: 'enemy'
-			}
-		};
-
-		
 	  let gameScreen
-	  let pokemon = []
-	  class Pokemon {
-		constructor(pokename, level, maxhealth, moves, imgfront, imgback) {
-			this.pokename = pokename;
-			this.level = level;
-			this.health = maxhealth;
-			this.maxhealth = maxhealth;
-			this.moves = moves;
-			this.imgfront = imgfront;
-			this.imgback = imgback;
-			this.alive = true;
-		}
-	
-		decrementHealth(damage) {
-			this.health -= damage;
-			if (this.health <= 0) {
-				if (this.owner == 'player') {
-					playerPokemon = this.faint(playerPokemon, playerParty);
-				}
-				if (this.owner == 'enemy') {
-					enemyPokemon = this.faint(enemyPokemon, enemyParty);
-				}
-			}
-			if (this.health > this.maxhealth) {
-				this.health = this.maxhealth;
-			}
-		}
-		attack(target, move) {
-			if (move.target == 'self') {
-				this.decrementHealth(Math.round(this.maxhealth * move.damage));
-			} else {
-			target.decrementHealth(move.damage);
-			}
-		}
-		useItem(target, item) {
-			if (item.target == 'self') {
-				this.decrementHealth(this.maxhealth * item.damage);
-			}
-		}
-		// Faint function will pull the next pokemon in the array into the battle
-		faint(currentPokemon, party) {
-			var foundPokemon = false;
-			if (this.health <= 0) {
-				console.log('fainted!');
-				this.alive = false;
-				for (var i = 0; i < party.length; i++) {
-					if (party[i].alive == true) {
-						foundPokemon = true;
-						currentPokemon = party[i];
-						console.log(currentPokemon.pokename)
-						break;
-					}
-				}
-				if (foundPokemon == false) {
-					endGame();
-				}
-				return currentPokemon;
-			}
-		}
-	};
-
+	  let pokemon
+	  
 	  async function initializeGame() {
         // Main game screen
         gameScreen = getScreen("pokemon");
@@ -257,11 +78,139 @@ async function pokemon() {
         gameScreen.appendChild(output);
 
         addTemplate("game", gameScreen);
-        addListeners();
+ console.log('adding listeners')
+ 
+ 	document.getElementById('startbutton').addEventListener('click', startButton);
+	document.getElementById('fight').addEventListener('click', fightButton);
+	document.getElementById('attackcancel').addEventListener('click', cancelButton);
+	document.getElementById('attack1').addEventListener('click', attack1);
+	document.getElementById('attack2').addEventListener('click', attack2);
+	 document.getElementById('items').addEventListener('click', potion);
+ 
+ 
+ 
 initGame()
     }
 
-                      	  
+
+	  
+	  let moves = {
+    'tackle': {
+        name: 'TACKLE',
+        damage: 15,
+        target: 'enemy'
+    },
+    'thundershock': {
+        name: 'THUNDERSHOCK',
+        damage: 25,
+        target: 'enemy'
+	},
+	'scratch': {
+		name: 'SCRATCH',
+		damage: 4,
+		target: 'enemy'
+	},
+	'ember': {
+		name: 'EMBER',
+		damage: 6,
+		target: 'enemy'
+	},
+	'quick attack': {
+		name: 'QUICK ATTACK',
+		damage: 20,
+		target: 'enemy'
+	},
+	'thunder': {
+		name: 'THUNDER',
+		damage: 40,
+		target: 'enemy'
+	},
+	'fire blast': {
+		name: 'FIRE BLAST',
+		damage: 60,
+		target: 'enemy'
+	},
+	'mega punch': {
+		name: 'MEGA PUNCH',
+		damage: 35,
+		target: 'enemy'
+	},
+	'hydro pump': {
+		name: 'HYDRO PUMP',
+		damage: 60,
+		target: 'enemy'
+	},
+	'skull bash': {
+		name: 'SKULL BASH',
+		damage: 35,
+		target: 'enemy'
+	},
+	'acid': {
+		name: 'ACID',
+		damage: 28,
+		target: 'enemy'
+	},
+	'belch': {
+		name: 'BELCH',
+		damage: 60,
+		target: 'enemy'
+	},
+	'psychic': {
+		name: 'PSYCHIC',
+		damage: 40,
+		target: 'enemy'
+	},
+	'rest': {
+		name: 'REST',
+		damage: -.6,
+		target: 'self'
+	},
+	'solar beam': {
+		name: 'SOLAR BEAM',
+		damage: 60,
+		target: 'enemy'
+	},
+	'body slam': {
+		name: 'BODY SLAM',
+		damage: 35,
+		target: 'enemy'
+	},
+	'slash': {
+		name: 'SLASH',
+		damage: 35,
+		target: 'enemy'
+	},
+	'hyper beam': {
+		name: 'HYPERBEAM',
+		damage: 70,
+		target: 'enemy'
+	},
+	'hi jump kick': {
+		name: 'HI JUMP KICK',
+		damage: 50,
+		target: 'enemy'
+	},
+	'mega kick': {
+		name: 'MEGA KICK',
+		damage: 60,
+		target: 'enemy'
+	},
+	'lick': {
+		name: 'LICK',
+		damage: 35,
+		target: 'enemy'
+	},
+	'low sweep': {
+		name: 'LOW SWEEP',
+		damage: 35,
+		target: 'enemy'
+	},
+	'dynamic punch': {
+		name: 'DYNAMIC PUNCH',
+		damage: 50,
+		target: 'enemy'
+	}
+};
 
 var itemList = [];
 
@@ -281,6 +230,80 @@ function potion() {
 	console.log('healed for ' + items.potion.damage);
 }
 
+class Pokemon {
+	constructor(pokename, level, maxhealth, moves, imgfront, imgback) {
+		this.pokename = pokename;
+		this.level = level;
+		this.health = maxhealth;
+		this.maxhealth = maxhealth;
+		this.moves = moves;
+		this.imgfront = imgfront;
+		this.imgback = imgback;
+		this.alive = true;
+	}
+
+	decrementHealth(damage) {
+		this.health -= damage;
+		if (this.health <= 0) {
+			if (this.owner == 'player') {
+				playerPokemon = this.faint(playerPokemon, playerParty);
+			}
+			if (this.owner == 'enemy') {
+				enemyPokemon = this.faint(enemyPokemon, enemyParty);
+			}
+		}
+		if (this.health > this.maxhealth) {
+			this.health = this.maxhealth;
+		}
+	}
+	attack(target, move) {
+		if (move.target == 'self') {
+			this.decrementHealth(Math.round(this.maxhealth * move.damage));
+		} else {
+		target.decrementHealth(move.damage);
+		}
+	}
+	useItem(target, item) {
+		if (item.target == 'self') {
+			this.decrementHealth(this.maxhealth * item.damage);
+		}
+	}
+	// Faint function will pull the next pokemon in the array into the battle
+	faint(currentPokemon, party) {
+		var foundPokemon = false;
+		if (this.health <= 0) {
+			console.log('fainted!');
+			this.alive = false;
+			for (var i = 0; i < party.length; i++) {
+				if (party[i].alive == true) {
+					foundPokemon = true;
+					currentPokemon = party[i];
+					console.log(currentPokemon.pokename)
+					break;
+				}
+			}
+			if (foundPokemon == false) {
+				endGame();
+			}
+			return currentPokemon;
+		}
+	}
+};
+
+pokemon = [];
+pokemon.push(new Pokemon('PIKACHU', 50, 117, [moves['tackle'], moves['thundershock']], 'commands/pokemon/assets/img/pikachu.png', 'commands/pokemon/assets/img/pikachuback.png'));
+pokemon.push(new Pokemon('CHARIZARD', 50, 163, [moves['fire blast'], moves['mega punch']], 'commands/pokemon/assets/img/charizard.png', 'commands/pokemon/assets/img/charizardback.png'));
+pokemon.push(new Pokemon('BLASTOISE', 50, 180, [moves['hydro pump'], moves['skull bash']], 'commands/pokemon/assets/img/blastoise.png', 'commands/pokemon/assets/img/blastoiseback.png'));
+pokemon.push(new Pokemon('KADABRA', 50, 128, [moves['psychic'], moves['rest']], 'commands/pokemon/assets/img/kadabra.png', 'commands/pokemon/assets/img/kadabraback.png'));
+pokemon.push(new Pokemon('VENUSAUR', 50, 171, [moves['solar beam'], moves['body slam']], 'commands/pokemon/assets/img/venusaur.png', 'commands/pokemon/assets/img/venusaurback.png'));
+pokemon.push(new Pokemon('JOLTEON', 50, 152, [moves['quick attack'], moves['thunder']], 'commands/pokemon/assets/img/jolteon.png', 'commands/pokemon/assets/img/jolteonback.png'));
+pokemon.push(new Pokemon('ARBOK', 50, 133, [moves['acid'], moves['belch']], 'commands/pokemon/assets/img/arbok.png', 'commands/pokemon/assets/img/arbokback.png'));
+pokemon.push(new Pokemon('SCYTHER', 50, 155, [moves['slash'], moves['hyper beam']], 'commands/pokemon/assets/img/scyther.png', 'commands/pokemon/assets/img/scytherback.png'));
+pokemon.push(new Pokemon('STARMIE', 50, 146, [moves['hydro pump'], moves['rest']], 'commands/pokemon/assets/img/starmie.png', 'commands/pokemon/assets/img/starmieback.png'));
+pokemon.push(new Pokemon('HITMONLEE', 50, 138, [moves['hi jump kick'], moves['mega kick']], 'commands/pokemon/assets/img/hitmonlee.png', 'commands/pokemon/assets/img/hitmonleeback.png'));
+pokemon.push(new Pokemon('HAUNTER', 50, 120, [moves['lick'], moves['psychic']], 'commands/pokemon/assets/img/haunter.png', 'commands/pokemon/assets/img/haunterback.png'));
+pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic punch']], 'commands/pokemon/assets/img/machamp.png', 'commands/pokemon/assets/img/machampback.png'));
+
 
 let playerParty = [];
 let enemyParty = [];
@@ -295,8 +318,6 @@ let enemyPokemon;
 
 
 function startButton() {
-console.log('Starting game')
-
 	document.getElementById('startbutton').style.zIndex = '-1';
 	document.getElementById('battle').style.visibility = 'visible';
 	document.getElementById('opening').style.zIndex = '1';
@@ -324,20 +345,6 @@ function transition() {
 //Starts the game and sets the beginning pokemon at random
 //Pokemon max of six for enemy and player
 function initGame() {
-	pokemon.push(new Pokemon('PIKACHU', 50, 117, [moves['tackle'], moves['thundershock']], 'commands/pokemon/assets/img/pikachu.png', 'commands/pokemon/assets/img/pikachuback.png'));
-pokemon.push(new Pokemon('CHARIZARD', 50, 163, [moves['fire blast'], moves['mega punch']], 'commands/pokemon/assets/img/charizard.png', 'commands/pokemon/assets/img/charizardback.png'));
-pokemon.push(new Pokemon('BLASTOISE', 50, 180, [moves['hydro pump'], moves['skull bash']], 'commands/pokemon/assets/img/blastoise.png', 'commands/pokemon/assets/img/blastoiseback.png'));
-pokemon.push(new Pokemon('KADABRA', 50, 128, [moves['psychic'], moves['rest']], 'commands/pokemon/assets/img/kadabra.png', 'commands/pokemon/assets/img/kadabraback.png'));
-pokemon.push(new Pokemon('VENUSAUR', 50, 171, [moves['solar beam'], moves['body slam']], 'commands/pokemon/assets/img/venusaur.png', 'commands/pokemon/assets/img/venusaurback.png'));
-pokemon.push(new Pokemon('JOLTEON', 50, 152, [moves['quick attack'], moves['thunder']], 'commands/pokemon/assets/img/jolteon.png', 'commands/pokemon/assets/img/jolteonback.png'));
-pokemon.push(new Pokemon('ARBOK', 50, 133, [moves['acid'], moves['belch']], 'commands/pokemon/assets/img/arbok.png', 'commands/pokemon/assets/img/arbokback.png'));
-pokemon.push(new Pokemon('SCYTHER', 50, 155, [moves['slash'], moves['hyper beam']], 'commands/pokemon/assets/img/scyther.png', 'commands/pokemon/assets/img/scytherback.png'));
-pokemon.push(new Pokemon('STARMIE', 50, 146, [moves['hydro pump'], moves['rest']], 'commands/pokemon/assets/img/starmie.png', 'commands/pokemon/assets/img/starmieback.png'));
-pokemon.push(new Pokemon('HITMONLEE', 50, 138, [moves['hi jump kick'], moves['mega kick']], 'commands/pokemon/assets/img/hitmonlee.png', 'commands/pokemon/assets/img/hitmonleeback.png'));
-pokemon.push(new Pokemon('HAUNTER', 50, 120, [moves['lick'], moves['psychic']], 'commands/pokemon/assets/img/haunter.png', 'commands/pokemon/assets/img/haunterback.png'));
-pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic punch']], 'commands/pokemon/assets/img/machamp.png', 'commands/pokemon/assets/img/machampback.png'));
-
-
 	for (var i = 0; i < 6; i++) {
 		var tempPokemon = pokemon.splice(Math.floor(Math.random() * pokemon.length), 1)[0];
 		tempPokemon.owner = 'player';
@@ -456,16 +463,7 @@ function enemyAttack() {
 	playerPokemon.faint(playerPokemon, playerParty);
 }
 
-function addListeners() {
 
-	console.log('adding listeners')
-	document.getElementById('startbutton').addEventListener('click', startButton);
-	document.getElementById('fight').addEventListener('click', fightButton);
-	document.getElementById('attackcancel').addEventListener('click', cancelButton);
-	document.getElementById('attack1').addEventListener('click', attack1);
-	document.getElementById('attack2').addEventListener('click', attack2);
-	// document.getElementById('items').addEventListener('click', potion);
-}
 
 function removeListeners() {
 	document.getElementById('fight').removeEventListener('click', fightButton);
@@ -486,9 +484,8 @@ function endGame() {
 
 
 	  // game
-
-	  await initializeGame()	  
-   
+	                        	  
+await initializeGame()	  
 	});
     
 
