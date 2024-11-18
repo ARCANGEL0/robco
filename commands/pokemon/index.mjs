@@ -79,30 +79,24 @@ async function pokemon() {
 
         addTemplate("game", gameScreen);
  console.log('adding listeners')
+
+
+ document.querySelector('#testings').addEventListener('click', () => console.log('testando botao!!'));
  
- document
- .querySelector('#startbutton')
- .addEventListener('click', () => startButton());
+ document.querySelector('#testing').addEventListener('click', () => console.log('testando botao!!'));
+ 
 
-document
- .querySelector('#fight')
- .addEventListener('click', () => fightButton());
+ document.querySelector('#startbutton').addEventListener('click', () => startButton());
 
-document
- .querySelector('#attackcancel')
- .addEventListener('click', () => cancelButton());
+document.querySelector('#fight').addEventListener('click', () => fightButton());
 
-document
- .querySelector('#attack1')
- .addEventListener('click', () => attack1());
+document.querySelector('#attackcancel').addEventListener('click', () => cancelButton());
 
-document
- .querySelector('#attack2')
- .addEventListener('click', () => attack2());
+document.querySelector('#attack1').addEventListener('click', () => attack1());
 
-document
- .querySelector('#items')
- .addEventListener('click', () => potion());
+document.querySelector('#attack2').addEventListener('click', () => attack2());
+
+document.querySelector('#items').addEventListener('click', () => potion());
  
  
 initGame()
