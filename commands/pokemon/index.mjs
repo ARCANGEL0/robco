@@ -262,8 +262,7 @@ initGame()
     }
 
                       	  
-await initializeGame()	  
-   
+
 var itemList = [];
 
 let items = {
@@ -458,6 +457,8 @@ function enemyAttack() {
 }
 
 function addListeners() {
+
+	console.log('adding listeners')
 	document.getElementById('startbutton').addEventListener('click', startButton);
 	document.getElementById('fight').addEventListener('click', fightButton);
 	document.getElementById('attackcancel').addEventListener('click', cancelButton);
@@ -485,6 +486,9 @@ function endGame() {
 
 
 	  // game
+
+	  await initializeGame()	  
+   
 	});
     
 
