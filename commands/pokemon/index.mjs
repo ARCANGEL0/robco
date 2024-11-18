@@ -91,8 +91,7 @@ async function pokemon() {
 	 document.getElementById('items').addEventListener('click', potion);
  
  
- 
-await initGame()
+	 
     }
 
 
