@@ -318,6 +318,8 @@ let enemyPokemon;
 
 
 function startButton() {
+
+	console.log('TESTING BUTTON HERE')
 	document.getElementById('startbutton').style.zIndex = '-1';
 	document.getElementById('battle').style.visibility = 'visible';
 	document.getElementById('opening').style.zIndex = '1';
@@ -357,7 +359,7 @@ function initGame() {
 	playerPokemon = playerParty[0];
 	console.log(playerPokemon);
 	enemyPokemon = enemyParty[0];
-
+console.log('show pokemon')
 	showPokemon();
 }
 
