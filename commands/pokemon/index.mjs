@@ -348,23 +348,43 @@ function transition() {
 //Starts the game and sets the beginning pokemon at random
 //Pokemon max of six for enemy and player
 async function initGame() {
-  console.log('adding pokemoj')
-	for (var i = 0; i < 6; i++) {
-	  tempPokemon = pokemon.splice(Math.floor(Math.random() * pokemon.length), 1)[0];
-		tempPokemon.owner = 'player';
-		playerParty.push(tempPokemon);
-		tempPokemon = pokemon.splice(Math.floor(Math.random() * pokemon.length), 1)[0];
-		tempPokemon.owner = 'enemy';
-		enemyParty.push(tempPokemon);
-	}
-	playerPokemon = playerParty[0];
-	console.log(playerPokemon);
-	enemyPokemon = enemyParty[0];
+  console.log('adding pokemoj');
+  
+  // Ensure pokemon array is not empty
+  if (!pokemon || pokemon.length < 12) {
+    console.error('Not enough Pokemon available for initialization');
+    return;
+  }
+  
+  for (let i = 0; i < 6; i++) {
+    // Ensure safe array access
+    let tempPokemon = pokemon.splice(Math.floor(Math.random() * pokemon.length), 1)[0];
+    if (!tempPokemon) {
+      console.error('Failed to fetch a Pokemon for the player');
+      return;
+    }
+    tempPokemon.owner = 'player';
+    playerParty.push(tempPokemon);
 
-	showPokemon();
-	
-	await waitForKey()
-	startButton()
+    tempPokemon = pokemon.splice(Math.floor(Math.random() * pokemon.length), 1)[0];
+    if (!tempPokemon) {
+      console.error('Failed to fetch a Pokemon for the enemy');
+      return;
+    }
+    tempPokemon.owner = 'enemy';
+    enemyParty.push(tempPokemon);
+  }
+
+  playerPokemon = playerParty[0];
+  console.log(playerPokemon);
+  enemyPokemon = enemyParty[0];
+
+  // Display Pokemon
+  showPokemon();
+  
+  // Await user interaction
+  await waitForKey();
+  startButton();
 }
 
 function showPokemon(){
