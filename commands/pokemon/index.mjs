@@ -102,7 +102,8 @@ let enemyPokemon;
 	document.getElementById('attack2').addEventListener('click', attack2);
 	 document.getElementById('items').addEventListener('click', potion);
  
- 
+ await waitForKey() 
+ startButton()
 
     }
 
