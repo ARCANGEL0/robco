@@ -174,7 +174,6 @@ width: 80vw;;
 #opening {
 	position: absolute;
 	top: 2px;
-	padding: 8vw
 }
 
 #startbutton {
@@ -219,10 +218,12 @@ width: 80vw;;
 
 #b1 {
 	position: absolute;
+	width: 85vw;
 }
 
 #b2 {
 	position: absolute;
+	width: 85vw;
 	z-index: 1;
 }
 
