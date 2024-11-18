@@ -65,179 +65,214 @@ async function pokemon() {
 	
 	return new Promise(async resolve =>
 	{
-	  let gameScreen
-	  let pokemon = []
-	  let tempPokemon = []
+
+		let moves = {
+			'tackle': {
+				name: 'TACKLE',
+				damage: 15,
+				target: 'enemy'
+			},
+			'thundershock': {
+				name: 'THUNDERSHOCK',
+				damage: 25,
+				target: 'enemy'
+			},
+			'scratch': {
+				name: 'SCRATCH',
+				damage: 4,
+				target: 'enemy'
+			},
+			'ember': {
+				name: 'EMBER',
+				damage: 6,
+				target: 'enemy'
+			},
+			'quick attack': {
+				name: 'QUICK ATTACK',
+				damage: 20,
+				target: 'enemy'
+			},
+			'thunder': {
+				name: 'THUNDER',
+				damage: 40,
+				target: 'enemy'
+			},
+			'fire blast': {
+				name: 'FIRE BLAST',
+				damage: 60,
+				target: 'enemy'
+			},
+			'mega punch': {
+				name: 'MEGA PUNCH',
+				damage: 35,
+				target: 'enemy'
+			},
+			'hydro pump': {
+				name: 'HYDRO PUMP',
+				damage: 60,
+				target: 'enemy'
+			},
+			'skull bash': {
+				name: 'SKULL BASH',
+				damage: 35,
+				target: 'enemy'
+			},
+			'acid': {
+				name: 'ACID',
+				damage: 28,
+				target: 'enemy'
+			},
+			'belch': {
+				name: 'BELCH',
+				damage: 60,
+				target: 'enemy'
+			},
+			'psychic': {
+				name: 'PSYCHIC',
+				damage: 40,
+				target: 'enemy'
+			},
+			'rest': {
+				name: 'REST',
+				damage: -.6,
+				target: 'self'
+			},
+			'solar beam': {
+				name: 'SOLAR BEAM',
+				damage: 60,
+				target: 'enemy'
+			},
+			'body slam': {
+				name: 'BODY SLAM',
+				damage: 35,
+				target: 'enemy'
+			},
+			'slash': {
+				name: 'SLASH',
+				damage: 35,
+				target: 'enemy'
+			},
+			'hyper beam': {
+				name: 'HYPERBEAM',
+				damage: 70,
+				target: 'enemy'
+			},
+			'hi jump kick': {
+				name: 'HI JUMP KICK',
+				damage: 50,
+				target: 'enemy'
+			},
+			'mega kick': {
+				name: 'MEGA KICK',
+				damage: 60,
+				target: 'enemy'
+			},
+			'lick': {
+				name: 'LICK',
+				damage: 35,
+				target: 'enemy'
+			},
+			'low sweep': {
+				name: 'LOW SWEEP',
+				damage: 35,
+				target: 'enemy'
+			},
+			'dynamic punch': {
+				name: 'DYNAMIC PUNCH',
+				damage: 50,
+				target: 'enemy'
+			}
+		};
+		
+		var itemList = [];
+		
+		let items = {
+			'potion': {
+				name: 'POTION',
+				damage: -.3,
+				target: 'self',
+				amount: 3
+			}
+		};
+		
+		itemList.push(items);
+
+		let pokemon = []
+		let tempPokemon = []
+		
+  
+  let playerParty = [];
+  let enemyParty = [];
+  
+  let titlesfx = new Audio('commands/pokemon/assets/sfx/pokemonopening.mp3');
+  let battlesfx = new Audio('commands/pokemon/assets/sfx/pokemonbattle.mp3');
+  let victorysfx = new Audio('commands/pokemon/assets/sfx/pokemonvictory.mp3');
+  
+  let playerPokemon;
+  let enemyPokemon;
+  
+  
+	
+  
+  /// fim variaveis 
+
+
+		
+		let startScreen = await showTemplateScreen("start");
+		pause(2);
+
+		await waitForKey();
+		startScreen.remove();
+
+// INTRO
+let introScreen = await showTemplateScreen("intro");
+document.getElementById('battle').style.visibility = 'visible';
+document.getElementById('opening').style.zIndex = '1';
+
+titlesfx.play();
+	
+	await waitForKey()
+
+		titlesfx.pause();
+		
+introScreen.remove();
+
+let gameScreen = getScreen("pokemon");
+
+
+let output = document.createElement("div");
+		output.classList.add("output");
+		gameScreen.appendChild(output);
+
+		
+
+//// start game 
+
+let canva = document.createElement("div");
+canva.classList.add("gba");
+canva.appendChild(gameScreen);
+
+addTemplate("game", gameScreen);
+
+console.log('adding listeners')
+addListeners()
+
+transition();
+
+
 	  
 
-let playerParty = [];
-let enemyParty = [];
 
-let titlesfx = new Audio('commands/pokemon/assets/sfx/pokemonopening.mp3');
-let battlesfx = new Audio('commands/pokemon/assets/sfx/pokemonbattle.mp3');
-let victorysfx = new Audio('commands/pokemon/assets/sfx/pokemonvictory.mp3');
-
-let playerPokemon;
-let enemyPokemon;
-
-
-	  async function initializeGame() {
-        // Main game screen
-        gameScreen = getScreen("pokemon");
-
-        // Create the output for messages
-        let output = document.createElement("div");
-        output.classList.add("gba");
-        gameScreen.appendChild(output);
-
-        addTemplate("game", gameScreen);
- console.log('adding listeners')
- 
- 
- 
+function addListeners() { 
+	
 	document.getElementById('startbutton').addEventListener('click', startButton);
 	document.getElementById('fight').addEventListener('click', fightButton);
 	document.getElementById('attackcancel').addEventListener('click', cancelButton);
 	document.getElementById('attack1').addEventListener('click', attack1);
 	document.getElementById('attack2').addEventListener('click', attack2);
 	 document.getElementById('items').addEventListener('click', potion);
- 
- 
-    }
 
-
-	  
-	  let moves = {
-    'tackle': {
-        name: 'TACKLE',
-        damage: 15,
-        target: 'enemy'
-    },
-    'thundershock': {
-        name: 'THUNDERSHOCK',
-        damage: 25,
-        target: 'enemy'
-	},
-	'scratch': {
-		name: 'SCRATCH',
-		damage: 4,
-		target: 'enemy'
-	},
-	'ember': {
-		name: 'EMBER',
-		damage: 6,
-		target: 'enemy'
-	},
-	'quick attack': {
-		name: 'QUICK ATTACK',
-		damage: 20,
-		target: 'enemy'
-	},
-	'thunder': {
-		name: 'THUNDER',
-		damage: 40,
-		target: 'enemy'
-	},
-	'fire blast': {
-		name: 'FIRE BLAST',
-		damage: 60,
-		target: 'enemy'
-	},
-	'mega punch': {
-		name: 'MEGA PUNCH',
-		damage: 35,
-		target: 'enemy'
-	},
-	'hydro pump': {
-		name: 'HYDRO PUMP',
-		damage: 60,
-		target: 'enemy'
-	},
-	'skull bash': {
-		name: 'SKULL BASH',
-		damage: 35,
-		target: 'enemy'
-	},
-	'acid': {
-		name: 'ACID',
-		damage: 28,
-		target: 'enemy'
-	},
-	'belch': {
-		name: 'BELCH',
-		damage: 60,
-		target: 'enemy'
-	},
-	'psychic': {
-		name: 'PSYCHIC',
-		damage: 40,
-		target: 'enemy'
-	},
-	'rest': {
-		name: 'REST',
-		damage: -.6,
-		target: 'self'
-	},
-	'solar beam': {
-		name: 'SOLAR BEAM',
-		damage: 60,
-		target: 'enemy'
-	},
-	'body slam': {
-		name: 'BODY SLAM',
-		damage: 35,
-		target: 'enemy'
-	},
-	'slash': {
-		name: 'SLASH',
-		damage: 35,
-		target: 'enemy'
-	},
-	'hyper beam': {
-		name: 'HYPERBEAM',
-		damage: 70,
-		target: 'enemy'
-	},
-	'hi jump kick': {
-		name: 'HI JUMP KICK',
-		damage: 50,
-		target: 'enemy'
-	},
-	'mega kick': {
-		name: 'MEGA KICK',
-		damage: 60,
-		target: 'enemy'
-	},
-	'lick': {
-		name: 'LICK',
-		damage: 35,
-		target: 'enemy'
-	},
-	'low sweep': {
-		name: 'LOW SWEEP',
-		damage: 35,
-		target: 'enemy'
-	},
-	'dynamic punch': {
-		name: 'DYNAMIC PUNCH',
-		damage: 50,
-		target: 'enemy'
-	}
-};
-
-var itemList = [];
-
-let items = {
-	'potion': {
-		name: 'POTION',
-		damage: -.3,
-		target: 'self',
-		amount: 3
-	}
-};
-
-itemList.push(items);
-
+}
 function potion() {
 	playerPokemon.useItem(playerPokemon, items['potion']);
 	console.log('healed for ' + items.potion.damage);
@@ -307,20 +342,6 @@ class Pokemon {
 
 
 
-
-async function startButton() {
-
-	document.querySelector('#startbutton').remove()
-	document.getElementById('battle').style.visibility = 'visible';
-	document.getElementById('opening').style.zIndex = '1';
-	titlesfx.play();
-	
-	await waitForKey()
-
-		titlesfx.pause();
-		transition();
-
-}
 
 function transition() {
 	document.getElementById('black').src = 'commands/pokemon/assets/img/black.png';
@@ -518,7 +539,7 @@ function endGame() {
 
 	  // game
 	                        	  
-await initializeGame()	  
+	  
 	});
     
 
