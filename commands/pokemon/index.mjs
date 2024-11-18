@@ -66,7 +66,7 @@ async function pokemon() {
 	return new Promise(async resolve =>
 	{
 	  let gameScreen
-	  
+	  let pokemon
 	  
 	  async function initializeGame() {
         // Main game screen
