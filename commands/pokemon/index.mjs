@@ -231,6 +231,11 @@ clear()
         await waitForKey();
         intro.remove();
         alert('ok')
+let intro = await showTemplateScreen("game");
+        pause(2);
+startButton()
+        
+        
 ///// fim
 function potion() {
 	playerPokemon.useItem(playerPokemon, items['potion']);
@@ -304,9 +309,7 @@ class Pokemon {
 
 async function startButton() {
 
-	document.querySelector('#startbutton').remove()
 	document.getElementById('battle').style.visibility = 'visible';
-	document.getElementById('opening').style.zIndex = '1';
 	titlesfx.play();
 	
 	await waitForKey()
