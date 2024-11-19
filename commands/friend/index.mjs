@@ -1436,7 +1436,7 @@ async function friend() {
     // LOGO
     clear();
     async function logoTitle() { 
-        let logoScreen = await showTemplateScreen("start");
+        let logoScreen = await showTemplateScreen("logo");
         pause(2);
         await waitForKey();
         logoScreen.remove();
