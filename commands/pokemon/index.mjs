@@ -290,14 +290,22 @@ clear()
 
 
      let intro = await showTemplateScreen("intro");
+
+	titlesfx.play();
+
         pause(2);
         await waitForKey();
         intro.remove();
-        alert('ok')
-let  pokemonGame = await showTemplateScreen("game");
-        pause(2);
-initGame()
         
+		
+let  pokemonGame = await showTemplateScreen("game");
+
+document.getElementById('battle').style.visibility = 'visible';	
+
+pause(2);
+titlesfx.pause();
+transition();
+
         
 ///// fim
 function potion() {
@@ -309,36 +317,9 @@ function potion() {
 
 
 
-
-async function startButton() {
-
-	document.getElementById('battle').style.visibility = 'visible';
-	titlesfx.play();
-	
-	await waitForKey()
-
-		titlesfx.pause();
-		transition();
-
-}
-
 function transition() {
 	document.getElementById('black').src = 'commands/pokemon/assets/img/black.png';
 	document.getElementById('black').style.zIndex = '1';
-
-	setTimeout(function() {
-	battlesfx.play();
-	}, 1000);
-
-	setTimeout(function() {
-	document.getElementById('black').style.zIndex = '-1';
-	initGame();
-	}, 3800)
-}
-
-//Starts the game and sets the beginning pokemon at random
-//Pokemon max of six for enemy and player
-async function initGame() {
 
 	pokemon.push(new Pokemon('PIKACHU', 50, 117, [moves['tackle'], moves['thundershock']], 'commands/pokemon/assets/img/pikachu.png', 'commands/pokemon/assets/img/pikachuback.png'));
 pokemon.push(new Pokemon('CHARIZARD', 50, 163, [moves['fire blast'], moves['mega punch']], 'commands/pokemon/assets/img/charizard.png', 'commands/pokemon/assets/img/charizardback.png'));
@@ -353,6 +334,20 @@ pokemon.push(new Pokemon('HITMONLEE', 50, 138, [moves['hi jump kick'], moves['me
 pokemon.push(new Pokemon('HAUNTER', 50, 120, [moves['lick'], moves['psychic']], 'commands/pokemon/assets/img/haunter.png', 'commands/pokemon/assets/img/haunterback.png'));
 pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic punch']], 'commands/pokemon/assets/img/machamp.png', 'commands/pokemon/assets/img/machampback.png'));
 
+
+	setTimeout(function() {
+	battlesfx.play();
+	}, 1000);
+
+	setTimeout(function() {
+	document.getElementById('black').style.zIndex = '-1';
+	initGame();
+	}, 3800)
+}
+
+//Starts the game and sets the beginning pokemon at random
+//Pokemon max of six for enemy and player
+async function initGame() {
 
   console.log('adding pokemoj');
   console.log(pokemon)
@@ -388,9 +383,6 @@ pokemon.push(new Pokemon('MACHAMP', 50, 190, [moves['low sweep'], moves['dynamic
   // Display Pokemon
   showPokemon();
   
-  // Await user interaction
-  await waitForKey();
- await startButton();
 }
 
 function showPokemon(){
@@ -406,9 +398,9 @@ function showPokemon(){
 
 	// This animates the health bar when attacked
 	var percentage = playerPokemon.health / playerPokemon.maxhealth;
-	document.getElementById('player-hp-bar').style.width = ((161 * percentage) + "px");
+	document.getElementById('player-hp-bar').style.width = ((15 * percentage) + "vw");
 	percentage = enemyPokemon.health / enemyPokemon.maxhealth;
-	document.getElementById('enemy-hp-bar').style.width = ((161 * percentage) + "px");
+	document.getElementById('enemy-hp-bar').style.width = ((15 * percentage) + "vw");
 }
 
 function switchPokemon() {
