@@ -218,10 +218,12 @@ width: 80vw;;
 
 #b1 {
 	position: absolute;
+	width: 85vw;
 }
 
 #b2 {
 	position: absolute;
+	width: 85vw;
 	z-index: 1;
 }
 
@@ -312,6 +314,3 @@ width: 80vw;;
 	color: #282d00;
 	z-index: -1;
 }
-
-
-
