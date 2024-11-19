@@ -81,29 +81,7 @@ let playerPokemon;
 let enemyPokemon;
 
 
-	  async function initializeGame() {
-        // Main game screen
-        gameScreen = getScreen("pokemon");
-
-        // Create the output for messages
-        let output = document.createElement("div");
-        output.classList.add("gba");
-        gameScreen.appendChild(output);
-
-        addTemplate("game", gameScreen);
- console.log('adding listeners')
- 
- 
- 
-	document.getElementById('fight').addEventListener('click', fightButton);
-	document.getElementById('attackcancel').addEventListener('click', cancelButton);
-	document.getElementById('attack1').addEventListener('click', attack1);
-	document.getElementById('attack2').addEventListener('click', attack2);
-	 document.getElementById('items').addEventListener('click', potion);
- 
- 
-    }
-
+	  
 
 	  
 	  let moves = {
@@ -237,6 +215,17 @@ let items = {
 
 itemList.push(items);
 
+/////start
+clear()
+
+     let begin = await showTemplateScreen("start");
+        pause(2);
+        await waitForKey();
+        begin.remove();
+        alert('ok')
+
+
+///// fim
 function potion() {
 	playerPokemon.useItem(playerPokemon, items['potion']);
 	console.log('healed for ' + items.potion.damage);
@@ -516,8 +505,7 @@ function endGame() {
 
 
 	  // game
-	                        	  
-await initializeGame()	  
+
 	});
     
 
