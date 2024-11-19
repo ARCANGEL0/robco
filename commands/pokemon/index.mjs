@@ -222,9 +222,15 @@ clear()
         pause(2);
         await waitForKey();
         begin.remove();
+        
+
+
+
+     let intro = await showTemplateScreen("intro");
+        pause(2);
+        await waitForKey();
+        intro.remove();
         alert('ok')
-
-
 ///// fim
 function potion() {
 	playerPokemon.useItem(playerPokemon, items['potion']);
