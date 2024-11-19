@@ -322,7 +322,7 @@ async function startButton() {
 function transition() {
 	document.getElementById('black').src = 'commands/pokemon/assets/img/black.png';
 	document.getElementById('black').style.zIndex = '1';
-	document.getElementById('opening').style.zIndex = '-1';
+
 	setTimeout(function() {
 	battlesfx.play();
 	}, 1000);

@@ -21,7 +21,7 @@ button:focus {
 
 .click:hover::before {
 	position: absolute;
-	content: url(../assets/img/pkmncursor.png);
+	content: url(assets/img/pkmncursor.png);
 	left: -22px;
 	top: 1px;
 }
@@ -38,8 +38,8 @@ button:focus {
 
 #game-window {
 	position: absolute;
-padding: 8vw ;
-width: 80vw;;
+	padding: 8vw;
+	width: 50vw;
 }
 
 #battle {
@@ -218,7 +218,7 @@ width: 80vw;;
 
 #b1 {
 	position: absolute;
-	width: 85vw;
+	width: 50vw;
 }
 
 #b2 {
