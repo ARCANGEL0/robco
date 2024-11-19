@@ -19,9 +19,14 @@ button:focus {
 	outline: none;
 }
 
+img {
+  filter: sepia(1) saturate(5) hue-rotate(90deg) brightness(1.2);
+}
+
+
 .click:hover::before {
 	position: absolute;
-	content: url(assets/img/pkmncursor.png);
+	content: url(../assets/img/pkmncursor.png);
 	left: -22px;
 	top: 1px;
 }
@@ -38,8 +43,8 @@ button:focus {
 
 #game-window {
 	position: absolute;
-	padding: 8vw;
-	width: 50vw;
+padding: 8vw ;
+width: 80vw;;
 }
 
 #battle {
@@ -54,63 +59,63 @@ button:focus {
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 3vw;
-	top: -0.5vh;
+	left: 25px;
+	top: -8px;
 }
 
 #pkmnback-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2.5vw;
+	font-size: 30px;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 29vw;
-	top: 25vh;
+	left: 261px;
+	top: 180px;
 }
 
 #pkmn-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2.5vw;
+	font-size: 25px;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 13vw;
-	top: 2.9vh;
+	left: 130px;
+	top: 22px;
 }
 
 #pkmnback-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2.5vw;
+	font-size: 25px;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 38vw;
-	top: 30vh;
+	left: 398px;
+	top: 210px;
 }
 
 #pkmnback-hp {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2vw;
+	font-size: 25px;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 27vw;
-	top: 38.5vh;
+	left: 295px;
+	top: 263px;
 }
 
 #pkmnback-maxhp {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2vw;
+	font-size: 25px;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 38vw;
-	top: 38.5vh;
+	left: 403px;
+	top: 263px;
 }
 
 #enemy-hp {
@@ -125,11 +130,11 @@ button:focus {
 
 #enemy-hp-bar {
 	position: absolute;
-	padding-top: 1.2vh;
-	top: 2vh;
-	left: 2.2vw;
+	padding-top: 7px;
+	top: 0px;
 	border-radius: 1px;
-	width: vw;
+	width: 100%;
+	line-height: 7px;
 	background-color: #383e00;
 	transform-origin: left;
 	transform: scaleX(1);
@@ -138,22 +143,21 @@ button:focus {
 
 #player-hp {
 	position: absolute;
-	padding-top: 3vh;
-	top: 24vw;
+	padding-top: 7px;
+	top: 255px;
 	left: 322px;
 	border-radius: 1px;
-	width: 12vw;
-	line-height: 2vh;
+	width: 161px;
+	line-height: 7px;	
 }
 
 #player-hp-bar {
-	left: 6.4vw;
 	position: absolute;
-	padding-top: 1.5vh;
-	top: -0.4vw;
+	padding-top: 7px;
+	top: 0px;
 	border-radius: 1px;
 	width: 100%;
-	line-height: 1.5vh;
+	line-height: 7px;
 	background-color: #383e00;
 	transform-origin: left;
 	transform: scaleX(1);
@@ -162,14 +166,14 @@ button:focus {
 
 #pkmnback {
 	position: absolute;
-	left: 5vw;
-	top: 18vw;
+	left: 16px;
+	top: 152px;
 }
 
 #pkmn {
 	position: absolute;
-	left: 33vw;
-	top: 2vh;
+	left: 355px;
+	top: 3px;
 }
 
 #opening {
@@ -219,7 +223,7 @@ button:focus {
 
 #b1 {
 	position: absolute;
-	width: 50vw;
+	width: 85vw;
 }
 
 #b2 {
