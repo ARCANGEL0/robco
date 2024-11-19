@@ -215,32 +215,7 @@ let items = {
 
 itemList.push(items);
 
-/////start
-clear()
 
-     let begin = await showTemplateScreen("start");
-        pause(2);
-        await waitForKey();
-        begin.remove();
-        
-
-
-
-     let intro = await showTemplateScreen("intro");
-        pause(2);
-        await waitForKey();
-        intro.remove();
-        alert('ok')
-let  pokemonGame = await showTemplateScreen("game");
-        pause(2);
-initGame()
-        
-        
-///// fim
-function potion() {
-	playerPokemon.useItem(playerPokemon, items['potion']);
-	console.log('healed for ' + items.potion.damage);
-}
 
 class Pokemon {
 	constructor(pokename, level, maxhealth, moves, imgfront, imgback) {
@@ -301,6 +276,34 @@ class Pokemon {
 		}
 	}
 };
+
+
+/////start
+clear()
+
+     let begin = await showTemplateScreen("start");
+        pause(2);
+        await waitForKey();
+        begin.remove();
+        
+
+
+
+     let intro = await showTemplateScreen("intro");
+        pause(2);
+        await waitForKey();
+        intro.remove();
+        alert('ok')
+let  pokemonGame = await showTemplateScreen("game");
+        pause(2);
+initGame()
+        
+        
+///// fim
+function potion() {
+	playerPokemon.useItem(playerPokemon, items['potion']);
+	console.log('healed for ' + items.potion.damage);
+}
 
 
 
