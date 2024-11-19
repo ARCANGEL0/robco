@@ -233,7 +233,7 @@ clear()
         alert('ok')
 let  pokemonGame = await showTemplateScreen("game");
         pause(2);
-startButton()
+initGame()
         
         
 ///// fim
