@@ -19,14 +19,9 @@ button:focus {
 	outline: none;
 }
 
-img {
-  filter: sepia(1) saturate(5) hue-rotate(90deg) brightness(1.2);
-}
-
-
 .click:hover::before {
 	position: absolute;
-	content: url(../assets/img/pkmncursor.png);
+	content: url(assets/img/pkmncursor.png);
 	left: -22px;
 	top: 1px;
 }
@@ -43,8 +38,8 @@ img {
 
 #game-window {
 	position: absolute;
-padding: 8vw ;
-width: 80vw;;
+	padding: 8vw;
+	width: 50vw;
 }
 
 #battle {
@@ -59,63 +54,63 @@ width: 80vw;;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 25px;
-	top: -8px;
+	left: 3vw;
+	top: -0.5vh;
 }
 
 #pkmnback-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 30px;
+	font-size: 2.5vw;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 261px;
-	top: 180px;
+	left: 29vw;
+	top: 25vh;
 }
 
 #pkmn-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
+	font-size: 2.5vw;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 130px;
-	top: 22px;
+	left: 13vw;
+	top: 2.9vh;
 }
 
 #pkmnback-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
+	font-size: 2.5vw;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 398px;
-	top: 210px;
+	left: 38vw;
+	top: 30vh;
 }
 
 #pkmnback-hp {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
+	font-size: 2vw;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 295px;
-	top: 263px;
+	left: 27vw;
+	top: 38.5vh;
 }
 
 #pkmnback-maxhp {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
+	font-size: 2vw;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 403px;
-	top: 263px;
+	left: 38vw;
+	top: 38.5vh;
 }
 
 #enemy-hp {
@@ -130,11 +125,11 @@ width: 80vw;;
 
 #enemy-hp-bar {
 	position: absolute;
-	padding-top: 7px;
-	top: 0px;
+	padding-top: 1.2vh;
+	top: 2vh;
+	left: 2.2vw;
 	border-radius: 1px;
-	width: 100%;
-	line-height: 7px;
+	width: vw;
 	background-color: #383e00;
 	transform-origin: left;
 	transform: scaleX(1);
@@ -143,21 +138,22 @@ width: 80vw;;
 
 #player-hp {
 	position: absolute;
-	padding-top: 7px;
-	top: 255px;
+	padding-top: 3vh;
+	top: 24vw;
 	left: 322px;
 	border-radius: 1px;
-	width: 161px;
-	line-height: 7px;	
+	width: 12vw;
+	line-height: 2vh;
 }
 
 #player-hp-bar {
+	left: 6.4vw;
 	position: absolute;
-	padding-top: 7px;
-	top: 0px;
+	padding-top: 1.5vh;
+	top: -0.4vw;
 	border-radius: 1px;
 	width: 100%;
-	line-height: 7px;
+	line-height: 1.5vh;
 	background-color: #383e00;
 	transform-origin: left;
 	transform: scaleX(1);
@@ -166,17 +162,18 @@ width: 80vw;;
 
 #pkmnback {
 	position: absolute;
-	left: 16px;
-	top: 152px;
+	left: 5vw;
+	top: 18vw;
 }
 
 #pkmn {
 	position: absolute;
-	left: 355px;
-	top: 3px;
+	left: 33vw;
+	top: 2vh;
 }
 
 #opening {
+	width: 100vw;
 	position: absolute;
 	top: 2px;
 }
@@ -223,14 +220,13 @@ width: 80vw;;
 
 #b1 {
 	position: absolute;
-	width: 85vw;
+	width: 50vw;
 }
 
 #b2 {
 	position: absolute;
-	width: 45vw;
+	width: 85vw;
 	z-index: 1;
-	top: -11vh;
 }
 
 #fight {
@@ -280,10 +276,10 @@ width: 80vw;;
 #attack1 {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2.1vw;
-	left: 12vw;
-	top: 34vh;
-	width: 29vw;
+	font-size: 25px;
+	left: 158px;
+	top: 342px;
+	width: 350px;
 	height: 28px;
 	background: transparent;
 	border: none !important;
@@ -295,9 +291,9 @@ width: 80vw;;
 #attack2 {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2vw;
-	left: 12vw;
-	top: 40vh;
+	font-size: 25px;
+	left: 158px;
+	top: 372px;
 	width: 350px;
 	height: 28px;
 	background: transparent;
@@ -310,13 +306,13 @@ width: 80vw;;
 #attackcancel {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2vw;
-	left: 12vw;
-	top: 45vh;
+	font-size: 25px;
+	left: 158px;
+	top: 427px;
 	width: 77px;
 	height: 28px;
 	background: transparent;
 	border: none !important;
 	color: #282d00;
 	z-index: -1;
-}ksjsj
+}
