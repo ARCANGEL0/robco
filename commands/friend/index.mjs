@@ -1436,7 +1436,7 @@ async function friend() {
     // LOGO
     clear();
     async function logoTitle() { 
-        let logoScreen = await showTemplateScreen("logo");
+        let logoScreen = await showTemplateScreen("start");
         pause(2);
         await waitForKey();
         logoScreen.remove();
@@ -1815,8 +1815,9 @@ async function winGame() {
   clean()
   await type(gameData[selectedLanguage].win2); 
   pause(35)
-  clean()
   gameScreen.remove()
+  clean()
+  clear()
   resolve()
 } // fixed
 
