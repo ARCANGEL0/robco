@@ -228,8 +228,9 @@ width: 80vw;;
 
 #b2 {
 	position: absolute;
-	width: 85vw;
+	width: 45vw;
 	z-index: 1;
+	top: -11vh;
 }
 
 #fight {
@@ -279,10 +280,10 @@ width: 80vw;;
 #attack1 {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
-	left: 158px;
-	top: 342px;
-	width: 350px;
+	font-size: 2.1vw;
+	left: 12vw;
+	top: 34vh;
+	width: 29vw;
 	height: 28px;
 	background: transparent;
 	border: none !important;
@@ -294,9 +295,9 @@ width: 80vw;;
 #attack2 {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
-	left: 158px;
-	top: 372px;
+	font-size: 2vw;
+	left: 12vw;
+	top: 40vh;
 	width: 350px;
 	height: 28px;
 	background: transparent;
@@ -309,13 +310,13 @@ width: 80vw;;
 #attackcancel {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
-	left: 158px;
-	top: 427px;
+	font-size: 2vw;
+	left: 12vw;
+	top: 45vh;
 	width: 77px;
 	height: 28px;
 	background: transparent;
 	border: none !important;
 	color: #282d00;
 	z-index: -1;
-}
+}ksjsj
