@@ -14,12 +14,7 @@
         opacity:1;
     }
 } 
-img {
-	/* Fallout effect: green overlay */
-	filter: hue-rotate(100deg) saturate(1.5) brightness(0.8);
-	/* Adjust values as needed */
-  }
-  
+
 button:focus {
 	outline: none;
 }
@@ -55,34 +50,35 @@ button:focus {
 #pkmn-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 30px;
+	font-size: 5mm;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
 	left: 3vw;
-	top: -0.5vh;
+	top: vh;
 }
 
 #pkmnback-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2.5vw;
+	font-size: 5mm;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 29vw;
-	top: 25vh;
+	left: 50%;
+	top: 23vh;
+	right: 23vw;
 }
 
 #pkmn-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2.5vw;
+	font-size: 130%;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 13vw;
-	top: 2.9vh;
+	left: 20vw;
+	top: 3.1vh;
 }
 
 #pkmnback-level {
@@ -166,21 +162,27 @@ button:focus {
 }
 
 #pkmnback {
+	width: 20vw;
+	height: 15vh;
 	position: absolute;
-	left: 5vw;
-	top: 18vw;
+	left: 8vw;
+	top: 25vh;
 }
 
 #pkmn {
 	position: absolute;
-	left: 33vw;
-	top: 2vh;
+	width: 20vw;
+	height: 15vh;
+	left: 55vw;
+	top: 1vh;
 }
 
 #opening {
-	width: 100vw;
+	width: 50vw;
+	height: 70vh;
 	position: absolute;
-	top: 2px;
+	left: 10%;
+	top: 10%;
 }
 
 #startbutton {
@@ -225,7 +227,8 @@ button:focus {
 
 #b1 {
 	position: absolute;
-	width: 50vw;
+	width: 80vw;
+	height: 60vh;
 }
 
 #b2 {
@@ -321,3 +324,5 @@ button:focus {
 	color: #282d00;
 	z-index: -1;
 }
+
+img { /* Fallout effect: green overlay */ filter: hue-rotate(100deg) saturate(1.5) brightness(0.8); /* Adjust values as needed */ }
