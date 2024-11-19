@@ -231,7 +231,7 @@ clear()
         await waitForKey();
         intro.remove();
         alert('ok')
-let intro = await showTemplateScreen("game");
+let  pokemonGame = await showTemplateScreen("game");
         pause(2);
 startButton()
         
