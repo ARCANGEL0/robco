@@ -200,6 +200,8 @@ button:focus {
 
 #black {
 	position: absolute;
+	width: 80vw;
+	height: 72vh;
 }
 
 #ending {
