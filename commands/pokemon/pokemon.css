@@ -23,7 +23,7 @@ button:focus {
 	position: absolute;
 	content: url(assets/img/pkmncursor.png);
 	left: -1.5vw;
-	top: 1vh;
+	top: -0.1vh;
 }
 
 .hover:hover {
@@ -229,11 +229,11 @@ button:focus {
 
 #b2 {
 	left: 1vw;
-	height: 71vh;
+	height: 80vh;
 	position: absolute;
-	width: 78vw;
+	width: 100vw;
 	top: 1vh;
-	z-index: -1;
+	z-index: 1;
 }
 
 #fight {
@@ -294,10 +294,10 @@ button:focus {
 #attack1 {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(0.3rem + 1vw + 1vh);
-	left: 22vw;
-	top: 53.5vh;
-	width: 20vw;
+	font-size: calc(0.36em + 1vw + 1vh);
+	left: 28vw;
+	top: 59.5vh;
+	width: 33vw;
 	height: 6vh;
 	background: transparent;
 	border: none !important;
@@ -309,17 +309,18 @@ button:focus {
 #attack2 {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(0.3rem + 1vw + 1vh);
-	left: 60vw;
-	top: 53vh;
-	width: 8.5vw;
-	height: 7vh;
+	font-size: calc(0.36em + 1vw + 1vh);
+	left: 67vw;
+	top: 59.5vh;
+	width: 30vw;
+	height: 6vh;
 	background: transparent;
 	border: none !important;
 	color: #282d00;
 	z-index: -1;
 	text-align: left;
-}
+	}
+
 
 #attackcancel {
 	position: absolute;
