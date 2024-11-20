@@ -228,8 +228,11 @@ button:focus {
 }
 
 #b2 {
+	left: 1vw;
+	height: 71vh;
 	position: absolute;
-	width: 85vw;
+	width: 78vw;
+	top: 1vh;
 	z-index: 1;
 }
 
@@ -291,11 +294,11 @@ button:focus {
 #attack1 {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
-	left: 158px;
-	top: 342px;
-	width: 350px;
-	height: 28px;
+	font-size: calc(0.3rem + 1vw + 1vh);
+	left: 22vw;
+	top: 53.5vh;
+	width: 20vw;
+	height: 6vh;
 	background: transparent;
 	border: none !important;
 	color: #282d00;
@@ -306,11 +309,11 @@ button:focus {
 #attack2 {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
-	left: 158px;
-	top: 372px;
-	width: 350px;
-	height: 28px;
+	font-size: calc(0.3rem + 1vw + 1vh);
+	left: 60vw;
+	top: 53vh;
+	width: 8.5vw;
+	height: 7vh;
 	background: transparent;
 	border: none !important;
 	color: #282d00;
@@ -321,15 +324,16 @@ button:focus {
 #attackcancel {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 25px;
-	left: 158px;
-	top: 427px;
-	width: 77px;
-	height: 28px;
+	font-size: calc(0.3rem + 1vw + 1vh);
+	left: 60vw;
+	top: 60.5vh;
+	width: 12.5vw;
+	height: 7vh;
 	background: transparent;
 	border: none !important;
 	color: #282d00;
 	z-index: -1;
+	text-align: left;
 }
 
 img { /* Fallout effect: green overlay */filter: hue-rotate(388deg) saturate(0.7) brightness(1.2); /* Adjust values as needed */}
