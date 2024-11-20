@@ -178,8 +178,8 @@ button:focus {
 }
 
 #opening {
-	width: 50vw;
-	height: 70vh;
+	width: 84vw;
+	height: 80vh;
 	position: absolute;
 	left: 10%;
 	top: 10%;
@@ -188,13 +188,13 @@ button:focus {
 #startbutton {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 20px;
-    width: 215px;
-    color:green;
-    top: 200px;
-    left: 160px;
+	font-size: 0.5cm;
+	width: 80vw;
+	color:green;
+	top: 20vh;
+	left: 12vw;
 	background: transparent;
-    border: none !important;
+	border: none !important;
 	z-index: 1;
 	visibility: visible;
 	animation-name: blink;
@@ -325,4 +325,4 @@ button:focus {
 	z-index: -1;
 }
 
-img { /* Fallout effect: green overlay */ filter: hue-rotate(100deg) saturate(1.5) brightness(0.8); /* Adjust values as needed */ }
+img { /* Fallout effect: green overlay */filter: hue-rotate(388deg) saturate(0.7) brightness(1.2); /* Adjust values as needed */}
