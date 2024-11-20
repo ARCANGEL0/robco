@@ -49,7 +49,7 @@ button:focus {
 #pkmn-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(0.2rem + 1vw + 1vh);
+	font-size: calc(01rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
@@ -64,54 +64,54 @@ button:focus {
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 51vw;
-	top: 26vh;
+	left: 55vw;
+	top: 31vh;
 	right: 23vw;
 }
 
 #pkmn-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(0.6rem + 1vw + 1vh);
+	font-size: calc(1rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 20vw;
-	top: 3.1vh;
+	left: 25vw;
+	top: 4.4vh;
 }
 
 #pkmnback-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(0.6rem + 1vw + 1vh);
+	font-size: calc(1rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 60vw;
-	top: 31vh;
+	left: 75vw;
+	top: 35.4vh;
 }
 
 #pkmnback-hp {
 	right: 20vw;
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(0.6rem + 1vw + 1vh);
+	font-size: calc(1rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 44vw;
-	top: 39vh;
+	left: 53vw;
+	top: 44vh;
 }
 
 #pkmnback-maxhp {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(0.6rem + 1vw + 1vh);
+	font-size: calc(1rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 62vw;
-	top: 39vh;
+	left: 77vw;
+	top: 44vh;
 }
 
 #enemy-hp {
@@ -127,8 +127,8 @@ button:focus {
 #enemy-hp-bar {
 	position: absolute;
 	padding-top: 1.2vh;
-	top: 3.1vh;
-	height: 1vh;
+	top: 4.1vh;
+	height: 1.4vh;
 	/* width: 20vw; */
 	/* left: -0.8vw; */
 	border-radius: 1px;
@@ -137,16 +137,16 @@ button:focus {
 	transform-origin: left;
 	transform: scaleX(1);
 	transition: width 1s;
-	margin-left: -1vw;
+	margin-left: 3.2vw;
 }
 
 #player-hp {position: absolute;padding-top: 7px;top: 31.6vh;left: 41.8vw;border-radius: 1px;width: 46vw;line-height: 7px;}
 
 #player-hp-bar {
-	left: 6.4vw;
+	left: 18vw;
 	position: absolute;
 	padding-top: 1.5vh;
-	top: 6vh;
+	top: 10.4vh;
 	border-radius: 1px;
 	width: 100%;
 	line-height: 1.5vh;
@@ -160,15 +160,15 @@ button:focus {
 	width: 26vw;
 	height: 20vh;
 	position: absolute;
-	left: 3vw;
-	top: 27vh;
+	left: 8vw;
+	top: 34vh;
 }
 
 #pkmn {
 	position: absolute;
 	width: 27vw;
 	height: 22vh;
-	left: 50vw;
+	left: 65vw;
 	top: 1vh;
 }
 
