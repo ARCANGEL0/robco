@@ -174,7 +174,7 @@ button:focus {
 }
 
 #opening {
-	width: 84vw;
+	width: 100vw;
 	height: 80vh;
 	position: absolute;
 	left: 10%;
@@ -200,8 +200,8 @@ button:focus {
 
 #black {
 	position: absolute;
-	width: 80vw;
-	height: 72vh;
+	width: 100vw;
+	height: 80vh;
 }
 
 #ending {
@@ -225,8 +225,8 @@ button:focus {
 
 #b1 {
 	position: absolute;
-	width: 80vw;
-	height: 72vh;
+	width: 100vw;
+	height: 80vh;
 }
 
 #b2 {
