@@ -494,6 +494,13 @@ function enemyAttack() {
 }
 
 
+function addListeners() {
+	document.getElementById('fight').addEventListener('click', fightButton);
+	document.getElementById('attackcancel').addEventListener('click', cancelButton);
+	document.getElementById('attack1').addEventListener('click', attack1);
+	document.getElementById('attack2').addEventListener('click', attack2);
+	 document.getElementById('items').addEventListener('click', potion);
+}
 
 function removeListeners() {
 	document.getElementById('fight').removeEventListener('click', fightButton);
