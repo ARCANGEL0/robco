@@ -50,7 +50,7 @@ button:focus {
 #pkmn-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 5mm;
+	font-size: 3.5mm;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
@@ -73,7 +73,7 @@ button:focus {
 #pkmn-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 130%;
+	font-size: 2rem;
 	color: #282d00;
 	background: transparent;
 	border: none !important;
@@ -117,10 +117,10 @@ button:focus {
 #enemy-hp {
 	position: absolute;
 	padding-top: 7px;
-	top: 7.2vh;
+	top: 6.8vh;
 	left: 16.8vw;
 	border-radius: 1px;
-	width: 30vw;
+	width: 42vw;
 	line-height: 7px;
 }
 
@@ -140,15 +140,7 @@ button:focus {
 	margin-left: -1vw;
 }
 
-#player-hp {
-	position: absolute;
-	padding-top: 3vh;
-	top: 24vw;
-	left: 322px;
-	border-radius: 1px;
-	width: 12vw;
-	line-height: 2vh;
-}
+#player-hp {position: absolute;padding-top: 7px;top: 31.6vh;left: 41.8vw;border-radius: 1px;width: 46vw;line-height: 7px;}
 
 #player-hp-bar {
 	left: 6.4vw;
