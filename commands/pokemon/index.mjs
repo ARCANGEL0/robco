@@ -418,7 +418,6 @@ function itemButton() {
 
 function fightButton() {
 	console.log('----showing attacks------')
-	document.getElementById('b2').src = "commands/pokemon/assets/img/pkmnbattle2.png";
 	document.getElementById('attackcancel').style.zIndex = '1';
 	document.getElementById('attack1').style.zIndex = '1';
 	document.getElementById('attack2').style.zIndex = '1';
@@ -432,7 +431,7 @@ function cancelButton() {
 	document.getElementById('attackcancel').style.zIndex = '-1';
 	document.getElementById('attack1').style.zIndex = '-1';
 	document.getElementById('attack2').style.zIndex = '-1';
-	document.getElementById('b2').src = "";
+	document.getElementById('b2').style.zIndex = '-1';
 
 }
 
