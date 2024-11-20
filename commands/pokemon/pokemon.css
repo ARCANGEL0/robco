@@ -50,30 +50,30 @@ button:focus {
 #pkmn-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 3.5mm;
+	font-size: calc(0.6rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 3vw;
-	top: vh;
+	left: 12vw;
+	top: -1.2vh;
 }
 
 #pkmnback-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 5mm;
+	font-size: calc(0.8rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 50%;
-	top: 23vh;
+	left: 51vw;
+	top: 26vh;
 	right: 23vw;
 }
 
 #pkmn-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2rem;
+	font-size: calc(0.6rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
@@ -84,34 +84,35 @@ button:focus {
 #pkmnback-level {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2.5vw;
+	font-size: calc(0.6rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 38vw;
-	top: 30vh;
+	left: 60vw;
+	top: 31vh;
 }
 
 #pkmnback-hp {
+	right: 20vw;
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2vw;
+	font-size: calc(0.6rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 27vw;
-	top: 38.5vh;
+	left: 44vw;
+	top: 39vh;
 }
 
 #pkmnback-maxhp {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: 2vw;
+	font-size: calc(0.6rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 38vw;
-	top: 38.5vh;
+	left: 62vw;
+	top: 39vh;
 }
 
 #enemy-hp {
@@ -127,7 +128,7 @@ button:focus {
 #enemy-hp-bar {
 	position: absolute;
 	padding-top: 1.2vh;
-	/* top: -0.5vh; */
+	top: 3.1vh;
 	height: 1vh;
 	/* width: 20vw; */
 	/* left: -0.8vw; */
@@ -146,7 +147,7 @@ button:focus {
 	left: 6.4vw;
 	position: absolute;
 	padding-top: 1.5vh;
-	top: -0.4vw;
+	top: 6vh;
 	border-radius: 1px;
 	width: 100%;
 	line-height: 1.5vh;
@@ -157,18 +158,18 @@ button:focus {
 }
 
 #pkmnback {
-	width: 20vw;
-	height: 15vh;
+	width: 26vw;
+	height: 20vh;
 	position: absolute;
-	left: 8vw;
-	top: 25vh;
+	left: 3vw;
+	top: 27vh;
 }
 
 #pkmn {
 	position: absolute;
-	width: 20vw;
-	height: 15vh;
-	left: 55vw;
+	width: 27vw;
+	height: 22vh;
+	left: 50vw;
 	top: 1vh;
 }
 
@@ -223,7 +224,7 @@ button:focus {
 #b1 {
 	position: absolute;
 	width: 80vw;
-	height: 60vh;
+	height: 72vh;
 }
 
 #b2 {
