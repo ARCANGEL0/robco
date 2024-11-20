@@ -22,8 +22,8 @@ button:focus {
 .click:hover::before {
 	position: absolute;
 	content: url(assets/img/pkmncursor.png);
-	left: -22px;
-	top: 1px;
+	left: -1.5vw;
+	top: 1vh;
 }
 
 .hover:hover {
@@ -50,12 +50,12 @@ button:focus {
 #pkmn-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(0.6rem + 1vw + 1vh);
+	font-size: calc(0.2rem + 1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
 	left: 12vw;
-	top: -1.2vh;
+	top: 0.1vh;
 }
 
 #pkmnback-name {
@@ -235,32 +235,43 @@ button:focus {
 
 #fight {
 	position: absolute;
-	left: 268px;
-	top: 378px;
-	width: 131px;
-	height: 28px;
-	background: transparent;
-    border: none !important;
-    color: rgba(0,0,0,0);
-}
-
-#items {
-	position: absolute;
-	left: 270px;
-	top: 432px;
-	width: 102px;
-	height: 28px;
+	left: 39vw;
+	top: 55vh;
+	width: 21vw;
+	height: 6vh;
 	background: transparent;
 	border: none !important;
 	color: rgba(0,0,0,0);
+	top: 55vh;
+	width: 21vw;
+	height: 6vh;
+	background: ￼transparent;
+	position: absolute;
+	left: 39vw;
+	top: 55vh;
+	width: 21vw;
+	height: 6vh;
+	background: ￼transparent;
+	/* border: none !important; */
+	color: ￼rgba(0,0,0,0);
+	top: 55vh;
+	width: 21vw;
+	height: 6vh;
+	background: ￼•￼transparent;
+	/* border: none !important; */
+	color: ￼•￼rgba(0,0,0,0);
+	/* border: none !important; */
+	color: ￼rgba(0,0,0,0);
 }
+
+#items {position: absolute;left: 39vw;top: 63vh;width: 21vw;height: 6vh;background: transparent;border: none !important;color: rgba(0,0,0,0);}
 
 #pkmnbtn {
 	position: absolute;
-	left: 430px;
-	top: 378px;
-	width: 50px;
-	height: 28px;
+	left: 63vw;
+	top: 54.7vh;
+	width: 12vw;
+	height: 6vh;
 	background: transparent;
 	border: none !important;
 	color: rgba(0,0,0,0);
@@ -268,10 +279,10 @@ button:focus {
 
 #run {
 	position: absolute;
-	left: 430px;
-	top: 432px;
-	width: 77px;
-	height: 28px;
+	left: 63vw;
+	top: 62.7vh;
+	width: 14vw;
+	height: 6vh;
 	background: transparent;
 	border: none !important;
 	color: rgba(0,0,0,0);
