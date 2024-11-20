@@ -440,7 +440,7 @@ function attack1() {
 	document.getElementById('attackcancel').style.zIndex = '-1';
 	document.getElementById('attack1').style.zIndex = '-1';
 	document.getElementById('attack2').style.zIndex = '-1';
-	document.getElementById('b2').src = "";
+	document.getElementById('b2').style.zIndex = '-1';
 	if (playerPokemon.moves[0].target != 'self') {
 		document.getElementById('pkmn').style.animation = 'blink 0.15s 5';
 		setTimeout(function() {
@@ -462,7 +462,7 @@ function attack2() {
 	document.getElementById('attackcancel').style.zIndex = '-1';
 	document.getElementById('attack1').style.zIndex = '-1';
 	document.getElementById('attack2').style.zIndex = '-1';
-	document.getElementById('b2').src = "";
+	document.getElementById('b2').style.zIndex = '-1';
 	if (playerPokemon.moves[1].target != 'self') {
 		document.getElementById('pkmn').style.animation = 'blink 0.15s 5';
 		setTimeout(function() {
