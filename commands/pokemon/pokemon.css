@@ -117,24 +117,27 @@ button:focus {
 #enemy-hp {
 	position: absolute;
 	padding-top: 7px;
-	top: 67px;
-	left: 107px;
+	top: 7.2vh;
+	left: 16.8vw;
 	border-radius: 1px;
-	width: 161px;
+	width: 30vw;
 	line-height: 7px;
 }
 
 #enemy-hp-bar {
 	position: absolute;
 	padding-top: 1.2vh;
-	top: 2vh;
-	left: 2.2vw;
+	/* top: -0.5vh; */
+	height: 1vh;
+	/* width: 20vw; */
+	/* left: -0.8vw; */
 	border-radius: 1px;
 	width: vw;
 	background-color: #383e00;
 	transform-origin: left;
 	transform: scaleX(1);
 	transition: width 1s;
+	margin-left: -1vw;
 }
 
 #player-hp {
