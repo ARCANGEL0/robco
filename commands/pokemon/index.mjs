@@ -403,9 +403,9 @@ function showPokemon(){
 
 	// This animates the health bar when attacked
 	var percentage = playerPokemon.health / playerPokemon.maxhealth;
-	document.getElementById('player-hp-bar').style.width = ((24 * percentage) + "vw");
+	document.getElementById('player-hp-bar').style.width = ((30 * percentage) + "vw");
 	percentage = enemyPokemon.health / enemyPokemon.maxhealth;
-	document.getElementById('enemy-hp-bar').style.width = ((24 * percentage) + "vw");
+	document.getElementById('enemy-hp-bar').style.width = ((30 * percentage) + "vw");
 }
 
 function switchPokemon() {

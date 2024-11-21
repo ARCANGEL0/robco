@@ -49,7 +49,7 @@ button:focus {
 #pkmn-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(01rem + 1vw + 1vh);
+	font-size: calc(2vw + 2vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
@@ -60,11 +60,11 @@ button:focus {
 #pkmnback-name {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(0.8rem + 1vw + 1vh);
+	font-size: calc(2vw + 2vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
-	left: 55vw;
+	left: 48vw;
 	top: 31vh;
 	right: 23vw;
 }
@@ -95,7 +95,7 @@ button:focus {
 	right: 20vw;
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(1rem + 1vw + 1vh);
+	font-size: calc(1.5vw + 1.5vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
@@ -106,7 +106,7 @@ button:focus {
 #pkmnback-maxhp {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size: calc(1rem + 1vw + 1vh);
+	font-size: calc(1.5vw + 1.5vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
