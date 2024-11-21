@@ -511,7 +511,7 @@ function removeListeners() {
  document.getElementById('items').removeEventListener('click', potion);
 }
 
-function endGame() {
+async function endGame() {
 
 	  // Check if all enemy Pokémon are fainted
 	  const enemyAllFainted = enemyParty.every(pokemon => !pokemon.alive);
@@ -523,7 +523,7 @@ function endGame() {
 		  document.getElementById('endingtext').textContent = "You are too weak!";
 	  }
 
-  
+
 	document.getElementById('ending').src = 'commands/pokemon/assets/img/pkmnvictory.png';
 	document.getElementById('ending').style.zIndex = '1';
 	document.getElementById('endingtext').style.zIndex = '1';
@@ -531,6 +531,11 @@ function endGame() {
 	victorysfx.play();
 	removeListeners()
 	console.log('end game')
+	pause(5)
+	await waitForKey()
+
+	clear()
+	resolve()
 }
 
 
