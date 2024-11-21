@@ -512,6 +512,18 @@ function removeListeners() {
 }
 
 function endGame() {
+
+	  // Check if all enemy Pokémon are fainted
+	  const enemyAllFainted = enemyParty.every(pokemon => !pokemon.alive);
+	  const playerAllFainted = playerParty.every(pokemon => !pokemon.alive);
+  
+	  if (enemyAllFainted) {
+		  document.getElementById('endingtext').textContent = "I can't believe I lost to YOU";
+	  } else if (playerAllFainted) {
+		  document.getElementById('endingtext').textContent = "You are too weak!";
+	  }
+
+  
 	document.getElementById('ending').src = 'commands/pokemon/assets/img/pkmnvictory.png';
 	document.getElementById('ending').style.zIndex = '1';
 	document.getElementById('endingtext').style.zIndex = '1';

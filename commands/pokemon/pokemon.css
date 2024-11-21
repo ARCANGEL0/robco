@@ -203,6 +203,9 @@ button:focus {
 }
 
 #ending {
+	height: 80vh;
+
+	width: 100vw;
 	position: absolute;
 }
 
