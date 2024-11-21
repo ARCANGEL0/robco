@@ -326,8 +326,8 @@ button:focus {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
 	font-size: calc(0.3rem + 1vw + 1vh);
-	left: 60vw;
-	top: 60.5vh;
+	left: 67vw;
+	top: 69.5vh;
 	width: 12.5vw;
 	height: 7vh;
 	background: transparent;

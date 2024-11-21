@@ -421,6 +421,7 @@ function fightButton() {
 	document.getElementById('attackcancel').style.zIndex = '1';
 	document.getElementById('attack1').style.zIndex = '1';
 	document.getElementById('attack2').style.zIndex = '1';
+	document.getElementById('b2').style.zIndex = '1';
 }
 
 function pkmnButton() {
