@@ -434,6 +434,7 @@ function pkmnButton() {
 
 function cancelButton() {
 	document.getElementById('attackcancel').style.zIndex = '-1';
+	document.getElementById('itemscancel').style.zIndex = '-1';
 	document.getElementById('attack1').style.zIndex = '-1';
 	document.getElementById('attack2').style.zIndex = '-1';
 	document.getElementById('potion').style.zIndex = '-1';
