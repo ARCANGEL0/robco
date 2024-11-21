@@ -413,7 +413,11 @@ function switchPokemon() {
 }
 
 function itemButton() {
-
+	console.log('----showingitems------')
+	document.getElementById('itemscancel').style.zIndex = '1';
+	document.getElementById('potion').style.zIndex = '1';
+	document.getElementById('b2').style.zIndex = '1';
+	
 }
 
 function fightButton() {
@@ -432,6 +436,7 @@ function cancelButton() {
 	document.getElementById('attackcancel').style.zIndex = '-1';
 	document.getElementById('attack1').style.zIndex = '-1';
 	document.getElementById('attack2').style.zIndex = '-1';
+	document.getElementById('potion').style.zIndex = '-1';
 	document.getElementById('b2').style.zIndex = '-1';
 
 }
@@ -496,7 +501,10 @@ function enemyAttack() {
 
 
 function addListeners() {
+	document.getElementById('potion').addEventListener('click', potion);
+	document.getElementById('items').addEventListener('click', itemButton);
 	document.getElementById('fight').addEventListener('click', fightButton);
+	document.getElementById('itemscancel').addEventListener('click', cancelButton);
 	document.getElementById('attackcancel').addEventListener('click', cancelButton);
 	document.getElementById('attack1').addEventListener('click', attack1);
 	document.getElementById('attack2').addEventListener('click', attack2);
@@ -504,8 +512,11 @@ function addListeners() {
 }
 
 function removeListeners() {
+	document.getElementById('potion').removeEventListener('click', potion);
 	document.getElementById('fight').removeEventListener('click', fightButton);
+	document.getElementById('items').removeEventListener('click', itemButton);
 	document.getElementById('attackcancel').removeEventListener('click', cancelButton);
+	document.getElementById('itemscancel').removeEventListener('click', cancelButton);
 	document.getElementById('attack1').removeEventListener('click', attack1);
 	document.getElementById('attack2').removeEventListener('click', attack2);
  document.getElementById('items').removeEventListener('click', potion);
