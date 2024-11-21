@@ -306,7 +306,7 @@ metaViewport.content = 'width=device-width, initial-scale=1.0';
 document.head.appendChild(metaViewport); 
 
 document.getElementById('battle').style.visibility = 'visible';	
-
+addListeners()
 pause(2);
 titlesfx.pause();
 transition();
@@ -517,6 +517,8 @@ function endGame() {
 	document.getElementById('endingtext').style.zIndex = '1';
 	battlesfx.pause();
 	victorysfx.play();
+	removeListeners()
+	console.log('end game')
 }
 
 
