@@ -23,7 +23,7 @@ button:focus {
 	position: absolute;
 	content: url(assets/img/pkmncursor.png);
 	left: -1.5vw;
-	top: -0.1vh;
+	top: 1.5vh;
 }
 
 .hover:hover {
@@ -238,11 +238,11 @@ button:focus {
 
 #fight {
 	position: absolute;
-	left: 39vw;
+	left: 41vw;
 	top: 55vh;
 	width: 21vw;
 	height: 6vh;
-	background: transparent;
+	background: transparent; 
 	border: none !important;
 	color: rgba(0,0,0,0);
 	top: 55vh;
@@ -250,16 +250,16 @@ button:focus {
 	height: 6vh;
 	background: ￼transparent;
 	position: absolute;
-	left: 39vw;
-	top: 55vh;
+	left: 49vw;
+	/* top: 54vh; */
 	width: 21vw;
 	height: 6vh;
 	background: ￼transparent;
 	/* border: none !important; */
 	color: ￼rgba(0,0,0,0);
-	top: 55vh;
-	width: 21vw;
-	height: 6vh;
+	top: 61vh;
+	width: 27vw;
+	height: 7vh;
 	background: ￼•￼transparent;
 	/* border: none !important; */
 	color: ￼•￼rgba(0,0,0,0);
@@ -267,12 +267,12 @@ button:focus {
 	color: ￼rgba(0,0,0,0);
 }
 
-#items {position: absolute;left: 39vw;top: 63vh;width: 21vw;height: 6vh;background: transparent;border: none !important;color: rgba(0,0,0,0);}
+#items {position: absolute;left: 50vw;top: 70vh;width: 22vw;height: 6vh;background: transparent;border: none !important;color: rgba(0,0,0,0);}
 
 #pkmnbtn {
 	position: absolute;
-	left: 63vw;
-	top: 54.7vh;
+	left: 79vw;
+	top: 60.7vh;
 	width: 12vw;
 	height: 6vh;
 	background: transparent;
@@ -282,9 +282,9 @@ button:focus {
 
 #run {
 	position: absolute;
-	left: 63vw;
-	top: 62.7vh;
-	width: 14vw;
+	left: 80vw;
+	top: 69.7vh;
+	width: 15vw;
 	height: 6vh;
 	background: transparent;
 	border: none !important;
