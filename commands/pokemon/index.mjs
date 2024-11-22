@@ -68,7 +68,27 @@ async function pokemon() {
 	  let gameScreen
 	  let pokemon = []
 	  let tempPokemon = []
-	  
+	  	  // Check if all enemy Pokémon are fainted
+const langTexts = {
+	en: {
+	  win: "I can't believe I lost to YOU! How could this happen?!",
+	  lose: "You are too weak! Better train harder next time!"
+	},
+	es: {
+	  win: "¡No puedo creer que te haya perdido! ¿Cómo pudo pasar esto?",
+	  lose: "¡Eres demasiado débil! ¡Entrena más para la próxima!"
+	},
+	fr: {
+	  win: "Je n'arrive pas à croire que j'ai perdu contre TOI ! Comment est-ce possible ?!",
+	  lose: "Tu es trop faible ! Entraîne-toi mieux pour la prochaine fois !"
+	},
+	pt: {
+	  win: "Não acredito que perdi para VOCÊ! Como isso aconteceu?!",
+	  lose: "Você é muito fraco! Treine mais para a próxima vez!"
+	}
+  };
+  let langSelected = localStorage.getItem('selectedLanguage') || 'en'
+  
 
 let playerParty = [];
 let enemyParty = [];
@@ -314,7 +334,9 @@ transition();
         
 ///// fim
 function potionGet() {
-	playerPokemon.useItem(playerPokemon, items['potion']);
+
+	playerPokemon.attack(enemyPokemon, moves['rest']);
+
 	console.log(playerPokemon)
 	console.log('heal ' + items.potion.damage);
 
@@ -398,6 +420,23 @@ async function initGame() {
   
 }
 
+async function runAway() {
+	
+
+
+  document.getElementById('endingtext').textContent = langTexts[langSelected].lose;
+
+
+
+	document.getElementById('ending').src = 'commands/pokemon/assets/img/pkmnvictory.png';
+	document.getElementById('ending').style.zIndex = '1';
+	document.getElementById('endingtext').style.zIndex = '1';
+	battlesfx.pause();
+	victorysfx.play();
+	removeListeners()
+	console.log('end game')
+	pause(5)
+}
 function showPokemon(){
 	console.log(enemyPokemon);
 	document.getElementById('pkmnback').src = playerPokemon.imgback;
@@ -543,26 +582,6 @@ async function quit() {
 }
 async function endGame() {
 
-	  // Check if all enemy Pokémon are fainted
-const langTexts = {
-  en: {
-    win: "I can't believe I lost to YOU! How could this happen?!",
-    lose: "You are too weak! Better train harder next time!"
-  },
-  es: {
-    win: "¡No puedo creer que te haya perdido! ¿Cómo pudo pasar esto?",
-    lose: "¡Eres demasiado débil! ¡Entrena más para la próxima!"
-  },
-  fr: {
-    win: "Je n'arrive pas à croire que j'ai perdu contre TOI ! Comment est-ce possible ?!",
-    lose: "Tu es trop faible ! Entraîne-toi mieux pour la prochaine fois !"
-  },
-  pt: {
-    win: "Não acredito que perdi para VOCÊ! Como isso aconteceu?!",
-    lose: "Você é muito fraco! Treine mais para a próxima vez!"
-  }
-};
-let langSelected = localStorage.getItem('selectedLanguage') || 'en'
 
 
 
