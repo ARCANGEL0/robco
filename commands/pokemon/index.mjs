@@ -315,7 +315,15 @@ transition();
 ///// fim
 function potionGet() {
 	playerPokemon.useItem(playerPokemon, items['potion']);
-	console.log('healed for ' + items.potion.damage);
+	console.log(playerPokemon)
+	console.log('heal ' + items.potion.damage);
+
+	document.getElementById('attackcancel').style.zIndex = '-1';
+	document.getElementById('itemscancel').style.zIndex = '-1';
+	document.getElementById('attack1').style.zIndex = '-1';
+	document.getElementById('attack2').style.zIndex = '-1';
+	document.getElementById('potion').style.zIndex = '-1';
+	document.getElementById('b2').style.zIndex = '-1';
 }
 
 
