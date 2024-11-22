@@ -596,7 +596,7 @@ function removeListeners() {
 async function quit() {
 
 	console.log('quitting game')
-		gameScreen.remove();
+		pokemonGame.remove();
 	clear()
 				resolve();
 	clear()
