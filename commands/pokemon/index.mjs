@@ -502,6 +502,7 @@ function enemyAttack() {
 
 
 function addListeners() {
+	document.getElementById('endingtext').addEventListener('click', quit);
 	document.getElementById('potion').addEventListener('click', potion);
 	document.getElementById('items').addEventListener('click', itemButton);
 	document.getElementById('fight').addEventListener('click', fightButton);
@@ -523,6 +524,13 @@ function removeListeners() {
  document.getElementById('items').removeEventListener('click', potion);
 }
 
+
+async function quit() {
+	clear()
+	resolve()
+	clear()
+
+}
 async function endGame() {
 
 	  // Check if all enemy Pokémon are fainted
@@ -566,10 +574,6 @@ if (enemyAllFainted) {
 	removeListeners()
 	console.log('end game')
 	pause(5)
-	await waitForKey()
-
-	resolve()
-	clear()
 }
 
 

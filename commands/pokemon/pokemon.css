@@ -213,7 +213,7 @@ button:focus {
 #endingtext {
 	position: absolute;
 	font-family: 'pokemon-font', monospace;
-	font-size:  calc(1.5vw + 1.5vh);
+	font-size: calc(1vw + 1vh);
 	color: #282d00;
 	background: transparent;
 	border: none !important;
@@ -221,7 +221,7 @@ button:focus {
 	top: 59vh;
 	left: 10vw;
 	text-align: left;
-	line-height: 6vh;
+	line-height: 5vh;
 	z-index: -1;
 }
 
