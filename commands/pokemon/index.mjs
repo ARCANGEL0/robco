@@ -335,10 +335,10 @@ transition();
 ///// fim
 function potionGet() {
 
-	playerPokemon.attack(enemyPokemon, moves['rest']);
-
+	playerPokemon.attack(playerPokemon, moves['rest']);
+    playerPokemon.useItem(playerPokemon, items['potion']);
 	console.log(playerPokemon)
-	console.log('heal ' + items.potion.damage);
+	console.log('healed pokemon in ' + items.potion.damage);
 
 	document.getElementById('attackcancel').style.zIndex = '-1';
 	document.getElementById('itemscancel').style.zIndex = '-1';
@@ -550,6 +550,7 @@ function enemyAttack() {
 
 function addListeners() {
 	document.getElementById('endingtext').addEventListener('click', quit);
+	document.getElementById('run').addEventListener('click', runAway);
 	document.getElementById('potion').addEventListener('click', potionGet);
 	document.getElementById('items').addEventListener('click', itemButton);
 	document.getElementById('fight').addEventListener('click', fightButton);
@@ -561,13 +562,18 @@ function addListeners() {
 }
 
 function removeListeners() {
+
+
+	document.getElementById('endingtext').removeEventListener('click', quit);
+	document.getElementById('run').removeEventListener('click', runAway);
 	document.getElementById('potion').removeEventListener('click', potionGet);
-	document.getElementById('fight').removeEventListener('click', fightButton);
 	document.getElementById('items').removeEventListener('click', itemButton);
-	document.getElementById('attackcancel').removeEventListener('click', cancelButton);
+	document.getElementById('fight').removeEventListener('click', fightButton);
 	document.getElementById('itemscancel').removeEventListener('click', cancelButton);
+	document.getElementById('attackcancel').removeEventListener('click', cancelButton);
 	document.getElementById('attack1').removeEventListener('click', attack1);
 	document.getElementById('attack2').removeEventListener('click', attack2);
+	
 
 }
 
