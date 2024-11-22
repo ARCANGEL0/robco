@@ -526,14 +526,36 @@ function removeListeners() {
 async function endGame() {
 
 	  // Check if all enemy Pokémon are fainted
-	  const enemyAllFainted = enemyParty.every(pokemon => !pokemon.alive);
-	  const playerAllFainted = playerParty.every(pokemon => !pokemon.alive);
-  
-	  if (enemyAllFainted) {
-		  document.getElementById('endingtext').textContent = "I can't believe I lost to YOU";
-	  } else if (playerAllFainted) {
-		  document.getElementById('endingtext').textContent = "You are too weak!";
-	  }
+const langTexts = {
+  en: {
+    win: "I can't believe I lost to YOU! How could this happen?!",
+    lose: "You are too weak! Better train harder next time!"
+  },
+  es: {
+    win: "¡No puedo creer que te haya perdido! ¿Cómo pudo pasar esto?",
+    lose: "¡Eres demasiado débil! ¡Entrena más para la próxima!"
+  },
+  fr: {
+    win: "Je n'arrive pas à croire que j'ai perdu contre TOI ! Comment est-ce possible ?!",
+    lose: "Tu es trop faible ! Entraîne-toi mieux pour la prochaine fois !"
+  },
+  pt: {
+    win: "Não acredito que perdi para VOCÊ! Como isso aconteceu?!",
+    lose: "Você é muito fraco! Treine mais para a próxima vez!"
+  }
+};
+let langSelected = localStorage.getItem('selectedLanguage') || 'en'
+
+
+
+const enemyAllFainted = enemyParty.every(pokemon => !pokemon.alive);
+const playerAllFainted = playerParty.every(pokemon => !pokemon.alive);
+
+if (enemyAllFainted) {
+  document.getElementById('endingtext').textContent = langTexts[langSelected].win;
+} else if (playerAllFainted) {
+  document.getElementById('endingtext').textContent = langTexts[langSelected].lose;
+}
 
 
 	document.getElementById('ending').src = 'commands/pokemon/assets/img/pkmnvictory.png';
