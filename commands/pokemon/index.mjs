@@ -546,8 +546,8 @@ async function endGame() {
 	pause(5)
 	await waitForKey()
 
-	clear()
 	resolve()
+	clear()
 }
 
 
