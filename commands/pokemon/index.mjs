@@ -313,7 +313,7 @@ transition();
 
         
 ///// fim
-function potion() {
+function potionGet() {
 	playerPokemon.useItem(playerPokemon, items['potion']);
 	console.log('healed for ' + items.potion.damage);
 }
@@ -503,29 +503,31 @@ function enemyAttack() {
 
 function addListeners() {
 	document.getElementById('endingtext').addEventListener('click', quit);
-	document.getElementById('potion').addEventListener('click', potion);
+	document.getElementById('potion').addEventListener('click', potionGet);
 	document.getElementById('items').addEventListener('click', itemButton);
 	document.getElementById('fight').addEventListener('click', fightButton);
 	document.getElementById('itemscancel').addEventListener('click', cancelButton);
 	document.getElementById('attackcancel').addEventListener('click', cancelButton);
 	document.getElementById('attack1').addEventListener('click', attack1);
 	document.getElementById('attack2').addEventListener('click', attack2);
-	 document.getElementById('items').addEventListener('click', potion);
+	
 }
 
 function removeListeners() {
-	document.getElementById('potion').removeEventListener('click', potion);
+	document.getElementById('potion').removeEventListener('click', potionGet);
 	document.getElementById('fight').removeEventListener('click', fightButton);
 	document.getElementById('items').removeEventListener('click', itemButton);
 	document.getElementById('attackcancel').removeEventListener('click', cancelButton);
 	document.getElementById('itemscancel').removeEventListener('click', cancelButton);
 	document.getElementById('attack1').removeEventListener('click', attack1);
 	document.getElementById('attack2').removeEventListener('click', attack2);
- document.getElementById('items').removeEventListener('click', potion);
+
 }
 
 
 async function quit() {
+	document.getElementById('endingtext').removeEventListener('click', quit);
+
 	clear()
 	resolve()
 	clear()
