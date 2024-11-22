@@ -579,8 +579,8 @@ function removeListeners() {
 
 
 async function quit() {
-	document.getElementById('endingtext').removeEventListener('click', quit);
 
+	console.log('quitting game')
 	clear()
 	resolve()
 	clear()
