@@ -335,10 +335,25 @@ transition();
 ///// fim
 function potionGet() {
 
-	playerPokemon.attack(playerPokemon, moves['rest']);
-    playerPokemon.useItem(playerPokemon, items['potion']);
-	console.log(playerPokemon)
-	console.log('healed pokemon in ' + items.potion.damage);
+
+    playerPokemon.useItem(playerParty[0], items['potion']);
+    if (playerPokemon.moves[0].target != 'self') {
+		document.getElementById('pkmn').style.animation = 'blink 0.15s 5';
+		setTimeout(function() {
+			document.getElementById('pkmn').style.animation = '';
+		}, 1000);
+	}
+	enemyPokemon.faint(enemyPokemon, enemyParty);
+	removeListeners();
+	setTimeout(function() {
+		enemyAttack();
+		addListeners();
+	}, 1000);
+
+	showPokemon();
+	
+    
+	console.log('jp pokemon in ' + items.potion.damage);
 
 	document.getElementById('attackcancel').style.zIndex = '-1';
 	document.getElementById('itemscancel').style.zIndex = '-1';
@@ -581,8 +596,9 @@ function removeListeners() {
 async function quit() {
 
 	console.log('quitting game')
+		gameScreen.remove();
 	clear()
-	resolve()
+				resolve();
 	clear()
 
 }
