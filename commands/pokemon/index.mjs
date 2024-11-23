@@ -448,9 +448,9 @@ async function runAway() {
 	document.getElementById('endingtext').style.zIndex = '1';
 	battlesfx.pause();
 	victorysfx.play();
-	removeListeners()
+	
 	console.log('end game')
-	pause(5)
+	
 }
 function showPokemon(){
 	console.log(enemyPokemon);
@@ -624,7 +624,7 @@ if (enemyAllFainted) {
 	victorysfx.play();
 	removeListeners()
 	console.log('end game')
-	pause(5)
+
 }
 
 
