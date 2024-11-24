@@ -597,7 +597,7 @@ async function quit() {
 
 	console.log('quitting game')
 		pokemonGame.remove();
-titlesfx.pause();
+victorysfx.pause();
 	clear()
 				resolve();
 	clear()
