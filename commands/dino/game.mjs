@@ -43,7 +43,7 @@ function Dinosaur(x, dividerY) {
 }
 Dinosaur.prototype.draw = function (context) {
 	let oldFill = context.fillStyle;
-	context.fillStyle = "green";
+	context.fillStyle = "yellow";
 	context.fillRect(this.x, this.y, this.width, this.height);
 	context.fillStyle = oldFill;
 };
