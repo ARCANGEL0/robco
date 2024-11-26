@@ -4,7 +4,7 @@ import alert from "../../util/alert.js";
 import { typeSound } from "../../sound/index.js";
 import say from "../../util/speak.js";
 
-const output = "ALL YOUR BASE ARE BELONG TO US";
+const output = "Ｆ ｏ ｌ ｌ ｏ ｗ  ｔ ｈ ｅ  Ｗ ｈ ｉ ｔ ｅ  ｒ ａ ｂ ｂ ｉ ｔ． ． ． ． ．";
 
 // The number of characters typed in 1 keystroke
 const TYPED_CHARS = 10;

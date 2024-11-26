@@ -3,7 +3,18 @@ import { moveCaretToEnd } from "util/io.js";
 import { typeSound } from "sound";
 import debounce from 'util/debounce.js';
 
-const output = "Press CTRL+C to exit";
+const translations = {
+    en: "Press CTRL+C to exit",
+    pt: "Pressione CTRL+C para sair",
+    es: "Presione CTRL+C para salir",
+    fr: "Appuyez sur CTRL+C pour quitter"
+};
+
+// Get the selected language from localStorage or default to English
+let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+
+// Get the output message based on the selected language
+const output = translations[selectedLanguage] || translations['en']; // Fallback to English if the language is not found
 
 const KEY_TEXT_EDITOR = 'text-editor';
 
