@@ -369,9 +369,7 @@ const projs = [
     { type: bytesec, name:'ByteSec-MD', link: 'https://github.com/ARCANGEL0/ByteSec-MD' },
     { type: flowmvc , name: 'flowManager', link: 'https://github.com/ARCANGEL0/flowManager' },
     { type: termlink, name: 'Robco.TERMLINK', link: 'https://github.com/robco-termlink' },
-    { type: 'Email', name:'henry.arcangello', link: 'mailto:rick_arcangelo@hotmail.com,henry.arcangello@proton.me,henry.arcangello@gmail.com' },
-    { type: 'LinkedIn', name:'Henrique Arcangelo', link: 'https://www.linkedin.com/in/henryarcangelo/' },
-    { type: 'Hack The Box', name:'0x0C1053F', link: 'https://app.hackthebox.com/profile/126962' },
+
 ];
 
 projs.forEach(projk => {
