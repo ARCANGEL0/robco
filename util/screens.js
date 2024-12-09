@@ -93,16 +93,18 @@ export async function main() {
     
     
     // commands
+// commands
 if (command == "help") {
-    type("> TERMINAL LINK ACTIVE. USER INQUIRY ACCESS OPEN. ASK ANY QUESTION FREELY. TYPE 'RETURN' TO EXIT OR 'CLS' TO CLEAR SCREEN.");
+  type("> ROBCO INDUSTRIES 2075-2077\nMAKE ANY QUESTION OR ASK SOMETHING\nTYPE 'CLS' TO CLEAN SCREEN\nTYPE 'RETURN' TO GO TO LOGIN\n\nAVAILABLE COMMANDS:\n\n- clear         - cowsay\n- debug         - dino\n- fallout       - fire\n- friend        - hack\n- home          - logout\n- matrix        - neo\n- pokemon       - quit\n- reboot        - rick\n- rogue         - screensaver\n- systemshock   - text-editor");
 } else if (command == "ayuda") {
-    type("> ENLACE DE TERMINAL ACTIVO. ACCESO A CONSULTAS ABIERTO. PREGUNTE CUALQUIER COSA LIBREMENTE. ESCRIBA 'VOLVER' PARA SALIR O 'CLS' PARA LIMPIAR PANTALLA.");
+  type("> ROBCO INDUSTRIES 2075-2077\nHAGA CUALQUIER PREGUNTA O PIDA ALGO\nESCRIBA 'CLS' PARA LIMPIAR LA PANTALLA\nESCRIBA 'VOLVER' PARA VOLVER AL INICIO\n\nCOMANDOS DISPONIBLES:\n\n- clear         - cowsay\n- debug         - dino\n- fallout       - fire\n- friend        - hack\n- home          - logout\n- matrix        - neo\n- pokemon       - quit\n- reboot        - rick\n- rogue         - screensaver\n- systemshock   - text-editor");
 } else if (command == "aide") {
-    type("> LIAISON TERMINAL ACTIVE. ACCÈS AUX DEMANDES OUVERT. POSEZ TOUTE QUESTION LIBREMENT. TAPEZ 'RETOUR' POUR SORTIR OU 'CLS' POUR EFFACER L'ÉCRAN.");
+  type("> ROBCO INDUSTRIES 2075-2077\nPOSEZ TOUTE QUESTION OU DEMANDEZ QUELQUE CHOSE\nTAPEZ 'CLS' POUR EFFACER L'ÉCRAN\nTAPEZ 'RETOUR' POUR REVENIR À LA CONNEXION\n\nCOMMANDES DISPONIBLES:\n\n- clear         - cowsay\n- debug         - dino\n- fallout       - fire\n- friend        - hack\n- home          - logout\n- matrix        - neo\n- pokemon       - quit\n- reboot        - rick\n- rogue         - screensaver\n- systemshock   - text-editor");
 } else if (command == "ajuda") {
-    type("> CONEXÃO DE TERMINAL ATIVA. ACESSO A PERGUNTAS ABERTO. PERGUNTE QUALQUER COISA LIVREMENTE. DIGITE 'VOLTAR' PARA SAIR OU 'CLS' PARA LIMPAR A TELA.");
+  type("> ROBCO INDUSTRIES 2075-2077\nFAÇA QUALQUER PERGUNTA OU PEÇA ALGO\nDIGITE 'CLS' PARA LIMPAR A TELA\nDIGITE 'VOLTAR' PARA VOLTAR AO LOGIN\n\nCOMANDOS DISPONÍVEIS:\n\n- clear         - cowsay\n- debug         - dino\n- fallout       - fire\n- friend        - hack\n- home          - logout\n- matrix        - neo\n- pokemon       - quit\n- reboot        - rick\n- rogue         - screensaver\n- systemshock   - text-editor");
+}
 
-} 
+
     else if (command == 'cls'){
       clear()
     }
