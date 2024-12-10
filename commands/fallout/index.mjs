@@ -524,12 +524,12 @@ divbuttons.classList.add("galbtns")
 const dvid = document.createElement("div");
 dvid.classList.add("dvid")
 
-const prevBtn = document.createElement("button");
+const prevBtn = document.createElement("a");
 prevBtn.textContent = "⬿";
 prevBtn.classList.add('carousel-button')
 divbuttons.appendChild(prevBtn);
 
-const nextBtn = document.createElement("button");
+const nextBtn = document.createElement("a");
 nextBtn.textContent = "⤳";
 nextBtn.classList.add('carousel-button')
 divbuttons.appendChild(nextBtn);
