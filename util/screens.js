@@ -3,7 +3,7 @@ import pause from "./pause.js";
 import alert from "./alert.js";
 import say from "./speak.js";
 import { intro, outro} from '../commands/fallout/index.mjs'
-import { friend } from '../commands/friend/index.mjs'
+import friend from '../commands/friend/index.mjs'
 import { on, off,power } from "./power.js";
 
 

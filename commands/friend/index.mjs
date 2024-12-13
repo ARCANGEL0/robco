@@ -1415,7 +1415,7 @@ pathA4: [
 }
 
 
-export async function friend() {
+async function friend() {
   
   
 	clear();
@@ -1898,6 +1898,13 @@ async function displayOutput(txt,output) {
 		output.innerHTML = "";
 				await type(txt, { initialWait: 0 }, output);
 				await pause(2);
+}
+
+export async function exitGame() { 
+	let outro = getScreen("outro");
+      clean() 
+      friend()
+
 }
 
 const templates = ["friend"];
