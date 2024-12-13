@@ -1901,7 +1901,7 @@ async function displayOutput(txt,output) {
 }
 
 export async function exitGame() { 
-	let outro = getScreen("outro");
+	let fr = getScreen("friend");
       clean() 
       friend()
 
