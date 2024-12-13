@@ -1415,7 +1415,7 @@ pathA4: [
 }
 
 
-async function friend() {
+export async function friend() {
   
   
 	clear();
