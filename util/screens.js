@@ -3,6 +3,7 @@ import pause from "./pause.js";
 import alert from "./alert.js";
 import say from "./speak.js";
 import { intro, outro} from '../commands/fallout/index.mjs'
+import { friend } from '../commands/friend/index.mjs'
 import { on, off,power } from "./power.js";
 
 
@@ -33,21 +34,28 @@ export async function boot() {
 
 // Check for the "trigger" URL parameter
 const urlParams = new URLSearchParams(window.location.search);
-const triggerParam = urlParams.get("tr");
+const triggerParam = urlParams.get("run");
 
-if (triggerParam=='robco') {
+if (triggerParam=='terminal') {
   // start terminal
 await power()
   console.log('TERMINAL')
   login();
   
 }
-else if(triggerParam=='d3bug') {
+else if(triggerParam=='debug') {
   say("DEBUG MODE ACTIVATED");
   alert('debug mode')
  
   return !0
 }
+else if(triggerParam=='exit') {
+	await power()
+	console.log('Inspired by Mr.Robot Season 4 FRIEND Game --Arcangelo')
+	friend();
+   
+	return !0
+  }
  else {
 await power()	
     intro();
