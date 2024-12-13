@@ -52,7 +52,7 @@ else if(triggerParam=='debug') {
 else if(triggerParam=='exit') {
 	await power()
 	console.log('Inspired by Mr.Robot Season 4 FRIEND Game --Arcangelo')
-	friend();
+	await parse('friend');
    
 	return !0
   }
