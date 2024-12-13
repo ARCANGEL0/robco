@@ -57,9 +57,17 @@ else if(triggerParam=='exit') {
 	return !0
   }
  else {
-await power()	
-    intro();
-    
+	try {
+
+        await parse(triggerParam);
+      
+      } catch (e) {
+        if (e.message) await type(e.message);
+		await power()	
+		intro();
+		
+	}
+
     }
 }
 
