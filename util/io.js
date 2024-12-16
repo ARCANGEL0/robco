@@ -349,8 +349,8 @@ export async function parse(input) {
 
  
 			const options = {
-				provider: "Nextway",
-				model: "gpt-4o-free",
+				provider: "Aryahcr",
+				model: "gpt-4-32k-0314",
 				webSearch: true
 			};
 			
