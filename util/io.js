@@ -351,7 +351,8 @@ export async function parse(input) {
 			const options = {
 				provider: "Aryahcr",
 				model: "gpt-4-32k-0314",
-				webSearch: true
+				webSearch: true,
+				codeModelMode: true
 			};
 			
 			const provider = gpt4js.createProvider(options.provider);
