@@ -59,8 +59,9 @@ else if(triggerParam=='exit') {
  else {
 	try {
 
+		if(triggerParam !== null ) { 
         await parse(triggerParam);
-      
+	} else { throw 'error'}
       } catch (e) {
         if (e.message) await type(e.message);
 		await power()	
