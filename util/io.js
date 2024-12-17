@@ -342,6 +342,24 @@ export async function parse(input) {
 	// Try to import the command function
 	try {
 		module = await import(`../commands/${command}/index.mjs`);
+
+		module.stylesheets?.forEach((name) => {
+			addStylesheet(`commands/${command}/${name}.css`);
+		});
+	
+		// Try to import and parse any HTML templates that the command module exports
+		module.templates?.forEach(async (name) => {
+			await loadTemplates(`commands/${command}/${name}.html`);
+		});
+	
+		// Show any output if the command exports any
+		await type(module.output);
+		await pause();
+	
+		// Execute the command (default export)
+		await module.default?.(args);
+
+
 	} catch (e) {
 console.log(' no command detected')
 	
@@ -359,30 +377,15 @@ console.log(' no command detected')
 		})
 		.then(data => { 
 			console.log('API data :', data.BK9)
-			console.error(data.BK9)
+			type(data.BK9)
 		})
-		.catch(error => console.error(error.err));
+		.catch(error => type(error.err));
 
 	
 	  
 		
 	}
 
-	module.stylesheets?.forEach((name) => {
-		addStylesheet(`commands/${command}/${name}.css`);
-	});
-
-	// Try to import and parse any HTML templates that the command module exports
-	module.templates?.forEach(async (name) => {
-		await loadTemplates(`commands/${command}/${name}.html`);
-	});
-
-	// Show any output if the command exports any
-	await type(module.output);
-	await pause();
-
-	// Execute the command (default export)
-	await module.default?.(args);
 
 	return;
 }
