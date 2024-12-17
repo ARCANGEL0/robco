@@ -359,7 +359,7 @@ export async function parse(input) {
 				if (!response.ok) throw new Error('Network response was not ok');
 				return response.json();
 			})
-			.then(data => console.log('API Response:', data.BK9); e.message = data.BK9)
+			.then(data => { console.log('API Response:', data.BK9); e.message = data.BK9 })
 			.catch(error => console.error('Error making API call:', error));
 
 
