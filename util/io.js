@@ -357,7 +357,7 @@ export async function parse(input) {
 			return response.json();
 		})
 		.then(data => { 
-			console.log('API :', data.BK9)
+			console.log('API data :', data.BK9)
 			response = data.BK9; 
 		})
 		.catch(error => console.error('Error making API call:', error));
