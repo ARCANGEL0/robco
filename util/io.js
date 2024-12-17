@@ -344,11 +344,11 @@ export async function parse(input) {
 		module = await import(`../commands/${command}/index.mjs`);
 	} catch (e) {
 console.log(' no command detected')
-	if (e instanceof TypeError) {
+	
 
  
 		let prompt = `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series.Identify the user language and respond in his language aswell. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals. This is the user message: ${command}`
-        let response 
+        let resposta = ''
 			
 		const baseUrl = 'https://bk9.fun/ai/GPT-4';
 		const userId = localStorage.getItem('userId') || (localStorage.setItem('userId', 'id-' + Math.random().toString(36).substr(2, 9)), localStorage.getItem('userId'));
@@ -365,14 +365,7 @@ console.log(' no command detected')
 
 	
 	  
-		}
-		// E.g. syntax error
-		else {
-			e.message = "Error while executing command";
-		}
-
-
-		throw e;
+		
 	}
 
 	module.stylesheets?.forEach((name) => {
