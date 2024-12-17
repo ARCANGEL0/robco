@@ -343,7 +343,7 @@ export async function parse(input) {
 	try {
 		module = await import(`../commands/${command}/index.mjs`);
 	} catch (e) {
-		console.error(e);
+
 		// Kinda abusing TypeError to check if the import failed
 		if (e instanceof TypeError) {
 
@@ -371,6 +371,8 @@ export async function parse(input) {
 		else {
 			e.message = "Error while executing command";
 		}
+
+		
 		throw e;
 	}
 
