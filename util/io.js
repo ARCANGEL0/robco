@@ -343,9 +343,7 @@ export async function parse(input) {
 	try {
 		module = await import(`../commands/${command}/index.mjs`);
 	} catch (e) {
-
-		// Kinda abusing TypeError to check if the import failed
-		if (e instanceof TypeError) {
+	if (e instanceof TypeError) {
 
  
 		let prompt = `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series.Identify the user language and respond in his language aswell. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals. This is the user message: ${command}`
@@ -372,7 +370,7 @@ export async function parse(input) {
 			e.message = "Error while executing command";
 		}
 
-		
+
 		throw e;
 	}
 
