@@ -353,16 +353,18 @@ export async function parse(input) {
 			
 		const baseUrl = 'https://bk9.fun/ai/GPT-4';
 		const userId = localStorage.getItem('userId') || (localStorage.setItem('userId', 'id-' + Math.random().toString(36).substr(2, 9)), localStorage.getItem('userId'));
+		fetch(`${baseUrl}?q=${encodeURIComponent(prompt)}&userId=${userId}`)
+		.then(response => {
+			if (!response.ok) throw new Error('Network response was not ok');
+			return response.json();
+		})
+		.then(data => { 
+			console.log('API Response:', data.BK9); 
+			e.message = data.BK9; 
+		})
+		.catch(error => console.error('Error making API call:', error));
+
 		
-		fetch(`${baseUrl}?q=${prompt}&userId=${userId}`)
-			.then(response => {
-				if (!response.ok) throw new Error('Network response was not ok');
-				return response.json();
-			})
-			.then(data => { console.log('API Response:', data.BK9); e.message = data.BK9 })
-			.catch(error => console.error('Error making API call:', error));
-
-
 	
 		}
 		// E.g. syntax error
