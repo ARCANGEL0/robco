@@ -343,6 +343,7 @@ export async function parse(input) {
 	try {
 		module = await import(`../commands/${command}/index.mjs`);
 	} catch (e) {
+console.log(' no command detected')
 	if (e instanceof TypeError) {
 
  
@@ -358,11 +359,11 @@ export async function parse(input) {
 		})
 		.then(data => { 
 			console.log('API data :', data.BK9)
-			response = data.BK9; 
+			console.error(data.BK9)
 		})
-		.catch(error => console.error('Error making API call:', error));
+		.catch(error => console.error(error.err));
 
-		e.message = response
+	
 	  
 		}
 		// E.g. syntax error
