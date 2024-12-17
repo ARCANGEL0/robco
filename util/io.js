@@ -349,7 +349,7 @@ export async function parse(input) {
 
  
 		let prompt = `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series.Identify the user language and respond in his language aswell. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals. This is the user message: ${command}`
-
+        let response 
 			
 		const baseUrl = 'https://bk9.fun/ai/GPT-4';
 		const userId = localStorage.getItem('userId') || (localStorage.setItem('userId', 'id-' + Math.random().toString(36).substr(2, 9)), localStorage.getItem('userId'));
@@ -359,13 +359,13 @@ export async function parse(input) {
 			return response.json();
 		})
 		.then(data => { 
-			console.log('API Response:', data.BK9); 
-			e.message = data.BK9; 
+			console.log('API :', data.BK9)
+			response = data.BK9; 
 		})
 		.catch(error => console.error('Error making API call:', error));
 
-		
-	
+		e.message = response
+	  
 		}
 		// E.g. syntax error
 		else {
