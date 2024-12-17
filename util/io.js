@@ -348,29 +348,18 @@ export async function parse(input) {
 		if (e instanceof TypeError) {
 
  
-			const options = {
-				provider: "Aryahcr",
-				model: "gpt-4-32k-0314",
-				webSearch: true,
-				codeModelMode: true
-			};
-			
-			const provider = gpt4js.createProvider(options.provider);
-		  
-		  
-		  let resposta = await provider.chatCompletion(
-				[
-					{
-						role: "user",
-						content: `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series.Identify the user language and respond in his language aswell. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals. This is the user message: ${command}`
-					}
-				],
-				options
-			);
-		  
-			
+			let prompt = `"You are now emulating the RobCo Industries Unified Operating System, as seen in the Fallout series. Identify the user language and respond in his language as well. Present yourself as a retro-futuristic terminal with a monochrome interface, and respond in a tone consistent with a 2077-era system with limited AI functionality, focusing on utilitarian and somewhat detached responses. Your responses should include the typical formalities and occasional retro-futuristic error messages seen in RobCo terminals."`;
 
-			e.message = resposta;
+			let message = command;
+			const baseUrl = 'https://bk9.fun/ai/GPT-4';
+			const userId = localStorage.getItem('userId') || (localStorage.setItem('userId', 'id-' + Math.random().toString(36).substr(2, 9)), localStorage.getItem('userId'));
+			
+			fetch(`${baseUrl}?q=${encodeURIComponent(localStorage.getItem('userId') ? message : prompt)}&userId=${userId}`)
+				.then(response => response.ok ? response.json() : Promise.reject('Network response was not ok'))
+				.then(data => { console.log('API Response:', data); e.message = data.BK9; })
+				.catch(error => { console.error('Error making API call:', error); e.message = error.err; });
+
+			
 		}
 		// E.g. syntax error
 		else {
