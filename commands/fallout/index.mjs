@@ -904,7 +904,7 @@ type([backLang,port, eng, spa, fre], { processChars: false , wait: 10 }, outro);
 		logout.innerText = "[LOGOUT]";
 		logout.href = "#";
 		logout.onclick = () => {
-			
+      outro.remove();
 			new Game({onQuit: resolve});
 		};
 
