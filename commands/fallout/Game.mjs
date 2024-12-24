@@ -206,11 +206,11 @@ Game.prototype.handleSpecial = function(target) {
 		});
 
 		pre.textContent = `>${specialText}
->Dud removed.`;
+>ESCAPE SEQUENCE DELETED`;
 	} else {
 		this.lives = MAX_LIVES;
 		pre.textContent = `>${specialText}
->Tries reset.`;
+>RESETTING DATA`;
 
 		this.updateLives();
 	}
