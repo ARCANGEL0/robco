@@ -214,12 +214,10 @@ Game.prototype.handleSpecial = function(target) {
 
 		this.updateLives();
 	}
-
-	const existingPre = output.querySelector('pre');
-if (existingPre) {
-    output.removeChild(existingPre);
+if (output.querySelector('pre')) {
+    output.removeChild(output.querySelector('pre'));
 }
-output.appendChild(pre);
+output.insertBefore(pre, active);
 
 	// Disable the clicked special
 	specs.forEach(s => {
