@@ -40,6 +40,10 @@
 	outline: none;
     }
     .output{ 
+      position: relative !important;
+      margin-left: -90vw !important;
+      justify-content: center !important;
+      padding-top: 70vh !important;
       justify-content: center !important;
     }
     .game {
@@ -77,6 +81,10 @@
 	outline: none;
     }
     .output{ 
+      position: relative !important;
+      margin-left: -90vw !important;
+      justify-content: center !important;
+      padding-top: 70vh !important;
       justify-content: center !important;
     }
     .game {
@@ -114,7 +122,11 @@ height: 60vh !important;
 	word-break: break-all;
 	outline: none;
     }
-    .output{ 
+    .output{         position: relative !important;
+      margin-left: -90vw !important;
+      justify-content: center !important;
+      padding-top: 70vh !important;
+      
       justify-content: center !important;
     }
     
