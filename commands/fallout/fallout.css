@@ -268,7 +268,7 @@ height: 60vh !important;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	padding-left: 20vw;
+	padding-left: 30vw;
 }
 .lives,
 .output pre {
