@@ -214,7 +214,7 @@ Game.prototype.handleSpecial = function(target) {
 
 		this.updateLives();
 	}
-	console.log("failed attempt")
+	console.log("failed")
 	const existingPre = output.querySelector('pre');
 	if (existingPre) {
 		existingPre.remove();
