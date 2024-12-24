@@ -250,7 +250,12 @@ Game.prototype.error = async function(pw) {
 >Entry denied
 >Likeness=${likeness}`;
 
-	output.insertBefore(pre, active);
+console.log("failed")
+const existingPre = output.querySelector('pre');
+if (existingPre) {
+	existingPre.remove();
+}
+output.insertBefore(pre, active);
 
 	this.updateLives();
 }
