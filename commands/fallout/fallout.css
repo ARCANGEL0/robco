@@ -43,7 +43,7 @@
       position: relative !important;
       margin-left: -90vw !important;
       justify-content: center !important;
-      padding-top: 70vh !important;
+      margin-top: 70vh !important;
       justify-content: center !important;
     }
     .game {
@@ -84,7 +84,7 @@
       position: relative !important;
       margin-left: -90vw !important;
       justify-content: center !important;
-      padding-top: 70vh !important;
+      margin-top: 70vh !important;
       justify-content: center !important;
     }
     .game {
@@ -125,8 +125,8 @@ height: 60vh !important;
     .output{         position: relative !important;
       margin-left: -90vw !important;
       justify-content: center !important;
-      padding-top: 70vh !important;
-      
+      margin-top: 70vh !important;
+
       justify-content: center !important;
     }
     
