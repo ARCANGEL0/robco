@@ -369,8 +369,9 @@ await pause();
         let resposta = ''
 			
 		const baseUrl = 'https://bk9.fun/ai/GPT-4';
-		const userId = localStorage.getItem('userId') || (localStorage.setItem('userId', 'id-' + Math.random().toString(36).substr(2, 9)), localStorage.getItem('userId'));
-		await fetch(`${baseUrl}?q=${encodeURIComponent(prompt)}&userId=${userId}`)
+		const datas = `${baseUrl}?q=${encodeURIComponent(prompt)}&userId=${Math.random().toString(36).substr(2, 9)}`
+		console.log(datas)
+		await fetch(datas)
 		.then(response => {
 			if (!response.ok) throw new Error('Network response was not ok');
 			return response.json();
