@@ -214,12 +214,11 @@ Game.prototype.handleSpecial = function(target) {
 
 		this.updateLives();
 	}
-	
+	console.log("failed attempt")
 	const existingPre = output.querySelector('pre');
 	if (existingPre) {
 		existingPre.remove();
 	}
-	
 	output.insertBefore(pre, active);
 
 	// Disable the clicked special
