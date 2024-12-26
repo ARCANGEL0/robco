@@ -1,15 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
+.theme-green {
+	--color: red !important;
+	--bg: #ab0808 !important;
+}
+
+.terminal,
+.fullscreen {
+	color: #ff4900 !important;
+	text-shadow: 0 0 5px #ff0000 !important;
+}
+
+#crt {
+background: transparent !important;
+	background-image: transparent !important;
+	
+}
+
 :root {
-    --primary: rgba(0, 65, 0, 0.3);
-    --primary-inactive: rgba(255, 23, 45, 0.7);
+    --primary: rgb(65 0 0 / 30%);
+    --primary-inactive: rgb(255 23 23 / 70%);
     --primary-dimmed: rgb(44, 16, 46, 0.8);
-    --secondary-light: rgb(133, 254, 129);
-    --secondary: rgba(14, 254, 14, 0.8);
-    --secondary-glow: rgba(36, 216, 59, 0.6);
-    --secondary-dimmed: rgba(34, 254, 124, 0.3);
+    --secondary-light: rgb(255 229 85);
+    --secondary: rgb(255 211 59);
+    --secondary-glow: rgb(216 183 36 / 60%);
+    --secondary-dimmed: rgb(254 186 34 / 19%);
     --secondary-very-low: rgba(34, 254, 124, 0.1);
-    --highlight: rgba(33, 254, 129, 0.3);
+    --highlight: rgb(254 235 33 / 30%);
 }
 
 
@@ -215,7 +232,7 @@ body {
     height: 45%;
     align-self: flex-start;
     margin-top: 12px;
-    box-shadow: inset 0px 0px 60px 60px var(--secondary-light), 0px 0px 18px 2px var(--secondary-glow);
+    box-shadow: 0px 0px 20px 2px var(--secondary-light), /* Outer glow */    0px 0px 30px 5px var(--secondary-glow),   /* Outer glow */    inset 0px 0px 50px 20px var(--secondary-light), /* Inner glow */    inset 0px 0px 20px 5px var(--secondary-glow);   /* Inner glow */
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -223,6 +240,7 @@ body {
 }
 
 .top-bar p {
+    color: rgb(175 149 60 / 51%);
     font-size: 8px;
     font-weight: bold;
     margin: 2px;
@@ -240,7 +258,7 @@ body {
 }
 
 .top-left-noise p {
-    margin: 0;
+    margin: -2px -20px -2px 0px;
 }
 
 /* ANIMATED BORDERS */
@@ -294,7 +312,10 @@ body {
     display: grid;
     grid-template-columns: 45% 55%;
     grid-template-rows: 40px 60px 1fr;
-    grid-template-areas: '. game-top' 'breach-timer buffer' 'code-matrix sequences';
+    grid-template-areas:
+        '. game-top'
+        'breach-timer buffer'
+        'code-matrix sequences';
 }
 
 /* BUFFER TEXT */
@@ -422,7 +443,7 @@ body {
 }
 
 .code-matrix-title-wrapper {
-    background-color: var(--secondary);
+    background-color: red;
     color: var(--primary-dimmed);
     padding: 6px;
     padding-left: 16px;
@@ -476,6 +497,11 @@ body {
 
 .item.active {
     background-color: var(--highlight);
+    /* filter: blur(0px); */ /* Adjust the blur amount as needed */ /* Adjust the blur amount as needed */
+    /* box-shadow: 0px 0px 0px 0px var(--secondary-light), 
+    0px 0px 0px 0px var(--secondary-glow),   
+    inset 0px 0px 0px 0px var(--secondary-light), 
+    inset 0px 0px 0px 0px var(--secondary-glow); */   /* Inner glow */
 }
 
 .item.inactive {
@@ -590,7 +616,7 @@ body {
 
 .sequence-row {
     display: flex;
-    color: rgba(14, 254, 14, 0.8);
+    color: var(--secondary);
     width: 45%;
     margin-bottom: 16px;
 }
@@ -605,7 +631,7 @@ body {
 }
 
 .description-row > .title {
-    color: rgba(14, 254, 14, 0.8);
+    color: rgb(255 232 196);
 }
 
 .sequences-noise {
